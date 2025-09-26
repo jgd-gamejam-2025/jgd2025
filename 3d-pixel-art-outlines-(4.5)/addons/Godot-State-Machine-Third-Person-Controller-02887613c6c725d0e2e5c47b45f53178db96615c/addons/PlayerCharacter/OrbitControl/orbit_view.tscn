@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0b71d2b1hdp6"]
+
+[ext_resource type="Script" uid="uid://c46lj0jmqn7io" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/OrbitControl/orbit_view.gd" id="1_hg1yw"]
+[ext_resource type="Shader" uid="uid://b4gs1llabra6d" path="res://outline.gdshader" id="2_825fy"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wgugf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cegan"]
+render_priority = 0
+shader = ExtResource("2_825fy")
+shader_parameter/depth_threshold = 0.05
+shader_parameter/reverse_depth_threshold = 0.25
+shader_parameter/normal_threshold = 0.6
+shader_parameter/darken_amount = 0.2
+shader_parameter/lighten_amount = 1.5
+shader_parameter/normal_edge_bias = Vector3(-1, -1, -1)
+shader_parameter/light_direction = Vector3(0.883849, -0.440387, -0.157702)
+
+[sub_resource type="QuadMesh" id="QuadMesh_825fy"]
+material = SubResource("ShaderMaterial_cegan")
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="OrbitView" type="SpringArm3D"]
+collision_mask = 0
+shape = SubResource("SphereShape3D_wgugf")
+spring_length = 8.0
+script = ExtResource("1_hg1yw")
+min_limit_x = -1.39626
+max_limit_x = 0.174533
+pan_rotation_val = 2.6
+max_zoom_val = 30.0
+zoom_speed = 30.0
+aim_cam_pos = Vector3(1.4, 0.9, 0)
+mouse_mode_action = "mouse_mode"
+aim_cam_action = "aim_cam"
+aim_cam_side_action = "aim_cam_side"
+cam_zoom_in_action = "zoom_in"
+cam_zoom_out_action = "zoom_out"
+
+[node name="CameraRemoteTransform3D" type="RemoteTransform3D" parent="."]
+remote_path = NodePath("../SubViewportContainer/SubViewport/Camera3D")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+current = true
+fov = 50.0
+
+[node name="PostProcessing" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(0.494721, -0.0118243, -0.868972, -0.230959, 0.962161, -0.144582, 0.837801, 0.272224, 0.47327, 1.1671, 2.7328, -0.394937)
+visible = false
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_825fy")
+skeleton = NodePath("../..")

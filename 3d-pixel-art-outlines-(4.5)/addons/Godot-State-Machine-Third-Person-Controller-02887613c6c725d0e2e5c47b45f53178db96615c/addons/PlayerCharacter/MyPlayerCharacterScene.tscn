@@ -1,0 +1,271 @@
+[gd_scene load_steps=29 format=3 uid="uid://cyyhnbe3kxcit"]
+
+[ext_resource type="Script" uid="uid://oqbf26sqh4se" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/StateMachine/my_player_character_script.gd" id="1_jhod8"]
+[ext_resource type="PackedScene" uid="uid://c4m01oefqu4cw" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/GodotPlush/my_godot_plush_skin.tscn" id="2_3hdie"]
+[ext_resource type="Script" uid="uid://3h8kirrnujiv" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/Vfx/particles_manager_script.gd" id="3_hlm5j"]
+[ext_resource type="Material" uid="uid://fkuklawrv3wp" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/Vfx/dust_mat.tres" id="4_auyii"]
+[ext_resource type="AudioStream" uid="uid://b7q12qmsksbc7" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/Arts/Sounds/footstep_concrete_000.ogg" id="5_d485h"]
+[ext_resource type="AudioStream" uid="uid://c6unhc5lontfn" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/Arts/Sounds/footstep_concrete_001.ogg" id="6_50apb"]
+[ext_resource type="AudioStream" uid="uid://byg4lkp3ws8kt" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/Arts/Sounds/footstep_concrete_002.ogg" id="7_mit8i"]
+[ext_resource type="AudioStream" uid="uid://bly24bd3apvev" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/Arts/Sounds/jingles_SAX15.ogg" id="8_0qy07"]
+[ext_resource type="PackedScene" uid="uid://c0b71d2b1hdp6" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/OrbitControl/orbit_view.tscn" id="9_7uub5"]
+[ext_resource type="Script" uid="uid://sca7ypsol83f" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/StateMachine/state_machine_script.gd" id="10_2epvn"]
+[ext_resource type="Script" uid="uid://stil4xkf3tk0" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/StateMachine/idle_state_script.gd" id="11_3kocl"]
+[ext_resource type="Script" uid="uid://blt7dest23fk0" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/StateMachine/walk_state_script.gd" id="12_cl7ll"]
+[ext_resource type="Script" uid="uid://5gk47o641xgt" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/StateMachine/run_state_script.gd" id="13_0lcbq"]
+[ext_resource type="Script" uid="uid://dvu58wf01wils" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/StateMachine/jump_state_script.gd" id="14_3sn4y"]
+[ext_resource type="Script" uid="uid://bh3rdvokmrar1" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/StateMachine/inair_state_script.gd" id="15_exsup"]
+[ext_resource type="Script" uid="uid://d2tif6xsjkwnw" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/StateMachine/ragdoll_state_script.gd" id="16_iavfd"]
+[ext_resource type="Script" uid="uid://chnbi4s1tf7pa" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/Debug/DebugHUDScript.gd" id="17_gtnde"]
+[ext_resource type="LabelSettings" uid="uid://sescerp70o6b" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/Arts/Fonts/LabelFontSettings.tres" id="18_o1gct"]
+
+[sub_resource type="Curve" id="Curve_wrw8f"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_yttci"]
+curve = SubResource("Curve_wrw8f")
+
+[sub_resource type="Curve" id="Curve_gyl8p"]
+_data = [Vector2(0, 0.2), 0.0, 0.0, 0, 0, Vector2(0.3, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_p3jn6"]
+curve = SubResource("Curve_gyl8p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dhnoe"]
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 0.25
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0.2, 0)
+scale_curve = SubResource("CurveTexture_p3jn6")
+alpha_curve = SubResource("CurveTexture_yttci")
+anim_speed_min = 0.01
+anim_speed_max = 0.03
+anim_offset_max = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_bw4i7"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sxclc"]
+random_pitch = 1.2
+streams_count = 3
+stream_0/stream = ExtResource("5_d485h")
+stream_1/stream = ExtResource("6_50apb")
+stream_2/stream = ExtResource("7_mit8i")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3vpnr"]
+random_pitch = 1.2
+streams_count = 3
+stream_0/stream = ExtResource("5_d485h")
+stream_1/stream = ExtResource("6_50apb")
+stream_2/stream = ExtResource("7_mit8i")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fvg16"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("8_0qy07")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xhngq"]
+
+[node name="Player" type="CharacterBody3D"]
+collision_mask = 2
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("1_jhod8")
+
+[node name="VisualRoot" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="LpGirlSkin" parent="VisualRoot" instance=ExtResource("2_3hdie")]
+unique_name_in_owner = true
+
+[node name="ParticlesManager" type="Node3D" parent="VisualRoot"]
+unique_name_in_owner = true
+script = ExtResource("3_hlm5j")
+
+[node name="MovementDust" type="GPUParticles3D" parent="VisualRoot"]
+unique_name_in_owner = true
+material_override = ExtResource("4_auyii")
+cast_shadow = 0
+lifetime = 0.8
+process_material = SubResource("ParticleProcessMaterial_dhnoe")
+draw_pass_1 = SubResource("QuadMesh_bw4i7")
+
+[node name="AudioRoot" type="Node3D" parent="."]
+
+[node name="FootStepAudio" type="AudioStreamPlayer3D" parent="AudioRoot"]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_sxclc")
+max_polyphony = 3
+
+[node name="ImpactAudio" type="AudioStreamPlayer3D" parent="AudioRoot"]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_3vpnr")
+volume_db = 5.0
+max_polyphony = 3
+
+[node name="WaveAudio" type="AudioStreamPlayer3D" parent="AudioRoot"]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_fvg16")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_xhngq")
+
+[node name="OrbitView" parent="." instance=ExtResource("9_7uub5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_mask = 2
+mouse_sens = 0.004
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("10_2epvn")
+initial_state = NodePath("IdleState")
+
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("11_3kocl")
+metadata/_custom_type_script = "uid://stil4xkf3tk0"
+
+[node name="WalkState" type="Node" parent="StateMachine"]
+script = ExtResource("12_cl7ll")
+metadata/_custom_type_script = "uid://blt7dest23fk0"
+
+[node name="RunState" type="Node" parent="StateMachine"]
+script = ExtResource("13_0lcbq")
+metadata/_custom_type_script = "uid://5gk47o641xgt"
+
+[node name="JumpState" type="Node" parent="StateMachine"]
+script = ExtResource("14_3sn4y")
+metadata/_custom_type_script = "uid://dvu58wf01wils"
+
+[node name="InairState" type="Node" parent="StateMachine"]
+script = ExtResource("15_exsup")
+metadata/_custom_type_script = "uid://bh3rdvokmrar1"
+
+[node name="RagdollState" type="Node" parent="StateMachine"]
+script = ExtResource("16_iavfd")
+metadata/_custom_type_script = "uid://d2tif6xsjkwnw"
+
+[node name="Raycasts" type="Node3D" parent="."]
+
+[node name="FloorRaycast" type="RayCast3D" parent="Raycasts"]
+unique_name_in_owner = true
+target_position = Vector3(0, -2, 0)
+collision_mask = 2
+
+[node name="DebugHUD" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+script = ExtResource("17_gtnde")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DebugHUD"]
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 312.0
+offset_bottom = 171.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DebugHUD/HBoxContainer"]
+layout_mode = 2
+
+[node name="CurrentStateL" type="Label" parent="DebugHUD/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Current state :"
+label_settings = ExtResource("18_o1gct")
+
+[node name="VelocityL" type="Label" parent="DebugHUD/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Velocity :"
+label_settings = ExtResource("18_o1gct")
+
+[node name="NbJumpsInAirAllowedL" type="Label" parent="DebugHUD/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Nb jumps in air allowed :"
+label_settings = ExtResource("18_o1gct")
+
+[node name="JumpBufferL" type="Label" parent="DebugHUD/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Jump buffer :"
+label_settings = ExtResource("18_o1gct")
+
+[node name="CoyoteTimeL" type="Label" parent="DebugHUD/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Coyote time :"
+label_settings = ExtResource("18_o1gct")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="DebugHUD/HBoxContainer"]
+layout_mode = 2
+
+[node name="CurrentStateLT" type="Label" parent="DebugHUD/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "....."
+label_settings = ExtResource("18_o1gct")
+
+[node name="VelocityLT" type="Label" parent="DebugHUD/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "....."
+label_settings = ExtResource("18_o1gct")
+
+[node name="NbJumpsInAirAllowedLT" type="Label" parent="DebugHUD/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "....."
+label_settings = ExtResource("18_o1gct")
+
+[node name="JumpBufferLT" type="Label" parent="DebugHUD/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "....."
+label_settings = ExtResource("18_o1gct")
+
+[node name="CoyoteTimeLT" type="Label" parent="DebugHUD/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "....."
+label_settings = ExtResource("18_o1gct")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DebugHUD"]
+offset_left = 920.0
+offset_top = 7.0
+offset_right = 1251.0
+offset_bottom = 105.0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="DebugHUD/HBoxContainer2"]
+layout_mode = 2
+
+[node name="ModelOrientationL" type="Label" parent="DebugHUD/HBoxContainer2/VBoxContainer3"]
+layout_mode = 2
+text = "Model orientation :"
+label_settings = ExtResource("18_o1gct")
+
+[node name="CameraModeL" type="Label" parent="DebugHUD/HBoxContainer2/VBoxContainer3"]
+layout_mode = 2
+text = "Camera mode :"
+label_settings = ExtResource("18_o1gct")
+
+[node name="FramesPerSecondL" type="Label" parent="DebugHUD/HBoxContainer2/VBoxContainer3"]
+layout_mode = 2
+text = "Frames per second :"
+label_settings = ExtResource("18_o1gct")
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="DebugHUD/HBoxContainer2"]
+layout_mode = 2
+
+[node name="ModelOrientationLT" type="Label" parent="DebugHUD/HBoxContainer2/VBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "....."
+label_settings = ExtResource("18_o1gct")
+
+[node name="CameraModeLT" type="Label" parent="DebugHUD/HBoxContainer2/VBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "....."
+label_settings = ExtResource("18_o1gct")
+
+[node name="FramesPerSecondLT" type="Label" parent="DebugHUD/HBoxContainer2/VBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "....."
+label_settings = ExtResource("18_o1gct")

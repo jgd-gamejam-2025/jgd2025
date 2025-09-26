@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://r0fbpgakvp8w"]
+
+[ext_resource type="PackedScene" uid="uid://dyk4ke7tx7w84" path="res://models/animate_man.glb" id="1_75g3q"]
+
+[node name="animate_man" instance=ExtResource("1_75g3q")]
+
+[node name="Skeleton3D" parent="Skinned Mesh" index="0"]
+bones/1/position = Vector3(-0.0275046, 0.105222, 1.92457)
+bones/1/rotation = Quaternion(0.790457, 0.0025802, -0.00342902, 0.612502)
+bones/3/rotation = Quaternion(-0.0356116, -0.00382953, 0.0031662, 0.999353)
+bones/4/rotation = Quaternion(0.124587, -0.0122395, -7.47453e-06, 0.992133)
+bones/5/rotation = Quaternion(0.0277629, 0.00829494, -0.000203872, 0.99958)
+bones/7/rotation = Quaternion(-0.0158121, 0.00783472, -0.00314029, 0.999839)
+bones/9/rotation = Quaternion(-0.612982, -0.328922, -0.340014, 0.632814)
+bones/10/rotation = Quaternion(-0.23751, 0.645442, -0.586066, 0.428393)
+bones/11/rotation = Quaternion(0.31333, -0.0383226, -0.0743251, 0.945955)
+bones/12/rotation = Quaternion(0.208685, 0.0101072, -0.00926111, 0.977887)
+bones/13/rotation = Quaternion(0.43209, 0.5387, -0.458047, 0.559727)
+bones/14/rotation = Quaternion(-0.614096, 0.326837, 0.337861, 0.633966)
+bones/15/rotation = Quaternion(0.215589, 0.641298, -0.600503, -0.426209)
+bones/16/rotation = Quaternion(0.29269, 0.052308, 0.047145, 0.953611)
+bones/17/rotation = Quaternion(0.039913, -0.0187658, 0.0116664, 0.998959)
+bones/18/rotation = Quaternion(0.43209, -0.5387, 0.458047, 0.559727)
+bones/19/rotation = Quaternion(0.888006, 0.0204029, -0.00251549, 0.459373)
+bones/20/rotation = Quaternion(0.683559, 0.00822619, -0.00768689, 0.729808)
+bones/21/rotation = Quaternion(-0.285173, 0.00921711, 0.0206516, 0.958209)
+bones/22/rotation = Quaternion(-0.00013708, 0.964307, -0.264787, -0.000499617)
+bones/24/rotation = Quaternion(0.994878, 0.0203969, -0.00251479, 0.0989706)
+bones/25/rotation = Quaternion(0.120337, 0.00155174, -0.000204488, 0.992732)
+bones/26/rotation = Quaternion(-0.563736, -0.00327966, 0.0105683, 0.825881)
+bones/27/rotation = Quaternion(0.0025207, 0.944688, -0.327961, 2.71032e-05)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Sprint"

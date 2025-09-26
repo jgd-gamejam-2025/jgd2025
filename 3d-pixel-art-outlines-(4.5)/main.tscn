@@ -1,0 +1,191 @@
+[gd_scene load_steps=30 format=3 uid="uid://b8fd6ykycuo5y"]
+
+[ext_resource type="PackedScene" uid="uid://cnd7i1kucwpvq" path="res://models/icosphere.glb" id="1_c7amy"]
+[ext_resource type="Script" uid="uid://b1i0l5o6eebw1" path="res://DirectionalLight3D.gd" id="1_o41ps"]
+[ext_resource type="Script" uid="uid://dy1dwmbxx76ap" path="res://scripts/spin.gd" id="2_7luwn"]
+[ext_resource type="Material" uid="uid://bb43ngplsfis2" path="res://addons/flexible_toon_shader/FlexibleToonMaterial.tres" id="3_272bh"]
+[ext_resource type="Shader" uid="uid://b4gs1llabra6d" path="res://outline.gdshader" id="3_gtvun"]
+[ext_resource type="Texture2D" uid="uid://chi17fb3dyt6b" path="res://icon.svg" id="4_iowfd"]
+[ext_resource type="PackedScene" uid="uid://16mve0eulikf" path="res://models/lpgirl.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://r0fbpgakvp8w" path="res://models/animate_man.tscn" id="8_kek77"]
+[ext_resource type="Script" uid="uid://cbkvhk2grxr6" path="res://scripts/animate_man.gd" id="9_4c57u"]
+[ext_resource type="PackedScene" uid="uid://gmwnyqufw2td" path="res://models/alex_a.glb" id="10_efxa6"]
+[ext_resource type="Script" uid="uid://ddxq1xkhmpb36" path="res://scripts/alex_a.gd" id="11_dg77c"]
+[ext_resource type="PackedScene" uid="uid://c50x76wead835" path="res://models/cloud_1/scene.gltf" id="12_w48qg"]
+[ext_resource type="PackedScene" uid="uid://b2ec0k072exv5" path="res://models/cloud_2/scene.gltf" id="13_vivmo"]
+[ext_resource type="PackedScene" uid="uid://dn0kvwt51vol1" path="res://models/cloud_3/scene.gltf" id="14_2cqfq"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_andoa"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_w48qg"]
+sky_material = SubResource("ProceduralSkyMaterial_andoa")
+
+[sub_resource type="Environment" id="Environment_j45us"]
+background_mode = 1
+sky = SubResource("Sky_w48qg")
+ambient_light_source = 2
+ambient_light_color = Color(0.713726, 0.713726, 0.713726, 1)
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vivmo"]
+albedo_color = Color(0.117647, 0.737255, 0.45098, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1s8w4"]
+material = SubResource("StandardMaterial3D_vivmo")
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cqfq"]
+albedo_color = Color(0.588235, 0.423529, 0.423529, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8smba"]
+material = SubResource("StandardMaterial3D_2cqfq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yaehf"]
+diffuse_mode = 3
+albedo_color = Color(0.658824, 0.517647, 0.952941, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_x030n"]
+material = SubResource("StandardMaterial3D_yaehf")
+top_radius = 0.75
+bottom_radius = 0.75
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3v0k5"]
+albedo_color = Color(0.941176, 0.309804, 0.470588, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_074og"]
+albedo_color = Color(0.301961, 0.607843, 0.901961, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_ebc50"]
+material = SubResource("StandardMaterial3D_074og")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w48qg"]
+render_priority = 0
+shader = ExtResource("3_gtvun")
+shader_parameter/depth_threshold = 0.05
+shader_parameter/reverse_depth_threshold = 0.25
+shader_parameter/normal_threshold = 0.6
+shader_parameter/darken_amount = 0.2
+shader_parameter/lighten_amount = 1.5
+shader_parameter/normal_edge_bias = Vector3(-1, -1, -1)
+shader_parameter/light_direction = Vector3(0.876354, -0.440364, 0.19515)
+
+[sub_resource type="QuadMesh" id="QuadMesh_egxnj"]
+material = SubResource("ShaderMaterial_w48qg")
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="GDScript" id="GDScript_5vw27"]
+script/source = "extends Node3D
+func _ready():
+	var anim_player = $AnimationPlayer
+	anim_player.play(\"run\")  
+	anim_player.speed_scale = 2.0      
+	anim_player.get_animation(\"run\").loop_mode = Animation.LOOP_LINEAR
+"
+
+[node name="Main" type="Node3D"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 7
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(274, 154)
+render_target_update_mode = 4
+
+[node name="Level" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport/Level"]
+environment = SubResource("Environment_j45us")
+
+[node name="Floor" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Level"]
+mesh = SubResource("PlaneMesh_1s8w4")
+
+[node name="Box" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Level"]
+transform = Transform3D(0.968583, 0, 0.24869, 0, 1, 0, -0.24869, 0, 0.968583, -0.163607, 0.460576, 2.60698)
+mesh = SubResource("BoxMesh_8smba")
+skeleton = NodePath("../../../..")
+
+[node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport/Level"]
+transform = Transform3D(-0.21401, 0.428511, -0.861381, 0, 0.895055, 0.443336, 0.961047, 0.0954272, -0.191802, 0, 10, 0)
+script = ExtResource("2_7luwn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Level/Node3D"]
+transform = Transform3D(1, -1.49012e-08, 2.98023e-08, 1.49012e-08, 1, 0, 0, 0, 1, 0, 0, 0)
+shadow_enabled = true
+script = ExtResource("1_o41ps")
+
+[node name="Cylinder" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.936269, 0)
+mesh = SubResource("CylinderMesh_x030n")
+surface_material_override/0 = ExtResource("3_272bh")
+
+[node name="icosphere" parent="SubViewportContainer/SubViewport/Level/Cylinder" instance=ExtResource("1_c7amy")]
+transform = Transform3D(-0.453253, 0, -0.182492, 0, 0.5, 0, 0.182492, 0, -0.453253, 0, 1.75302, 0)
+script = ExtResource("2_7luwn")
+speed = -0.5
+
+[node name="Icosphere" parent="SubViewportContainer/SubViewport/Level/Cylinder/icosphere" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3v0k5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Level"]
+transform = Transform3D(0.931609, 0, 0.363463, 0, 1, 0, -0.363463, 0, 0.931609, -4.6288, 0.491872, 1.28538)
+mesh = SubResource("PrismMesh_ebc50")
+
+[node name="Sprite3D" type="Sprite3D" parent="SubViewportContainer/SubViewport/Level"]
+transform = Transform3D(0.580703, -0.0355112, 0.813341, 0, 0.999048, 0.0436194, -0.814116, -0.0253299, 0.580151, 7.30796, 0.699, -7.47514)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("4_iowfd")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.994546, 0.0276774, -0.100561, -0.0168977, 0.994168, 0.106507, 0.102923, -0.104227, 0.989214, 0.0225642, 3.94499, 10.8637)
+current = true
+fov = 39.7324
+size = 10.0
+far = 97.06
+
+[node name="PostProcessing" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(0.582154, 0, -0.813079, -0.303241, 0.92785, -0.217117, 0.754415, 0.372954, 0.540151, 1.43051e-06, 7.27177e-06, -11.3814)
+visible = false
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_egxnj")
+skeleton = NodePath("../..")
+
+[node name="animate_man" parent="." instance=ExtResource("8_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6094, 0, 1.03549)
+script = ExtResource("9_4c57u")
+
+[node name="lpgirl" parent="." instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87712, 0, 1.06873)
+visible = false
+script = SubResource("GDScript_5vw27")
+
+[node name="alex_a" parent="." instance=ExtResource("10_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.94283, 0, 2.57332)
+script = ExtResource("11_dg77c")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("12_w48qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.445775, 0, 4.22348)
+visible = false
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("13_vivmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64975, 0, 0.973877)
+visible = false
+
+[node name="Sketchfab_Scene3" parent="." instance=ExtResource("14_2cqfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28586, 0, 3.41461)
+visible = false
+
+[editable path="SubViewportContainer/SubViewport/Level/Cylinder/icosphere"]

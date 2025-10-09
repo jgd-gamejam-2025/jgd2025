@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ccn8bu53dnlpv"]
+[gd_scene load_steps=16 format=3 uid="uid://ccn8bu53dnlpv"]
 
 [ext_resource type="Material" uid="uid://coy4nf1ts2u0q" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/Arts/Materials/grid_mat.tres" id="1_iqls6"]
 [ext_resource type="PackedScene" uid="uid://r0fbpgakvp8w" path="res://models/animate_man.tscn" id="2_g8y0j"]
@@ -28,19 +28,18 @@ size = Vector2(110, 110)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f37l4"]
 
 [sub_resource type="Curve" id="Curve_eqchl"]
-_data = [Vector2(0.0215686, 0.0314097), 0.0, 0.0, 0, 0, Vector2(0.472549, 0.368517), 1.29424, 1.29424, 0, 0, Vector2(0.966667, 0.995252), 0.0, 0.0, 0, 0]
+_limits = [0.0, 14.0, 0.0, 1.0]
+_data = [Vector2(0, 7.08244), 0.0, 24.0905, 0, 0, Vector2(0.128767, 8.44647), 3.74337, 3.74337, 0, 0, Vector2(1, 9.22591), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Curve" id="Curve_hojv1"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.401961, 0.297297), 3.26373, 3.26373, 0, 0, Vector2(0.954902, 0.938276), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_s505m"]
+_limits = [0.0, 14.0, 0.0, 1.0]
+_data = [Vector2(0, 12.2463), 0.0, 13.4891, 0, 0, Vector2(0.268493, 13.318), 1.29424, 1.29424, 0, 0, Vector2(1, 14), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Curve" id="Curve_oypib"]
-_data = [Vector2(0, 0.121622), 0.0, 0.0, 0, 0, Vector2(0.462745, 0.378013), 1.60965, 1.60965, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Curve" id="Curve_4xufb"]
-_data = [Vector2(0, 0), 0.0, 0.16019, 0, 0, Vector2(0.556863, 0.496713), 1.44616, 1.44616, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_iqls6"]
+_limits = [0.0, 14.0, 0.0, 1.0]
+_data = [Vector2(0, 11.2719), 0.0, 24.0905, 0, 0, Vector2(0.191781, 12.8308), 3.74337, 3.74337, 0, 0, Vector2(0.99726, 14), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [node name="TestMap" type="Node3D"]
@@ -169,9 +168,8 @@ jump_cut_multiplier = 0.5
 jump_cooldown = 0.2
 nb_jumps_in_air_allowed = 2
 coyote_jump_cooldown = 0.2
-in_air_move_speed = Array[Curve]([SubResource("Curve_eqchl"), SubResource("Curve_hojv1")])
-in_air_accel = Array[Curve]([SubResource("Curve_oypib"), SubResource("Curve_4xufb")])
-hit_wall_cut_velocity = true
+in_air_move_speed = Array[Curve]([SubResource("Curve_eqchl"), SubResource("Curve_s505m")])
+in_air_accel = Array[Curve]([SubResource("Curve_eqchl"), SubResource("Curve_iqls6")])
 moveForwardAction = "move_forward"
 moveBackwardAction = "move_backward"
 moveLeftAction = "move_left"

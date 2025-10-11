@@ -1,11 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://cla33c2qqx78a"]
+[gd_scene load_steps=12 format=3 uid="uid://ccn8bu53dnlpv"]
 
-[ext_resource type="PackedScene" uid="uid://bgkmxyw21pc1m" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/PlayerCharacterScene.tscn" id="1_6f4by"]
-[ext_resource type="Material" uid="uid://coy4nf1ts2u0q" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/Arts/Materials/grid_mat.tres" id="2_d8mrn"]
-[ext_resource type="PackedScene" uid="uid://r0fbpgakvp8w" path="res://Scenes/animate_man.tscn" id="2_mo4pp"]
-[ext_resource type="Script" uid="uid://cbkvhk2grxr6" path="res://scripts/animate_man.gd" id="3_eqchl"]
-[ext_resource type="PackedScene" uid="uid://gmwnyqufw2td" path="res://models/alex_a.glb" id="4_hojv1"]
-[ext_resource type="Script" uid="uid://ddxq1xkhmpb36" path="res://scripts/alex_a.gd" id="5_oypib"]
+[ext_resource type="Material" uid="uid://coy4nf1ts2u0q" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/Arts/Materials/grid_mat.tres" id="1_jhqxl"]
+[ext_resource type="PackedScene" uid="uid://cyyhnbe3kxcit" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/MyPlayerCharacterScene.tscn" id="2_0pqkl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6f4by"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -26,6 +22,21 @@ glow_enabled = true
 size = Vector2(110, 110)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f37l4"]
+
+[sub_resource type="Curve" id="Curve_eqchl"]
+_limits = [0.0, 14.0, 0.0, 1.0]
+_data = [Vector2(0, 7.08244), 0.0, 24.0905, 0, 0, Vector2(0.128767, 8.44647), 3.74337, 3.74337, 0, 0, Vector2(1, 9.22591), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_s505m"]
+_limits = [0.0, 14.0, 0.0, 1.0]
+_data = [Vector2(0, 12.2463), 0.0, 13.4891, 0, 0, Vector2(0.268493, 13.318), 1.29424, 1.29424, 0, 0, Vector2(1, 14), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_iqls6"]
+_limits = [0.0, 14.0, 0.0, 1.0]
+_data = [Vector2(0, 11.2719), 0.0, 24.0905, 0, 0, Vector2(0.191781, 12.8308), 3.74337, 3.74337, 0, 0, Vector2(0.99726, 14), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="TestMap" type="Node3D"]
 
@@ -49,7 +60,7 @@ metadata/_edit_group_ = true
 shape = SubResource("WorldBoundaryShape3D_xuepk")
 
 [node name="GroundMesh" type="MeshInstance3D" parent="Structures/Ground"]
-material_override = ExtResource("2_d8mrn")
+material_override = ExtResource("1_jhqxl")
 mesh = SubResource("PlaneMesh_q3h73")
 skeleton = NodePath("../../..")
 
@@ -131,16 +142,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, -6)
 polygon = PackedVector2Array(0, 0, 0, 2, 6, 0)
 depth = 6.0
 
-[node name="animate_man" parent="Structures/CSGCombiner3D" instance=ExtResource("2_mo4pp")]
-transform = Transform3D(-0.713752, 0, -0.700399, 0, 1, 0, 0.700399, 0, -0.713752, -0.104084, 2.03469, -4.55964)
-script = ExtResource("3_eqchl")
-
-[node name="alex_a" parent="Structures/CSGCombiner3D" instance=ExtResource("4_hojv1")]
-transform = Transform3D(-0.632056, 0, -0.774922, 0, 1, 0, 0.774922, 0, -0.632056, -4.23776, 1.98096, -3.98772)
-script = ExtResource("5_oypib")
-
-[node name="Player" parent="." instance=ExtResource("1_6f4by")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 6, -18)
-visible = false
+[node name="Player" parent="." instance=ExtResource("2_0pqkl")]
+walk_speed = 5.0
+walk_accel = 8.0
+walk_deccel = 7.0
+run_speed = 9.0
+run_accel = 4.0
+run_deccel = 7.0
 jump_height = 6.0
-nb_jumps_in_air_allowed = 3
+jump_time_to_peak = 0.35
+jump_time_to_descent = 0.3
+jump_cut_multiplier = 0.5
+jump_cooldown = 0.2
+nb_jumps_in_air_allowed = 2
+coyote_jump_cooldown = 0.2
+in_air_move_speed = Array[Curve]([SubResource("Curve_eqchl"), SubResource("Curve_s505m")])
+in_air_accel = Array[Curve]([SubResource("Curve_eqchl"), SubResource("Curve_iqls6")])
+moveForwardAction = "move_forward"
+moveBackwardAction = "move_backward"
+moveLeftAction = "move_left"
+moveRightAction = "move_right"
+runAction = "run"
+jumpAction = "jump"
+model_rot_speed = 6.5
+follow_cam_pos_when_aimed = true

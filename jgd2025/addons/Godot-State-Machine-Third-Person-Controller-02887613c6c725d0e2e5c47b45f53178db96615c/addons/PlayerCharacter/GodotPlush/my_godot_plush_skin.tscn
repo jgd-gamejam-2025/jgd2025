@@ -1,8 +1,8 @@
 [gd_scene load_steps=79 format=4 uid="uid://c4m01oefqu4cw"]
 
 [ext_resource type="Script" uid="uid://bemk0fydio40l" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/GodotPlush/my_godot_plush_skin.gd" id="1_tugvb"]
-[ext_resource type="Texture2D" uid="uid://cdoer0f3umj7v" path="res://models/rig_lpgirl/rig_lpgirl_0.png" id="2_ly4jd"]
-[ext_resource type="Texture2D" uid="uid://cf4lkvhmg17ta" path="res://models/rig_lpgirl/rig_lpgirl_1.png" id="3_sk5qt"]
+[ext_resource type="Texture2D" uid="uid://cdoer0f3umj7v" path="res://assets/rig_lpgirl/rig_lpgirl_0.png" id="2_ly4jd"]
+[ext_resource type="Texture2D" uid="uid://cf4lkvhmg17ta" path="res://assets/rig_lpgirl/rig_lpgirl_1.png" id="3_sk5qt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isde7"]
 resource_name = "Material.001"

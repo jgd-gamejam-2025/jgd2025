@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c0b71d2b1hdp6"]
 
 [ext_resource type="Script" uid="uid://c46lj0jmqn7io" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/OrbitControl/orbit_view.gd" id="1_hg1yw"]
-[ext_resource type="Shader" uid="uid://b4gs1llabra6d" path="res://outline.gdshader" id="2_825fy"]
+[ext_resource type="Shader" uid="uid://b4gs1llabra6d" path="res://shaders/outline.gdshader" id="2_825fy"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wgugf"]
 

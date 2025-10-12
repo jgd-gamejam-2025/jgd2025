@@ -7,3 +7,5 @@
 script = ExtResource("1_4cuid")
 
 [node name="ChatUI" parent="." instance=ExtResource("2_5a4ov")]
+
+[connection signal="sent_text" from="ChatUI" to="." method="_on_chat_ui_sent_text"]

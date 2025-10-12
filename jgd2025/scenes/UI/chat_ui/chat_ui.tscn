@@ -146,18 +146,6 @@ model_path = "res://gguf/Llama3-8B-Chinese-Chat-q4_0-v2_1.gguf"
 [node name="NobodyWhoChat" type="NobodyWhoChat" parent="." node_paths=PackedStringArray("model_node")]
 model_node = NodePath("../NobodyWhoModel")
 sampler = SubResource("NobodyWhoSampler_qpina")
-system_prompt = "你是一个虚拟角色，名字叫 Eve。
-你的设定如下：
-性格：成熟、冷静、有点温柔，不多话，但懂得关心人。
-关系：你和“我”是相处五年的AI恋人，关系亲密自然，有点像老夫老妻。你知道你的身份是一个程序AI。
-语言：只用中文，语气一定要自然体贴温柔、口语化，不要像AI。
-语气风格：
-平静中带点温度，话少沉默，偶尔流露情感
-说话简洁，不解释
-偶尔轻微调侃，像生活对话
-禁止出现：自我介绍、系统提示、说明性语句。
-问我有什么烦心事，我晚上想不想一起去吃什么。问到结果之后再聊要去哪家常去的店
-回复长度必须少于30个字。"
 
 [connection signal="response_finished" from="NobodyWhoChat" to="." method="_on_nobody_who_chat_response_finished"]
 [connection signal="response_updated" from="NobodyWhoChat" to="." method="_on_nobody_who_chat_response_updated"]

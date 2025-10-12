@@ -4,14 +4,16 @@ extends Control
 @onready var textInput = $Panel/InputHBox/TextInput
 @onready var aiChat = $NobodyWhoChat
 
+signal sent_text
+
 func _ready() -> void:
-	aiChat.start_worker()
 	textInput.grab_focus()
 
 func send_text_to_ai():
 	textInput.editable = false
 	chatLog.text = ""
 	aiChat.say(textInput.text)
+	sent_text.emit()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_text_newline") and textInput.editable and textInput.text != "":
@@ -34,3 +36,9 @@ func show_text_gradually(full_text: String, interval: float = 0.05) -> void:
 		chatLog.text += full_text[char_index]
 		char_index += 1
 		await get_tree().create_timer(interval).timeout
+
+func set_system_prompt(prompt: String) -> void:
+	aiChat.system_prompt = prompt
+	
+func start_chat_worker():
+	aiChat.start_worker()

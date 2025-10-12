@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bytjnt7nwkrxw"]
 
 [ext_resource type="Script" uid="uid://jdp2hkrg2vm5" path="res://levels/chat_bug/chat_bug.gd" id="1_5iuj2"]
-[ext_resource type="PackedScene" uid="uid://bdndqtsl7ag20" path="res://levels/chat_1/chat_1.tscn" id="2_8coro"]
+[ext_resource type="PackedScene" uid="uid://ccn8bu53dnlpv" path="res://levels/tps_test_scene.tscn" id="2_8coro"]
 [ext_resource type="PackedScene" uid="uid://byhcpq4t56qc3" path="res://scenes/UI/chat_ui/chat_ui.tscn" id="3_edd6c"]
 [ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="4_1crpx"]
 [ext_resource type="Texture2D" uid="uid://deoqpv5sf2343" path="res://assets/ui/Gear-1.png" id="5_wba7s"]
@@ -173,6 +173,60 @@ grow_vertical = 2
 theme = ExtResource("10_8coro")
 theme_override_font_sizes/font_size = 150
 text = "星期天"
+
+[node name="NextLevelTransition" type="Control" parent="."]
+visible = false
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="NextLevelTransition"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="NextLevelTransition"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_8coro")
+theme_override_colors/font_color = Color(0.06469653, 0.06469653, 0.06469653, 1)
+theme_override_font_sizes/font_size = 150
+text = "正在复原初始设置"
+
+[node name="Label2" type="Label" parent="NextLevelTransition"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = 421.0
+offset_right = 90.0
+offset_bottom = 452.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_8coro")
+theme_override_colors/font_color = Color(0.06469653, 0.06469653, 0.06469653, 1)
+theme_override_font_sizes/font_size = 30
+text = "输入命令\"idontwannarestart\"中断复原"
 
 [connection signal="line_edit_focus" from="ChatUI" to="." method="_on_chat_ui_line_edit_focus"]
 [connection signal="sent_text" from="ChatUI" to="." method="_on_chat_ui_sent_text"]

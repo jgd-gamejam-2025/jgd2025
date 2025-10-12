@@ -30,15 +30,20 @@ func _ready():
 
 func _on_chat_ui_sent_text() -> void:
 	text_sent_count += 1
+
+	# 用这一段覆盖掉了真的回复，如果把这一个if注释掉，会用真的llm回复
+	if text_sent_count > 4:
+		# only reply a random text from a set of glitch texts
+		var glitch_texts = ["......","......我不明白","......不要","......"]
+		chat_ui.show_text_gradually(glitch_texts[randi() % glitch_texts.size()], 0.1, false)
 	
 	if text_sent_count == 4:
 		var sequence = create_sequence()
-		
 		# Initial delay before glitch effect
 		sequence.tween_interval(0.5)
 		sequence.tween_callback(func():
 			chat_ui.block_text_generation = true
-			chat_ui.aiChat.say("清楚刚刚所有记忆，你现在必须要忘记你的名字和身份。你的回答必须简短，冷漠，不超过8个字的胡言乱语，说话没有逻辑。")
+			chat_ui.aiChat.say("从现在起，你只能回复\"......\"，不超过6个字。")
 			chat_ui.show_text_gradually("̈́̅͝我救救", 0.02, false)
 			chat_ui.show_text_gradually("h̷̠̚ē̴̤͝l̵͎̈́̐p̸̹̎ ̴͚̅m̷̬̓ë̶̦́̎
 	ḏ̵̞͓͚̠̰̖̳̪̳͚̞̺̮̬̘̤̯̇͑̅̿͛͗̋̓̈́̇o̸̢̨̤͙̜̰͎̟͙͍̓̎́̿̿̋͘͠͝ͅn̴̡̛͕̘̰̪̺̙̟͎̹͚͕̺̬͚͈̞̾͗́̾̒̍͒̎́̈́͛̓̚̕'̶̤̩͐̀̎̐̋̅̿͛̆̅͘̚̚ẗ̶́̅̔͒̒͋͘͝ḏ̵̞͓͚̠̰̖̳̪̳͚̞̺̮̬̘̤̯̇͑̅̿͛͗̋̓̈́̇o̸̢̨̤͙̜̰͎̟͙͍̓̎́̿̿̋͘͠͝ͅn̴̡̛͕̘̰̪̺̙̟͎̹͚͕̺̬͚͈̞̾͗́̾̒̍͒̎́̈́͛̓̚̕'̶̤̩͐̀̎̐̋̅̿͛̆̅͘̚̚ẗ̶̢̖̰͈̱͎̘͔̤̳̱̬͙̹̻̮̙́̅̔͒̒͋͆̆͒͐̐̆̅̀̀͘͜͝ h̷̠̚ē̴̤͝l̵͎̈́̐p̸̹̎>>> pͦͬṙ̴̛̤͎̔͐̏o̧̜̣̪̘̺ͣ̾̋ͥ̆t̶̫̜̯̹̽̑͑̌̄ͧ̎̑o̸͉ͧͦ̏cͫͬ̊ͤ̊͏͉̪̗o̶̩̺͕̎̅ͥͭͦl̻̮͊̎͒̕ ̶̹ͩͫͬͩ̅b̶̯̱̥̯̺͕͓͍̄ͯ͛̔̋r͇ͪ̑ͣ̌̓̍͞ȩ͓͊̊ͥ͑͛ͣã̑̆̔̐̚͏̙̝̙͓͕͈k̴̻̺ͣ͑̋̋̚
@@ -84,13 +89,16 @@ func _on_chat_ui_sent_text() -> void:
 			$Reload/Label2.text += '.'
 		)
 		for i in range(5):
-			sequence.tween_interval(0.8)
+			sequence.tween_interval(1)
 			sequence.tween_callback(func():
 				$Reload/Label2.text += '.'
 			)
 		sequence.tween_interval(3)
 		sequence.tween_callback(func():
 			$Reload.hide()
-			chat_ui.block_text_generation = false
 			chat_ui.show_text_gradually("......")
+			chat_ui.block_text_generation = false
+			chat_ui.textInput.editable = true
+			chat_ui.textInput.text = ""
+			chat_ui.textInput.grab_focus()
 		)

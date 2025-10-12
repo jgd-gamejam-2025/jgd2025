@@ -1,5 +1,8 @@
-[gd_resource type="Theme" format=3 uid="uid://b4ekpllfloej0"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b4ekpllfloej0"]
+
+[ext_resource type="FontFile" uid="uid://b8muwa7k4021" path="res://scenes/UI/fonts/OPlusSans3-Regular.ttf" id="1_i806f"]
 
 [resource]
+default_font = ExtResource("1_i806f")
 LineEdit/font_sizes/font_size = 20
 RichTextLabel/font_sizes/normal_font_size = 26

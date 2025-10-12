@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="EVE"
-run/main_scene="uid://bytjnt7nwkrxw"
+run/main_scene="uid://c1n0m7pcvm52p"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://c8n0easlsk2ri"
 

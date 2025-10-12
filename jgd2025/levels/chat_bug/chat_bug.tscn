@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bytjnt7nwkrxw"]
+[gd_scene load_steps=13 format=3 uid="uid://bytjnt7nwkrxw"]
 
 [ext_resource type="Script" uid="uid://jdp2hkrg2vm5" path="res://levels/chat_bug/chat_bug.gd" id="1_5iuj2"]
 [ext_resource type="PackedScene" uid="uid://bdndqtsl7ag20" path="res://levels/chat_1/chat_1.tscn" id="2_8coro"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dlrbue5kaerin" path="res://assets/ui/信息.png" id="7_k337i"]
 [ext_resource type="FontFile" uid="uid://dche8c1u6rmg" path="res://scenes/UI/fonts/OPlusSans3-Bold.ttf" id="8_s6dx3"]
 [ext_resource type="FontFile" uid="uid://b8muwa7k4021" path="res://scenes/UI/fonts/OPlusSans3-Regular.ttf" id="9_ostp8"]
+[ext_resource type="Theme" uid="uid://csjhowu7j47ua" path="res://scenes/UI/TransitionUI/transition.tres" id="10_8coro"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_noujk"]
 bg_color = Color(0.53, 0.2491, 0.2818717, 1)
@@ -136,6 +137,42 @@ theme_override_fonts/font = ExtResource("9_ostp8")
 theme_override_font_sizes/font_size = 50
 text = "
 正在尝试重新启动"
+
+[node name="MorningTransition" type="Control" parent="."]
+visible = false
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MorningTransition"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.98820907, 0.6305797, 3.85046e-07, 1)
+
+[node name="Label" type="Label" parent="MorningTransition"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_8coro")
+theme_override_font_sizes/font_size = 150
+text = "星期天"
 
 [connection signal="line_edit_focus" from="ChatUI" to="." method="_on_chat_ui_line_edit_focus"]
 [connection signal="sent_text" from="ChatUI" to="." method="_on_chat_ui_sent_text"]

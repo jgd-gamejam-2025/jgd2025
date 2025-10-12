@@ -43,6 +43,10 @@ func _ready():
 	welcome_messages_fix.shuffle()
 	chat_ui.show_text_gradually("嘿！")
 	chat_ui.start_chat_worker()
+	$MorningTransition.show()
+	Transition.end()
+	await get_tree().create_timer(2).timeout
+	$MorningTransition.hide()
 	$SmallTalkTimer.start()
 	small_talking = true
 

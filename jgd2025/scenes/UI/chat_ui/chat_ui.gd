@@ -3,6 +3,7 @@ extends Control
 @onready var chatLog = $Panel/Scroll/ChatLog
 @onready var textInput = $Panel/InputHBox/TextInput
 @onready var aiChat = $NobodyWhoChat
+@onready var name_label = $Panel/Name
 
 signal sent_text
 
@@ -42,3 +43,6 @@ func set_system_prompt(prompt: String) -> void:
 	
 func start_chat_worker():
 	aiChat.start_worker()
+
+func set_ai_name(new_name: String) -> void:
+	name_label.text = new_name

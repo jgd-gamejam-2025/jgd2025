@@ -21,7 +21,6 @@ other_scripts/
 	random_script.gd
 ```
 
-
 ## Auto Build：
 Pushing to the branch `release` will automatically export the Windows build.
 
@@ -29,5 +28,7 @@ Pushing to the branch `release` will automatically export the Windows build.
 Default: [Llama3-8B-Chinese-Chat-GGUF-4bit](https://huggingface.co/shenzhi-wang/Llama3-8B-Chinese-Chat-GGUF-4bit/tree/main)
 
 [Xwen-7B-Chat.i1-Q4_K_M](https://huggingface.co/xwen-team/Xwen-7B-Chat-i1-GGUF/blob/main/Xwen-7B-Chat.i1-Q4_K_M.gguf)
+
+在chat_ui.tscn中的NobodyWhoModel中选择gguf。
 # 3D Pixel Art Post Processing Shader for Godot 4
 This repo has the source code for the Youtube tutorial: https://youtu.be/WBoApONC7bM

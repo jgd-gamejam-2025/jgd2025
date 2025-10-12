@@ -29,6 +29,8 @@ func _on_nobody_who_chat_response_updated(new_token: String) -> void:
 	chatLog.text += new_token
 
 func _on_nobody_who_chat_response_finished(response: String) -> void:
+	if block_text_generation:
+		return
 	textInput.editable = true
 	textInput.text = ""
 	# focus the text input for next message
@@ -64,3 +66,4 @@ func start_chat_worker():
 
 func set_ai_name(new_name: String) -> void:
 	name_label.text = new_name
+	

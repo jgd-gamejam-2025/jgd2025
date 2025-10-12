@@ -5,6 +5,9 @@ extends Control
 @onready var aiChat = $NobodyWhoChat
 @onready var name_label = $Panel/Name
 
+var _tween: Tween 
+var block_text_generation = false
+
 signal sent_text
 
 func _ready() -> void:
@@ -21,6 +24,8 @@ func _input(event: InputEvent) -> void:
 		send_text_to_ai()
 
 func _on_nobody_who_chat_response_updated(new_token: String) -> void:
+	if block_text_generation:
+		return
 	chatLog.text += new_token
 
 func _on_nobody_who_chat_response_finished(response: String) -> void:
@@ -29,14 +34,27 @@ func _on_nobody_who_chat_response_finished(response: String) -> void:
 	# focus the text input for next message
 	textInput.grab_focus()
 
-func show_text_gradually(full_text: String, interval: float = 0.05) -> void:
-	chatLog.text = ""
-	var char_index := 0
+func show_text_gradually(full_text: String, interval: float = 0.05, empty_text:bool = true) -> void:
+	if _tween:
+		_tween.kill() # Stop any existing animation
+	
+	var pre_text = ""
+	if not empty_text:
+		pre_text = chatLog.text
+	
+	_tween = create_tween()
 	var char_count := full_text.length()
-	while char_index < char_count:
-		chatLog.text += full_text[char_index]
-		char_index += 1
-		await get_tree().create_timer(interval).timeout
+	var total_time := interval * char_count
+	
+	# Create a tween that goes from 0 to total characters
+	_tween.tween_method(
+		func(current_char: float):
+			var char_index = int(current_char)
+			chatLog.text = pre_text + full_text.substr(0, char_index),
+		0.0,  # Start with 0 characters
+		float(char_count),  # End with all characters
+		total_time  # Total animation time
+	)
 
 func set_system_prompt(prompt: String) -> void:
 	aiChat.system_prompt = prompt

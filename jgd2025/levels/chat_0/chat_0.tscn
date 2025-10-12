@@ -1,11 +1,59 @@
-[gd_scene load_steps=3 format=3 uid="uid://bytjnt7nwkrxw"]
+[gd_scene load_steps=7 format=3 uid="uid://bytjnt7nwkrxw"]
 
 [ext_resource type="Script" uid="uid://jdp2hkrg2vm5" path="res://levels/chat_0/chat_0.gd" id="1_4cuid"]
 [ext_resource type="PackedScene" uid="uid://byhcpq4t56qc3" path="res://scenes/UI/chat_ui/chat_ui.tscn" id="2_5a4ov"]
+[ext_resource type="PackedScene" uid="uid://bdndqtsl7ag20" path="res://levels/chat_1/chat_1.tscn" id="2_xaga6"]
+[ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="3_vwnxe"]
+[ext_resource type="FontFile" uid="uid://dche8c1u6rmg" path="res://scenes/UI/fonts/OPlusSans3-Bold.ttf" id="4_xaga6"]
+[ext_resource type="FontFile" uid="uid://b8muwa7k4021" path="res://scenes/UI/fonts/OPlusSans3-Regular.ttf" id="5_6sewx"]
 
 [node name="Chat0" type="Node"]
 script = ExtResource("1_4cuid")
+next_level = ExtResource("2_xaga6")
 
 [node name="ChatUI" parent="." instance=ExtResource("2_5a4ov")]
+
+[node name="Reload" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Black" type="ColorRect" parent="Reload"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Reload"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 417.0
+offset_right = 635.0
+offset_bottom = 562.0
+theme = ExtResource("3_vwnxe")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xaga6")
+theme_override_font_sizes/font_size = 50
+text = ":(
+我遇到了一些问题。"
+
+[node name="Label2" type="Label" parent="Reload"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 481.0
+offset_right = 635.0
+offset_bottom = 626.0
+theme = ExtResource("3_vwnxe")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_6sewx")
+theme_override_font_sizes/font_size = 50
+text = "
+正在尝试重新启动"
 
 [connection signal="sent_text" from="ChatUI" to="." method="_on_chat_ui_sent_text"]

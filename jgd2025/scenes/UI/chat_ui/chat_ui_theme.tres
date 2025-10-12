@@ -1,0 +1,5 @@
+[gd_resource type="Theme" format=3 uid="uid://b4ekpllfloej0"]
+
+[resource]
+LineEdit/font_sizes/font_size = 20
+RichTextLabel/font_sizes/normal_font_size = 26

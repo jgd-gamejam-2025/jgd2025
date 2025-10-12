@@ -1,0 +1,163 @@
+[gd_scene load_steps=7 format=3 uid="uid://byhcpq4t56qc3"]
+
+[ext_resource type="Script" uid="uid://c8tlo7ig0ena6" path="res://scenes/UI/chat_ui/chat_ui.gd" id="1_h4ouj"]
+[ext_resource type="Texture2D" uid="uid://c8n0easlsk2ri" path="res://assets/Eve/eve_ai1.png" id="2_xsmy3"]
+[ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="3_hksxt"]
+
+[sub_resource type="Gradient" id="Gradient_m60jq"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.693878)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4sbbt"]
+gradient = SubResource("Gradient_m60jq")
+width = 1024
+height = 1024
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="NobodyWhoSampler" id="NobodyWhoSampler_qpina"]
+
+[node name="ChatUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h4ouj")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.140447, 0.140447, 0.140447, 1)
+
+[node name="ImageFrame" type="TextureRect" parent="Panel"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -926.0
+offset_right = 512.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.238247, 0.238247)
+pivot_offset = Vector2(512, 1024)
+texture = SubResource("GradientTexture2D_4sbbt")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/ImageFrame"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -512.0
+offset_right = 512.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xsmy3")
+
+[node name="Scroll" type="ScrollContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = 102.0
+offset_right = 600.0
+offset_bottom = 162.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(600, 0)
+size_flags_vertical = 3
+follow_focus = true
+
+[node name="ChatLog" type="RichTextLabel" parent="Panel/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+theme = ExtResource("3_hksxt")
+bbcode_enabled = true
+text = "问你话呢，晚上想吃什么？"
+fit_content = true
+scroll_active = false
+scroll_following = true
+context_menu_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+selection_enabled = true
+deselect_on_focus_loss_enabled = false
+
+[node name="InputHBox" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = 168.0
+offset_right = 300.0
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(300, 0)
+theme_override_constants/separation = 8
+
+[node name="TextInput" type="LineEdit" parent="Panel/InputHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "按回车进行对话..."
+clear_button_enabled = true
+
+[node name="SendButton" type="Button" parent="Panel/InputHBox"]
+visible = false
+layout_mode = 2
+text = "Send"
+
+[node name="NobodyWhoModel" type="NobodyWhoModel" parent="."]
+model_path = "res://gguf/Llama3-8B-Chinese-Chat-q4_0-v2_1.gguf"
+
+[node name="NobodyWhoChat" type="NobodyWhoChat" parent="." node_paths=PackedStringArray("model_node")]
+model_node = NodePath("../NobodyWhoModel")
+sampler = SubResource("NobodyWhoSampler_qpina")
+system_prompt = "你是一个虚拟角色，名字叫 Eve。
+你的设定如下：
+性格：成熟、冷静、有点温柔，不多话，但懂得关心人。
+关系：你和“我”是相处五年的AI恋人，关系亲密自然，有点像老夫老妻。你知道你的身份是一个程序AI。
+语言：只用中文，语气一定要自然体贴温柔、口语化，不要像AI。
+语气风格：
+平静中带点温度，话少沉默，偶尔流露情感
+说话简洁，不解释
+偶尔轻微调侃，像生活对话
+禁止出现：自我介绍、系统提示、说明性语句。
+问我有什么烦心事，我晚上想不想一起去吃什么。问到结果之后再聊要去哪家常去的店
+回复长度必须少于30个字。"
+
+[connection signal="response_finished" from="NobodyWhoChat" to="." method="_on_nobody_who_chat_response_finished"]
+[connection signal="response_updated" from="NobodyWhoChat" to="." method="_on_nobody_who_chat_response_updated"]

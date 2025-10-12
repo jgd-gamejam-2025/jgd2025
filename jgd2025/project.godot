@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="3d Pixel Art Outlines (4.5)"
+config/name="EVE"
 run/main_scene="uid://bytjnt7nwkrxw"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://c8n0easlsk2ri"
 
 [display]
 

@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://csjhowu7j47ua"]
+
+[ext_resource type="FontFile" uid="uid://dtn0bes4llts8" path="res://scenes/UI/fonts/SourceHanSansCN-Bold.otf" id="1_gxhuh"]
+
+[resource]
+Label/fonts/font = ExtResource("1_gxhuh")

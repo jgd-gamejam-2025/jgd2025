@@ -1,0 +1,193 @@
+[gd_scene load_steps=3 format=3 uid="uid://da38xev2hnr3u"]
+
+[ext_resource type="Script" uid="uid://drifc33vtvx66" path="res://scenes/UI/TransitionUI/transition.gd" id="1_e5s63"]
+[ext_resource type="Theme" uid="uid://csjhowu7j47ua" path="res://scenes/UI/TransitionUI/transition.tres" id="2_5lax8"]
+
+[node name="Transition" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e5s63")
+bg_text = "烦"
+center_text = null
+exist_time = null
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5lax8")
+theme_override_font_sizes/font_size = 150
+text = "雷"
+
+[node name="BG" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0.08235294)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -153.0
+offset_top = -135.0
+offset_right = -153.0
+offset_bottom = -137.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.3979161, 1.3979161)
+
+[node name="Label2" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.5
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5lax8")
+theme_override_font_sizes/font_size = 120
+text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = 111.0
+offset_right = 202.0
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5lax8")
+theme_override_font_sizes/font_size = 120
+text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 235.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5lax8")
+theme_override_font_sizes/font_size = 120
+text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = 362.5
+offset_right = 202.0
+offset_bottom = 397.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5lax8")
+theme_override_font_sizes/font_size = 120
+text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
+autowrap_mode = 2
+
+[node name="Label6" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 489.0
+offset_bottom = 524.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5lax8")
+theme_override_font_sizes/font_size = 120
+text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
+autowrap_mode = 2
+
+[node name="Label7" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = 616.5
+offset_right = 202.0
+offset_bottom = 651.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5lax8")
+theme_override_font_sizes/font_size = 120
+text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
+autowrap_mode = 2
+
+[node name="Label8" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 735.0
+offset_bottom = 770.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5lax8")
+theme_override_font_sizes/font_size = 120
+text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
+autowrap_mode = 2
+
+[node name="Label9" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = 862.5
+offset_right = 202.0
+offset_bottom = 897.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5lax8")
+theme_override_font_sizes/font_size = 120
+text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
+autowrap_mode = 2
+
+[node name="Label10" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 989.0
+offset_bottom = 1024.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5lax8")
+theme_override_font_sizes/font_size = 120
+text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
+autowrap_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

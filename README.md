@@ -43,6 +43,6 @@ other_scripts/
 ```
 
 ## Auto Build：
-Pushing to the branch `release` will automatically export the Windows build.
+Pushing to the branch `release` will automatically export the Windows build. (buggy now)
 # 3D Pixel Art Post Processing Shader for Godot 4
 This repo has the source code for the Youtube tutorial: https://youtu.be/WBoApONC7bM

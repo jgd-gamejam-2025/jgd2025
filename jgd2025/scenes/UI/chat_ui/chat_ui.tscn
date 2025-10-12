@@ -44,7 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.140447, 0.140447, 0.140447, 1)
+color = Color(0.12941177, 0.12941177, 0.12941177, 1)
 
 [node name="Name" type="Label" parent="Panel"]
 layout_mode = 1
@@ -116,6 +116,7 @@ pivot_offset = Vector2(975, 486)
 size_flags_vertical = 3
 
 [node name="ChatLog" type="RichTextLabel" parent="Panel/Scroll"]
+z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

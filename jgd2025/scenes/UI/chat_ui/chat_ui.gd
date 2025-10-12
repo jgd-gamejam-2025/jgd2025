@@ -9,6 +9,8 @@ var _tween: Tween
 var block_text_generation = false
 
 signal sent_text
+signal line_edit_focus
+var line_edit_focus_sent = false
 
 func _ready() -> void:
 	textInput.grab_focus()
@@ -20,6 +22,11 @@ func send_text_to_ai():
 	sent_text.emit()
 
 func _input(event: InputEvent) -> void:
+	if not line_edit_focus_sent and event.is_action_pressed("ui_accept"):
+		line_edit_focus_sent = true
+		line_edit_focus.emit()
+		textInput.grab_focus()
+
 	if event.is_action_pressed("ui_text_newline") and textInput.editable and textInput.text != "":
 		send_text_to_ai()
 

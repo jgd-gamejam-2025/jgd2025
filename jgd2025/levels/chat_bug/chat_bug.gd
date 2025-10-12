@@ -59,6 +59,10 @@ func _on_chat_ui_sent_text() -> void:
 		# only reply a random text from a set of glitch texts
 		var glitch_texts = ["......","......我不明白","......不要","......"]
 		chat_ui.show_text_gradually(glitch_texts[randi() % glitch_texts.size()], 0.1, false)
+		if text_sent_count == 6:
+			$NextLevelTransition.show()
+			await get_tree().create_timer(2.0).timeout
+			get_tree().change_scene_to_packed(next_level)
 	
 	if text_sent_count == 4:
 		var sequence = create_sequence()

@@ -4,6 +4,7 @@ extends Control
 @onready var textInput = $Panel/InputHBox/TextInput
 @onready var aiChat = $NobodyWhoChat
 @onready var name_label = $Panel/Name
+@export var debug_mode = false
 
 var _tween: Tween 
 var block_text_generation = false
@@ -11,17 +12,20 @@ var block_text_generation = false
 signal sent_text
 signal line_edit_focus
 var line_edit_focus_sent = false
-
 var first_time_sent_text = true
 
 func _ready() -> void:
-	# textInput.grab_focus()
-	pass
+	if debug_mode:
+		print("Debug mode activated")
 
 func send_text_to_ai():
 	textInput.editable = false
 	chatLog.text = ""
-	aiChat.say(textInput.text)
+	if not debug_mode:
+		aiChat.say(textInput.text)
+	else:
+		_on_nobody_who_chat_response_updated("Debugging...")
+		_on_nobody_who_chat_response_finished("Debugging Again")
 	sent_text.emit()
 
 func _input(event: InputEvent) -> void:

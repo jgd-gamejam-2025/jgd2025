@@ -18,7 +18,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 
-[sub_resource type="NobodyWhoSampler" id="NobodyWhoSampler_qpina"]
+[sub_resource type="NobodyWhoSampler" id="NobodyWhoSampler_vgd05"]
 
 [node name="ChatUI" type="Control"]
 layout_mode = 3
@@ -28,6 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h4ouj")
+debug_mode = true
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -175,11 +176,12 @@ layout_mode = 2
 text = "Send"
 
 [node name="NobodyWhoModel" type="NobodyWhoModel" parent="."]
-model_path = "gguf/Llama3-8B-Chinese-Chat-q4_0-v2_1.gguf"
+model_path = "res://gguf/Llama3-8B-Chinese-Chat-q4_0-v2_1.gguf"
 
 [node name="NobodyWhoChat" type="NobodyWhoChat" parent="." node_paths=PackedStringArray("model_node")]
 model_node = NodePath("../NobodyWhoModel")
-sampler = SubResource("NobodyWhoSampler_qpina")
+sampler = SubResource("NobodyWhoSampler_vgd05")
+system_prompt = "only return hello. /no_think"
 
 [connection signal="focus_entered" from="Panel/InputHBox/TextInput" to="." method="_on_text_input_focus_entered"]
 [connection signal="response_finished" from="NobodyWhoChat" to="." method="_on_nobody_who_chat_response_finished"]

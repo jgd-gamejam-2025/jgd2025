@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bytjnt7nwkrxw"]
 
 [ext_resource type="Script" uid="uid://jdp2hkrg2vm5" path="res://levels/chat_bug/chat_bug.gd" id="1_5iuj2"]
-[ext_resource type="PackedScene" uid="uid://ccn8bu53dnlpv" path="res://levels/tps_test_scene.tscn" id="2_8coro"]
+[ext_resource type="PackedScene" uid="uid://ccn8bu53dnlpv" path="res://levels/tps_test_scene/tps_test_scene.tscn" id="2_8coro"]
 [ext_resource type="PackedScene" uid="uid://byhcpq4t56qc3" path="res://scenes/UI/chat_ui/chat_ui.tscn" id="3_edd6c"]
 [ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="4_1crpx"]
 [ext_resource type="Texture2D" uid="uid://deoqpv5sf2343" path="res://assets/ui/Gear-1.png" id="5_wba7s"]

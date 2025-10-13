@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdndqtsl7ag20"]
+[gd_scene load_steps=4 format=3 uid="uid://bdndqtsl7ag20"]
 
 [ext_resource type="Script" uid="uid://c5q2c051v75sp" path="res://levels/chat_1/chat_1.gd" id="1_bfv5k"]
+[ext_resource type="PackedScene" uid="uid://d1mhk3prnqywk" path="res://levels/fps_test_scene/fps_test_scene.tscn" id="2_k0lel"]
 [ext_resource type="PackedScene" uid="uid://byhcpq4t56qc3" path="res://scenes/UI/chat_ui/chat_ui.tscn" id="2_yntfr"]
 
 [node name="Chat0" type="Node"]
 script = ExtResource("1_bfv5k")
+next_level = ExtResource("2_k0lel")
 
 [node name="ChatUI" parent="." instance=ExtResource("2_yntfr")]
 

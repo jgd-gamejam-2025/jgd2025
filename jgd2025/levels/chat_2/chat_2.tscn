@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2jaf8rnldxpk"]
+
+[ext_resource type="Script" uid="uid://c32n4kx6nxhxo" path="res://levels/chat_2/chat_2.gd" id="1_hm6md"]
+[ext_resource type="PackedScene" uid="uid://byhcpq4t56qc3" path="res://scenes/UI/chat_ui/chat_ui.tscn" id="2_j7t53"]
+
+[node name="Chat0" type="Node"]
+script = ExtResource("1_hm6md")
+
+[node name="ChatUI" parent="." instance=ExtResource("2_j7t53")]
+
+[connection signal="sent_text" from="ChatUI" to="." method="_on_chat_ui_sent_text"]

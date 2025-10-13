@@ -13,10 +13,13 @@ func _ready():
 	chat_ui.start_chat_worker()
 	Transition.end()
 
+
 func _on_chat_ui_sent_text() -> void:
 	text_sent_count += 1
 	if text_sent_count == 2:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		Transition.set_and_start("加载中……？", "")
-		await get_tree().create_timer(0.7).timeout
-		get_tree().change_scene_to_packed(next_level)
+		var tween = Transition.set_and_start("结局中", "结局", 3)
+		await tween.finished
+		Transition.set_and_start("结局", "")
+		#await get_tree().create_timer(0.7).timeout
+		#get_tree().change_scene_to_packed(next_level)

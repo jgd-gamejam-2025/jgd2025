@@ -13,7 +13,8 @@ signal line_edit_focus
 var line_edit_focus_sent = false
 
 func _ready() -> void:
-	textInput.grab_focus()
+	# textInput.grab_focus()
+	pass
 
 func send_text_to_ai():
 	textInput.editable = false
@@ -22,9 +23,8 @@ func send_text_to_ai():
 	sent_text.emit()
 
 func _input(event: InputEvent) -> void:
-	if not line_edit_focus_sent and event.is_action_pressed("ui_accept"):
-		line_edit_focus_sent = true
-		line_edit_focus.emit()
+	if event.is_action_pressed("ui_accept"):
+		await get_tree().process_frame  # 等一帧，让 UI 渲染完成
 		textInput.grab_focus()
 
 	if event.is_action_pressed("ui_text_newline") and textInput.editable and textInput.text != "":
@@ -74,3 +74,7 @@ func start_chat_worker():
 func set_ai_name(new_name: String) -> void:
 	name_label.text = new_name
 	
+func _on_text_input_focus_entered() -> void:
+	if not line_edit_focus_sent:
+		line_edit_focus_sent = true
+		line_edit_focus.emit()

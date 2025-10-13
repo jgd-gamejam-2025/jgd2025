@@ -18,6 +18,8 @@ config/icon="uid://c8n0easlsk2ri"
 [autoload]
 
 Transition="*res://scenes/UI/TransitionUI/transition.tscn"
+AudioManager2D="*res://addons/2d-platformer/Scenes/Managers/AudioManager.tscn"
+GameManager2D="*res://addons/2d-platformer/Scripts/GameManager.gd"
 
 [display]
 

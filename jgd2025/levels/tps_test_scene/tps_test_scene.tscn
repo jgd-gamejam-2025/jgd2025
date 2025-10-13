@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://ccn8bu53dnlpv"]
+[gd_scene load_steps=15 format=3 uid="uid://ccn8bu53dnlpv"]
 
-[ext_resource type="Material" uid="uid://coy4nf1ts2u0q" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/Arts/Materials/grid_mat.tres" id="1_jhqxl"]
-[ext_resource type="PackedScene" uid="uid://cyyhnbe3kxcit" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/MyPlayerCharacterScene.tscn" id="2_0pqkl"]
+[ext_resource type="Script" uid="uid://2vh2wne38b0t" path="res://levels/tps_test_scene/tps_test_scene.gd" id="1_ilc2t"]
+[ext_resource type="Material" uid="uid://coy4nf1ts2u0q" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/Arts/Materials/grid_mat.tres" id="2_3nepf"]
+[ext_resource type="PackedScene" uid="uid://bdndqtsl7ag20" path="res://levels/chat_1/chat_1.tscn" id="2_bswm1"]
+[ext_resource type="PackedScene" uid="uid://cyyhnbe3kxcit" path="res://addons/Godot-State-Machine-Third-Person-Controller-02887613c6c725d0e2e5c47b45f53178db96615c/addons/PlayerCharacter/MyPlayerCharacterScene.tscn" id="3_bswm1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6f4by"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -23,6 +25,9 @@ size = Vector2(110, 110)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f37l4"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_68n53"]
+size = Vector3(10.16243, 2.7026367, 9.9930725)
+
 [sub_resource type="Curve" id="Curve_eqchl"]
 _limits = [0.0, 14.0, 0.0, 1.0]
 _data = [Vector2(0, 7.08244), 0.0, 24.0905, 0, 0, Vector2(0.128767, 8.44647), 3.74337, 3.74337, 0, 0, Vector2(1, 9.22591), 0.0, 0.0, 0, 0]
@@ -39,6 +44,8 @@ _data = [Vector2(0, 11.2719), 0.0, 24.0905, 0, 0, Vector2(0.191781, 12.8308), 3.
 point_count = 3
 
 [node name="TestMap" type="Node3D"]
+script = ExtResource("1_ilc2t")
+next_scene = ExtResource("2_bswm1")
 
 [node name="Environment" type="Node3D" parent="."]
 
@@ -60,7 +67,7 @@ metadata/_edit_group_ = true
 shape = SubResource("WorldBoundaryShape3D_xuepk")
 
 [node name="GroundMesh" type="MeshInstance3D" parent="Structures/Ground"]
-material_override = ExtResource("1_jhqxl")
+material_override = ExtResource("2_3nepf")
 mesh = SubResource("PlaneMesh_q3h73")
 skeleton = NodePath("../../..")
 
@@ -142,7 +149,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, -6)
 polygon = PackedVector2Array(0, 0, 0, 2, 6, 0)
 depth = 6.0
 
-[node name="Player" parent="." instance=ExtResource("2_0pqkl")]
+[node name="Area3D" type="Area3D" parent="Structures"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structures/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.832362, 7.8629265, -17.987612)
+shape = SubResource("BoxShape3D_68n53")
+
+[node name="Player" parent="." instance=ExtResource("3_bswm1")]
 walk_speed = 5.0
 walk_accel = 8.0
 walk_deccel = 7.0
@@ -166,3 +179,5 @@ runAction = "run"
 jumpAction = "jump"
 model_rot_speed = 6.5
 follow_cam_pos_when_aimed = true
+
+[connection signal="body_entered" from="Structures/Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,0 +1,117 @@
+[gd_scene load_steps=13 format=3 uid="uid://d1mhk3prnqywk"]
+
+[ext_resource type="Script" uid="uid://dqkok8p7jcl4x" path="res://levels/fps_test_scene/fps_test_scene.gd" id="1_rujvw"]
+[ext_resource type="PackedScene" uid="uid://d2jaf8rnldxpk" path="res://levels/chat_2/chat_2.tscn" id="2_7krs1"]
+[ext_resource type="Material" uid="uid://brpu7xylrg2l2" path="res://fps_example_scene/materials/material_basic_blue.tres" id="2_ag2ex"]
+[ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_7krs1"]
+[ext_resource type="PackedScene" uid="uid://nswkrnyepieq" path="res://fps_example_scene/scenes/basic_block.tscn" id="4_gu86n"]
+[ext_resource type="PackedScene" uid="uid://kqmbae0l4ewu" path="res://fps_example_scene/scenes/basic_block_2.tscn" id="5_ayp2j"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_aavk3"]
+sky_material = SubResource("ProceduralSkyMaterial_r6mis")
+
+[sub_resource type="Environment" id="Environment_aaj73"]
+background_mode = 2
+sky = SubResource("Sky_aavk3")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n6tjd"]
+material = ExtResource("2_ag2ex")
+size = Vector2(100, 100)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h1lgg"]
+points = PackedVector3Array(-50, 0, -50, -50, 0, 50, 50, 0, -50, 50, 0, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rujvw"]
+size = Vector3(10.078938, 2.7026367, 11.313332)
+
+[node name="FpsTestScene" type="Node3D"]
+script = ExtResource("1_rujvw")
+next_scene = ExtResource("2_7krs1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_aaj73")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_n6tjd")
+skeleton = NodePath("../..")
+
+[node name="FloorCollision" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("ConvexPolygonShape3D_h1lgg")
+
+[node name="Player" parent="." instance=ExtResource("3_7krs1")]
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="Node" type="Node" parent="Obstacles"]
+
+[node name="BasicBlock" parent="Obstacles/Node" instance=ExtResource("4_gu86n")]
+transform = Transform3D(1, 0, 0, 0, 8.027554, 0, 0, 0, 10.858211, -2.8494737, 2.08165e-12, -1.5610132)
+
+[node name="BasicBlock10" parent="Obstacles/Node" instance=ExtResource("4_gu86n")]
+transform = Transform3D(-0.007976033, 0, 10.857864, 0, 8.027554, 0, -0.9999681, 0, -0.08660546, 0.49750423, 2.08165e-12, 4.12558)
+
+[node name="BasicBlock11" parent="Obstacles/Node" instance=ExtResource("4_gu86n")]
+transform = Transform3D(-0.11250365, 0, 11.992847, 0, 1.5207403, 0, -14.104764, 0, -0.09565841, 0.49750423, 7.6871395, -1.1981697)
+
+[node name="BasicBlock9" parent="Obstacles/Node" instance=ExtResource("4_gu86n")]
+transform = Transform3D(1, 0, 0, 0, 8.027554, 0, 0, 0, 10.858211, 5.566909, 2.08165e-12, -1.5610132)
+
+[node name="BasicBlock4" parent="Obstacles/Node" instance=ExtResource("5_ayp2j")]
+transform = Transform3D(9.538239, 0, 0, 0, 3.535397, 0, 0, 0, 1, 2, 2, -7.053047)
+
+[node name="Node2" type="Node" parent="Obstacles"]
+
+[node name="BasicBlock" parent="Obstacles/Node2" instance=ExtResource("4_gu86n")]
+transform = Transform3D(1, 0, 0, 0, 8.027554, 0, 0, 0, 10.858211, -1.7771881, -0.12054014, -11.75826)
+
+[node name="BasicBlock11" parent="Obstacles/Node2" instance=ExtResource("4_gu86n")]
+transform = Transform3D(-0.11250365, 0, 11.992847, 0, 1.5207403, 0, -14.104764, 0, -0.09565841, 2.641387, 7.6871395, -11.421476)
+
+[node name="BasicBlock9" parent="Obstacles/Node2" instance=ExtResource("4_gu86n")]
+transform = Transform3D(1, 0, 0, 0, 8.027554, 0, 0, 0, 10.858211, 5.14618, 2.08165e-12, -11.784321)
+
+[node name="BasicBlock4" parent="Obstacles/Node2" instance=ExtResource("5_ayp2j")]
+transform = Transform3D(9.538239, 0, 0, 0, 4.523577, 0, 0, 0, 1, 2.8136482, -0.122077465, -17.354641)
+
+[node name="BasicBlock2" parent="Obstacles" instance=ExtResource("4_gu86n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0417352, 1.227107, -5.8604717)
+
+[node name="BasicBlock3" parent="Obstacles" instance=ExtResource("5_ayp2j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0417352, 2.227107, -5.8604717)
+
+[node name="BasicBlock8" parent="Obstacles" instance=ExtResource("5_ayp2j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0417352, 6.227107, -5.8604717)
+
+[node name="BasicBlock5" parent="Obstacles" instance=ExtResource("5_ayp2j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -8)
+
+[node name="BasicBlock6" parent="Obstacles" instance=ExtResource("5_ayp2j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -7)
+
+[node name="BasicBlock7" parent="Obstacles" instance=ExtResource("5_ayp2j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -6)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 2)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 2.08165e-12, 2, 6, 2, 10, 2.08165e-12)
+
+[node name="Area3D" type="Area3D" parent="Obstacles"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacles/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9772902, 1.4268188, -13.718641)
+shape = SubResource("BoxShape3D_rujvw")
+
+[connection signal="body_entered" from="Obstacles/Area3D" to="." method="_on_area_3d_body_entered"]

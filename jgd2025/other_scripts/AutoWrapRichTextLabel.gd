@@ -1,7 +1,6 @@
 extends RichTextLabel
 
-
-const MAX_WIDTH: float = 1200.0
+@export var MAX_WIDTH: float = 1200.0
 
 
 func _ready() -> void:

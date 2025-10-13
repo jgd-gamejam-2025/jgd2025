@@ -167,5 +167,6 @@ model_path = "gguf/Llama3-8B-Chinese-Chat-q4_0-v2_1.gguf"
 model_node = NodePath("../NobodyWhoModel")
 sampler = SubResource("NobodyWhoSampler_qpina")
 
+[connection signal="focus_entered" from="Panel/InputHBox/TextInput" to="." method="_on_text_input_focus_entered"]
 [connection signal="response_finished" from="NobodyWhoChat" to="." method="_on_nobody_who_chat_response_finished"]
 [connection signal="response_updated" from="NobodyWhoChat" to="." method="_on_nobody_who_chat_response_updated"]

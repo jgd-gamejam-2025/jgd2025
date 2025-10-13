@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @onready var bg_text = "雨"
 @onready var center_text = "雨"

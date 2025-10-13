@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2jaf8rnldxpk"]
+[gd_scene load_steps=4 format=3 uid="uid://d2jaf8rnldxpk"]
 
 [ext_resource type="Script" uid="uid://c32n4kx6nxhxo" path="res://levels/chat_2/chat_2.gd" id="1_hm6md"]
 [ext_resource type="PackedScene" uid="uid://byhcpq4t56qc3" path="res://scenes/UI/chat_ui/chat_ui.tscn" id="2_j7t53"]
+[ext_resource type="PackedScene" uid="uid://cjanwm3sy2x37" path="res://levels/2d_platformer_test_scene/2d_test_scene.tscn" id="2_pmyye"]
 
 [node name="Chat0" type="Node"]
 script = ExtResource("1_hm6md")
+next_level = ExtResource("2_pmyye")
 
 [node name="ChatUI" parent="." instance=ExtResource("2_j7t53")]
 

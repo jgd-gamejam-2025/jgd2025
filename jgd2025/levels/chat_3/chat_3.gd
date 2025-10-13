@@ -2,7 +2,7 @@ extends Node
 
 @onready var chat_ui = $ChatUI
 var text_sent_count = 0
-@export var next_level: PackedScene
+#@export var next_level: PackedScene
 
 func _ready():
 	chat_ui.set_ai_name("Eve")

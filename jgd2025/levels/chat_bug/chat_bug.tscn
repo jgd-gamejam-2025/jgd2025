@@ -16,22 +16,14 @@ next_level = ExtResource("2_8coro")
 [node name="ChatUI" parent="." instance=ExtResource("3_edd6c")]
 
 [node name="SmallTalkTimer" type="Timer" parent="."]
-wait_time = 3.5
+wait_time = 2.0
 
 [node name="Buttons" parent="." instance=ExtResource("4_gnwe6")]
 
-[node name="Reload" type="Control" parent="."]
+[node name="Reload" type="CanvasLayer" parent="."]
 visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
 
 [node name="Black" type="ColorRect" parent="Reload"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -39,7 +31,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="Reload"]
-layout_mode = 0
 offset_left = 135.0
 offset_top = 417.0
 offset_right = 635.0
@@ -52,7 +43,6 @@ text = ":(
 我遇到了一些问题。"
 
 [node name="Label2" type="Label" parent="Reload"]
-layout_mode = 0
 offset_left = 135.0
 offset_top = 481.0
 offset_right = 635.0
@@ -64,18 +54,10 @@ theme_override_font_sizes/font_size = 50
 text = "
 正在尝试重新启动"
 
-[node name="MorningTransition" type="Control" parent="."]
+[node name="MorningTransition" type="CanvasLayer" parent="."]
 visible = false
-z_index = 10
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="MorningTransition"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -84,34 +66,25 @@ grow_vertical = 2
 color = Color(0.98820907, 0.6305797, 3.85046e-07, 1)
 
 [node name="Label" type="Label" parent="MorningTransition"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -225.0
+offset_top = -75.0
+offset_right = 225.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("10_8coro")
 theme_override_font_sizes/font_size = 150
 text = "星期天"
 
-[node name="NextLevelTransition" type="Control" parent="."]
+[node name="NextLevelTransition" type="CanvasLayer" parent="."]
 visible = false
-z_index = 10
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="NextLevelTransition"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -119,16 +92,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="NextLevelTransition"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -600.0
+offset_top = -75.0
+offset_right = 600.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("10_8coro")
@@ -137,15 +109,14 @@ theme_override_font_sizes/font_size = 150
 text = "正在复原初始设置"
 
 [node name="Label2" type="Label" parent="NextLevelTransition"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -90.0
+offset_left = -276.0
 offset_top = 421.0
-offset_right = 90.0
+offset_right = 276.0
 offset_bottom = 452.0
 grow_horizontal = 2
 grow_vertical = 2

@@ -8,9 +8,12 @@ extends Control
 
 #--bubbles-----
 @onready var margin_container = $Panel/MarginContainer
+@onready var bubble_scroll = $Panel/MarginContainer/BubblesScroll
+@onready var bubble_scroll_bar = bubble_scroll.get_v_scroll_bar()
 @onready var detail_bubble = $Panel/MarginContainer/BubblesScroll/VBoxContainer/DetailBubble
 @onready var flat_bubble = $Panel/MarginContainer/BubblesScroll/VBoxContainer/FlatBubble
 var in_chat_mode = false
+var make_new_bubble_on_next_token = true
 #--------------
 
 var _tween: Tween 
@@ -25,20 +28,22 @@ func _ready() -> void:
 	margin_container.hide()
 	detail_bubble.hide()
 	flat_bubble.hide()
+	bubble_scroll_bar.connect("changed", self._handle_scrollbar_changed)
 	if debug_mode:
 		print("Debug mode activated")
 
 func send_text_to_ai():
-	add_flat_bubble(textInput.text)
-	add_detail_bubble()
+	var my_message = textInput.text
+	textInput.text = ""
+	add_flat_bubble(my_message)
+	make_new_bubble_on_next_token = true
 	textInput.editable = false
-	chatLog.text = ""
 	if not debug_mode:
-		aiChat.say(textInput.text)
+		aiChat.say(my_message)
 	else:
-		for i in range(75):
+		for i in range(5):
 			_on_nobody_who_chat_response_updated("我")
-			await get_tree().create_timer(0.03).timeout
+			await get_tree().create_timer(0.1).timeout
 		_on_nobody_who_chat_response_finished("Debugging Again")
 	sent_text.emit()
 
@@ -57,6 +62,9 @@ func _on_nobody_who_chat_response_updated(new_token: String) -> void:
 	if block_text_generation:
 		return
 	if in_chat_mode:
+		if make_new_bubble_on_next_token:
+			make_new_bubble_on_next_token = false
+			add_detail_bubble()
 		current_detail_bubble.rich_text_label.text += new_token
 	else:
 		chatLog.text += new_token
@@ -65,16 +73,18 @@ func _on_nobody_who_chat_response_finished(response: String) -> void:
 	if block_text_generation:
 		return
 	textInput.editable = true
-	textInput.text = ""
 	# focus the text input for next message
 	textInput.grab_focus()
 
-func show_text_gradually(full_text: String, interval: float = 0.05, empty_text:bool = true) -> void:
+func _handle_scrollbar_changed():
+	bubble_scroll.scroll_vertical = bubble_scroll_bar.max_value
+
+func show_welcome_text(full_text: String, interval: float = 0.05, overwrite:bool = true) -> void:
 	if _tween:
 		_tween.kill() # Stop any existing animation
 	
 	var pre_text = ""
-	if not empty_text:
+	if not overwrite:
 		pre_text = chatLog.text
 	
 	_tween = create_tween()
@@ -95,7 +105,8 @@ func set_system_prompt(prompt: String) -> void:
 	aiChat.system_prompt = prompt
 	
 func start_chat_worker():
-	aiChat.start_worker()
+	if not debug_mode:
+		aiChat.start_worker()
 
 func set_ai_name(new_name: String) -> void:
 	name_label.text = new_name
@@ -114,10 +125,10 @@ func to_chat_mode():
 	var tween = create_tween()
 	var viewport_size = get_viewport().get_visible_rect().size
 	tween.set_parallel()
-	tween.tween_property(input_hbox, "position:y", viewport_size.y - input_hbox.size.y - 35, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.tween_property(profile_pic, "position:y", 25, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.tween_property(profile_pic, "scale", Vector2(0.35, 0.35), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.tween_property(name_tag, "position:y", 115, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(input_hbox, "position:y", viewport_size.y - input_hbox.size.y - 35, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tween.tween_property(profile_pic, "position:y", 25, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tween.tween_property(profile_pic, "scale", Vector2(0.35, 0.35), 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tween.tween_property(name_tag, "position:y", 115, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	kill_text_animation()
 
 	$Panel/Scroll.hide()
@@ -149,9 +160,57 @@ func add_flat_bubble(text: String) -> void:
 	new_bubble.resize()
 
 var current_detail_bubble = null
-func add_detail_bubble() -> void:
+func add_detail_bubble(show: bool = true) -> void:
 	var new_bubble = detail_bubble.duplicate()
 	$Panel/MarginContainer/BubblesScroll/VBoxContainer.add_child(new_bubble)
 	new_bubble.rich_text_label.text = ""
-	new_bubble.show()
+	if show:
+		new_bubble.show()
+	else:
+		new_bubble.hide()
 	current_detail_bubble = new_bubble
+
+func add_and_write_detail_bubble(text: String, interval: float = 0.05):
+	add_detail_bubble()
+	return overwrite_current_detail_bubble(text, interval)
+
+func overwrite_current_detail_bubble(text: String, interval: float = 0.05):
+	if current_detail_bubble:
+		if _tween:
+			_tween.kill()
+		_tween = create_tween()
+		var char_count := text.length()
+		var total_time := interval * char_count
+		
+		# Create a tween that goes from 0 to total characters
+		_tween.tween_method(
+			func(current_char: float):
+				var char_index = int(current_char)
+				current_detail_bubble.rich_text_label.text = text.substr(0, char_index),
+			0.0,  # Start with 0 characters
+			float(char_count),  # End with all characters
+			total_time  # Total animation time
+		)
+		current_detail_bubble.rich_text_label.text = text
+
+
+func add_to_current_detail_bubble(text: String, interval: float = 0.05):
+	if current_detail_bubble:
+		if _tween:
+			_tween.kill()
+		_tween = create_tween()
+		var char_count := text.length()
+		var total_time := interval * char_count
+		print("total_time: ", total_time)
+		var pre_text = current_detail_bubble.rich_text_label.text
+		
+		# Create a tween that goes from 0 to total characters
+		_tween.tween_method(
+			func(current_char: float):
+				var char_index = int(current_char)
+				current_detail_bubble.rich_text_label.text = pre_text + text.substr(0, char_index),
+			0.0,  # Start with 0 characters
+			float(char_count),  # End with all characters
+			total_time  # Total animation time
+		)
+		current_detail_bubble.rich_text_label.text = pre_text + text

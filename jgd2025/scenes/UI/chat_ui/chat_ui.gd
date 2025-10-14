@@ -5,6 +5,7 @@ extends Control
 @onready var aiChat = $NobodyWhoChat
 @onready var name_label = $Panel/Name
 @export var debug_mode = false
+@export var auto_new_bubble_limit = 10
 
 #--bubbles-----
 @onready var margin_container = $Panel/MarginContainer
@@ -65,6 +66,24 @@ func _on_nobody_who_chat_response_updated(new_token: String) -> void:
 		if make_new_bubble_on_next_token:
 			make_new_bubble_on_next_token = false
 			add_detail_bubble()
+		if auto_new_bubble_limit > 0 and current_detail_bubble.rich_text_label.text.length() > auto_new_bubble_limit:
+			# if new_token has "., !, ? or \n, make a new bubble on next token
+			for marker in [".", "!", "?", "。","？","！","\n"]:
+				var idx = new_token.find(marker)
+				if idx != -1:
+					if idx == new_token.length() - 1:
+						make_new_bubble_on_next_token = true
+						current_detail_bubble.rich_text_label.text += new_token
+					else:
+						var remainder = new_token.substr(idx + 1, new_token.length() - idx - 1)
+						new_token = new_token.substr(0, idx + 1)
+						make_new_bubble_on_next_token = true
+						current_detail_bubble.rich_text_label.text += new_token
+						add_detail_bubble()
+						current_detail_bubble.rich_text_label.text += remainder
+					return
+			# if no marker found, just add the token
+		
 		current_detail_bubble.rich_text_label.text += new_token
 	else:
 		chatLog.text += new_token

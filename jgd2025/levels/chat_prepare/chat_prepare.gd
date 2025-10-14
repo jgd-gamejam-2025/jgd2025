@@ -42,7 +42,7 @@ func _ready():
 	chat_ui.set_ai_name("Eve")
 	chat_ui.set_system_prompt(ai_prompt)
 	welcome_messages_fix.shuffle()
-	chat_ui.show_text_gradually("嘿！")
+	chat_ui.show_welcome_text("嘿！")
 	chat_ui.start_chat_worker()
 	$SmallTalkTimer.start()
 	small_talking = true
@@ -56,12 +56,12 @@ func _on_chat_ui_sent_text() -> void:
 		Transition.set_and_start("工作电话", "烦", 3.5, ring_audio)
 		# wait for 4 seconds before showing the next text
 		await get_tree().create_timer(3.5).timeout
-		chat_ui.show_text_gradually("电话？怎么了？")
+		chat_ui.add_and_write_detail_bubble("电话？怎么了？")
 	
 	if text_sent_count == 4:
 		Transition.set_and_start("该睡了", "困", 2.0)
 		await get_tree().create_timer(2.0).timeout
-		chat_ui.show_text_gradually("时间不早了，你该休息了，说晚安吧？")
+		chat_ui.add_and_write_detail_bubble("时间不早了，你该休息了，说晚安吧？")
 
 	if text_sent_count == 5:
 		Transition.set_and_start("晚安。", "太困了 ", 4.0)
@@ -77,14 +77,14 @@ func _on_small_talk_timer_timeout() -> void:
 		else:
 			$SmallTalkTimer.wait_time = 10
 			message = welcome_messages_random[randi() % welcome_messages_random.size()]
-		chat_ui.show_text_gradually(message)
+		chat_ui.show_welcome_text(message)
 
 
 func _on_chat_ui_line_edit_focus() -> void:
 	if small_talking:
 		small_talking = false
 		$SmallTalkTimer.stop()
-		chat_ui.show_text_gradually("嗨，工作还顺利吗？")
+		chat_ui.show_welcome_text("嗨，工作还顺利吗？")
 
 
 func _on_option_button_pressed() -> void:

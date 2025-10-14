@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://db7chujuf7je8"]
 
-[ext_resource type="Texture2D" uid="uid://c8n0easlsk2ri" path="res://assets/Eve/eve_ai1.png" id="1_c7awx"]
+[ext_resource type="Texture2D" uid="uid://dj5jrgpxoqm5e" path="res://assets/Eve/Eve_normal2.png" id="1_c7awx"]
 
 [sub_resource type="Gradient" id="Gradient_m60jq"]
 interpolation_mode = 1
@@ -55,10 +55,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -512.0
-offset_top = -512.0
-offset_right = 512.0
-offset_bottom = 512.0
+offset_left = -531.99994
+offset_top = -504.0
+offset_right = 1183.2002
+offset_bottom = 1211.2002
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.625, 0.625)
 texture = ExtResource("1_c7awx")

@@ -43,12 +43,12 @@ func _on_nobody_who_chat_response_finished(response: String) -> void:
 	# focus the text input for next message
 	textInput.grab_focus()
 
-func show_text_gradually(full_text: String, interval: float = 0.05, empty_text:bool = true) -> void:
+func show_welcome_text(full_text: String, interval: float = 0.05, overwrite:bool = true) -> void:
 	if _tween:
 		_tween.kill() # Stop any existing animation
 	
 	var pre_text = ""
-	if not empty_text:
+	if not overwrite:
 		pre_text = chatLog.text
 	
 	_tween = create_tween()

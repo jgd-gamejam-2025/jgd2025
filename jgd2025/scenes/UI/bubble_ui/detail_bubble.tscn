@@ -53,3 +53,7 @@ text = "Eve"
 unique_name_in_owner = true
 layout_mode = 2
 MAX_WIDTH = 700.0
+
+[node name="Padding" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 13.635)
+layout_mode = 2

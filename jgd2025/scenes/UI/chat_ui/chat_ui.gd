@@ -77,7 +77,6 @@ func _on_nobody_who_chat_response_updated(new_token: String) -> void:
 					else:
 						var remainder = new_token.substr(idx + 1, new_token.length() - idx - 1)
 						new_token = new_token.substr(0, idx + 1)
-						make_new_bubble_on_next_token = true
 						current_detail_bubble.rich_text_label.text += new_token
 						add_detail_bubble()
 						current_detail_bubble.rich_text_label.text += remainder

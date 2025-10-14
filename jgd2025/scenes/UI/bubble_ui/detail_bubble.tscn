@@ -1,44 +1,59 @@
-[gd_scene load_steps=4 format=3 uid="uid://s0tf56xdbeog"]
+[gd_scene load_steps=5 format=3 uid="uid://s0tf56xdbeog"]
 
+[ext_resource type="Script" uid="uid://eaqfy06e0nte" path="res://scenes/UI/bubble_ui/detail_bubble.gd" id="1_r25eo"]
 [ext_resource type="PackedScene" uid="uid://bynn3w8xjct6b" path="res://scenes/UI/bubble_ui/ui_bubble.tscn" id="2_au21n"]
 [ext_resource type="PackedScene" uid="uid://db7chujuf7je8" path="res://scenes/UI/ProfilePic/profile_pic.tscn" id="2_r25eo"]
 [ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="3_akldj"]
 
-[node name="DetailBubble" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-size_flags_horizontal = 0
-size_flags_vertical = 2
+[node name="HBoxContainer" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_r25eo")
 
-[node name="RichTextLabel" parent="." instance=ExtResource("2_au21n")]
-layout_mode = 0
-offset_left = 81.0
-offset_top = 32.0
-offset_right = 297.73685
-offset_bottom = 90.0
-text = "我我我我我我"
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(70, 105)
+layout_mode = 2
 
-[node name="ProfilePic" parent="." instance=ExtResource("2_r25eo")]
+[node name="ProfilePic" parent="Control" instance=ExtResource("2_r25eo")]
+unique_name_in_owner = true
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = -56.0
-offset_top = 68.0
-offset_right = -56.0
-offset_bottom = 68.0
+offset_left = -62.999996
+offset_top = 59.999996
+offset_right = -62.999996
+offset_bottom = 149.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.24, 0.24)
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 106.0
-offset_top = 3.0
-offset_right = 149.0
-offset_bottom = 30.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20.38, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 theme = ExtResource("3_akldj")
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 22
 text = "Eve"
+
+[node name="RichTextLabel" parent="VBoxContainer" instance=ExtResource("2_au21n")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 58)
+layout_mode = 2
+text = "我我我我我我我我我我我我我我我我我我我我我我我我我"
+MAX_WIDTH = 700.0
+
+[node name="Control2" type="Control" parent="."]
+custom_minimum_size = Vector2(8.455, 0)
+layout_mode = 2

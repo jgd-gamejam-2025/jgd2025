@@ -61,45 +61,11 @@ size_flags_vertical = 10
 theme_override_constants/separation = 3
 
 [node name="DetailBubble" parent="Panel/MarginContainer/BubblesScroll/VBoxContainer" instance=ExtResource("2_8ats8")]
-layout_mode = 2
-
-[node name="DetailBubble2" parent="Panel/MarginContainer/BubblesScroll/VBoxContainer" instance=ExtResource("2_8ats8")]
-layout_mode = 2
-
-[node name="DetailBubble3" parent="Panel/MarginContainer/BubblesScroll/VBoxContainer" instance=ExtResource("2_8ats8")]
-layout_mode = 2
-
-[node name="DetailBubble4" parent="Panel/MarginContainer/BubblesScroll/VBoxContainer" instance=ExtResource("2_8ats8")]
-layout_mode = 2
-
-[node name="DetailBubble5" parent="Panel/MarginContainer/BubblesScroll/VBoxContainer" instance=ExtResource("2_8ats8")]
-layout_mode = 2
-
-[node name="DetailBubble6" parent="Panel/MarginContainer/BubblesScroll/VBoxContainer" instance=ExtResource("2_8ats8")]
-layout_mode = 2
-
-[node name="DetailBubble7" parent="Panel/MarginContainer/BubblesScroll/VBoxContainer" instance=ExtResource("2_8ats8")]
-layout_mode = 2
-
-[node name="DetailBubble8" parent="Panel/MarginContainer/BubblesScroll/VBoxContainer" instance=ExtResource("2_8ats8")]
-layout_mode = 2
-
-[node name="DetailBubble9" parent="Panel/MarginContainer/BubblesScroll/VBoxContainer" instance=ExtResource("2_8ats8")]
-layout_mode = 2
-
-[node name="DetailBubble10" parent="Panel/MarginContainer/BubblesScroll/VBoxContainer" instance=ExtResource("2_8ats8")]
-layout_mode = 2
-
-[node name="DetailBubble11" parent="Panel/MarginContainer/BubblesScroll/VBoxContainer" instance=ExtResource("2_8ats8")]
-layout_mode = 2
-
-[node name="DetailBubble12" parent="Panel/MarginContainer/BubblesScroll/VBoxContainer" instance=ExtResource("2_8ats8")]
-layout_mode = 2
-
-[node name="DetailBubble13" parent="Panel/MarginContainer/BubblesScroll/VBoxContainer" instance=ExtResource("2_8ats8")]
+visible = false
 layout_mode = 2
 
 [node name="FlatBubble" parent="Panel/MarginContainer/BubblesScroll/VBoxContainer" instance=ExtResource("3_spcoe")]
+visible = false
 layout_mode = 2
 
 [node name="Name" type="Label" parent="Panel"]

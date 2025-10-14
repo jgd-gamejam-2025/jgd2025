@@ -36,9 +36,9 @@ func send_text_to_ai():
 	if not debug_mode:
 		aiChat.say(textInput.text)
 	else:
-		for i in range(15):
-			_on_nobody_who_chat_response_updated("Debugging..")
-			await get_tree().create_timer(0.2).timeout
+		for i in range(75):
+			_on_nobody_who_chat_response_updated("我")
+			await get_tree().create_timer(0.03).timeout
 		_on_nobody_who_chat_response_finished("Debugging Again")
 	sent_text.emit()
 
@@ -57,7 +57,7 @@ func _on_nobody_who_chat_response_updated(new_token: String) -> void:
 	if block_text_generation:
 		return
 	if in_chat_mode:
-		current_detail_bubble.get_node("RichTextLabel").text += new_token
+		current_detail_bubble.rich_text_label.text += new_token
 	else:
 		chatLog.text += new_token
 		
@@ -142,8 +142,8 @@ func kill_text_animation(interval: float = 0.02) -> void:
 
 func add_flat_bubble(text: String) -> void:
 	var new_bubble = flat_bubble.duplicate()
-	new_bubble.get_node("RichTextLabel").text = text
 	$Panel/MarginContainer/BubblesScroll/VBoxContainer.add_child(new_bubble)
+	new_bubble.rich_text_label.text = text
 	new_bubble.show()
 	await get_tree().process_frame
 	new_bubble.resize()
@@ -151,7 +151,7 @@ func add_flat_bubble(text: String) -> void:
 var current_detail_bubble = null
 func add_detail_bubble() -> void:
 	var new_bubble = detail_bubble.duplicate()
-	new_bubble.get_node("RichTextLabel").text = ""
 	$Panel/MarginContainer/BubblesScroll/VBoxContainer.add_child(new_bubble)
+	new_bubble.rich_text_label.text = ""
 	new_bubble.show()
 	current_detail_bubble = new_bubble

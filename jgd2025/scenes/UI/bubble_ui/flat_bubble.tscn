@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://immlbpyxbb8m"]
+[gd_scene load_steps=4 format=3 uid="uid://immlbpyxbb8m"]
 
+[ext_resource type="Script" uid="uid://cs2g0o8al02kf" path="res://scenes/UI/bubble_ui/flat_bubble.gd" id="1_qyxtn"]
 [ext_resource type="PackedScene" uid="uid://bynn3w8xjct6b" path="res://scenes/UI/bubble_ui/ui_bubble.tscn" id="1_w6bft"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6bft"]
@@ -18,9 +19,10 @@ corner_radius_bottom_left = 35
 custom_minimum_size = Vector2(800, 0)
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_qyxtn")
 
 [node name="RichTextLabel" parent="." instance=ExtResource("1_w6bft")]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_w6bft")
-text = "我"
+MAX_WIDTH = 700.0

@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://b4ekpllfloej0"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://b4ekpllfloej0"]
 
 [ext_resource type="FontFile" uid="uid://b8muwa7k4021" path="res://scenes/UI/fonts/OPlusSans3-Regular.ttf" id="1_i806f"]
+[ext_resource type="FontFile" uid="uid://dpx5atk0qm3yy" path="res://scenes/UI/fonts/SourceHanSansCN-Regular.otf" id="2_vtxsu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25wmv"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -40,7 +41,7 @@ expand_margin_left = 18.0
 expand_margin_right = 18.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmybr"]
-bg_color = Color(0.14044744, 0.14044744, 0.14044744, 1)
+bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
 border_color = Color(0.8, 0.8, 0.8, 0)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
@@ -60,7 +61,8 @@ Button/styles/focus = SubResource("StyleBoxFlat_25wmv")
 Button/styles/hover = SubResource("StyleBoxFlat_f4c2y")
 Button/styles/normal = SubResource("StyleBoxFlat_i806f")
 Button/styles/pressed = SubResource("StyleBoxFlat_kw8pt")
-LineEdit/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("2_vtxsu")
+LineEdit/font_sizes/font_size = 26
 LineEdit/styles/focus = SubResource("StyleBoxFlat_mx54f")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_vtxsu")
 LineEdit/styles/read_only = SubResource("StyleBoxFlat_cmybr")

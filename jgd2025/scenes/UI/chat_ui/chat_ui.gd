@@ -6,6 +6,13 @@ extends Control
 @onready var name_label = $Panel/Name
 @export var debug_mode = false
 
+#--bubbles-----
+@onready var margin_container = $Panel/MarginContainer
+@onready var detail_bubble = $Panel/MarginContainer/BubblesScroll/VBoxContainer/DetailBubble
+@onready var flat_bubble = $Panel/MarginContainer/BubblesScroll/VBoxContainer/FlatBubble
+var in_chat_mode = false
+#--------------
+
 var _tween: Tween 
 var block_text_generation = false
 
@@ -15,16 +22,23 @@ var line_edit_focus_sent = false
 var first_time_sent_text = true
 
 func _ready() -> void:
+	margin_container.hide()
+	detail_bubble.hide()
+	flat_bubble.hide()
 	if debug_mode:
 		print("Debug mode activated")
 
 func send_text_to_ai():
+	add_flat_bubble(textInput.text)
+	add_detail_bubble()
 	textInput.editable = false
 	chatLog.text = ""
 	if not debug_mode:
 		aiChat.say(textInput.text)
 	else:
-		_on_nobody_who_chat_response_updated("Debugging...")
+		for i in range(15):
+			_on_nobody_who_chat_response_updated("Debugging..")
+			await get_tree().create_timer(0.2).timeout
 		_on_nobody_who_chat_response_finished("Debugging Again")
 	sent_text.emit()
 
@@ -42,8 +56,11 @@ func _input(event: InputEvent) -> void:
 func _on_nobody_who_chat_response_updated(new_token: String) -> void:
 	if block_text_generation:
 		return
-	chatLog.text += new_token
-
+	if in_chat_mode:
+		current_detail_bubble.get_node("RichTextLabel").text += new_token
+	else:
+		chatLog.text += new_token
+		
 func _on_nobody_who_chat_response_finished(response: String) -> void:
 	if block_text_generation:
 		return
@@ -89,6 +106,7 @@ func _on_text_input_focus_entered() -> void:
 		line_edit_focus.emit()
 
 func to_chat_mode():
+	in_chat_mode = true
 	var input_hbox = $Panel/InputHBox
 	var profile_pic = $Panel/ProfilePic
 	var name_tag = $Panel/Name
@@ -101,6 +119,10 @@ func to_chat_mode():
 	tween.tween_property(profile_pic, "scale", Vector2(0.35, 0.35), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(name_tag, "position:y", 115, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	kill_text_animation()
+
+	$Panel/Scroll.hide()
+	margin_container.show()
+
 
 func kill_text_animation(interval: float = 0.02) -> void:
 	if _tween and _tween.is_valid():
@@ -117,3 +139,19 @@ func kill_text_animation(interval: float = 0.02) -> void:
 		float(char_count),  # End with all characters
 		total_time  # Total animation time
 	)
+
+func add_flat_bubble(text: String) -> void:
+	var new_bubble = flat_bubble.duplicate()
+	new_bubble.get_node("RichTextLabel").text = text
+	$Panel/MarginContainer/BubblesScroll/VBoxContainer.add_child(new_bubble)
+	new_bubble.show()
+	await get_tree().process_frame
+	new_bubble.resize()
+
+var current_detail_bubble = null
+func add_detail_bubble() -> void:
+	var new_bubble = detail_bubble.duplicate()
+	new_bubble.get_node("RichTextLabel").text = ""
+	$Panel/MarginContainer/BubblesScroll/VBoxContainer.add_child(new_bubble)
+	new_bubble.show()
+	current_detail_bubble = new_bubble

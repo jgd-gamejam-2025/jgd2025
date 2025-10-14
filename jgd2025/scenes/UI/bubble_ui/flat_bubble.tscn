@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://immlbpyxbb8m"]
+
+[ext_resource type="PackedScene" uid="uid://bynn3w8xjct6b" path="res://scenes/UI/bubble_ui/ui_bubble.tscn" id="1_w6bft"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6bft"]
+bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+border_width_left = 25
+border_width_top = 10
+border_width_right = 25
+border_width_bottom = 10
+border_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+
+[node name="MarginContainer" type="MarginContainer"]
+custom_minimum_size = Vector2(800, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" parent="." instance=ExtResource("1_w6bft")]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_w6bft")
+text = "我"

@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://db7chujuf7je8"]
+
+[ext_resource type="Texture2D" uid="uid://c8n0easlsk2ri" path="res://assets/Eve/eve_ai1.png" id="1_c7awx"]
+
+[sub_resource type="Gradient" id="Gradient_m60jq"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.693878)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4sbbt"]
+gradient = SubResource("Gradient_m60jq")
+width = 1024
+height = 1024
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[node name="ProfilePic" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -185.0
+offset_right = 128.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(128, 0)
+
+[node name="ImageFrame" type="TextureRect" parent="."]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 896.0
+offset_bottom = 896.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+texture = SubResource("GradientTexture2D_4sbbt")
+
+[node name="TextureRect" type="TextureRect" parent="ImageFrame"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -512.0
+offset_right = 512.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_c7awx")

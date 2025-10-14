@@ -1,28 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1n0m7pcvm52p"]
+[gd_scene load_steps=8 format=3 uid="uid://c1n0m7pcvm52p"]
 
 [ext_resource type="Script" uid="uid://bpxeoir7frp8w" path="res://levels/chat_prepare/chat_prepare.gd" id="1_gtmes"]
 [ext_resource type="AudioStream" uid="uid://jsskh1mgbhvu" path="res://assets/audio/ring.wav" id="2_gpq3d"]
 [ext_resource type="PackedScene" uid="uid://byhcpq4t56qc3" path="res://scenes/UI/chat_ui/chat_ui.tscn" id="3_gvqlb"]
 [ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="4_70jtd"]
-[ext_resource type="Texture2D" uid="uid://deoqpv5sf2343" path="res://assets/ui/Gear-1.png" id="5_nab3y"]
-[ext_resource type="Texture2D" uid="uid://1q6sfcykos8y" path="res://assets/ui/X.png" id="6_32eeq"]
-[ext_resource type="Texture2D" uid="uid://dlrbue5kaerin" path="res://assets/ui/信息.png" id="7_r7opj"]
+[ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="7_bxhim"]
 [ext_resource type="FontFile" uid="uid://dche8c1u6rmg" path="res://scenes/UI/fonts/OPlusSans3-Bold.ttf" id="8_2ww3e"]
 [ext_resource type="FontFile" uid="uid://b8muwa7k4021" path="res://scenes/UI/fonts/OPlusSans3-Regular.ttf" id="9_j6bcj"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_noujk"]
-bg_color = Color(0.53, 0.2491, 0.2818717, 1)
-corner_radius_top_left = 150
-corner_radius_top_right = 150
-corner_radius_bottom_right = 150
-corner_radius_bottom_left = 150
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4v0dd"]
-bg_color = Color(0.65, 0.24049999, 0.28827506, 1)
-corner_radius_top_left = 150
-corner_radius_top_right = 150
-corner_radius_bottom_right = 150
-corner_radius_bottom_left = 150
 
 [node name="ChatPrepare" type="Node"]
 script = ExtResource("1_gtmes")
@@ -32,66 +16,6 @@ ring_audio = ExtResource("2_gpq3d")
 
 [node name="SmallTalkTimer" type="Timer" parent="."]
 wait_time = 3.5
-
-[node name="OptionButton" type="Button" parent="."]
-custom_minimum_size = Vector2(0, 55)
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -106.0
-offset_top = -109.0
-offset_right = -46.0
-offset_bottom = -49.0
-grow_horizontal = 2
-grow_vertical = 0
-pivot_offset = Vector2(28, 30)
-theme = ExtResource("4_70jtd")
-icon = ExtResource("5_nab3y")
-icon_alignment = 1
-
-[node name="ExitButton" type="Button" parent="."]
-custom_minimum_size = Vector2(0, 55)
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -29.5
-offset_top = -109.0
-offset_right = 30.5
-offset_bottom = -49.0
-grow_horizontal = 2
-grow_vertical = 0
-pivot_offset = Vector2(28, 30)
-theme = ExtResource("4_70jtd")
-theme_override_constants/icon_max_width = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_noujk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_4v0dd")
-theme_override_styles/hover = SubResource("StyleBoxFlat_4v0dd")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_4v0dd")
-theme_override_styles/focus = SubResource("StyleBoxFlat_4v0dd")
-icon = ExtResource("6_32eeq")
-icon_alignment = 1
-
-[node name="InfoButton" type="Button" parent="."]
-custom_minimum_size = Vector2(0, 55)
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 47.0
-offset_top = -109.0
-offset_right = 107.0
-offset_bottom = -49.0
-grow_horizontal = 2
-grow_vertical = 0
-pivot_offset = Vector2(28, 30)
-theme = ExtResource("4_70jtd")
-icon = ExtResource("7_r7opj")
-icon_alignment = 1
 
 [node name="Reload" type="Control" parent="."]
 visible = false
@@ -137,9 +61,8 @@ theme_override_font_sizes/font_size = 50
 text = "
 正在尝试重新启动"
 
+[node name="Buttons" parent="." instance=ExtResource("7_bxhim")]
+
 [connection signal="line_edit_focus" from="ChatUI" to="." method="_on_chat_ui_line_edit_focus"]
 [connection signal="sent_text" from="ChatUI" to="." method="_on_chat_ui_sent_text"]
 [connection signal="timeout" from="SmallTalkTimer" to="." method="_on_small_talk_timer_timeout"]
-[connection signal="pressed" from="OptionButton" to="." method="_on_option_button_pressed"]
-[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="InfoButton" to="." method="_on_info_button_pressed"]

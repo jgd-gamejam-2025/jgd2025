@@ -7,7 +7,7 @@
 bg_color = Color(0.11879441, 0.27229035, 0.40392157, 1)
 border_width_left = 25
 border_width_top = 10
-border_width_right = 15
+border_width_right = 25
 border_width_bottom = 10
 border_color = Color(0.11764706, 0.27058825, 0.40392157, 1)
 corner_radius_top_left = 35
@@ -16,12 +16,14 @@ corner_radius_bottom_right = 35
 corner_radius_bottom_left = 35
 
 [node name="RichTextLabel" type="RichTextLabel"]
-offset_right = 88.0
-offset_bottom = 76.0
+offset_right = 154.0
+offset_bottom = 60.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme = ExtResource("1_dggof")
-theme_override_font_sizes/normal_font_size = 39
+theme_override_font_sizes/normal_font_size = 26
 theme_override_styles/normal = SubResource("StyleBoxFlat_oq46v")
-text = "我"
+text = "我我我我"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0

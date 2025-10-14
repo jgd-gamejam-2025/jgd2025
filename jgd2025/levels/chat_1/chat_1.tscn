@@ -10,4 +10,5 @@ next_level = ExtResource("2_k0lel")
 
 [node name="ChatUI" parent="." instance=ExtResource("2_yntfr")]
 
+[connection signal="received_text" from="ChatUI" to="." method="_on_chat_ui_received_text"]
 [connection signal="sent_text" from="ChatUI" to="." method="_on_chat_ui_sent_text"]

@@ -50,8 +50,37 @@ func _ready():
 	$SmallTalkTimer.start()
 	small_talking = true
 
+func _on_small_talk_timer_timeout() -> void:
+	if small_talking:
+		var message = ""
+		if welcome_index < welcome_messages_fix.size():
+			message = welcome_messages_fix[welcome_index]
+			welcome_index = welcome_index + 1
+		else:
+			$SmallTalkTimer.wait_time = 10
+			message = welcome_messages_random[randi() % welcome_messages_random.size()]
+		chat_ui.show_welcome_text(message)
 
-func _on_chat_ui_sent_text() -> void:
+
+func _on_chat_ui_line_edit_focus() -> void:
+	if small_talking:
+		small_talking = false
+		$SmallTalkTimer.stop()
+		chat_ui.show_welcome_text("问你话呢，晚上想吃什么？")
+
+
+func _on_option_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_exit_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_info_button_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_chat_ui_received_text() -> void:
 	text_sent_count += 1
 
 	if text_sent_count > 4:
@@ -119,32 +148,5 @@ func _on_chat_ui_sent_text() -> void:
 			chat_ui.textInput.grab_focus()
 		)
 
-func _on_small_talk_timer_timeout() -> void:
-	if small_talking:
-		var message = ""
-		if welcome_index < welcome_messages_fix.size():
-			message = welcome_messages_fix[welcome_index]
-			welcome_index = welcome_index + 1
-		else:
-			$SmallTalkTimer.wait_time = 10
-			message = welcome_messages_random[randi() % welcome_messages_random.size()]
-		chat_ui.show_welcome_text(message)
-
-
-func _on_chat_ui_line_edit_focus() -> void:
-	if small_talking:
-		small_talking = false
-		$SmallTalkTimer.stop()
-		chat_ui.show_welcome_text("问你话呢，晚上想吃什么？")
-
-
-func _on_option_button_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_exit_button_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_info_button_pressed() -> void:
+func _on_chat_ui_sent_text() -> void:
 	pass # Replace with function body.

@@ -21,6 +21,7 @@ var _tween: Tween
 var block_text_generation = false
 
 signal sent_text
+signal received_text
 signal line_edit_focus
 var line_edit_focus_sent = false
 var first_time_sent_text = true
@@ -90,6 +91,7 @@ func _on_nobody_who_chat_response_updated(new_token: String) -> void:
 func _on_nobody_who_chat_response_finished(response: String) -> void:
 	if block_text_generation:
 		return
+	received_text.emit()
 	textInput.editable = true
 	# focus the text input for next message
 	textInput.grab_focus()

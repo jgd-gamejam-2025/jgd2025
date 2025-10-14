@@ -47,27 +47,6 @@ func _ready():
 	$SmallTalkTimer.start()
 	small_talking = true
 
-func _on_chat_ui_sent_text() -> void:
-	text_sent_count += 1
-
-	if text_sent_count == 2:
-		next_scene = preload("res://levels/chat_bug/chat_bug.tscn")
-		await get_tree().create_timer(0.7).timeout
-		Transition.set_and_start("工作电话", "烦", 3.5, ring_audio)
-		# wait for 4 seconds before showing the next text
-		await get_tree().create_timer(3.5).timeout
-		chat_ui.add_and_write_detail_bubble("电话？怎么了？")
-	
-	if text_sent_count == 4:
-		Transition.set_and_start("该睡了", "困", 2.0)
-		await get_tree().create_timer(2.0).timeout
-		chat_ui.add_and_write_detail_bubble("时间不早了，你该休息了，说晚安吧？")
-
-	if text_sent_count == 5:
-		Transition.set_and_start("晚安。", "太困了 ", 4.0)
-		await get_tree().create_timer(0.7).timeout
-		get_tree().change_scene_to_packed(next_scene)
-
 func _on_small_talk_timer_timeout() -> void:
 	if small_talking:
 		var message = ""
@@ -96,4 +75,28 @@ func _on_exit_button_pressed() -> void:
 
 
 func _on_info_button_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_chat_ui_received_text() -> void:
+	text_sent_count += 1
+
+	if text_sent_count == 2:
+		next_scene = preload("res://levels/chat_bug/chat_bug.tscn")
+		await get_tree().create_timer(0.7).timeout
+		Transition.set_and_start("工作电话", "烦", 3.5, ring_audio)
+		# wait for 4 seconds before showing the next text
+		await get_tree().create_timer(3.5).timeout
+		chat_ui.add_and_write_detail_bubble("电话？怎么了？")
+	
+	if text_sent_count == 4:
+		Transition.set_and_start("该睡了", "困", 2.0)
+		await get_tree().create_timer(2.0).timeout
+		chat_ui.add_and_write_detail_bubble("时间不早了，你该休息了，说晚安吧？")
+
+	if text_sent_count == 5:
+		Transition.set_and_start("晚安。", "太困了 ", 4.0)
+		await get_tree().create_timer(0.7).timeout
+		get_tree().change_scene_to_packed(next_scene)
+
+func _on_chat_ui_sent_text() -> void:
 	pass # Replace with function body.

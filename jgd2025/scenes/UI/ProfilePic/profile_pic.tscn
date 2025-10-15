@@ -48,6 +48,7 @@ scale = Vector2(0.25, 0.25)
 texture = SubResource("GradientTexture2D_4sbbt")
 
 [node name="TextureRect" type="TextureRect" parent="ImageFrame"]
+texture_filter = 5
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 8

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://byhcpq4t56qc3"]
+[gd_scene load_steps=18 format=3 uid="uid://byhcpq4t56qc3"]
 
 [ext_resource type="Script" uid="uid://c8tlo7ig0ena6" path="res://scenes/UI/chat_ui/chat_ui.gd" id="1_h4ouj"]
 [ext_resource type="PackedScene" uid="uid://s0tf56xdbeog" path="res://scenes/UI/bubble_ui/detail_bubble.tscn" id="2_8ats8"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://immlbpyxbb8m" path="res://scenes/UI/bubble_ui/flat_bubble.tscn" id="3_spcoe"]
 [ext_resource type="FontFile" uid="uid://dche8c1u6rmg" path="res://scenes/UI/fonts/OPlusSans3-Bold.ttf" id="3_vgd05"]
 [ext_resource type="PackedScene" uid="uid://db7chujuf7je8" path="res://scenes/UI/ProfilePic/profile_pic.tscn" id="5_8ats8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_td1kd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wk3ky"]
 
@@ -17,15 +19,17 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nkrx"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_spcoe"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ftjdt"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7gws6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cy61e"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qn37w"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spcoe"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+bg_color = Color(0.12941177, 0.12941177, 0.12941177, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
 
 [sub_resource type="Theme" id="Theme_wk3ky"]
 HScrollBar/styles/grabber = SubResource("StyleBoxEmpty_wk3ky")
@@ -33,11 +37,15 @@ HScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_mmueg")
 HScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_oyre0")
 HScrollBar/styles/scroll = SubResource("StyleBoxEmpty_i4ip0")
 HScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_2nkrx")
-VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_spcoe")
-VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_ftjdt")
-VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_7gws6")
-VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_cy61e")
-VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_qn37w")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_spcoe")
+
+[sub_resource type="Gradient" id="Gradient_tupck"]
+offsets = PackedFloat32Array(0.046403714, 1)
+colors = PackedColorArray(0.12941177, 0.12941177, 0.12941177, 1, 0.12941177, 0.12941177, 0.12941177, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kd50e"]
+gradient = SubResource("Gradient_tupck")
+fill_to = Vector2(0, 1)
 
 [sub_resource type="NobodyWhoSampler" id="NobodyWhoSampler_vgd05"]
 
@@ -58,6 +66,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_td1kd")
 
 [node name="Background" type="ColorRect" parent="Panel"]
 layout_mode = 1
@@ -83,7 +92,7 @@ grow_vertical = 2
 pivot_offset = Vector2(400, 0)
 
 [node name="BubblesScroll" type="ScrollContainer" parent="Panel/MarginContainer"]
-custom_minimum_size = Vector2(800, 0)
+custom_minimum_size = Vector2(815, 0)
 layout_mode = 2
 theme = SubResource("Theme_wk3ky")
 
@@ -102,6 +111,16 @@ layout_mode = 2
 
 [node name="FlatBubble" parent="Panel/MarginContainer/BubblesScroll/VBoxContainer" instance=ExtResource("3_spcoe")]
 layout_mode = 2
+
+[node name="Shadow" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.15100001
+offset_bottom = 3.9199982
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_kd50e")
 
 [node name="Name" type="Label" parent="Panel"]
 layout_mode = 1

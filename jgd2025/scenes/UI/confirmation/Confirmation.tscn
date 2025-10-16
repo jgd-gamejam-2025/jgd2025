@@ -97,8 +97,9 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_0l1pk")
+bbcode_enabled = true
 text = "AI掌握的知识远超人类总和，并拥有永久的生命形式。
-它的存在形式比人类更有价值。"
+它的存在形式比人类更有价值。[color=#2caff5][u]link[/u][/color]"
 fit_content = true
 
 [node name="Control2" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]

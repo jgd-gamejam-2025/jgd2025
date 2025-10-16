@@ -52,6 +52,7 @@ text = "Eve"
 [node name="RichTextLabel" parent="VBoxContainer" instance=ExtResource("2_au21n")]
 unique_name_in_owner = true
 layout_mode = 2
+bbcode_enabled = true
 MAX_WIDTH = 700.0
 
 [node name="Padding" type="Control" parent="VBoxContainer"]

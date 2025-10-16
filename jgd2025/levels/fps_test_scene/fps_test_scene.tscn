@@ -1,11 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://d1mhk3prnqywk"]
+[gd_scene load_steps=18 format=3 uid="uid://d1mhk3prnqywk"]
 
 [ext_resource type="Script" uid="uid://dqkok8p7jcl4x" path="res://levels/fps_test_scene/fps_test_scene.gd" id="1_rujvw"]
 [ext_resource type="PackedScene" uid="uid://d2jaf8rnldxpk" path="res://levels/chat_2/chat_2.tscn" id="2_7krs1"]
-[ext_resource type="Material" uid="uid://brpu7xylrg2l2" path="res://fps_example_scene/materials/material_basic_blue.tres" id="2_ag2ex"]
+[ext_resource type="Material" uid="uid://brpu7xylrg2l2" path="res://addons/fps_example_scene/materials/material_basic_blue.tres" id="2_ag2ex"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_7krs1"]
-[ext_resource type="PackedScene" uid="uid://nswkrnyepieq" path="res://fps_example_scene/scenes/basic_block.tscn" id="4_gu86n"]
-[ext_resource type="PackedScene" uid="uid://kqmbae0l4ewu" path="res://fps_example_scene/scenes/basic_block_2.tscn" id="5_ayp2j"]
+[ext_resource type="PackedScene" uid="uid://nswkrnyepieq" path="res://addons/fps_example_scene/scenes/basic_block.tscn" id="4_gu86n"]
+[ext_resource type="PackedScene" uid="uid://bcsrmexg8wbha" path="res://assets/models/maze/ground.glb" id="4_wkbgm"]
+[ext_resource type="PackedScene" uid="uid://kqmbae0l4ewu" path="res://addons/fps_example_scene/scenes/basic_block_2.tscn" id="5_ayp2j"]
+[ext_resource type="PackedScene" uid="uid://dm1tqjaeja1k4" path="res://assets/models/maze/small_rock.glb" id="8_25ugg"]
+[ext_resource type="PackedScene" uid="uid://b1egk12hpx2th" path="res://assets/models/maze/wall.glb" id="9_f1mlq"]
+[ext_resource type="PackedScene" uid="uid://xa1ka8tgoahi" path="res://assets/models/maze/fence1.glb" id="10_u2x88"]
+[ext_resource type="PackedScene" uid="uid://jymctoo8bmvx" path="res://assets/models/maze/fence2.glb" id="11_63880"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -54,37 +59,6 @@ shape = SubResource("ConvexPolygonShape3D_h1lgg")
 
 [node name="Obstacles" type="Node" parent="."]
 
-[node name="Node" type="Node" parent="Obstacles"]
-
-[node name="BasicBlock" parent="Obstacles/Node" instance=ExtResource("4_gu86n")]
-transform = Transform3D(1, 0, 0, 0, 8.027554, 0, 0, 0, 10.858211, -2.8494737, 2.08165e-12, -1.5610132)
-
-[node name="BasicBlock10" parent="Obstacles/Node" instance=ExtResource("4_gu86n")]
-transform = Transform3D(-0.007976033, 0, 10.857864, 0, 8.027554, 0, -0.9999681, 0, -0.08660546, 0.49750423, 2.08165e-12, 4.12558)
-
-[node name="BasicBlock11" parent="Obstacles/Node" instance=ExtResource("4_gu86n")]
-transform = Transform3D(-0.11250365, 0, 11.992847, 0, 1.5207403, 0, -14.104764, 0, -0.09565841, 0.49750423, 7.6871395, -1.1981697)
-
-[node name="BasicBlock9" parent="Obstacles/Node" instance=ExtResource("4_gu86n")]
-transform = Transform3D(1, 0, 0, 0, 8.027554, 0, 0, 0, 10.858211, 5.566909, 2.08165e-12, -1.5610132)
-
-[node name="BasicBlock4" parent="Obstacles/Node" instance=ExtResource("5_ayp2j")]
-transform = Transform3D(9.538239, 0, 0, 0, 3.535397, 0, 0, 0, 1, 2, 2, -7.053047)
-
-[node name="Node2" type="Node" parent="Obstacles"]
-
-[node name="BasicBlock" parent="Obstacles/Node2" instance=ExtResource("4_gu86n")]
-transform = Transform3D(1, 0, 0, 0, 8.027554, 0, 0, 0, 10.858211, -1.7771881, -0.12054014, -11.75826)
-
-[node name="BasicBlock11" parent="Obstacles/Node2" instance=ExtResource("4_gu86n")]
-transform = Transform3D(-0.11250365, 0, 11.992847, 0, 1.5207403, 0, -14.104764, 0, -0.09565841, 2.641387, 7.6871395, -11.421476)
-
-[node name="BasicBlock9" parent="Obstacles/Node2" instance=ExtResource("4_gu86n")]
-transform = Transform3D(1, 0, 0, 0, 8.027554, 0, 0, 0, 10.858211, 5.14618, 2.08165e-12, -11.784321)
-
-[node name="BasicBlock4" parent="Obstacles/Node2" instance=ExtResource("5_ayp2j")]
-transform = Transform3D(9.538239, 0, 0, 0, 4.523577, 0, 0, 0, 1, 2.8136482, -0.122077465, -17.354641)
-
 [node name="BasicBlock2" parent="Obstacles" instance=ExtResource("4_gu86n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0417352, 1.227107, -5.8604717)
 
@@ -113,5 +87,20 @@ polygon = PackedVector2Array(0, 0, 2.08165e-12, 2, 6, 2, 10, 2.08165e-12)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacles/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9772902, 1.4268188, -13.718641)
 shape = SubResource("BoxShape3D_rujvw")
+
+[node name="ground" parent="." instance=ExtResource("4_wkbgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6959915, -0.9255924, 26.89264)
+
+[node name="small_rock" parent="." instance=ExtResource("8_25ugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2673931, -0.9501568, 26.346624)
+
+[node name="wall" parent="." instance=ExtResource("9_f1mlq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.922812, -0.8675537, 38.57831)
+
+[node name="fence1" parent="." instance=ExtResource("10_u2x88")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3089485, -0.62138605, 18.477243)
+
+[node name="fence2" parent="." instance=ExtResource("11_63880")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.443544, -0.71424675, 21.468458)
 
 [connection signal="body_entered" from="Obstacles/Area3D" to="." method="_on_area_3d_body_entered"]

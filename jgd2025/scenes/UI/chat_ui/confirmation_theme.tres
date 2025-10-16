@@ -1,0 +1,106 @@
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://6s56bwymfcs8"]
+
+[ext_resource type="FontFile" uid="uid://b8muwa7k4021" path="res://scenes/UI/fonts/OPlusSans3-Regular.ttf" id="1_snigg"]
+[ext_resource type="FontFile" uid="uid://dpx5atk0qm3yy" path="res://scenes/UI/fonts/SourceHanSansCN-Regular.otf" id="2_sw5j8"]
+[ext_resource type="FontFile" uid="uid://dtn0bes4llts8" path="res://scenes/UI/fonts/SourceHanSansCN-Bold.otf" id="3_eopjc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25wmv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_snigg"]
+bg_color = Color(0.22265625, 0.22265625, 0.22265625, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 150
+corner_radius_top_right = 150
+corner_radius_bottom_right = 150
+corner_radius_bottom_left = 150
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sw5j8"]
+bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 150
+corner_radius_top_right = 150
+corner_radius_bottom_right = 150
+corner_radius_bottom_left = 150
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eopjc"]
+bg_color = Color(0.17578125, 0.17578125, 0.17578125, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 150
+corner_radius_top_right = 150
+corner_radius_bottom_right = 150
+corner_radius_bottom_left = 150
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mx54f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtxsu"]
+bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 18.0
+expand_margin_right = 18.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmybr"]
+bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 18.0
+expand_margin_right = 18.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vtxsu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25wmv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mx54f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4c2y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cmybr"]
+
+[resource]
+default_font = ExtResource("1_snigg")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(0.6955032, 0.6955031, 0.6955031, 1)
+Button/constants/icon_max_width = 35
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_snigg")
+Button/styles/focus = SubResource("StyleBoxFlat_25wmv")
+Button/styles/hover = SubResource("StyleBoxFlat_snigg")
+Button/styles/normal = SubResource("StyleBoxFlat_sw5j8")
+Button/styles/pressed = SubResource("StyleBoxFlat_eopjc")
+Label/fonts/font = ExtResource("2_sw5j8")
+LineEdit/font_sizes/font_size = 26
+LineEdit/styles/focus = SubResource("StyleBoxFlat_mx54f")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_vtxsu")
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_cmybr")
+RichTextLabel/constants/line_separation = 20
+RichTextLabel/constants/paragraph_separation = 20
+RichTextLabel/font_sizes/bold_font_size = 26
+RichTextLabel/font_sizes/bold_italics_font_size = 26
+RichTextLabel/font_sizes/italics_font_size = 26
+RichTextLabel/font_sizes/mono_font_size = 26
+RichTextLabel/font_sizes/normal_font_size = 30
+RichTextLabel/fonts/bold_font = ExtResource("3_eopjc")
+RichTextLabel/fonts/normal_font = ExtResource("2_sw5j8")
+VBoxContainer/constants/separation = 25
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_vtxsu")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_25wmv")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_mx54f")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_f4c2y")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_cmybr")

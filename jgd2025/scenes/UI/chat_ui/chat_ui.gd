@@ -13,6 +13,7 @@ extends Control
 @onready var bubble_scroll_bar = bubble_scroll.get_v_scroll_bar()
 @onready var detail_bubble = $Panel/MarginContainer/BubblesScroll/VBoxContainer/DetailBubble
 @onready var flat_bubble = $Panel/MarginContainer/BubblesScroll/VBoxContainer/FlatBubble
+@onready var image_bubble = $Panel/MarginContainer/BubblesScroll/VBoxContainer/ImageBubble
 var in_chat_mode = false
 var make_new_bubble_on_next_token = true
 #--------------
@@ -30,6 +31,7 @@ func _ready() -> void:
 	margin_container.hide()
 	detail_bubble.hide()
 	flat_bubble.hide()
+	image_bubble.hide()
 	bubble_scroll_bar.connect("changed", self._handle_scrollbar_changed)
 	if debug_mode:
 		print("Debug mode activated")
@@ -74,10 +76,16 @@ func _on_nobody_who_chat_response_updated(new_token: String) -> void:
 				if idx != -1:
 					if idx == new_token.length() - 1:
 						make_new_bubble_on_next_token = true
+						if marker in [".","。"]:
+							new_token = new_token.substr(0, idx) 
 						current_detail_bubble.rich_text_label.text += new_token
 					else:
 						var remainder = new_token.substr(idx + 1, new_token.length() - idx - 1)
-						new_token = new_token.substr(0, idx + 1)
+						# skip ['.', "。"]
+						if marker in [".","。"]:
+							new_token = new_token.substr(0, idx) 
+						else:
+							new_token = new_token.substr(0, idx + 1) 
 						current_detail_bubble.rich_text_label.text += new_token
 						add_detail_bubble()
 						current_detail_bubble.rich_text_label.text += remainder
@@ -234,3 +242,17 @@ func add_to_current_detail_bubble(text: String, interval: float = 0.05):
 			total_time  # Total animation time
 		)
 		current_detail_bubble.rich_text_label.text = pre_text + text
+
+func add_sticker_bubble(anim_name: String):
+	var new_bubble = image_bubble.duplicate()
+	$Panel/MarginContainer/BubblesScroll/VBoxContainer.add_child(new_bubble)
+	new_bubble.set_sticker(anim_name)
+	new_bubble.show()
+	await get_tree().process_frame
+
+func add_image_bubble(texture: Texture):
+	var new_bubble = image_bubble.duplicate()
+	$Panel/MarginContainer/BubblesScroll/VBoxContainer.add_child(new_bubble)
+	new_bubble.set_texture(texture)
+	new_bubble.show()
+	await get_tree().process_frame

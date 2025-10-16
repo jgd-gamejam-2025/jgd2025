@@ -16,6 +16,31 @@ extends Control
 var in_chat_mode = false
 var make_new_bubble_on_next_token = true
 #--------------
+# ----embedding---
+@onready var embedding_model = $EmbeddingModel
+@onready var nb_embedding = $NobodyWhoEmbedding
+var game_embeddings
+@export var embedding_dict = {
+	"open_door": [
+		"请帮我开门",
+		"帮我把门打开",
+		"我想开门",
+	],
+	"close_door": [
+		"请帮我关门",
+		"帮我把门关上",
+		"我想关门",
+	],
+}
+# key: function(phrase: String)
+var embedding_callback = {
+	"open_door": func(phrase: String) -> void:
+		print("Opening the door as per user request: %s" % phrase),
+	"close_door": func(phrase: String) -> void:
+		print("Closing the door as per user request: %s" % phrase),
+}
+@export var simil_threshold = 0.7
+#------------------
 
 var _tween: Tween 
 var block_text_generation = false
@@ -31,6 +56,7 @@ func _ready() -> void:
 	detail_bubble.hide()
 	flat_bubble.hide()
 	bubble_scroll_bar.connect("changed", self._handle_scrollbar_changed)
+	game_embeddings = await init_game_embedding()
 	if debug_mode:
 		print("Debug mode activated")
 
@@ -40,13 +66,20 @@ func send_text_to_ai():
 	add_flat_bubble(my_message)
 	make_new_bubble_on_next_token = true
 	textInput.editable = false
-	if not debug_mode:
-		aiChat.say(my_message)
+
+	# If match embedding, don't send to ai, just call the callback
+	var matched_key = await match_phrase(my_message)
+	if matched_key != null and embedding_callback.has(matched_key):
+		embedding_callback[matched_key].call(my_message)
+		_on_nobody_who_chat_response_finished("Embedding Matched")
 	else:
-		for i in range(5):
-			_on_nobody_who_chat_response_updated("我")
-			await get_tree().create_timer(0.1).timeout
-		_on_nobody_who_chat_response_finished("Debugging Again")
+		if not debug_mode:
+			aiChat.say(my_message)
+		else:
+			for i in range(5):
+				_on_nobody_who_chat_response_updated("我")
+				await get_tree().create_timer(0.1).timeout
+			_on_nobody_who_chat_response_finished("Debugging Again")
 	sent_text.emit()
 
 func _input(event: InputEvent) -> void:
@@ -95,6 +128,38 @@ func _on_nobody_who_chat_response_finished(response: String) -> void:
 	textInput.editable = true
 	# focus the text input for next message
 	textInput.grab_focus()
+
+func init_game_embedding():
+	var embedding_dict = {
+		"open_door": [
+			"开门",
+		],
+		"close_door": [
+			"关门",
+		],
+	}
+	var embeddings = {}
+	for key in embedding_dict.keys():
+		for phrase in embedding_dict[key]:
+			embeddings[key] = []
+			embeddings[key].append(await nb_embedding.embed(phrase))
+	return embeddings
+
+func match_phrase(phrase: String):
+	var max_similarity = 0
+	var most_similar_key = null
+	var input_embed = await nb_embedding.embed(phrase)
+	for key in game_embeddings:
+		for set_phrase in game_embeddings[key]:
+			var sim = nb_embedding.cosine_similarity(input_embed, set_phrase)
+			print("key, sim: ", key, sim)
+			if sim > max_similarity:
+				max_similarity = sim
+				most_similar_key = key
+	if max_similarity >= simil_threshold:
+		return most_similar_key
+	return null
+
 
 func _handle_scrollbar_changed():
 	bubble_scroll.scroll_vertical = bubble_scroll_bar.max_value
@@ -234,3 +299,4 @@ func add_to_current_detail_bubble(text: String, interval: float = 0.05):
 			total_time  # Total animation time
 		)
 		current_detail_bubble.rich_text_label.text = pre_text + text
+		

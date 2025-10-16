@@ -214,7 +214,7 @@ sampler = SubResource("NobodyWhoSampler_vgd05")
 system_prompt = "only return hello. /no_think"
 
 [node name="EmbeddingModel" type="NobodyWhoModel" parent="."]
-model_path = "res://gguf/embedding/Qwen3-Embedding-0.6B-f16.gguf"
+model_path = "res://gguf/embedding/Qwen3-Embedding-0.6B-Q8_0.gguf"
 
 [node name="NobodyWhoEmbedding" type="NobodyWhoEmbedding" parent="." node_paths=PackedStringArray("model_node")]
 model_node = NodePath("../EmbeddingModel")

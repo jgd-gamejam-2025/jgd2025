@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://1m82bdnhye7k"]
+
+[ext_resource type="Material" uid="uid://brpu7xylrg2l2" path="res://fps_example_scene/materials/material_basic_blue.tres" id="3_04mdw"]
+[ext_resource type="MeshLibrary" uid="uid://b402l3ni4b5qk" path="res://levels/maze_load_wall/kenny_natural_kit.tres" id="3_k2rf3"]
+[ext_resource type="Script" uid="uid://co3ukivelgk2u" path="res://levels/maze_load_wall/maze_manager.gd" id="3_lulup"]
+[ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="4_j3jbl"]
+[ext_resource type="PackedScene" uid="uid://b5dqdjonab3mu" path="res://levels/maze_load_wall/wall.tscn" id="4_rgiwp"]
+
+[sub_resource type="GDScript" id="GDScript_k2rf3"]
+script/source = "extends Node3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_aavk3"]
+sky_material = SubResource("ProceduralSkyMaterial_r6mis")
+
+[sub_resource type="Environment" id="Environment_aaj73"]
+background_mode = 2
+sky = SubResource("Sky_aavk3")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n6tjd"]
+material = ExtResource("3_04mdw")
+size = Vector2(100, 100)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h1lgg"]
+points = PackedVector3Array(-50, 0, -50, -50, 0, 50, 50, 0, -50, 50, 0, 50)
+
+[node name="MazeLoadWall" type="Node3D"]
+script = SubResource("GDScript_k2rf3")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_aaj73")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("4_j3jbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_n6tjd")
+skeleton = NodePath("../..")
+
+[node name="FloorCollision" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("ConvexPolygonShape3D_h1lgg")
+
+[node name="MazeManager" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+script = ExtResource("3_lulup")
+wall_scene = ExtResource("4_rgiwp")
+wall_height = 1.0
+player_path = NodePath("../Player")
+
+[node name="GridMap" type="GridMap" parent="MazeManager"]
+mesh_library = ExtResource("3_k2rf3")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65533, 65534, 26, 65533, 65535, 26, 65533, 0, 26, 65533, 1, 26, 65533, 2, 26, 65534, 2, 26, 65535, 2, 26, 0, 2, 26, 1, 2, 26, 2, 2, 26, 3, 2, 26, 65533, 65533, 26, 65534, 65533, 26, 65535, 65533, 26, 0, 65533, 26, 1, 65533, 26, 2, 65533, 26, 3, 65533, 26, 3, 65534, 26, 3, 65535, 26, 3, 0, 26, 3, 1, 26, 9, 0, 26, 9, 1, 26, 9, 65535, 26, 9, 65534, 26, 10, 65534, 26, 12, 65534, 26, 11, 65534, 26, 12, 65535, 26, 11, 65535, 26, 10, 65535, 26, 10, 1, 26, 10, 0, 26, 11, 0, 26, 11, 1, 26, 12, 0, 26, 12, 1, 1048616, 65546, 65535, 1048616, 65547, 65535, 1048616, 65546, 0, 1048616, 65547, 0, 1048616, 131083, 65535, 1048837, 131082, 65535, 1048841, 131083, 0, 1048844, 131082, 0, 1048895)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="RiseTimer" type="Timer" parent="MazeManager"]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="MazeManager/RiseTimer" to="MazeManager" method="_on_rise_timer_timeout"]

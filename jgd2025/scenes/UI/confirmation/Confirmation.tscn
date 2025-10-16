@@ -1,0 +1,140 @@
+[gd_scene load_steps=7 format=3 uid="uid://c245yesknnwkf"]
+
+[ext_resource type="Theme" uid="uid://6s56bwymfcs8" path="res://scenes/UI/chat_ui/confirmation_theme.tres" id="1_0l1pk"]
+[ext_resource type="Script" uid="uid://f4di56bvonug" path="res://scenes/UI/confirmation/confirmation.gd" id="1_ww0h8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ww0h8"]
+bg_color = Color(0.18431373, 0.18431373, 0.18431373, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.07058824)
+shadow_size = 5
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eylsi"]
+bg_color = Color(0.32949224, 0.20136261, 0.20136261, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 150
+corner_radius_top_right = 150
+corner_radius_bottom_right = 150
+corner_radius_bottom_left = 150
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0l1pk"]
+bg_color = Color(0.234375, 0.14266303, 0.14266303, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 150
+corner_radius_top_right = 150
+corner_radius_bottom_right = 150
+corner_radius_bottom_left = 150
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0pyk0"]
+bg_color = Color(0.26953125, 0.16364396, 0.16364396, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 150
+corner_radius_top_right = 150
+corner_radius_bottom_right = 150
+corner_radius_bottom_left = 150
+
+[node name="Confirmation" type="CanvasLayer"]
+script = ExtResource("1_ww0h8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12941177, 0.12941177, 0.12941177, 0.87058824)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = -143.5
+offset_right = 425.0
+offset_bottom = 143.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ww0h8")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_0l1pk")
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "[b]你认同吗？[/b]"
+fit_content = true
+
+[node name="Control" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Content" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_0l1pk")
+text = "AI掌握的知识远超人类总和，并拥有永久的生命形式。
+它的存在形式比人类更有价值。"
+fit_content = true
+
+[node name="Control2" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+theme_override_constants/separation = 18
+
+[node name="Yes" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_0l1pk")
+text = "认同"
+
+[node name="Unsure" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_0l1pk")
+text = "不确定"
+
+[node name="No" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_0l1pk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_eylsi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0l1pk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0pyk0")
+text = "不认同"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Unsure" to="." method="_on_unsure_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/No" to="." method="_on_no_pressed"]

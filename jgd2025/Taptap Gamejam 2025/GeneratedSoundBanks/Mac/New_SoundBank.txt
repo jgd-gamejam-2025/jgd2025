@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1256202815	Play			\Default Work Unit\Play	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	810143650	stateA_phrase_01_110bpm	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\48\{4849CB5D-C469-3A98-FE47-0E342E244FE4}.wem		\Interactive Music Hierarchy\Music\1\stateA_phrase_01_110bpm\stateA_phrase_01_110bpm		1181536
+

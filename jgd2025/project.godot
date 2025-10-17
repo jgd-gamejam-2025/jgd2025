@@ -115,3 +115,9 @@ ragdoll={
 lights_and_shadows/directional_shadow/size=8192
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=0
 lights_and_shadows/positional_shadow/soft_shadow_filter_quality=0
+
+[wwise]
+
+common_user_settings/root_output_path="res://Taptap Gamejam 2025/GeneratedSoundBanks"
+project_settings/windows_platform_info="res://Wwise/resources/Windows.tres"
+project_settings/mac_platform_info="res://Wwise/resources/Mac.tres"

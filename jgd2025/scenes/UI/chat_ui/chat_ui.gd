@@ -26,6 +26,8 @@ var block_text_generation = false
 signal sent_text
 signal received_text
 signal line_edit_focus
+signal command_received(command: String)
+
 var line_edit_focus_sent = false
 var first_time_sent_text = true
 
@@ -47,9 +49,13 @@ func send_text_to_ai():
 	if not debug_mode:
 		current_aiChat.say(my_message)
 	else:
-		for i in range(5):
-			_on_nobody_who_chat_response_updated("我")
-			await get_tree().create_timer(0.1).timeout
+		if my_message.begins_with("{") and my_message.ends_with("}"):
+			# make a signal for command received
+			command_received.emit(my_message.substr(1, my_message.length() - 2))
+		else:
+			for i in range(5):
+				_on_nobody_who_chat_response_updated("我")
+				await get_tree().create_timer(0.1).timeout
 		_on_nobody_who_chat_response_finished("Debugging Again")
 	sent_text.emit()
 
@@ -64,9 +70,19 @@ func _input(event: InputEvent) -> void:
 			first_time_sent_text = false
 			to_chat_mode()
 
+var command_buffer: String = ""
 func _on_nobody_who_chat_response_updated(new_token: String) -> void:
 	if block_text_generation:
 		return
+	# if the token is in format of {...}, treat it as a command, they can be in several tokens
+	if new_token.begins_with("{") or command_buffer != "" or new_token.ends_with("}"):
+		command_buffer += new_token
+		if command_buffer.ends_with("}"):
+			# make a signal for command received
+			command_received.emit(command_buffer.substr(1, command_buffer.length() - 2))
+			command_buffer = ""
+		return
+
 	if in_chat_mode:
 		if make_new_bubble_on_next_token:
 			make_new_bubble_on_next_token = false

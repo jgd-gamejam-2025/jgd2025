@@ -1,4 +1,4 @@
-[gd_resource type="WwiseProjectData" load_steps=21 format=3 uid="uid://jj7qpbbaj8va"]
+[gd_resource type="WwiseProjectData" load_steps=23 format=3 uid="uid://jj7qpbbaj8va"]
 
 [sub_resource type="WwiseTreeObject" id="WwiseTreeObject_dn5s6"]
 path = "\\Virtual Acoustics\\Factory Acoustic Textures\\Textures\\Acoustic_Banner"
@@ -109,18 +109,30 @@ name = "Factory Acoustic Textures"
 id = 2954047558
 
 [sub_resource type="WwiseTreeObject" id="WwiseTreeObject_mqnyt"]
-path = "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus"
-type = 2
-name = "Master Audio Bus"
-guid = "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
-id = 3803692087
+path = "\\SoundBanks\\Default Work Unit\\New_SoundBank"
+type = 7
+name = "New_SoundBank"
+guid = "{C698E988-E820-4CEA-B8D7-C3C3717E179D}"
+id = 4072029455
 
 [sub_resource type="WwiseTreeObject" id="WwiseTreeObject_v560u"]
 children = [SubResource("WwiseTreeObject_mqnyt")]
 name = "Default Work Unit"
 id = 125608783
 
-[sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_yyrou"]
+[sub_resource type="WwiseTreeObject" id="WwiseTreeObject_yyrou"]
+path = "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus"
+type = 2
+name = "Master Audio Bus"
+guid = "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
+id = 3803692087
+
+[sub_resource type="WwiseTreeObject" id="WwiseTreeObject_geu6g"]
+children = [SubResource("WwiseTreeObject_yyrou")]
+name = "Default Work Unit"
+id = 125608783
+
+[sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_5n8hf"]
 max_duration = 6.1533337
 min_duration = 6.1533337
 path = "\\Events\\Default Work Unit\\Play"
@@ -129,12 +141,13 @@ name = "Play"
 guid = "{D862B3DF-5DDF-47F9-8AE7-E47FC53F13D5}"
 id = 1256202815
 
-[sub_resource type="WwiseTreeObject" id="WwiseTreeObject_geu6g"]
-children = [SubResource("WwiseTreeObjectEvent_yyrou")]
+[sub_resource type="WwiseTreeObject" id="WwiseTreeObject_tnib1"]
+children = [SubResource("WwiseTreeObjectEvent_5n8hf")]
 name = "Default Work Unit"
 id = 125608783
 
 [resource]
 acoustic_texture_root = [SubResource("WwiseTreeObject_4djpx")]
-bus_root = [SubResource("WwiseTreeObject_v560u")]
-event_root = [SubResource("WwiseTreeObject_geu6g")]
+bus_root = [SubResource("WwiseTreeObject_geu6g")]
+bank_root = [SubResource("WwiseTreeObject_v560u")]
+event_root = [SubResource("WwiseTreeObject_tnib1")]

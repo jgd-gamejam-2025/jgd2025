@@ -316,6 +316,8 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.5, 2.08165e-12)
 
 [node name="SmoothCamera" type="Camera3D" parent="CameraPivot"]
+fov = 85.0
+near = 0.15
 script = ExtResource("2_1py82")
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="CameraPivot/SmoothCamera"]

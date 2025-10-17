@@ -34,7 +34,7 @@ size = Vector2(100, 100)
 points = PackedVector3Array(-50, 0, -50, -50, 0, 50, 50, 0, -50, 50, 0, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rujvw"]
-size = Vector3(10.078938, 2.7026367, 11.313332)
+size = Vector3(1.347127, 2.7026367, 0.6469002)
 
 [node name="FpsTestScene" type="Node3D"]
 script = ExtResource("1_rujvw")
@@ -57,6 +57,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConvexPolygonShape3D_h1lgg")
 
 [node name="Player" parent="." instance=ExtResource("3_7krs1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23803473, 0, 0.7340965)
 
 [node name="Obstacles" type="Node" parent="."]
 
@@ -86,11 +87,11 @@ polygon = PackedVector2Array(0, 0, 2.08165e-12, 2, 6, 2, 10, 2.08165e-12)
 [node name="Area3D" type="Area3D" parent="Obstacles"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacles/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9772902, 1.4268188, -13.718641)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.508266, 1.4268179, 3.0186272)
 shape = SubResource("BoxShape3D_rujvw")
 
 [node name="ground" parent="." instance=ExtResource("4_wkbgm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6959915, -0.9255924, 26.89264)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.552254, -0.9255924, 25.959929)
 
 [node name="small_rock" parent="." instance=ExtResource("8_25ugg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2673931, -0.9501568, 26.346624)

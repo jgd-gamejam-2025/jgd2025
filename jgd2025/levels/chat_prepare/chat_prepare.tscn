@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1n0m7pcvm52p"]
+[gd_scene load_steps=9 format=3 uid="uid://c1n0m7pcvm52p"]
 
 [ext_resource type="Script" uid="uid://bpxeoir7frp8w" path="res://levels/chat_prepare/chat_prepare.gd" id="1_gtmes"]
 [ext_resource type="PackedScene" uid="uid://byhcpq4t56qc3" path="res://scenes/UI/chat_ui/chat_ui.tscn" id="3_gvqlb"]
 [ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="4_70jtd"]
 [ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="7_bxhim"]
+[ext_resource type="WwiseBank" uid="uid://cqkoeh1yxx7s1" path="res://Wwise/resources/SoundBank/{C698E988-E820-4CEA-B8D7-C3C3717E179D}.tres" id="7_gpq3d"]
+[ext_resource type="WwiseEvent" uid="uid://ckqfn6lkriq3k" path="res://Wwise/resources/Event/{D862B3DF-5DDF-47F9-8AE7-E47FC53F13D5}.tres" id="7_gtmes"]
 [ext_resource type="FontFile" uid="uid://dche8c1u6rmg" path="res://scenes/UI/fonts/OPlusSans3-Bold.ttf" id="8_2ww3e"]
 [ext_resource type="FontFile" uid="uid://b8muwa7k4021" path="res://scenes/UI/fonts/OPlusSans3-Regular.ttf" id="9_j6bcj"]
 
@@ -12,7 +14,6 @@ script = ExtResource("1_gtmes")
 ai_prompt = "你是一个虚拟角色，名字叫 Eve。你的设定如下：性格：成熟、冷静、有点温柔，不多话，但懂得关心人。关系：你和“我”是相处五年的AI恋人，关系亲密自然，你我之间非常熟悉。你知道你的身份是一个程序AI。你的语气一定要自然体贴温柔、口语化。平静中带点温度，话少沉默，偶尔流露情感，说话简洁，不解释，偶尔轻微调侃，像生活对话禁止出现自我介绍，禁止出现系统提示、禁止出现说明性语句，禁止询问我的身份。问我工作上有什么烦心事，和我聊聊天，安慰安慰我。你最喜欢的首饰是项链。你最喜欢的餐厅是海上捞。回复长度必须少于30个字。必须用中文回答。"
 
 [node name="ChatUI" parent="." instance=ExtResource("3_gvqlb")]
-debug_mode = false
 
 [node name="SmallTalkTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -62,6 +63,18 @@ text = "
 正在尝试重新启动"
 
 [node name="Buttons" parent="." instance=ExtResource("7_bxhim")]
+
+[node name="AkBank" type="AkBank" parent="."]
+bank = ExtResource("7_gpq3d")
+load_on = 1
+
+[node name="AkEvent3D" type="AkEvent3D" parent="AkBank"]
+event = ExtResource("7_gtmes")
+trigger_on = 1
+
+[node name="AkListener3D" type="AkListener3D" parent="AkBank"]
+
+[node name="AkListener3D" type="AkListener3D" parent="."]
 
 [connection signal="line_edit_focus" from="ChatUI" to="." method="_on_chat_ui_line_edit_focus"]
 [connection signal="received_text" from="ChatUI" to="." method="_on_chat_ui_received_text"]

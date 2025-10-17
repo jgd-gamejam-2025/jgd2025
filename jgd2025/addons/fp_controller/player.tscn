@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=23 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" uid="uid://bpxl08ies4o8i" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" uid="uid://djb7vvinol8a4" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
 [ext_resource type="Script" uid="uid://bdoh334e0i1rn" path="res://addons/fp_controller/scripts/player_state_machine.gd" id="2_wwa58"]
+[ext_resource type="PackedScene" uid="uid://bf4832mqy4vii" path="res://scenes/fps/pad/pad.tscn" id="3_njw88"]
 [ext_resource type="Script" uid="uid://bnf3hpwwp4j6k" path="res://addons/fp_controller/scripts/player_move_state/idle.gd" id="3_xe000"]
 [ext_resource type="Script" uid="uid://cjetf16ifdhlp" path="res://addons/fp_controller/scripts/player_move_state/jump.gd" id="4_1lr3q"]
 [ext_resource type="Script" uid="uid://fmjsewj8rdnq" path="res://addons/fp_controller/scripts/player_move_state/walk.gd" id="5_bwgwe"]
@@ -318,6 +319,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.5, 2.08165e-12
 script = ExtResource("2_1py82")
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="CameraPivot/SmoothCamera"]
+visible = false
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="CameraPivot/SmoothCamera"]
+remote_path = NodePath("../../PadVobbling")
+update_rotation = false
+update_scale = false
+
+[node name="PadVobbling" type="Node3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08165e-12, -1.5, -2.08165e-12)
+
+[node name="Pad" parent="CameraPivot/PadVobbling" node_paths=PackedStringArray("camera_pivot") instance=ExtResource("3_njw88")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.266868, -0.60151243)
+camera_pivot = NodePath("../..")
+start_position = Vector3(0, -0.844, -0.5)
+start_rotation = Vector3(85, 0, 0)
+end_position = Vector3(0, -0.083, -0.6)
+end_rotation = Vector3(90, 0, 0)
 
 [node name="StateMachine" type="Node" parent="."]
 unique_name_in_owner = true

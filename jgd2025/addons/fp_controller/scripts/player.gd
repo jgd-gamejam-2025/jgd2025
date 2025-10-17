@@ -56,6 +56,8 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 # Raycast for detecting ceiling
 @onready var crouch_raycast = %CrouchRaycast
 
+@onready var pad = %Pad
+
 # Dynamic values used for calculation
 var input_direction: Vector2
 var ledge_position: Vector3 = Vector3.ZERO

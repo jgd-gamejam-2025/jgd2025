@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b1egk12hpx2th" path="res://assets/models/maze/wall.glb" id="9_f1mlq"]
 [ext_resource type="PackedScene" uid="uid://xa1ka8tgoahi" path="res://assets/models/maze/fence1.glb" id="10_u2x88"]
 [ext_resource type="PackedScene" uid="uid://jymctoo8bmvx" path="res://assets/models/maze/fence2.glb" id="11_63880"]
-[ext_resource type="PackedScene" uid="uid://cy3c4sov2ivay" path="res://assets/models/room/room.fbx" id="12_f1mlq"]
+[ext_resource type="MeshLibrary" uid="uid://b402l3ni4b5qk" path="res://levels/maze_load_wall/kenny_natural_kit.tres" id="12_f1mlq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -91,13 +91,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.508266, 1.4268179, 3.01862
 shape = SubResource("BoxShape3D_rujvw")
 
 [node name="ground" parent="." instance=ExtResource("4_wkbgm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.552254, -0.9255924, 25.959929)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6959915, -0.9255924, 26.89264)
+metadata/_edit_lock_ = true
 
 [node name="small_rock" parent="." instance=ExtResource("8_25ugg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2673931, -0.9501568, 26.346624)
 
 [node name="wall" parent="." instance=ExtResource("9_f1mlq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.922812, -0.8675537, 38.57831)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5373535, -0.8675537, 38.57831)
 
 [node name="fence1" parent="." instance=ExtResource("10_u2x88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3089485, -0.62138605, 18.477243)
@@ -105,7 +106,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3089485, -0.62138605, 18.4
 [node name="fence2" parent="." instance=ExtResource("11_63880")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.443544, -0.71424675, 21.468458)
 
-[node name="room" parent="." instance=ExtResource("12_f1mlq")]
-transform = Transform3D(0.012401899, 0, 0.5589782, 0, 0.55911577, 0, -0.5589782, 0, 0.012401899, 2.8326247, 0.03925237, 6.270117)
+[node name="GridMap2" type="GridMap" parent="."]
+mesh_library = ExtResource("12_f1mlq")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(6, 7, 0, 5, 8, 40, 7, 13, 41, 7, 14, 41, 7, 15, 41, 4, 14, 24, 393217, 13, 24, 65543, 13, 24, 393219, 13, 24, 393235, 65534, 786457, 19, 7, 327704, 16, 8, 655384, 17, 8, 655689, 17, 7, 655689, 19, 12, 655481, 19, 11, 655482, 19, 10, 655482, 22, 16, 655502, 20, 14, 655501, 20, 13, 655501, 20, 12, 655501, 20, 11, 655501, 65556, 10, 655482, 17, 11, 655482, 65557, 11, 655482, 20, 9, 655444, 65558, 9, 655387, 131094, 9, 655460, 23, 13, 655441, 22, 13, 655441, 24, 13, 655441, 14, 10, 655369, 13, 10, 655369, 12, 10, 655369, 11, 10, 655368, 15, 8, 655672, 10, 8, 655672, 14, 7, 655473, 13, 7, 655473, 12, 7, 655473, 15, 7, 655458)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("12_f1mlq")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(6, 7, 0, 5, 8, 40, 7, 13, 41, 7, 14, 41, 7, 15, 41, 4, 14, 24, 393217, 13, 24, 65543, 13, 24, 393219, 13, 24, 393235, 65534, 786457, 19, 7, 327704, 16, 8, 655384, 17, 8, 655689, 17, 7, 655689, 19, 12, 655481, 19, 11, 655482, 19, 10, 655482, 22, 16, 655502, 20, 14, 655501, 20, 13, 655501, 20, 12, 655501, 20, 11, 655501, 65556, 10, 655482, 17, 11, 655482, 65557, 11, 655482, 20, 9, 655488, 65558, 9, 655387, 131094, 9, 655460, 131095, 9, 655463)
+}
+metadata/_editor_floor_ = Vector3(0, 2, 0)
 
 [connection signal="body_entered" from="Obstacles/Area3D" to="." method="_on_area_3d_body_entered"]

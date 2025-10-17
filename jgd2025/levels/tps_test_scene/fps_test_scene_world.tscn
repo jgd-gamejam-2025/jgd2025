@@ -1,0 +1,133 @@
+[gd_scene load_steps=10 format=3 uid="uid://ofyuav8psja7"]
+
+[ext_resource type="Script" uid="uid://dqkok8p7jcl4x" path="res://levels/fps_test_scene/fps_test_scene.gd" id="1_kp8pu"]
+[ext_resource type="PackedScene" uid="uid://d2jaf8rnldxpk" path="res://levels/chat_2/chat_2.tscn" id="2_aw82a"]
+[ext_resource type="Material" uid="uid://brpu7xylrg2l2" path="res://addons/fps_example_scene/materials/material_basic_blue.tres" id="3_nj0cr"]
+[ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="4_17sqg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_aavk3"]
+sky_material = SubResource("ProceduralSkyMaterial_r6mis")
+
+[sub_resource type="Environment" id="Environment_aaj73"]
+background_mode = 2
+sky = SubResource("Sky_aavk3")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n6tjd"]
+material = ExtResource("3_nj0cr")
+size = Vector2(1000, 1000)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h1lgg"]
+points = PackedVector3Array(-50, 0, -50, -50, 0, 50, 50, 0, -50, 50, 0, 50)
+
+[node name="FpsTestScene" type="Node3D"]
+script = ExtResource("1_kp8pu")
+next_scene = ExtResource("2_aw82a")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_aaj73")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+visible = false
+shadow_enabled = true
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.478348, -15.930271, -326.183)
+mesh = SubResource("PlaneMesh_n6tjd")
+skeleton = NodePath("../..")
+metadata/_edit_lock_ = true
+
+[node name="FloorCollision" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -15, -309.987)
+shape = SubResource("ConvexPolygonShape3D_h1lgg")
+
+[node name="Player" parent="." instance=ExtResource("4_17sqg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.187749, 0.49041462, 1.6324787)
+visible = false
+use_collision = true
+polygon = PackedVector2Array(0, 0, 2.08165e-12, 2, 6.035904, 2.1070576, 10, 2.08165e-12)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.711, 0, -235.96829)
+size = Vector3(101.47266, 47.041748, 5.8483887)
+
+[node name="light" type="Node" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="light"]
+transform = Transform3D(1, 0, 0, 0, 0.9156626, 0.40194777, 0, -0.40194777, 0.9156626, 0, 15.1278305, 104.96589)
+spot_range = 129.45857
+spot_attenuation = -0.75
+spot_angle = 25.59406
+spot_angle_attenuation = 1.5691686
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.582756, -66.31211)
+light_energy = 7.234
+omni_range = 29.093029
+
+[node name="wall-1" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -8.599617, 0)
+
+[node name="wall-top" type="CSGBox3D" parent="wall-1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12100029, 33.558, -52)
+size = Vector3(110, 1.927, 40)
+
+[node name="wall-left" type="CSGBox3D" parent="wall-1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 8.009, -52)
+size = Vector3(50, 50, 40)
+
+[node name="wall-right" type="CSGBox3D" parent="wall-1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 8.009, -52)
+size = Vector3(50, 50, 40)
+
+[node name="wall-2" type="Node3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.3, 0, -14.378, 0)
+
+[node name="wall-top" type="CSGBox3D" parent="wall-2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08021742, 37.765793, -145.40704)
+size = Vector3(72.69733, 8.758422, 107.78125)
+
+[node name="wall-left" type="CSGBox3D" parent="wall-2"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -30, 9, -150)
+size = Vector3(13.2, 50, 100)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="wall-2/wall-left"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1772366, 18.16913, -0.8015137)
+size = Vector3(13.200195, 4, 100)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="wall-2/wall-left"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1772366, 8.609121, 0.10447693)
+size = Vector3(13.200195, 4, 100)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="wall-2/wall-left"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1772366, -1.9058743, 0.55747986)
+size = Vector3(13.200195, 4, 100)
+
+[node name="wall-right" type="CSGBox3D" parent="wall-2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 9, -150)
+size = Vector3(13.2, 50, 100)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="wall-2/wall-right"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1772366, 18.16913, -0.8015137)
+size = Vector3(13.200195, 4, 100)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="wall-2/wall-right"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1772366, 8.609121, 0.10447693)
+size = Vector3(13.200195, 4, 100)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="wall-2/wall-right"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1772366, -1.9058743, 0.55747986)
+size = Vector3(13.200195, 4, 100)

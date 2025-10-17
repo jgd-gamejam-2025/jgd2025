@@ -256,3 +256,7 @@ func add_image_bubble(texture: Texture):
 	new_bubble.set_texture(texture)
 	new_bubble.show()
 	await get_tree().process_frame
+
+func set_bg_transparent(alpha:float  = 0.9) -> void:
+	$Panel/Background.color.a = alpha
+	$Panel/Shadow.hide()

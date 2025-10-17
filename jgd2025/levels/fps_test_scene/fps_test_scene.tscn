@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d1mhk3prnqywk"]
+[gd_scene load_steps=19 format=3 uid="uid://d1mhk3prnqywk"]
 
 [ext_resource type="Script" uid="uid://dqkok8p7jcl4x" path="res://levels/fps_test_scene/fps_test_scene.gd" id="1_rujvw"]
 [ext_resource type="PackedScene" uid="uid://d2jaf8rnldxpk" path="res://levels/chat_2/chat_2.tscn" id="2_7krs1"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b1egk12hpx2th" path="res://assets/models/maze/wall.glb" id="9_f1mlq"]
 [ext_resource type="PackedScene" uid="uid://xa1ka8tgoahi" path="res://assets/models/maze/fence1.glb" id="10_u2x88"]
 [ext_resource type="PackedScene" uid="uid://jymctoo8bmvx" path="res://assets/models/maze/fence2.glb" id="11_63880"]
+[ext_resource type="PackedScene" uid="uid://cy3c4sov2ivay" path="res://assets/models/room/room.fbx" id="12_f1mlq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -33,7 +34,7 @@ size = Vector2(100, 100)
 points = PackedVector3Array(-50, 0, -50, -50, 0, 50, 50, 0, -50, 50, 0, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rujvw"]
-size = Vector3(10.078938, 2.7026367, 11.313332)
+size = Vector3(1.347127, 2.7026367, 0.6469002)
 
 [node name="FpsTestScene" type="Node3D"]
 script = ExtResource("1_rujvw")
@@ -56,6 +57,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConvexPolygonShape3D_h1lgg")
 
 [node name="Player" parent="." instance=ExtResource("3_7krs1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23803473, 0, 0.7340965)
 
 [node name="Obstacles" type="Node" parent="."]
 
@@ -85,11 +87,11 @@ polygon = PackedVector2Array(0, 0, 2.08165e-12, 2, 6, 2, 10, 2.08165e-12)
 [node name="Area3D" type="Area3D" parent="Obstacles"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacles/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9772902, 1.4268188, -13.718641)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.508266, 1.4268179, 3.0186272)
 shape = SubResource("BoxShape3D_rujvw")
 
 [node name="ground" parent="." instance=ExtResource("4_wkbgm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6959915, -0.9255924, 26.89264)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.552254, -0.9255924, 25.959929)
 
 [node name="small_rock" parent="." instance=ExtResource("8_25ugg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2673931, -0.9501568, 26.346624)
@@ -102,5 +104,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3089485, -0.62138605, 18.4
 
 [node name="fence2" parent="." instance=ExtResource("11_63880")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.443544, -0.71424675, 21.468458)
+
+[node name="room" parent="." instance=ExtResource("12_f1mlq")]
+transform = Transform3D(0.012401899, 0, 0.5589782, 0, 0.55911577, 0, -0.5589782, 0, 0.012401899, 2.8326247, 0.03925237, 6.270117)
 
 [connection signal="body_entered" from="Obstacles/Area3D" to="." method="_on_area_3d_body_entered"]

@@ -26,9 +26,8 @@ func _ready():
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
-		# Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		# Transition.set_and_start("正在尝试重新连接……", "")
-		# await get_tree().create_timer(0.7).timeout
-		# get_tree().change_scene_to_packed(next_scene)
-		#$room.hide()
-		pass
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		Transition.set_and_start("正在尝试重新连接……", "")
+		await get_tree().create_timer(0.7).timeout
+		get_tree().change_scene_to_packed(next_scene)
+		

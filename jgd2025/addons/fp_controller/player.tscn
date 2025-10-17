@@ -325,7 +325,7 @@ script = ExtResource("2_1py82")
 visible = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="CameraPivot/SmoothCamera"]
-remote_path = NodePath("../SubViewportContainer/SubViewport/Camera3D")
+remote_path = NodePath("../../PadVobbling")
 update_rotation = false
 update_scale = false
 
@@ -354,7 +354,7 @@ layers = 2
 camera_pivot = NodePath("../..")
 move_when_angle = -40.0
 move_until_angle = -50.0
-start_position = Vector3(0, -0.944, -0.5)
+start_position = Vector3(0, -1.05, -0.5)
 start_rotation = Vector3(85, 0, 0)
 end_position = Vector3(0, -0.083, -0.6)
 end_rotation = Vector3(90, 0, 0)

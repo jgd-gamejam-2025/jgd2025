@@ -19,6 +19,7 @@ func _ready():
 	chat_ui.set_system_prompt(ai_prompt)
 	chat_ui.start_chat_worker()
 	chat_ui.show_welcome_text("你在干嘛呀？")
+	chat_ui.set_bg_transparent()
 
 	
 

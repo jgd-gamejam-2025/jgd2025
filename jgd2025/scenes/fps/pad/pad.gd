@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 	
 	# Check for pad activation
 	if is_playing:
-		if Input.is_action_just_pressed("ui_cancel"):  # Enter esc
+		if Input.is_action_just_pressed("ui_cancel") || _current_t < activation_threshold:  # Enter esc
 			is_playing = false
 			pad_deactivated.emit()
 			stop_pad()

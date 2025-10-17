@@ -11,6 +11,8 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var CROUCH: String = "crouch"
 @export var SPRINT: String = "sprint"
 @export var PAUSE: String = "pause"
+@export var USE_E: String = "use_e"
+@export var USE_F: String = "use_f"
 
 @export_group("Customizable player stats")
 @export var walk_back_speed: float = 1.5
@@ -114,6 +116,13 @@ func check_controls() -> void:
 		push_error("No control mapped for 'pause', using default...")
 		_add_input_map_event(PAUSE, KEY_ESCAPE)
 	
+	if !InputMap.has_action(USE_E):
+		push_error("No control mapped for 'use', using default...")
+		_add_input_map_event(USE_E, KEY_E)
+	if !InputMap.has_action(USE_F):
+		push_error("No control mapped for 'use', using default...")
+		_add_input_map_event(USE_F, KEY_F)
+
 	# Checking if controller inputs are mapped
 	if InputMap.action_get_events(CROUCH).any(func(event): return event is InputEventJoypadButton) == false:
 		_add_joy_button_event(CROUCH, JOY_BUTTON_B)
@@ -132,6 +141,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	if can_pause:
 		if event.is_action_pressed(PAUSE):
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
+	if event.is_action_pressed(USE_E):
+		if pad.is_playing:
+			return
+		print("Use E pressed")
+
+	if event.is_action_pressed(USE_F):
+		if pad.is_playing:
+			return
+		print("Use F pressed")
 
 
 func _physics_process(delta: float) -> void:

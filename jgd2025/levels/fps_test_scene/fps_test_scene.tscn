@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d1mhk3prnqywk"]
+[gd_scene load_steps=20 format=3 uid="uid://d1mhk3prnqywk"]
 
 [ext_resource type="Script" uid="uid://dqkok8p7jcl4x" path="res://levels/fps_test_scene/fps_test_scene.gd" id="1_rujvw"]
 [ext_resource type="PackedScene" uid="uid://d2jaf8rnldxpk" path="res://levels/chat_2/chat_2.tscn" id="2_7krs1"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://xa1ka8tgoahi" path="res://assets/models/maze/fence1.glb" id="10_u2x88"]
 [ext_resource type="PackedScene" uid="uid://jymctoo8bmvx" path="res://assets/models/maze/fence2.glb" id="11_63880"]
 [ext_resource type="MeshLibrary" uid="uid://b402l3ni4b5qk" path="res://levels/maze_load_wall/kenny_natural_kit.tres" id="12_f1mlq"]
+[ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="13_u2x88"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -58,6 +59,9 @@ shape = SubResource("ConvexPolygonShape3D_h1lgg")
 
 [node name="Player" parent="." instance=ExtResource("3_7krs1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23803473, 0, 0.7340965)
+MOVE_BACK = "move_backward"
+sprint_speed = 3.5
+allow_climb = false
 
 [node name="Obstacles" type="Node" parent="."]
 
@@ -121,5 +125,8 @@ data = {
 "cells": PackedInt32Array(6, 7, 0, 5, 8, 40, 7, 13, 41, 7, 14, 41, 7, 15, 41, 4, 14, 24, 393217, 13, 24, 65543, 13, 24, 393219, 13, 24, 393235, 65534, 786457, 19, 7, 327704, 16, 8, 655384, 17, 8, 655689, 17, 7, 655689, 19, 12, 655481, 19, 11, 655482, 19, 10, 655482, 22, 16, 655502, 20, 14, 655501, 20, 13, 655501, 20, 12, 655501, 20, 11, 655501, 65556, 10, 655482, 17, 11, 655482, 65557, 11, 655482, 20, 9, 655488, 65558, 9, 655387, 131094, 9, 655460, 131095, 9, 655463)
 }
 metadata/_editor_floor_ = Vector3(0, 2, 0)
+
+[node name="Buttons" parent="." instance=ExtResource("13_u2x88")]
+visible = false
 
 [connection signal="body_entered" from="Obstacles/Area3D" to="." method="_on_area_3d_body_entered"]

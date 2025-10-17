@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d1mhk3prnqywk"]
+[gd_scene load_steps=19 format=3 uid="uid://d1mhk3prnqywk"]
 
 [ext_resource type="Script" uid="uid://dqkok8p7jcl4x" path="res://levels/fps_test_scene/fps_test_scene.gd" id="1_rujvw"]
 [ext_resource type="PackedScene" uid="uid://d2jaf8rnldxpk" path="res://levels/chat_2/chat_2.tscn" id="2_7krs1"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b1egk12hpx2th" path="res://assets/models/maze/wall.glb" id="9_f1mlq"]
 [ext_resource type="PackedScene" uid="uid://xa1ka8tgoahi" path="res://assets/models/maze/fence1.glb" id="10_u2x88"]
 [ext_resource type="PackedScene" uid="uid://jymctoo8bmvx" path="res://assets/models/maze/fence2.glb" id="11_63880"]
+[ext_resource type="PackedScene" uid="uid://cy3c4sov2ivay" path="res://assets/models/room/room.fbx" id="12_f1mlq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -102,5 +103,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3089485, -0.62138605, 18.4
 
 [node name="fence2" parent="." instance=ExtResource("11_63880")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.443544, -0.71424675, 21.468458)
+
+[node name="room" parent="." instance=ExtResource("12_f1mlq")]
+transform = Transform3D(0.012401899, 0, 0.5589782, 0, 0.55911577, 0, -0.5589782, 0, 0.012401899, 2.8326247, 0.03925237, 6.270117)
 
 [connection signal="body_entered" from="Obstacles/Area3D" to="." method="_on_area_3d_body_entered"]

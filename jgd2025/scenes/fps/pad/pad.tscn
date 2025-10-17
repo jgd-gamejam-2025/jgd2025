@@ -1,25 +1,34 @@
-[gd_scene load_steps=8 format=3 uid="uid://bf4832mqy4vii"]
+[gd_scene load_steps=10 format=3 uid="uid://bf4832mqy4vii"]
 
+[ext_resource type="Shader" uid="uid://dexx4mlidr6y8" path="res://scenes/fps/pad/blur_glass.gdshader" id="1_2665d"]
 [ext_resource type="PackedScene" uid="uid://byhcpq4t56qc3" path="res://scenes/UI/chat_ui/chat_ui.tscn" id="1_ng05o"]
 [ext_resource type="Script" uid="uid://4x8m3xe0ex31" path="res://scenes/fps/pad/pad.gd" id="1_oyeqh"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ng05o"]
-albedo_color = Color(0.16924527, 0.1692453, 0.16924527, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hmtpe"]
+render_priority = 0
+shader = ExtResource("1_2665d")
+shader_parameter/lod_level = 4
+shader_parameter/brightness = 3.8710001838725
+shader_parameter/distortion_intensity = 0.006000000285
 
 [sub_resource type="BoxMesh" id="BoxMesh_1ecc1"]
-size = Vector3(1.38, 0.06, 0.805)
+size = Vector3(1.375, 0.005, 0.78)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_oyeqh"]
 viewport_path = NodePath("SubViewport")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2665d"]
+disable_ambient_light = true
+albedo_color = Color(0, 0, 0, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_oyeqh"]
-size = Vector3(1.38, 0.06, 0.025)
+size = Vector3(1.38, 0.03, 0.025)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2665d"]
-size = Vector3(-0.03, 0.05, -0.815)
+size = Vector3(0.03, 0.03, 0.815)
 
 [node name="Pad" type="MeshInstance3D"]
-material_override = SubResource("StandardMaterial3D_ng05o")
+material_override = SubResource("ShaderMaterial_hmtpe")
 transparency = 1.0
 mesh = SubResource("BoxMesh_1ecc1")
 skeleton = NodePath("../../Obstacles/BasicBlock2")
@@ -27,6 +36,7 @@ script = ExtResource("1_oyeqh")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.07, 0, 0, 0, -3.059797e-09, 0.07, 0, -0.07, -3.059797e-09, 0, 0.031551063, 0)
+layers = 2
 texture = SubResource("ViewportTexture_oyeqh")
 
 [node name="SubViewport" type="SubViewport" parent="."]
@@ -40,16 +50,20 @@ unique_name_in_owner = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.39861965)
+material_override = SubResource("StandardMaterial3D_2665d")
 mesh = SubResource("BoxMesh_oyeqh")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.39518124)
+material_override = SubResource("StandardMaterial3D_2665d")
 mesh = SubResource("BoxMesh_oyeqh")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6992673, 0, -0.003137827)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7045695, 0, -0.003137827)
+material_override = SubResource("StandardMaterial3D_2665d")
 mesh = SubResource("BoxMesh_2665d")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68935007, 0, -0.003137827)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7038116, 0, -0.003137827)
+material_override = SubResource("StandardMaterial3D_2665d")
 mesh = SubResource("BoxMesh_2665d")

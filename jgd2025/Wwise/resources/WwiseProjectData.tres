@@ -1,4 +1,4 @@
-[gd_resource type="WwiseProjectData" load_steps=19 format=3 uid="uid://jj7qpbbaj8va"]
+[gd_resource type="WwiseProjectData" load_steps=21 format=3 uid="uid://jj7qpbbaj8va"]
 
 [sub_resource type="WwiseTreeObject" id="WwiseTreeObject_dn5s6"]
 path = "\\Virtual Acoustics\\Factory Acoustic Textures\\Textures\\Acoustic_Banner"
@@ -120,6 +120,21 @@ children = [SubResource("WwiseTreeObject_mqnyt")]
 name = "Default Work Unit"
 id = 125608783
 
+[sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_yyrou"]
+max_duration = 6.1533337
+min_duration = 6.1533337
+path = "\\Events\\Default Work Unit\\Play"
+type = 3
+name = "Play"
+guid = "{D862B3DF-5DDF-47F9-8AE7-E47FC53F13D5}"
+id = 1256202815
+
+[sub_resource type="WwiseTreeObject" id="WwiseTreeObject_geu6g"]
+children = [SubResource("WwiseTreeObjectEvent_yyrou")]
+name = "Default Work Unit"
+id = 125608783
+
 [resource]
 acoustic_texture_root = [SubResource("WwiseTreeObject_4djpx")]
 bus_root = [SubResource("WwiseTreeObject_v560u")]
+event_root = [SubResource("WwiseTreeObject_geu6g")]

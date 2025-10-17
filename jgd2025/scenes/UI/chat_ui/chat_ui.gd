@@ -3,9 +3,11 @@ extends Control
 @onready var chatLog = $Panel/Scroll/ChatLog
 @onready var textInput = $Panel/InputHBox/TextInput
 @onready var aiChat = $NobodyWhoChat
+var current_aiChat: NobodyWhoChat
 @onready var name_label = $Panel/Name
 @export var debug_mode = false
 @export var auto_new_bubble_limit = 10
+var key_aiChat_dict: Dictionary = {}
 
 #--bubbles-----
 @onready var margin_container = $Panel/MarginContainer
@@ -43,7 +45,7 @@ func send_text_to_ai():
 	make_new_bubble_on_next_token = true
 	textInput.editable = false
 	if not debug_mode:
-		aiChat.say(my_message)
+		current_aiChat.say(my_message)
 	else:
 		for i in range(5):
 			_on_nobody_who_chat_response_updated("我")
@@ -129,12 +131,23 @@ func show_welcome_text(full_text: String, interval: float = 0.05, overwrite:bool
 		total_time  # Total animation time
 	)
 
-func set_system_prompt(prompt: String) -> void:
-	aiChat.system_prompt = prompt
+func init_system_prompt(key_prompt_dict: Dictionary) -> void:
+	for key in key_prompt_dict.keys():
+		var new_chat = aiChat.duplicate()
+		add_child(new_chat)
+		new_chat.system_prompt = key_prompt_dict[key]
+		key_aiChat_dict[key] = new_chat
+
+func select_ai_chat(key: String) -> void:
+	if key_aiChat_dict.has(key):
+		current_aiChat = key_aiChat_dict[key]
+	else:
+		print("AI chat with key ", key, " not found.")
 	
 func start_chat_worker():
 	if not debug_mode:
-		aiChat.start_worker()
+		for key in key_aiChat_dict.keys():
+			key_aiChat_dict[key].start_worker()
 
 func set_ai_name(new_name: String) -> void:
 	name_label.text = new_name
@@ -256,3 +269,7 @@ func add_image_bubble(texture: Texture):
 	new_bubble.set_texture(texture)
 	new_bubble.show()
 	await get_tree().process_frame
+
+func set_bg_transparent(alpha:float  = 0.0) -> void:
+	$Panel/Background.color.a = alpha
+	$Panel/Shadow.hide()

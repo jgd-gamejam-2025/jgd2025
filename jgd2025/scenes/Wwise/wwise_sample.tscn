@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtmh7l6bn23wb"]
+
+[ext_resource type="WwiseBank" uid="uid://cqkoeh1yxx7s1" path="res://Wwise/resources/SoundBank/{C698E988-E820-4CEA-B8D7-C3C3717E179D}.tres" id="1_jwujp"]
+[ext_resource type="WwiseEvent" uid="uid://ckqfn6lkriq3k" path="res://Wwise/resources/Event/{D862B3DF-5DDF-47F9-8AE7-E47FC53F13D5}.tres" id="2_ss345"]
+
+[node name="AkBank" type="AkBank"]
+bank = ExtResource("1_jwujp")
+load_on = 1
+
+[node name="AkEvent3D" type="AkEvent3D" parent="."]
+event = ExtResource("2_ss345")
+trigger_on = 1
+
+[node name="AkListener3D" type="AkListener3D" parent="."]

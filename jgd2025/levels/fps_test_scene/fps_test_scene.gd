@@ -16,18 +16,17 @@ extends Node3D
 func _ready():
 	Transition.end()
 	chat_ui.set_ai_name("Eve")
-	chat_ui.set_system_prompt(ai_prompt)
+	chat_ui.init_system_prompt({"ai":ai_prompt})
+	chat_ui.select_ai_chat("ai")
 	chat_ui.start_chat_worker()
 	chat_ui.show_welcome_text("你在干嘛呀？")
 	chat_ui.set_bg_transparent()
 
-	
-
-
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.name == "Player":
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		Transition.set_and_start("正在尝试重新连接……", "")
-		await get_tree().create_timer(0.7).timeout
-		get_tree().change_scene_to_packed(next_scene)
-		
+	pass
+	#if body.name == "Player":
+		#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		#Transition.set_and_start("正在尝试重新连接……", "")
+		#await get_tree().create_timer(0.7).timeout
+		#get_tree().change_scene_to_packed(next_scene)
+		#

@@ -133,3 +133,4 @@ visible = false
 [node name="Terminal" parent="." instance=ExtResource("14_63880")]
 
 [connection signal="body_entered" from="Obstacles/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="input_submitted" from="Terminal" to="." method="_on_terminal_input_submitted"]

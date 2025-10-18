@@ -15,6 +15,11 @@ var _current_text: String = ""
 var _is_typing := false
 var _input_blocked := false
 
+signal input_submitted(command: String)
+
+func is_input_blocked() -> bool:
+	return _input_blocked
+
 func _ready() -> void:
 	# Set up the prompt with username
 	update_prompt()
@@ -125,8 +130,7 @@ func _on_input_submitted(text: String) -> void:
 		"hostname":
 			write_line(host_name)
 		_:
-			# Default echo
-			write_line(text)
+			input_submitted.emit(text)
 
 func write_lines_sync(text: String, output_area: RichTextLabel = output_area) -> Tween:
 	if _is_typing:
@@ -164,3 +168,96 @@ func write_lines_sync(text: String, output_area: RichTextLabel = output_area) ->
 		output_area.text = _current_text
 	)
 	return _tween
+
+var write_art_tween: Tween
+func write_art_sync(text: String, output_area: RichTextLabel = output_area, keep_flipping_time: float = 10.0, skip_generate: bool = false) -> Tween:
+	if _is_typing:
+		if write_art_tween:
+			write_art_tween.kill()
+	write_art_tween = create_tween()
+	
+	_is_typing = true
+	var start_pos = output_area.text.length()
+	var lines = text.split("\n")
+	_current_text = output_area.text + text + "\n"
+	
+	# Store the original pattern for final display
+	var original_lines = lines.duplicate()
+	
+	# Characters to use for random replacement
+	var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+	var chars_length = chars.length()
+	
+	# Find the longest line length
+	var max_length = 0
+	for line in lines:
+		max_length = max(max_length, line.length())
+	
+	
+	if not skip_generate:
+		# For each character position
+		for pos in range(max_length + 1):  # +1 for final newlines
+			write_art_tween.tween_callback(func():
+				var temp_text = output_area.text.substr(0, start_pos)
+				# Update each line up to current position
+				for i in range(lines.size()):
+					var line = original_lines[i]
+					var current_line = ""
+					# Process each character up to current position
+					for j in range(min(pos, line.length())):
+						if line[j] == "X":
+							# Get a random character
+							current_line += chars[randi() % chars_length]
+						else:
+							current_line += line[j]  # Space or any other character
+					temp_text += current_line + "\n"
+				output_area.text = temp_text
+			).set_delay(default_type_speed)
+	else:
+		# If skipping generation, immediately show the full pattern with random characters
+		write_art_tween.tween_callback(func():
+			var temp_text = output_area.text.substr(0, start_pos)
+			for line in original_lines:
+				var current_line = ""
+				for char in line:
+					if char == "X":
+						current_line += chars[randi() % chars_length]
+					else:
+						current_line += char
+				temp_text += current_line + "\n"
+			output_area.text = temp_text
+		)
+	
+	# If keep_flipping_time > 0, continue flipping characters
+	if keep_flipping_time > 0:
+		var flip_steps = int(keep_flipping_time / default_type_speed)
+		for i in range(flip_steps):
+			write_art_tween.tween_callback(func():
+				var temp_text = output_area.text.substr(0, start_pos)
+				for line in original_lines:
+					var current_line = ""
+					for char in line:
+						if char == "X":
+							current_line += chars[randi() % chars_length]
+						else:
+							current_line += char
+					temp_text += current_line + "\n"
+				output_area.text = temp_text
+			).set_delay(default_type_speed)
+	
+	# Final callback to mark typing as complete
+	write_art_tween.tween_callback(func():
+		_is_typing = false
+		# Generate final random state
+		var final_text = output_area.text.substr(0, start_pos)
+		for line in original_lines:
+			var final_line = ""
+			for char in line:
+				if char == "X":
+					final_line += chars[randi() % chars_length]
+				else:
+					final_line += char
+			final_text += final_line + "\n"
+		output_area.text = final_text
+	)
+	return write_art_tween

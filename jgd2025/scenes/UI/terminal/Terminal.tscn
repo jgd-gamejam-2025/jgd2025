@@ -12,6 +12,10 @@ viewport_path = NodePath("SubViewportContainer/SubViewport")
 
 [node name="Terminal" type="CanvasLayer"]
 script = ExtResource("1_a8pav")
+user_name = null
+host_name = null
+default_type_speed = null
+type_speed_variance = null
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 offset_left = 20.0
@@ -34,7 +38,7 @@ offset_bottom = 110314.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_3x43x")
-theme_override_font_sizes/normal_font_size = 300
+theme_override_font_sizes/normal_font_size = 16
 
 [node name="Background" type="ColorRect" parent="."]
 anchors_preset = 15

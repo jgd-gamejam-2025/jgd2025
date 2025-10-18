@@ -6,6 +6,7 @@ extends Control
 var current_aiChat: NobodyWhoChat
 @onready var name_label = $Panel/Name
 @export var debug_mode = false
+@export var qwen = true
 @export var auto_new_bubble_limit = 10
 var key_aiChat_dict: Dictionary = {}
 
@@ -74,6 +75,13 @@ var command_buffer: String = ""
 func _on_nobody_who_chat_response_updated(new_token: String) -> void:
 	if block_text_generation:
 		return
+
+	# If qwen is true, skip the <think> <\think> tokens （the 4 tokens used for internal thinking）
+	if qwen:
+		new_token = new_token.strip_edges()
+		if new_token == "<think>" or new_token == "</think>" or new_token == "":
+			return
+
 	# if the token is in format of {...}, treat it as a command, they can be in several tokens
 	if new_token.begins_with("{") or command_buffer != "" or new_token.ends_with("}"):
 		command_buffer += new_token
@@ -151,7 +159,7 @@ func init_system_prompt(key_prompt_dict: Dictionary) -> void:
 	for key in key_prompt_dict.keys():
 		var new_chat = aiChat.duplicate()
 		add_child(new_chat)
-		new_chat.system_prompt = key_prompt_dict[key]
+		new_chat.system_prompt = "\\no_think" + key_prompt_dict[key]
 		key_aiChat_dict[key] = new_chat
 
 func select_ai_chat(key: String) -> void:

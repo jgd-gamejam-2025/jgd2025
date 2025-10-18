@@ -7,7 +7,7 @@ var current_aiChat: NobodyWhoChat
 @onready var name_label = $Panel/Name
 @export var debug_mode = false
 @export var qwen = true
-@export var auto_new_bubble_limit = 10
+const auto_new_bubble_limit = 10
 var key_aiChat_dict: Dictionary = {}
 
 #--bubbles-----
@@ -20,6 +20,7 @@ var key_aiChat_dict: Dictionary = {}
 var in_chat_mode = false
 var make_new_bubble_on_next_token = true
 #--------------
+var eve_debug_command = "sudo debug /eve --backup"
 
 var _tween: Tween 
 var block_text_generation = false
@@ -66,6 +67,12 @@ func _input(event: InputEvent) -> void:
 		textInput.grab_focus()
 
 	if event.is_action_pressed("ui_text_newline") and textInput.editable and textInput.text != "":
+		var my_message = textInput.text
+		if my_message.strip_edges() == eve_debug_command:
+			Transition.set_and_start("正在连接到控制台……","")
+			await get_tree().process_frame  # 等一帧，让 UI 渲染完成
+			LevelManager.to_eve_debug()
+			return
 		send_text_to_ai()
 		if first_time_sent_text:
 			first_time_sent_text = false

@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://dcttt1jp1y43p"]
+
+[ext_resource type="FontFile" uid="uid://d306of0f77q3u" path="res://scenes/UI/fonts/sarasa-mono-sc-regular.ttf" id="1_hkxho"]
+[ext_resource type="FontFile" uid="uid://c3m8ki2paeipx" path="res://scenes/UI/fonts/sarasa-mono-sc-light.ttf" id="2_xnthm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_evfyn"]
+
+[resource]
+Label/font_sizes/font_size = 26
+Label/fonts/font = ExtResource("1_hkxho")
+LineEdit/font_sizes/font_size = 26
+LineEdit/fonts/font = ExtResource("1_hkxho")
+RichTextLabel/constants/line_separation = 8
+RichTextLabel/constants/paragraph_separation = 0
+RichTextLabel/font_sizes/normal_font_size = 32
+RichTextLabel/fonts/normal_font = ExtResource("2_xnthm")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_evfyn")

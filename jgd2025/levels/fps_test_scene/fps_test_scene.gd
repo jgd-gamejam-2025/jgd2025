@@ -8,7 +8,6 @@ extends Node3D
 @export var next_scene : PackedScene
 func _ready():
 	Transition.end()
-
 	chat_ui.set_ai_name("Eve")
 	chat_ui.init_system_prompt({"ai":ai_prompt})
 	chat_ui.select_ai_chat("ai")

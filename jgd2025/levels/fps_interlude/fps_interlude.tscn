@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhecgxuox07sb"]
+
+[ext_resource type="Script" uid="uid://bwfjl8x5gmrfj" path="res://levels/fps_interlude/fps_interlude.gd" id="1_0essu"]
+[ext_resource type="PackedScene" uid="uid://d1mhk3prnqywk" path="res://levels/fps_test_scene/fps_test_scene.tscn" id="2_lkhwq"]
+[ext_resource type="PackedScene" uid="uid://5ltrsa0ifrxn" path="res://scenes/UI/terminal/Terminal.tscn" id="2_sk6dl"]
+
+[node name="FpsInterlude" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0essu")
+next_scene = ExtResource("2_lkhwq")
+
+[node name="Terminal" parent="." instance=ExtResource("2_sk6dl")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d1mhk3prnqywk"]
+[gd_scene load_steps=20 format=3 uid="uid://d1mhk3prnqywk"]
 
 [ext_resource type="Script" uid="uid://dqkok8p7jcl4x" path="res://levels/fps_test_scene/fps_test_scene.gd" id="1_rujvw"]
 [ext_resource type="PackedScene" uid="uid://d2jaf8rnldxpk" path="res://levels/chat_2/chat_2.tscn" id="2_7krs1"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://jymctoo8bmvx" path="res://assets/models/maze/fence2.glb" id="11_63880"]
 [ext_resource type="MeshLibrary" uid="uid://b402l3ni4b5qk" path="res://levels/maze_load_wall/kenny_natural_kit.tres" id="12_f1mlq"]
 [ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="13_u2x88"]
-[ext_resource type="PackedScene" uid="uid://5ltrsa0ifrxn" path="res://scenes/UI/terminal/Terminal.tscn" id="14_63880"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -130,7 +129,4 @@ metadata/_editor_floor_ = Vector3(0, 2, 0)
 [node name="Buttons" parent="." instance=ExtResource("13_u2x88")]
 visible = false
 
-[node name="Terminal" parent="." instance=ExtResource("14_63880")]
-
 [connection signal="body_entered" from="Obstacles/Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="input_submitted" from="Terminal" to="." method="_on_terminal_input_submitted"]

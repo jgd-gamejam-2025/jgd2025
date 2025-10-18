@@ -16,8 +16,8 @@ func _ready():
 	chat_ui.show_welcome_text("你在干嘛呀？")
 	chat_ui.set_bg_transparent()
 	terminal.block_input()
-	# await terminal.write_line(start_screen_text).finished
-	# await terminal.write_line(start_screen_text_2, 0.001).finished
+	await terminal.write_line(start_screen_text).finished
+	await terminal.write_line(start_screen_text_2, 0.001).finished
 	terminal.write_line_static("[color=#ff1900][AI SYSTEM] 重启失败，是否启用备份系统深度调试？按回车键确认。\n[/color]")
 	terminal.enable_input()
 

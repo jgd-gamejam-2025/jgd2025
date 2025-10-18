@@ -1,7 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://ofyuav8psja7"]
+[gd_scene load_steps=14 format=3 uid="uid://ofyuav8psja7"]
 
-[ext_resource type="Script" uid="uid://dqkok8p7jcl4x" path="res://levels/fps_test_scene/fps_test_scene.gd" id="1_kp8pu"]
-[ext_resource type="PackedScene" uid="uid://d2jaf8rnldxpk" path="res://levels/chat_2/chat_2.tscn" id="2_aw82a"]
+[ext_resource type="Script" uid="uid://be61kxaa70r4p" path="res://levels/tps_test_scene/fps_test_scene_world.gd" id="1_hlatn"]
 [ext_resource type="Material" uid="uid://brpu7xylrg2l2" path="res://addons/fps_example_scene/materials/material_basic_blue.tres" id="3_nj0cr"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="4_17sqg"]
 
@@ -52,8 +51,7 @@ albedo_color = Color(0.23151812, 0.23151812, 0.23151812, 1)
 albedo_color = Color(0.24840015, 0.24840018, 0.24840015, 1)
 
 [node name="FpsTestScene" type="Node3D"]
-script = ExtResource("1_kp8pu")
-next_scene = ExtResource("2_aw82a")
+script = ExtResource("1_hlatn")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_aaj73")

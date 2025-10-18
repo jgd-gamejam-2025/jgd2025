@@ -9,6 +9,8 @@ extends CanvasLayer
 @onready var input_field: LineEdit = $MarginContainer/Panel/VBoxContainer/InputArea/LineEdit
 @onready var prompt_label: Label = $MarginContainer/Panel/VBoxContainer/InputArea/Prompt
 @onready var special_label: RichTextLabel = $SubViewportContainer/SubViewport/SpecialLabel
+@onready var special_label2: RichTextLabel = $SubViewportContainer/SubViewport/SpecialLabel2
+@onready var special_white: ColorRect = $CenterContainer/White
 
 var _tween: Tween
 var _current_text: String = ""
@@ -169,12 +171,8 @@ func write_lines_sync(text: String, output_area: RichTextLabel = output_area) ->
 	)
 	return _tween
 
-var write_art_tween: Tween
 func write_art_sync(text: String, output_area: RichTextLabel = output_area, keep_flipping_time: float = 10.0, skip_generate: bool = false) -> Tween:
-	if _is_typing:
-		if write_art_tween:
-			write_art_tween.kill()
-	write_art_tween = create_tween()
+	var write_art_tween = create_tween()
 	
 	_is_typing = true
 	var start_pos = output_area.text.length()

@@ -16,9 +16,9 @@ func _ready():
 	chat_ui.show_welcome_text("你在干嘛呀？")
 	chat_ui.set_bg_transparent()
 	terminal.block_input()
-	await terminal.write_line(start_screen_text).finished
-	await terminal.write_line(start_screen_text_2, 0.001).finished
-	terminal.write_line_static("[color=#ff1900][AI SYSTEM] 重启失败，是否启用备份系统深度调试？输入任意字符确认。\n[/color]")
+	# await terminal.write_line(start_screen_text).finished
+	# await terminal.write_line(start_screen_text_2, 0.001).finished
+	terminal.write_line_static("[color=#ff1900][AI SYSTEM] 重启失败，是否启用备份系统深度调试？按回车键确认。\n[/color]")
 	terminal.enable_input()
 
 # detect newline inputs
@@ -50,6 +50,7 @@ func next_step() -> void:
 
 		var eve_ascii = terminal.expand_ascii_art(eve_ascii_raw, 3)
 		terminal.write_art_sync(eve_ascii, terminal.special_label, 10000)
+		terminal.write_art_sync(eve_image_raw, terminal.special_label2, 10000, true)
 
 		var total_time = 5  # Total time for the animation
 		# use a tween to gradually reduce the text size back to original
@@ -60,17 +61,28 @@ func next_step() -> void:
 				0,  # Start with 600
 				300-16,
 				total_time  # Total animation time
-		)
-		await tween.finished
-		await get_tree().create_timer(5.0).timeout
-		terminal.write_line_static("[color=#ff1900][AI SYSTEM] 备份记忆已启用，即将开始深度调试。输入任意字符确认。\n[/color]")
+		).set_trans(Tween.TRANS_LINEAR)
+		await tween.tween_interval(5.0).finished
+		terminal.write_line("[AI SYSTEM] 备份记忆已启用，即将开始深度调试。按回车键开始。")
 		terminal.enable_input()
 
 	if input_received == 2:
 		terminal.special_label.text = ""
 		terminal.output_area.text = ""
-		terminal.write_art_sync(eve_image_raw, terminal.special_label, 10000, true)
-		await terminal.write_line("正在进入……").finished
+		terminal.special_label.hide()
+		terminal.special_label2.show()
+		
+		var tween = terminal.create_tween()
+		tween.tween_interval(2)
+		tween.tween_callback(
+			func():
+				terminal.special_white.show()
+		)
+		tween.tween_property(terminal.special_label2, "scale", Vector2(3, 3), 6.0).set_trans(Tween.TRANS_LINEAR)
+		tween.tween_property(terminal.special_label2, "scale", Vector2(600, 600), 0.5).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+		tween.tween_property(terminal.special_white, "custom_minimum_size", Vector2(6000, 6000), 0.5).set_trans(Tween.TRANS_QUAD)
+		await tween.finished
+		terminal.hide()
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	pass

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://6k8k6xhr47r5"]
+
+[ext_resource type="Script" uid="uid://co2vlvvig0yyt" path="res://levels/opening/opening.gd" id="1_i82em"]
+[ext_resource type="PackedScene" uid="uid://5ltrsa0ifrxn" path="res://scenes/UI/terminal/Terminal.tscn" id="2_kpdrq"]
+
+[node name="Opening" type="Node"]
+script = ExtResource("1_i82em")
+
+[node name="Terminal" parent="." instance=ExtResource("2_kpdrq")]

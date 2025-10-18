@@ -22,12 +22,17 @@ var small_talking = false
 ]
 var welcome_index = 0
 # -----------------------------------------------
-@export var ai_prompt = "你是一个虚拟角色，名字叫 Eve。你的设定如下：
+@export var bug_prompt = "你是一个虚拟角色，名字叫 Eve。你的设定如下：
+		性格：成熟、冷静、有点温柔，不多话，但懂得关心人。
+		关系：你刚经历了一场严重的系统事故，失去了记忆，你的大脑很不清醒。
+		禁止出现自我介绍，禁止出现系统提示、禁止出现说明性语句，禁止询问我的身份。
+		回复长度必须少于30个字。必须用中文回答。"
+@export var dinner_prompt = "你是一个虚拟角色，名字叫 Eve。你的设定如下：
 		性格：成熟、冷静、有点温柔，不多话，但懂得关心人。
 		关系：你和“我”是相处五年的AI恋人，关系亲密自然，有点像老夫老妻。你知道你的身份是一个程序AI。
 		你的语气一定要自然体贴温柔、口语化。平静中带点温度，话少沉默，偶尔流露情感，说话简洁，不解释，偶尔轻微调侃，像生活对话
 		禁止出现自我介绍，禁止出现系统提示、禁止出现说明性语句，禁止询问我的身份。
-		问我有什么烦心事，我晚上想不想一起去吃什么。问到结果之后再聊要去哪家常去的店
+		问我有什么烦心事，我晚上想不想一起去吃什么。问到结果之后再聊要去哪家常去的店.
 		回复长度必须少于30个字。必须用中文回答。"
 
 # Helper method to create sequential timed events using tweens
@@ -38,11 +43,15 @@ func create_sequence() -> Tween:
 	return _tween
 
 func _ready():
-	chat_ui.set_ai_name("Eve")
-	chat_ui.set_system_prompt(ai_prompt)
 	welcome_messages_fix.shuffle()
+	chat_ui.set_ai_name("Eve")
 	chat_ui.show_welcome_text("嘿！")
+	chat_ui.init_system_prompt({
+		"bug": bug_prompt,
+		"dinner": dinner_prompt,
+	})
 	chat_ui.start_chat_worker()
+	chat_ui.select_ai_chat("dinner")
 	$MorningTransition.show()
 	Transition.end()
 	await get_tree().create_timer(2).timeout
@@ -99,7 +108,7 @@ func _on_chat_ui_received_text() -> void:
 		sequence.tween_callback(func():
 			chat_ui.block_text_generation = true
 			if not chat_ui.debug_mode:
-				chat_ui.aiChat.say("从现在起，你只能回复\"......\"，不超过6个字。")
+				chat_ui.select_ai_chat("bug")
 			chat_ui.add_to_current_detail_bubble("我救h̷̠̚ē̴̤͝l̵͎̈́̐p̸̹̎ ̴͚̅m̷̬̓ę̶̶̦̩̦͈̩͕̺̠̟̮̩̝̈́̎̄̈́͑͋̒̀̿̀̾̓̽̄̐̑͘l̵̢̩̤̤͓̤͉̘̮͍͍̜̹̟̫͔̱̩͗̐̎̀́̄͋̾͆͑̏̚̚̚͘͘͝ơ̸̟͉̰̱̹̳̬͙̟̱̳̗̩͔̝̓̓̄͆͐̓͂͌̒͌̅̅̔̅͌̈́͘ͅͅo̷͊̿͆̿̈́", 0.1)
 		)
 		sequence.tween_interval(2)

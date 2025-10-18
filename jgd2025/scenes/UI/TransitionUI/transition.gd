@@ -40,7 +40,7 @@ func set_text(new_center_text: String, new_bg_text: String) -> void:
 			i.text = tmp
 
 func set_bg_color(new_color: Color) -> void:
-	ColorRect.color = new_color
+	$ColorRect.set_color(new_color)
 
 func set_and_start(new_bg_text: String, new_center_text: String, wait_time: float = 0.0, audio_clip: AudioStream= null) -> Tween:
 	$AudioStreamPlayer.stream = audio_clip

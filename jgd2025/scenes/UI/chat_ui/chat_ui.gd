@@ -19,7 +19,9 @@ var key_aiChat_dict: Dictionary = {}
 @onready var image_bubble = $Panel/MarginContainer/BubblesScroll/VBoxContainer/ImageBubble
 var in_chat_mode = false
 var make_new_bubble_on_next_token = true
-#--------------
+#--special scene------------
+@export var eve_debug_command = "sudo debug /eve --backup"
+#---------
 
 var _tween: Tween 
 var block_text_generation = false
@@ -47,6 +49,11 @@ func send_text_to_ai():
 	add_flat_bubble(my_message)
 	make_new_bubble_on_next_token = true
 	textInput.editable = false
+	# check for ultra cheat code:
+	if my_message.strip_edges() == eve_debug_command:
+		LevelManager.go_to_eve_debug_scene()
+		return
+
 	if not debug_mode:
 		current_aiChat.say(my_message)
 	else:
@@ -66,10 +73,10 @@ func _input(event: InputEvent) -> void:
 		textInput.grab_focus()
 
 	if event.is_action_pressed("ui_text_newline") and textInput.editable and textInput.text != "":
-		send_text_to_ai()
 		if first_time_sent_text:
 			first_time_sent_text = false
 			to_chat_mode()
+		send_text_to_ai()
 
 var command_buffer: String = ""
 func _on_nobody_who_chat_response_updated(new_token: String) -> void:
@@ -159,7 +166,7 @@ func init_system_prompt(key_prompt_dict: Dictionary) -> void:
 	for key in key_prompt_dict.keys():
 		var new_chat = aiChat.duplicate()
 		add_child(new_chat)
-		new_chat.system_prompt = "\\no_think" + key_prompt_dict[key]
+		new_chat.system_prompt = "/no_think" + key_prompt_dict[key]
 		key_aiChat_dict[key] = new_chat
 
 func select_ai_chat(key: String) -> void:

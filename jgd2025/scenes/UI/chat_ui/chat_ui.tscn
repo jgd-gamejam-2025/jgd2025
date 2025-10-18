@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://byhcpq4t56qc3"]
+[gd_scene load_steps=24 format=3 uid="uid://byhcpq4t56qc3"]
 
 [ext_resource type="Script" uid="uid://c8tlo7ig0ena6" path="res://scenes/UI/chat_ui/chat_ui.gd" id="1_h4ouj"]
 [ext_resource type="Shader" uid="uid://bshbnhjaxel3e" path="res://scenes/fps/pad/canvas_blur.gdshader" id="2_7gws6"]
 [ext_resource type="PackedScene" uid="uid://s0tf56xdbeog" path="res://scenes/UI/bubble_ui/detail_bubble.tscn" id="2_8ats8"]
+[ext_resource type="PackedScene" uid="uid://bhecgxuox07sb" path="res://levels/fps_interlude/fps_interlude.tscn" id="2_cy61e"]
 [ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="3_hksxt"]
 [ext_resource type="PackedScene" uid="uid://immlbpyxbb8m" path="res://scenes/UI/bubble_ui/flat_bubble.tscn" id="3_spcoe"]
 [ext_resource type="FontFile" uid="uid://dche8c1u6rmg" path="res://scenes/UI/fonts/OPlusSans3-Bold.ttf" id="3_vgd05"]
@@ -74,7 +75,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h4ouj")
-debug_mode = true
+qwen = false
+eve_debug_scene = ExtResource("2_cy61e")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -235,7 +237,7 @@ layout_mode = 2
 text = "Send"
 
 [node name="NobodyWhoModel" type="NobodyWhoModel" parent="."]
-model_path = "res://gguf/Qwen3-8B-Q5_0.gguf"
+model_path = "res://gguf/Llama3-8B-Chinese-Chat-q4_0-v2_1.gguf"
 
 [node name="NobodyWhoChat" type="NobodyWhoChat" parent="." node_paths=PackedStringArray("model_node")]
 model_node = NodePath("../NobodyWhoModel")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ofyuav8psja7"]
+[gd_scene load_steps=11 format=3 uid="uid://ofyuav8psja7"]
 
 [ext_resource type="Script" uid="uid://be61kxaa70r4p" path="res://levels/tps_test_scene/fps_test_scene_world.gd" id="1_hlatn"]
 [ext_resource type="PackedScene" uid="uid://cqc7rv7rgyn5" path="res://levels/tps_test_scene/Set/set.tscn" id="3_hlatn"]
 [ext_resource type="Material" uid="uid://brpu7xylrg2l2" path="res://addons/fps_example_scene/materials/material_basic_blue.tres" id="3_nj0cr"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="4_17sqg"]
+[ext_resource type="PackedScene" uid="uid://b7l5sv4fjhjwm" path="res://scenes/UI/notification/Notification.tscn" id="4_kp8pu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -23,6 +24,7 @@ ssil_normal_rejection = 0.0
 glow_enabled = true
 glow_intensity = 1.2
 glow_strength = 0.72
+fog_enabled = true
 volumetric_fog_density = 0.0
 volumetric_fog_emission_energy = 0.0
 
@@ -70,3 +72,5 @@ mesh = SubResource("PlaneMesh_n6tjd")
 skeleton = NodePath("../..")
 
 [node name="Set" parent="." instance=ExtResource("3_hlatn")]
+
+[node name="Notification" parent="." instance=ExtResource("4_kp8pu")]

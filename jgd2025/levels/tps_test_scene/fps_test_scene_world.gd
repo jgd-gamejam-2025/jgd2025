@@ -2,8 +2,9 @@ extends Node3D
 
 @onready var pad = $Player.pad
 @onready var chat_ui = pad.chat_ui
+@onready var notification_box = $Notification
 
-@onready var set = $Set
+@onready var set_template = $Set
 
 var set_index = 0
 var correct_choices = [1, 2, 3]
@@ -11,16 +12,21 @@ var correct_choices = [1, 2, 3]
 var curr_set
 
 func _ready():
+	pad.connect("pad_activated", _on_pad_pad_activated)
+	pad.connect("pad_deactivated", _on_pad_pad_deactivated)
 	Transition.end()
 	chat_ui.set_bg_transparent()
-	set.hide()
+	set_template.hide()
 	generate_set(Vector3(0,0,0))
 	curr_set.set_question("Q1\n Answer is A", "A", "B", "C")
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(4).timeout
 	curr_set.open_start_doors()
+	await get_tree().create_timer(12).timeout
+	get_notification("嘿，你看到什么了？")
+
 
 func generate_set(target_position: Vector3) -> void:
-	curr_set = set.duplicate()
+	curr_set = set_template.duplicate()
 	add_child(curr_set)
 	curr_set.show()
 	curr_set.position = target_position
@@ -37,11 +43,11 @@ func choice_made_handler(idx: int) -> void:
 
 	match set_index:
 		0:
-			curr_set.set_question("Q1\n Answer is A", "A", "B", "C")
+			curr_set.set_question("Q1\n 答案是 A", "A", "B", "C")
 		1:
-			curr_set.set_question("Q2\n Answer is B", "A", "B", "C")
+			curr_set.set_question("Q2\n 答案是 B", "A", "B", "C")
 		2:
-			curr_set.set_question("Q3\n Answer is C", "A", "B", "C")
+			curr_set.set_question("Q3\n 答案是 C", "A", "B", "C")
 		_:
 			#chat_ui.show_message("Congratulations! You've completed the test!")
 			# level_complete()
@@ -50,3 +56,13 @@ func choice_made_handler(idx: int) -> void:
 	await get_tree().create_timer(1.5).timeout
 	curr_set.open_start_doors()
 	
+func get_notification(message: String, duration: float = 3.0, name_text: String = "Eve"):
+	chat_ui.to_chat_mode()
+	chat_ui.add_and_write_detail_bubble(message, 0.02)
+	notification_box.show_notification(message, duration, name_text)
+
+func _on_pad_pad_activated() -> void:
+	notification_box.end_notification()
+
+func _on_pad_pad_deactivated() -> void:
+	pass

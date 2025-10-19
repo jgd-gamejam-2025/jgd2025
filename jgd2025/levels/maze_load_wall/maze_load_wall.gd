@@ -24,10 +24,10 @@ func _ready():
 func end_opening() -> void:
 	player.can_move = true
 	$StartBlock.queue_free()
-	$Opening.queue_free()
+	await get_tree().create_timer(0.2).timeout
 	# give a downward velocity to player
-	await get_tree().process_frame
 	player.velocity = start_velocity
+	$Opening.terminal.hide()
 	player.shake_camera(0.03, 3)
 	await get_tree().create_timer(landing_time).timeout
 	player.shake_camera(0.5, 0.3)

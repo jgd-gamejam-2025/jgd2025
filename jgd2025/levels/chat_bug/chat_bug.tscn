@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bytjnt7nwkrxw"]
+[gd_scene load_steps=8 format=3 uid="uid://bytjnt7nwkrxw"]
 
 [ext_resource type="Script" uid="uid://jdp2hkrg2vm5" path="res://levels/chat_bug/chat_bug.gd" id="1_5iuj2"]
-[ext_resource type="PackedScene" uid="uid://d1mhk3prnqywk" path="res://levels/fps_test_scene/fps_test_scene.tscn" id="2_gnwe6"]
 [ext_resource type="PackedScene" uid="uid://byhcpq4t56qc3" path="res://scenes/UI/chat_ui/chat_ui.tscn" id="3_edd6c"]
 [ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="4_1crpx"]
 [ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="4_gnwe6"]
@@ -11,9 +10,10 @@
 
 [node name="ChatBug" type="Node"]
 script = ExtResource("1_5iuj2")
-next_level = ExtResource("2_gnwe6")
 
 [node name="ChatUI" parent="." instance=ExtResource("3_edd6c")]
+debug_mode = false
+qwen = true
 
 [node name="SmallTalkTimer" type="Timer" parent="."]
 wait_time = 2.0

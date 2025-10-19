@@ -37,7 +37,7 @@ points = PackedVector3Array(-50, 0, -50, -50, 0, 50, 50, 0, -50, 50, 0, 50)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rujvw"]
 size = Vector3(1.347127, 2.7026367, 0.6469002)
 
-[node name="FpsTestScene" type="Node3D"]
+[node name="FpsTestScene2" type="Node3D"]
 script = ExtResource("1_rujvw")
 next_scene = ExtResource("2_7krs1")
 
@@ -112,6 +112,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.443544, -0.71424675, 21.4
 
 [node name="Buttons" parent="." instance=ExtResource("13_u2x88")]
 visible = false
+script = null
 
 [node name="Opening" parent="." instance=ExtResource("14_63880")]
 

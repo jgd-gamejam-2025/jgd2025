@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://btf2mmkgrs3xc"]
+[gd_scene load_steps=8 format=3 uid="uid://btf2mmkgrs3xc"]
 
+[ext_resource type="Script" path="res://scenes/UI/chat_buttons/chat_buttons.gd" id="1_cki5a"]
 [ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="1_ltdvs"]
 [ext_resource type="Texture2D" uid="uid://deoqpv5sf2343" path="res://assets/ui/Gear-1.png" id="2_l2dk5"]
 [ext_resource type="Texture2D" uid="uid://1q6sfcykos8y" path="res://assets/ui/X.png" id="3_fedcw"]
@@ -20,8 +21,19 @@ corner_radius_bottom_right = 150
 corner_radius_bottom_left = 150
 
 [node name="Buttons" type="CanvasLayer"]
+script = ExtResource("1_cki5a")
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12941177, 0.12941177, 0.12941177, 1)
 
 [node name="OptionButton" type="Button" parent="."]
+visible = false
 custom_minimum_size = Vector2(0, 55)
 anchors_preset = 3
 anchor_left = 1.0
@@ -64,6 +76,7 @@ icon = ExtResource("3_fedcw")
 icon_alignment = 1
 
 [node name="InfoButton" type="Button" parent="."]
+visible = false
 custom_minimum_size = Vector2(0, 55)
 anchors_preset = 3
 anchor_left = 1.0
@@ -80,3 +93,5 @@ pivot_offset = Vector2(28, 30)
 theme = ExtResource("1_ltdvs")
 icon = ExtResource("4_j1hct")
 icon_alignment = 1
+
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

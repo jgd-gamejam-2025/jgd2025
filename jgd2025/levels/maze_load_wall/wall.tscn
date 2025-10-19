@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_fbuk2"]
 
 [node name="BasicWallBlock" type="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 15, 0, 0, 0, 1, 0, 7.5, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_xntwr")

@@ -17,6 +17,8 @@ signal pad_deactivated  # Signal when pad is deactivated
 
 @onready var chat_ui = %ChatUI
 
+@onready var player: CharacterBody3D = owner
+
 # 平滑系数，用于减缓移动
 @export var smooth_speed := 6.0
 
@@ -25,19 +27,23 @@ var is_playing = false
 var _current_t := 0.0
 
 func _process(delta: float) -> void:
-	if not camera_pivot:
+	if not camera_pivot or not player: # 确保 player 也被正确获取
 		return
 
-	# 获取相机俯仰角（x为pitch，低头是负值）
-	var pitch := camera_pivot.rotation_degrees.x
+	var t: float # 先声明 t
 
-	# 计算插值比例 t：在 move_when_angle 到 move_until_angle 之间映射为 0~1
-	var t := (pitch - move_when_angle) / (move_until_angle - move_when_angle)
-	t = clamp(t, 0.0, 1.0)
-
-	# 使用 smoothstep 让动画更顺滑
-	t = smoothstep(0.0, 1.0, t)
-
+	# --- 这是主要的修改 ---
+	if player.is_on_floor():
+		# 玩家在地上：正常根据视角计算 t
+		var pitch := camera_pivot.rotation_degrees.x
+		t = (pitch - move_when_angle) / (move_until_angle - move_when_angle)
+		t = clamp(t, 0.0, 1.0)
+		t = smoothstep(0.0, 1.0, t)
+	else:
+		# 玩家在空中：强制 t = 0，让 Pad 收回
+		t = 0.0
+	# --- 修改结束 ---
+	
 	# 可选：用线性插值平滑过渡
 	_current_t = lerp(_current_t, t, delta * smooth_speed)
 
@@ -46,6 +52,7 @@ func _process(delta: float) -> void:
 	rotation_degrees = start_rotation.lerp(end_rotation, _current_t)
 	
 	# Check for pad activation
+	# (后面的激活检测逻辑保持不变，因为 t = 0 会自动处理掉激活状态)
 	if is_playing:
 		if Input.is_action_just_pressed("ui_cancel") || _current_t < activation_threshold:  # Enter esc
 			is_playing = false

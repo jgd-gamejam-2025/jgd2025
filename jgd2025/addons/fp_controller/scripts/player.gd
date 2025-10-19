@@ -319,3 +319,11 @@ func _add_joy_button_event(action_name: String, joy_button: JoyButton = 100) -> 
 	var joy_button_event = InputEventJoypadButton.new()
 	joy_button_event.button_index = joy_button
 	InputMap.action_add_event(action_name, joy_button_event)
+
+
+func _on_pad_pad_activated() -> void:
+	can_move = false
+
+
+func _on_pad_pad_deactivated() -> void:
+	can_move = true

@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://cqc7rv7rgyn5"]
 
 [ext_resource type="Material" uid="uid://brpu7xylrg2l2" path="res://addons/fps_example_scene/materials/material_basic_blue.tres" id="1_614rw"]
-[ext_resource type="Script" uid="uid://dk6ujpt1uj0eb" path="res://levels/tps_test_scene/Set/set.gd" id="1_iukoa"]
+[ext_resource type="Script" uid="uid://dk6ujpt1uj0eb" path="res://levels/maze2/Set/set.gd" id="1_iukoa"]
 [ext_resource type="FontFile" uid="uid://dlefqu74x4m18" path="res://scenes/UI/fonts/sarasa-mono-sc-bold.ttf" id="2_ikele"]
 [ext_resource type="Script" uid="uid://cn5243ahistp4" path="res://other_scripts/float_node3d.gd" id="3_or1ss"]
 

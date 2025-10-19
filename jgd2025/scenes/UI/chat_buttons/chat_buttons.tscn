@@ -1,10 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://btf2mmkgrs3xc"]
+[gd_scene load_steps=10 format=3 uid="uid://btf2mmkgrs3xc"]
 
-[ext_resource type="Script" path="res://scenes/UI/chat_buttons/chat_buttons.gd" id="1_cki5a"]
+[ext_resource type="Script" uid="uid://bk4cyulfllecl" path="res://scenes/UI/chat_buttons/chat_buttons.gd" id="1_cki5a"]
 [ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="1_ltdvs"]
 [ext_resource type="Texture2D" uid="uid://deoqpv5sf2343" path="res://assets/ui/Gear-1.png" id="2_l2dk5"]
 [ext_resource type="Texture2D" uid="uid://1q6sfcykos8y" path="res://assets/ui/X.png" id="3_fedcw"]
 [ext_resource type="Texture2D" uid="uid://dlrbue5kaerin" path="res://assets/ui/信息.png" id="4_j1hct"]
+
+[sub_resource type="Gradient" id="Gradient_tupck"]
+colors = PackedColorArray(0.12941177, 0.12941177, 0.12941177, 0.5529412, 0.12941177, 0.12941177, 0.12941177, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8d25m"]
+gradient = SubResource("Gradient_tupck")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_noujk"]
 bg_color = Color(0.53, 0.2491, 0.2818717, 1)
@@ -23,14 +31,24 @@ corner_radius_bottom_left = 150
 [node name="Buttons" type="CanvasLayer"]
 script = ExtResource("1_cki5a")
 
-[node name="Background" type="ColorRect" parent="."]
-visible = false
+[node name="Background" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.12941177, 0.12941177, 0.12941177, 1)
+
+[node name="Shadow2" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -598.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_8d25m")
 
 [node name="OptionButton" type="Button" parent="."]
 visible = false

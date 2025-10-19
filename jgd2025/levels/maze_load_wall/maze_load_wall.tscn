@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://1m82bdnhye7k"]
+[gd_scene load_steps=17 format=3 uid="uid://1m82bdnhye7k"]
 
+[ext_resource type="Script" uid="uid://cr4hyuccgxpea" path="res://levels/maze_load_wall/maze_load_wall.gd" id="1_wt3j4"]
 [ext_resource type="Material" uid="uid://brpu7xylrg2l2" path="res://addons/fps_example_scene/materials/material_basic_blue.tres" id="3_04mdw"]
 [ext_resource type="Material" uid="uid://ctjp2430ogink" path="res://levels/maze_load_wall/portal.tres" id="3_ill1l"]
 [ext_resource type="MeshLibrary" uid="uid://b402l3ni4b5qk" path="res://levels/maze_load_wall/kenny_natural_kit.tres" id="3_k2rf3"]
@@ -8,20 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b5dqdjonab3mu" path="res://levels/maze_load_wall/wall.tscn" id="4_rgiwp"]
 [ext_resource type="Material" uid="uid://bdappx3pmcbo8" path="res://levels/maze_load_wall/sceneFromPortal.tres" id="4_wt3j4"]
 [ext_resource type="PackedScene" uid="uid://b4l1u31adxkol" path="res://levels/maze_load_wall/FloorPatternDecal.tscn" id="5_02ih3"]
-
-[sub_resource type="GDScript" id="GDScript_k2rf3"]
-script/source = "extends Node3D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
+[ext_resource type="PackedScene" uid="uid://6k8k6xhr47r5" path="res://levels/opening/Opening.tscn" id="10_vudfa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -36,15 +24,18 @@ sky = SubResource("Sky_aavk3")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vudfa"]
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_n6tjd"]
 material = ExtResource("3_04mdw")
-size = Vector2(100, 100)
+size = Vector2(5000, 5000)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h1lgg"]
 points = PackedVector3Array(-50, 0, -50, -50, 0, 50, 50, 0, -50, 50, 0, 50)
 
 [node name="MazeLoadWall" type="Node3D"]
-script = SubResource("GDScript_k2rf3")
+script = ExtResource("1_wt3j4")
+start_velocity = Vector3(0, -100, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_aaj73")
@@ -54,8 +45,14 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("4_j3jbl")]
-transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 50, 0)
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 249.56992, 0)
 walk_speed = 5.0
+
+[node name="StartBlock" type="StaticBody3D" parent="."]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 249.12144, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StartBlock"]
+shape = SubResource("BoxShape3D_vudfa")
 
 [node name="MazeTarget" type="Node" parent="."]
 
@@ -117,7 +114,7 @@ material = ExtResource("4_wt3j4")
 [node name="Floor" type="StaticBody3D" parent="."]
 
 [node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, -0.09510803, 0.34925842, -0.5192261)
 layers = 4
 mesh = SubResource("PlaneMesh_n6tjd")
 skeleton = NodePath("../..")
@@ -146,4 +143,7 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 wait_time = 3.0
 one_shot = true
 
+[node name="Opening" parent="." instance=ExtResource("10_vudfa")]
+
 [connection signal="timeout" from="MazeManager/RiseTimer" to="MazeManager" method="_on_rise_timer_timeout"]
+[connection signal="opening_end" from="Opening" to="." method="_on_opening_opening_end"]

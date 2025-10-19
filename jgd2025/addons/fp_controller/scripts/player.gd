@@ -320,3 +320,29 @@ func _add_joy_button_event(action_name: String, joy_button: JoyButton = 100) -> 
 	var joy_button_event = InputEventJoypadButton.new()
 	joy_button_event.button_index = joy_button
 	InputMap.action_add_event(action_name, joy_button_event)
+
+var shaking_tween: Tween
+func shake_camera(intensity: float = 0.3, duration: float = 0.5, frequency: float = 20.0) -> void:
+	if shaking_tween:
+		shaking_tween.kill()
+	shaking_tween = create_tween()
+	var original_rotation = camera_pivot.rotation
+	var shake_count = int(duration * frequency)
+	var time_per_shake = duration / shake_count
+	
+	for i in range(shake_count):
+		# Calculate decay factor (shake intensity decreases over time)
+		var decay = 1.0 - (float(i) / shake_count)
+		var shake_intensity = intensity * decay
+		
+		# Random shake offset
+		var random_rotation = Vector3(
+			randf_range(-shake_intensity, shake_intensity),
+			randf_range(-shake_intensity, shake_intensity),
+			randf_range(-shake_intensity, shake_intensity)
+		)
+		
+		shaking_tween.tween_property(camera_pivot, "rotation", original_rotation + random_rotation, time_per_shake)
+	
+	# Return to original rotation
+	shaking_tween.tween_property(camera_pivot, "rotation", original_rotation, time_per_shake)

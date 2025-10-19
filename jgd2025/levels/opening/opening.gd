@@ -1,5 +1,6 @@
 extends Node
 @onready var terminal = $Terminal
+signal opening_end
 
 func _ready():
 	terminal.block_input()
@@ -69,7 +70,7 @@ func next_step() -> void:
 		tween.tween_property(terminal.special_label2, "scale", Vector2(600, 600), 0.5).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
 		tween.tween_property(terminal.special_white, "custom_minimum_size", Vector2(6000, 6000), 0.5).set_trans(Tween.TRANS_QUAD)
 		await tween.finished
-		terminal.hide()
+		opening_end.emit()
 
 
 var start_screen_text = "

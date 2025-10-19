@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1h80mwwleuqs"]
 
 [ext_resource type="Script" uid="uid://cmfami4gcltvu" path="res://levels/level_manager/level_manager.gd" id="1_k4b6o"]
-[ext_resource type="PackedScene" uid="uid://d1mhk3prnqywk" path="res://levels/fps_test_scene/fps_test_scene.tscn" id="2_2qq6n"]
+[ext_resource type="PackedScene" uid="uid://1m82bdnhye7k" path="res://levels/maze_load_wall/maze_load_wall.tscn" id="2_2qq6n"]
 
 [node name="LevelManager" type="Node"]
 script = ExtResource("1_k4b6o")

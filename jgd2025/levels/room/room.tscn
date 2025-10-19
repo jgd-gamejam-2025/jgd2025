@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://c2hgmqr4djchj"]
+
+[ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="2_j1o6v"]
+[ext_resource type="Material" uid="uid://brpu7xylrg2l2" path="res://addons/fps_example_scene/materials/material_basic_blue.tres" id="3_gjb65"]
+[ext_resource type="PackedScene" uid="uid://cqc7rv7rgyn5" path="res://levels/maze2/Set/set.tscn" id="4_rcwlm"]
+[ext_resource type="PackedScene" uid="uid://b7l5sv4fjhjwm" path="res://scenes/UI/notification/Notification.tscn" id="5_yqly8"]
+[ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="6_v36xs"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_aavk3"]
+sky_material = SubResource("ProceduralSkyMaterial_r6mis")
+
+[sub_resource type="Environment" id="Environment_aaj73"]
+background_mode = 2
+sky = SubResource("Sky_aavk3")
+tonemap_mode = 2
+ssil_radius = 12.83
+ssil_intensity = 1.4
+ssil_sharpness = 0.51
+ssil_normal_rejection = 0.0
+glow_enabled = true
+glow_intensity = 1.2
+glow_strength = 0.72
+fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_emission_energy = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kp8pu"]
+size = Vector3(135.87213, 50, 392.15112)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n6tjd"]
+material = ExtResource("3_gjb65")
+size = Vector2(600, 392)
+
+[node name="Room" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_aaj73")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+visible = false
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_j1o6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
+walk_back_speed = 30.0
+walk_speed = 30.0
+sprint_speed = 80.0
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.187749, 0.49041462, 1.6324787)
+visible = false
+use_collision = true
+polygon = PackedVector2Array(0, 0, 2.08165e-12, 2, 6.035904, 2.1070576, 10, 2.08165e-12)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="FloorCollision" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41081905, -40.837013, 33.404152)
+shape = SubResource("BoxShape3D_kp8pu")
+
+[node name="FloorMesh2" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7676611, -15.930271, 33.567833)
+mesh = SubResource("PlaneMesh_n6tjd")
+skeleton = NodePath("../..")
+
+[node name="Set" parent="." instance=ExtResource("4_rcwlm")]
+
+[node name="Notification" parent="." instance=ExtResource("5_yqly8")]
+
+[node name="Buttons" parent="." instance=ExtResource("6_v36xs")]
+is_3d_scene = true

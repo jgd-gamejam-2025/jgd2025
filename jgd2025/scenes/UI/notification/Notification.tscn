@@ -1,0 +1,106 @@
+[gd_scene load_steps=10 format=3 uid="uid://b7l5sv4fjhjwm"]
+
+[ext_resource type="Script" uid="uid://caandmgf3l0vk" path="res://scenes/UI/notification/notification.gd" id="1_qxpuj"]
+[ext_resource type="Script" uid="uid://eaqfy06e0nte" path="res://scenes/UI/bubble_ui/detail_bubble.gd" id="2_ieb1t"]
+[ext_resource type="PackedScene" uid="uid://db7chujuf7je8" path="res://scenes/UI/ProfilePic/profile_pic.tscn" id="3_nixmn"]
+[ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="4_prjqc"]
+[ext_resource type="PackedScene" uid="uid://bynn3w8xjct6b" path="res://scenes/UI/bubble_ui/ui_bubble.tscn" id="5_bsch4"]
+[ext_resource type="FontFile" uid="uid://b8muwa7k4021" path="res://scenes/UI/fonts/OPlusSans3-Regular.ttf" id="6_nixmn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ug25h"]
+bg_color = Color(0.11764706, 0.27058825, 0.40392157, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f3n7a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c7by8"]
+
+[node name="Notification" type="CanvasLayer"]
+script = ExtResource("1_qxpuj")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -71.0
+offset_top = -110.0
+offset_right = 62.0
+offset_bottom = -29.99939
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ug25h")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="DetailBubble" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+script = ExtResource("2_ieb1t")
+
+[node name="Control" type="Control" parent="CenterContainer/PanelContainer/MarginContainer/DetailBubble"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="ProfilePic" parent="CenterContainer/PanelContainer/MarginContainer/DetailBubble/Control" instance=ExtResource("3_nixmn")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = -63.000004
+offset_top = 0.0
+offset_right = -63.000004
+offset_bottom = 0.0
+grow_horizontal = 1
+scale = Vector2(0.24, 0.24)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/DetailBubble"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 4
+
+[node name="Padding2" type="Control" parent="CenterContainer/PanelContainer/MarginContainer/DetailBubble/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/DetailBubble/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_prjqc")
+theme_override_font_sizes/font_size = 22
+text = "Eve"
+
+[node name="RichTextLabel" parent="CenterContainer/PanelContainer/MarginContainer/DetailBubble/VBoxContainer" instance=ExtResource("5_bsch4")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(39.155, 32.69)
+layout_mode = 2
+theme = null
+theme_override_fonts/normal_font = ExtResource("6_nixmn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f3n7a")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c7by8")
+bbcode_enabled = true
+MAX_WIDTH = 700.0
+
+[node name="Padding" type="Control" parent="CenterContainer/PanelContainer/MarginContainer/DetailBubble/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5.87)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CenterContainer/PanelContainer/MarginContainer/DetailBubble"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

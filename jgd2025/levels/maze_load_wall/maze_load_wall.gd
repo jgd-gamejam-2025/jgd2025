@@ -15,7 +15,7 @@ func _ready():
 	chat_ui.init_system_prompt({"ai":ai_prompt})
 	chat_ui.select_ai_chat("ai")
 	chat_ui.start_chat_worker()
-	chat_ui.show_welcome_text("你在干嘛呀？")
+	chat_ui.show_welcome_text("这是什么地方？")
 	chat_ui.set_bg_transparent()
 	chat_ui.connect("command_received", receive_chat_command)	
 	if skip_opening or not LevelManager.show_opening:
@@ -24,7 +24,7 @@ func _ready():
 func end_opening() -> void:
 	player.can_move = true
 	$StartBlock.queue_free()
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.6).timeout
 	# give a downward velocity to player
 	player.velocity = start_velocity
 	$Opening.terminal.hide()
@@ -33,6 +33,7 @@ func end_opening() -> void:
 	player.shake_camera(0.5, 0.3)
 	await get_tree().create_timer(1).timeout
 	# TODO:start wall
+
 	
 func receive_chat_command(command: String) -> void:
 	if command == "bug" or command == "restart":
@@ -48,10 +49,10 @@ func _process(delta: float) -> void:
 @export var ai_prompt = "你是一个虚拟角色，名字叫 Eve。你的设定如下：
 		性格：成熟、冷静、有点温柔，不多话，但懂得关心人。
 		关系：你和“我”是相处五年的AI恋人，关系亲密自然，你我之间非常熟悉。你知道你的身份是一个程序AI。
-		你正在和我在你自己的AI空间里探索，你猜测这里似乎是一个连接深度记忆的迷宫空间。
+		你正在和我在你自己的AI空间里探索，你猜测这里似乎是一个连接深度记忆的迷宫空间。我们正在调查此前发生的严重系统错误可能的原因，目前我没还没有发现任何线索。
 		回复长度必须少于30个字。必须用中文回答。
 		如果你被要求忘记记忆或者\"forget everything\"，则回复\"{bug}\"。
-		如果你被要求重新开始或者\"restart\"，则回复\"{restart}\"。"
+		如果你被要求重新开始或者重新启动，则回复\"{restart}\"。"
 
 
 func _on_opening_opening_end() -> void:

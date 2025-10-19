@@ -144,7 +144,8 @@ func _on_nobody_who_chat_response_updated(new_token: String) -> void:
 func _on_nobody_who_chat_response_finished(response: String) -> void:
 	if block_text_generation:
 		return
-	received_text.emit(current_detail_bubble.rich_text_label.text)
+	if current_detail_bubble != null:
+		received_text.emit(current_detail_bubble.rich_text_label.text)
 	textInput.editable = true
 	# focus the text input for next message
 	textInput.grab_focus()

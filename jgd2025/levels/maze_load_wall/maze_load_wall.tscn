@@ -37,7 +37,6 @@ points = PackedVector3Array(-50, 0, -50, -50, 0, 50, 50, 0, -50, 50, 0, 50)
 
 [node name="MazeLoadWall" type="Node3D"]
 script = ExtResource("1_wt3j4")
-skip_opening = true
 start_velocity = Vector3(0, -100, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -154,5 +153,6 @@ one_shot = true
 visible = false
 is_3d_scene = true
 
+[connection signal="end_opening_sig" from="." to="MazeManager" method="_on_maze_load_wall_end_opening_sig"]
 [connection signal="timeout" from="MazeManager/RiseTimer" to="MazeManager" method="_on_rise_timer_timeout"]
 [connection signal="opening_end" from="Opening" to="." method="_on_opening_opening_end"]

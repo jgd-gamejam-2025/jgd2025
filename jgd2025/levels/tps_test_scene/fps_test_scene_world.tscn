@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://ofyuav8psja7"]
+[gd_scene load_steps=15 format=3 uid="uid://ofyuav8psja7"]
 
 [ext_resource type="Script" uid="uid://be61kxaa70r4p" path="res://levels/tps_test_scene/fps_test_scene_world.gd" id="1_hlatn"]
 [ext_resource type="Material" uid="uid://brpu7xylrg2l2" path="res://addons/fps_example_scene/materials/material_basic_blue.tres" id="3_nj0cr"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="4_17sqg"]
+[ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="4_kp8pu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -384,3 +385,6 @@ size = Vector3(17.647028, 12.86322, 9.678027)
 transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 16.097301, -44.459476, -188.16228)
 size = Vector3(17.647028, 12.86322, 9.678027)
 material = SubResource("StandardMaterial3D_a646p")
+
+[node name="Buttons" parent="." instance=ExtResource("4_kp8pu")]
+is_3d_scene = true

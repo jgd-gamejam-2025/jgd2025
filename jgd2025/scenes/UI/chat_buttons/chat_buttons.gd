@@ -11,6 +11,8 @@ func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		if visible:
 			if is_3d_scene:
+				$Background.show()
+				await get_tree().process_frame
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			hide()
 		else:

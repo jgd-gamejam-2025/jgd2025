@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://btf2mmkgrs3xc"]
 
-[ext_resource type="Script" uid="uid://bk4cyulfllecl" path="res://scenes/UI/chat_buttons/chat_buttons.gd" id="1_cki5a"]
+[ext_resource type="Script" path="res://scenes/UI/chat_buttons/chat_buttons.gd" id="1_cki5a"]
 [ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="1_ltdvs"]
 [ext_resource type="Texture2D" uid="uid://deoqpv5sf2343" path="res://assets/ui/Gear-1.png" id="2_l2dk5"]
 [ext_resource type="Texture2D" uid="uid://1q6sfcykos8y" path="res://assets/ui/X.png" id="3_fedcw"]

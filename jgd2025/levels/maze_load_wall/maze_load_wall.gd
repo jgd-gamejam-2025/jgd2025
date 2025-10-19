@@ -8,6 +8,8 @@ extends Node3D
 @export var landing_time := 2.45
 @onready var notification_box = $Notification
 
+signal end_opening_sig
+
 @export var next_scene : PackedScene
 func _ready():
 	player.can_move = false
@@ -33,7 +35,7 @@ func end_opening() -> void:
 	await get_tree().create_timer(landing_time).timeout
 	player.shake_camera(0.5, 0.3)
 	await get_tree().create_timer(1).timeout
-	# TODO:start wall
+	emit_signal("end_opening_sig")
 	get_notification("这看起来是一个迷宫")
 
 	

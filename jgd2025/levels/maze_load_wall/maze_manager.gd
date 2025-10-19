@@ -19,6 +19,7 @@ extends Node3D
 
 var maze_has_risen = false
 var player_has_landed = false
+var opening_ended = false
 var wall_to_decal_map = {}
 
 
@@ -53,7 +54,7 @@ func _ready():
 
 func _process(_delta):
 	# ... (这个函数完全保持不变) ...
-	if not maze_has_risen and not player_has_landed and player.is_on_floor():
+	if not maze_has_risen and not player_has_landed and player.is_on_floor() and opening_ended:
 		player_has_landed = true
 		print("玩家已落地，启动计时器！")
 		rise_timer.start()
@@ -151,3 +152,7 @@ func _is_player_on_wall_top() -> Node:
 			return result.collider # 返回它碰到的那个墙体
 			
 	return null # 没有碰到墙体
+
+
+func _on_maze_load_wall_end_opening_sig() -> void:
+	opening_ended = true

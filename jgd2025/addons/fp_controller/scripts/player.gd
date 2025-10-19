@@ -321,6 +321,13 @@ func _add_joy_button_event(action_name: String, joy_button: JoyButton = 100) -> 
 	joy_button_event.button_index = joy_button
 	InputMap.action_add_event(action_name, joy_button_event)
 
+
+func _on_pad_pad_activated() -> void:
+	can_move = false
+
+func _on_pad_pad_deactivated() -> void:
+	can_move = true
+
 var shaking_tween: Tween
 func shake_camera(intensity: float = 0.3, duration: float = 0.5, frequency: float = 20.0) -> void:
 	if shaking_tween:

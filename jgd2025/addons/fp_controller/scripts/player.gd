@@ -88,6 +88,7 @@ func _ready() -> void:
 	check_controls()
 	if can_pause:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	camera_pivot.rotation.x = deg_to_rad(-90)
 
 
 func check_controls() -> void:

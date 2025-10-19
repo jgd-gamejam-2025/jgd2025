@@ -37,6 +37,7 @@ points = PackedVector3Array(-50, 0, -50, -50, 0, 50, 50, 0, -50, 50, 0, 50)
 
 [node name="MazeLoadWall" type="Node3D"]
 script = ExtResource("1_wt3j4")
+skip_opening = true
 start_velocity = Vector3(0, -100, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

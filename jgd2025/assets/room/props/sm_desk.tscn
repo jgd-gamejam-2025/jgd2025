@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8j4c6dkbi18a"]
+
+[ext_resource type="PackedScene" uid="uid://c2v0v25aheln1" path="res://assets/room/props/sm_desk.fbx" id="1_esg85"]
+
+[node name="sm_desk" instance=ExtResource("1_esg85")]
+
+[node name="notebook" parent="desk" index="0"]
+visible = false
+
+[node name="computer2" parent="desk/computer" index="2"]
+transform = Transform3D(118.25988, 0, 0, 0, 77.72257, 0, 0, 0, 118.25988, -1.6034739, 0.43691257, -4.348214)

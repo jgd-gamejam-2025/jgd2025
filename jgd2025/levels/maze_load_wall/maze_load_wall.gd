@@ -6,6 +6,7 @@ extends Node3D
 @export var skip_opening = false
 @export var start_velocity := Vector3(0, -0.1, 0)
 @export var landing_time := 2.45
+@onready var notification_box = $Notification
 
 @export var next_scene : PackedScene
 func _ready():
@@ -23,8 +24,8 @@ func _ready():
 
 func end_opening() -> void:
 	player.can_move = true
-	$StartBlock.queue_free()
-	await get_tree().create_timer(0.6).timeout
+	$StartBlock/CollisionShape3D.disabled = true
+	await get_tree().create_timer(0.4).timeout
 	# give a downward velocity to player
 	player.velocity = start_velocity
 	$Opening.terminal.hide()
@@ -33,6 +34,7 @@ func end_opening() -> void:
 	player.shake_camera(0.5, 0.3)
 	await get_tree().create_timer(1).timeout
 	# TODO:start wall
+	get_notification("这看起来是一个迷宫")
 
 	
 func receive_chat_command(command: String) -> void:
@@ -57,3 +59,8 @@ func _process(delta: float) -> void:
 
 func _on_opening_opening_end() -> void:
 	end_opening()
+
+func get_notification(message: String, duration: float = 3.0, name_text: String = "Eve"):
+	chat_ui.to_chat_mode()
+	chat_ui.add_and_write_detail_bubble(message, 0.02)
+	notification_box.show_notification(message, duration, name_text)

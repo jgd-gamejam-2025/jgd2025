@@ -37,6 +37,7 @@ points = PackedVector3Array(-50, 0, -50, -50, 0, 50, 50, 0, -50, 50, 0, 50)
 
 [node name="MazeLoadWall" type="Node3D"]
 script = ExtResource("1_wt3j4")
+skip_opening = true
 start_velocity = Vector3(0, -100, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -145,13 +146,13 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 wait_time = 3.0
 one_shot = true
 
-[node name="Buttons" parent="." instance=ExtResource("10_2r1ki")]
-visible = false
-is_3d_scene = true
-
 [node name="Notification" parent="." instance=ExtResource("11_ucvxd")]
 
 [node name="Opening" parent="." instance=ExtResource("10_vudfa")]
+
+[node name="Buttons" parent="." instance=ExtResource("10_2r1ki")]
+visible = false
+is_3d_scene = true
 
 [connection signal="timeout" from="MazeManager/RiseTimer" to="MazeManager" method="_on_rise_timer_timeout"]
 [connection signal="opening_end" from="Opening" to="." method="_on_opening_opening_end"]

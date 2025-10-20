@@ -31,7 +31,8 @@ handle_input_locally = false
 size = Vector2i(1880, 1040)
 render_target_update_mode = 4
 
-[node name="SpecialLabel2" type="RichTextLabel" parent="SubViewportContainer/SubViewport"]
+[node name="SpecialLabel5" type="RichTextLabel" parent="SubViewportContainer/SubViewport"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -43,6 +44,49 @@ pivot_offset = Vector2(884, 346)
 theme = ExtResource("2_3x43x")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/background = SubResource("StyleBoxFlat_3x43x")
+
+[node name="SpecialLabel4" type="RichTextLabel" parent="SubViewportContainer/SubViewport"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 171609.0
+offset_bottom = 110314.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(884, 346)
+theme = ExtResource("2_3x43x")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_styles/background = SubResource("StyleBoxFlat_3x43x")
+
+[node name="SpecialLabel3" type="RichTextLabel" parent="SubViewportContainer/SubViewport"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 171609.0
+offset_bottom = 110314.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(884, 346)
+theme = ExtResource("2_3x43x")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_styles/background = SubResource("StyleBoxFlat_3x43x")
+
+[node name="SpecialLabel2" type="RichTextLabel" parent="SubViewportContainer/SubViewport"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 171609.0
+offset_bottom = 110314.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(442, 309)
+theme = ExtResource("2_3x43x")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgpjt")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mgpjt")
 
 [node name="SpecialLabel" type="RichTextLabel" parent="SubViewportContainer/SubViewport"]
 anchors_preset = 15

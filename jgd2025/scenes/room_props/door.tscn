@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cmbss067n8pop" path="res://scenes/UI/label_3d_typed/label_3d.tscn" id="1_nnxuu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tgbu7"]
-size = Vector3(0.14733887, 4.293579, 1.8227234)
+size = Vector3(0.4308777, 4.293579, 1.8227234)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5eaiv"]
 resource_name = "metal"
@@ -293,7 +293,7 @@ shadow_mesh = SubResource("ArrayMesh_nvgqs")
 [node name="Door" type="StaticBody3D" groups=["interactable"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08731234, 2.1731567, 0.92836)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09474337, 2.1731567, 0.92836)
 shape = SubResource("BoxShape3D_tgbu7")
 
 [node name="door6" type="Node3D" parent="."]

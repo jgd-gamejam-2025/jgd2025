@@ -70,6 +70,13 @@ func _input(event: InputEvent) -> void:
 	# Detect USE_F input
 	if event.is_action_pressed("use_f"):
 		_on_use_f_pressed()
+		
+func rotate_door(door_node: Node3D, angle: float) -> Tween:
+	var tween = create_tween()
+	tween.tween_property(door_node, "rotation_degrees:y", angle, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	return tween
+
+# OPEN: door: y-, closet_ldoor: y+, closet_rdoor: y-
 
 func _on_use_e_pressed() -> void:
 	print("USE_E detected in room.gd")
@@ -85,5 +92,5 @@ func _on_pad_pad_deactivated() -> void:
 
 
 func _on_player_interact_obj(target: Node) -> void:
-	if target.name == "Door":
-		set_template.rotate_door(set_template.door, -90)
+	if target.name == "Door2":
+		rotate_door(target, -90)

@@ -38,11 +38,16 @@ func next_step() -> void:
 
 		var eve_ascii = terminal.expand_ascii_art(eve_ascii_raw, 3)
 		terminal.write_art_sync(eve_ascii, terminal.special_label, 10000)
-		terminal.write_art_sync(eve_image_raw, terminal.special_label2, 10000, true)
+		terminal.write_art_sync(eve_fall, terminal.special_label2, 10000, true)
 
 		var total_time = 5  # Total time for the animation
 		# use a tween to gradually reduce the text size back to original
 		var tween = terminal.create_tween()
+		# tween.tween_callback(func():
+		# 	terminal.special_label.hide()
+		# 	terminal.special_label2.show()
+		# 	# terminal.write_art_sync(eve_corner, terminal.special_label3, 12, true)
+		# ) 
 		tween.tween_method(
 			func(i: float):
 				terminal.special_label.add_theme_font_size_override("normal_font_size", 300 - i),
@@ -50,12 +55,28 @@ func next_step() -> void:
 				300-16,
 				total_time  # Total animation time
 		).set_trans(Tween.TRANS_LINEAR)
-		await tween.tween_interval(5.0).finished
-		terminal.write_line("[AI SYSTEM] 备份记忆已启用，即将开始深度调试。按回车键开始。")
-		terminal.enable_input()
+		# tween.tween_interval(5.0)
+		# tween.tween_callback(func():
+		# 	terminal.special_label.hide()
+		# 	terminal.special_label2.show()
+		# 	terminal.write_art_sync(eve_corner, terminal.special_label3, 12, true)
+		# ) 
+		# tween.tween_interval(5.0)
+		# tween.tween_callback(func():
+		# 	terminal.special_label2.hide()
+		# 	terminal.special_label3.show()
+		# )
+		tween.tween_interval(5.0)
+		tween.tween_callback(func():
+			# terminal.special_label3.hide()
+			# terminal.special_label4.show()
+			# terminal.write_art_sync(eve_ascii_raw, terminal.special_label4, 10000)
+			# terminal.write_art_sync(eve_image_raw, terminal.special_label5, 10000, true)
+			terminal.write_line("[AI SYSTEM] 备份记忆已启用，即将开始深度调试。按回车键开始。")
+			terminal.enable_input()
+		)
 
 	if input_received == 2:
-		terminal.special_label.text = ""
 		terminal.output_area.text = ""
 		terminal.special_label.hide()
 		terminal.special_label2.show()
@@ -66,7 +87,7 @@ func next_step() -> void:
 			func():
 				terminal.special_white.show()
 		)
-		tween.tween_property(terminal.special_label2, "scale", Vector2(3, 3), 6.0).set_trans(Tween.TRANS_LINEAR)
+		tween.tween_property(terminal.special_label2, "scale", Vector2(4, 4), 6.0).set_trans(Tween.TRANS_LINEAR)
 		tween.tween_property(terminal.special_label2, "scale", Vector2(600, 600), 0.5).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
 		tween.tween_property(terminal.special_white, "custom_minimum_size", Vector2(6000, 6000), 0.5).set_trans(Tween.TRANS_QUAD)
 		await tween.finished
@@ -201,3 +222,248 @@ var eve_image_raw = "
                         XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                            
                       XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                          
                     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+var eve_side = "                                                                                                                                                                                                                                  
+                                                                                                                                                                                                          XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                                XXXXXXXX                                  
+                                                                                                                                                                                        XXXXXX                                            
+                                                                                                                                                                                  XXXXX                                                   
+                                                                                                                                                                            XXXXX                                                         
+                                                                                                                                                                        XXXX                                                  X X XXXXX   
+                                                                                                                                                                    XXX                                             XXXXX     XXXXXXXXXX  
+                                                                                                                                                                XXX                                             XX  XXXXXXX               
+                                                                                                                                                            XXX                                     XXXXX   XXXXX                         
+                                                                                                                                                       XXXXX      X                 X          XXXXXXXXXXX                                
+                                                                                                                                                     XXX XX              XXXX         XXXXXXXXXXXX                                        
+                                                                                                                                                   XXX XX               X XX    XX    XXXXX                                               
+                                                                                                                                                 XXX XX               XX X     XX     X                                                   
+                                                                                                                                                XX XX                 XX     X      XX                                                    
+                                                                                                                                                XX           X         X         XX                                                       
+                                                                                                                                               XX           X        X        X                                                           
+                                                                                                                                              XX            X         X                                                                   
+                                                                                                                                             XX             X          X                                X                                 
+                                                                                                                                            XX X            X           X                                X                                
+                                                                                                                                            X X             X           XX                                X                               
+                                                                                                                                           X  X             X    X       X                                 X                              
+                                                                                                                                           X X              XX    X       X                                 X                             
+                                                                                                                                           X X             XXX     X      XX                                XX                            
+                                                                                                                                           XXX             XXXX    XX      X                                 X                            
+                                                                                                                                           XX              X  X    XXX      X                                 X                           
+                                                                                                                                           XX         X   XX   X   X  X     X    X                            X                           
+                                                                                                                                           XX         X   XXXXXXXXXXX  XX    X   X                            XX                          
+                                                                                                                                            X          X  XXX   XX XX   XXX  X   X                X            XX                         
+                                                                                                                                            XX         X  XX     XX X     XX  X  X                X            X                          
+                                                                                                                                             X         XX XX       XXX       XX  X               X             X   X                      
+                                                                                                                                             XX        XX XX        XX         X X               X                   X                    
+                                                                                                                                              XXXX     XXXXX  XX               X X              XX             XX      XXXXXX XXX         
+                                                                                                                                               XXXX X  XXXXX  XXXXXXXXXXXXXX   XXX             X               XXXX   XX   XXXXX XX       
+                                                                                                                                                XXXXXXXXXXX    XXXXXXXXXXXXXXXXXXX            XX               XXXXXXX  XX     XXX XX     
+                                                                                                                                                          XX  XXX XXXX     XXX XX            XX                XXXXX  XX XXXXXX     XX    
+                                                                                                                                                           X      XXXXX    X   XX           XX                 X  X   X XXX          XX   
+                                                                                                                                                           XX      XXXX   X    XX       X  XX                  X      X   XXXXX    X XX   
+                                                                                                                                                           X        XXX        X      XX XXX               X  XX      XXXX    XX     XXX  
+                                                                                                                                                         XX          X        XX    XXXXX  X     X         X  XX        X     X     XX  XX
+                                                                                                                                                      XXX                    XX   XXXXX    XX   XX        XX XX       XX     XXX  XX      
+                                                                                                                                                 XXXX                       XXXXXXXX       XX   XX        X XXX      X XXXXXX  XXXX X     
+                                                                                                                                                                           XXXXX          XX  XXX        XX XX       XX       XXXXXXX     
+                                                                                                                                                X                         XXX             XXXXXX        XXXXX              XXXXXXXXXX     
+                                                                                                                                                 X                                       XXXXXXX      XXXXXX         XXXXXXXXXXXXXXXXX    
+                                                                                                                                                  XX                                     XXXX XXXXXXXXX  XX        XXXX      XXX XXXXX    
+                                                                                                                                                    XXX                                  XXX  XXXXXXXX  XX       XXX         XXXXXXXXX    
+                                                                                                                                                      X                                 XX    XXXXXX   XX       XXX          XXXXXXXXX    
+                                                                                                                                                       X                                      XXXX                            XXXXXXXX    
+                                                                                                                                                        XX                                    XX                             XXXXXXXXX    
+                                                                                                                                                           X                                 X                               XXXXXXX   XXX
+                                                                                                                                                            XX                                                              XXXXXXXX    XX
+                                                                                                                                                              XX                                                           XXXXXXXXXXXXXXX
+                                                                                                                                                                XX                                                        XXXXX  XXXXXXXXX
+                                                                                                                                                                 X                           XXX                        XXXXXX   XXXXXXXXX
+                                                                                                                                                                  X                 XXXXXXXXXXXXXXXX                  XXXX XXXX XXXXXXXXXX
+                                                                                                                                                                   XX      XXXXXXXXX              XXX                       XXXXXXXXXXXXXX
+                                                                                                                                                                     XXXX                           XX             XXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                                     XXX   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                                     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                                     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                                     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                                 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                              XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                           XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                         XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                                XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                           XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                         XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                         XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                                                                                                                                                       XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX         
+                                                                                                                                                                     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX             
+                                                                                                                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                 
+                                                                                                                                                                 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                     
+                                                                                                                                                              XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                       
+                                                                                                                                                            XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                           
+                                                                                                                                                         XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                              
+                                                                                                                                                       XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                               
+                                                                                                                                                     XXXXXXXXXXXXXXXXX      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                               
+                                                                                                                                                   XXXXXXXXXX                   XXXXXXXXXXXXXXXXXXXXXXXXXXX                               
+                                                                                                                                                 XXXX                              XXXXXXXXXXXXXXXXXXXXXXXX                               
+                                                                                                                                               XX                                     XXXXXXXXXXXXXXXXXXXXX                               
+                                                                                                                                             XXX     X                                   XXXXXXXXXXXXXXXXXX                               
+                                                                                                                                            XX      X                                       XXXXXXXXXXXXXX                                
+                                                                                                                                           X      XX                                          XXXXXXXXXXXX                                
+                                                                                                                                         XX      X                                             X  XXXXXXXX                                
+                                                                                                                                        XX      X                                              X     XXXXX                                
+                                                                                                                                       XX      X                                                XX      X                                 
+                                                                                                                                       X       X                                                  X     X                                 
+                                                                                                                                       X      X                                                   XX   XX                                 
+                                                                                                                                       X      X                                                     X  XX                                 
+                                                                                                                                       X      X                                                     XX XX                                 
+                                                                                                                                       X      X                                                       XXX                                 
+                                                                                                                                       XX      X                                                       XX                                 
+                                                                                                                                        X      XX                                                      X                                  
+                                                                                                                                        XX      X                                                X    XX                                  
+                                                                                                                                         XX      X                                                    XX                                  
+                                                                                                                                          X       X                                                 X XX                                  
+                                                                                                                                           XX      X                                                 XXX                                  
+                                                                                                                                            XX      X                                                XX                                   
+                                                                                                                                             XX      X                                               XX                                   
+                                                                                                                                              XX      X                                              XX                                   
+                                                                                                                                                X      XX                                            X                                    
+                                                                                                                                                 XX     XX                                          XX                                    
+                                                                                                                                                  XX     XX                                         XX                                    
+                                                                                                                                                   X                                               XXX                                    
+                                                                                                                                                  XX        XXXXXXXXXX                             XXX                                    
+                                                                                                                                                  XX                                               XX                                     
+                                                                                                                                                   X       X                                       XX                                     
+                                                                                                                                                   X       XX                                     XX                                      
+                                                                                                                                                   XX       X                                     XX                                                                                                                                                                                                                                                                            
+"
+var eve_corner = "
+XX       XX    XX                                                                         XX   XXXX   XXX    XXXXXXXXXX     XXXXX  XXXXXXX                                                                                                                             
+XXX       XXXX   X                                                                       XXXXX  XX   XXXX  XXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX                                                                                                                            
+XXXX       XXXXXX XX                                                                    XX      XXXX   X XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                                           
+XX XX      XXX   XXXX                                                                          XX    XXXXXXXXXXXXXXXXXX  XXXXXX XXXXXXXXXXXXX                                                                                                                          
+XXXXXXXXXXXXXXX       XX                                                                      XX  XXXXX XXXXXXXXXXXXXXX    XXXX     XXXXXXXXXX                                                                                                                         
+XXXXXXXXXXXXX XX                                                                             XXXXXX  XXXXXXXXXXXXXXXXXX      XXX         XXXXXX                                                                                                                        
+XXXXXXXXXXXXXX XX                                                                           XXXXXXXXXXXXXXXXXXXXXXXXXX        XX                                                                                                                                       
+XXXXXXXXXXXXXX  XX                                     X                                   XXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                                                                   
+XXXXXXXXXXXXXXXXXXXX                                                                     XXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                                                                   
+XXXX XXXXXXXXXXXXXXXX                                                                    XXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                                                                  
+XXXXX XXXXXXXXXXXXXXXXX                                          X                      XXXXX XX XXXXXXXXXXXXXXXXXXXX                                                                                                                                                  
+XX XXXXXXXXXXXXXXXXXXXXXX                    XXXXXXXX    XXXXXXX                      XXXXXXXX X  XXXXXX XXXXXXXXXX XX                                                                                                                                                 
+ XXXXXXXXXXXXXXXXXXXXXXXXXX                                                         XXXXXXXXXXXXXXXXXX XXXXXXX XXXX  XX                                                                                                                                                 
+ XXXXXXXXXXXXXXXXXXXXXXXX XXXX                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXX  XXXX  XX                                                                                                                                                 
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                               XXXXXXXXXXXXXXXXXXXXXXXX XXX     XX    X                                                                                                                                                 
+  XXXX  XXXXXXXXXXXXXXXXXXXXXXXXXXX                                         XXXXXXXXXXXXXXXXXXXXXXXXXXXXX        X   XX                                                                                                                                                 
+  XXX   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                  XXX  XXXXXXXXXXXXXXXXXXXXXXXXXXX        X   X                                                                                                                                                  
+  XX     XXXXXXXXXXXXXXXXXXXXXXXXXX   XXXXX                           XXX     XX XXXXXXXXXXXXXXXXXXXXXXXX                                                                                                                                                               
+ XX       XX XXXXXXX XXXXXXXXX XXXX       XXXXX                   XXX         XX XX XXXXXXXXXX  XXXXX   XX                                                                                                                                                              
+XX         XX XXXXXX  XXXXXXXX  XXX            XXXX            XX             XXXX  XXXXXXXXX   XXXX   XX                                                                                                                                                              
+           XX   XXXX   XXXXXXX   XXX                XXXX  XXX                 XXX    XXXXXX     XXX       XX                                                                                                                                                            
+            XX   XXXX   XXXXXX    XX                                          XX      XXX        X                                                                                                                                                                      
+              X    XX    XXXX     XX                                          XX      XX         X                                                                                                                                                                      
+                          XX      XX                                XXXXXXXXXXXXXX                                                                                                                                                                                      
+                               XXXXXXXXXXXXXXXXXXXXXX        XXXXXXXXX X        XXX                                                                                                                                                                                     
+                              XXXX                 XXXX     XXX  XXXXXXXXXXXXXXXXXXX                                                                                                                                                                                    
+                              XXXXXXXXXXXXXXXXXXXXXX  XXX  XX  XXXX   X X  X     XXXX                                                                                                                                                                                   
+                             XXXXXXXXXXXXXXXXXX  XXXXX XXXXXX XXXX XXXXXXXXXXXXXXXXXXX                                                                                                                                                                                  
+                            XXXXXXXXXXXXXXXXXXXXX XXXXX  XXXXXXXX XXXXXXXXXXXXXXXXXXXX                                                                                                                                                                                  
+                           XXXXXXXXXXXXXXXXXXXXXXXX XXXX    XXXX XXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                                                                                             
+                      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXX  XXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                                                                                        
+                 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXX  XXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                                                                                  
+            XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  XXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                                                                           
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XX  XX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                                                                   
+ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                                                           
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                                                 
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                                        
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                                
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                               
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                            
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                          
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                        
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                      
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                     
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                  
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                 
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                              
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                           
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                           
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                        
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                       
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                      
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXX                                                                                    
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXX                                                                                      
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXX                                                                                         
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                            
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXX                                                                                               
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXX                                                                                                  
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  XXXXXXX                                                                                                   
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  XXXXXX   X                                                                                                   
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  XXXXXXX      X                                                                                                   
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  XXXXXXX         X                                                                                                   
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  XXXXXXXX           X                                                                                                   
+X     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX      XXXXXXXXXXXXXXXXXXXX  XXXXXXXX             XX                                                                                                   
+              XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                   XXXXXXXXXXXX XXXXXXXX                 XX                                                                                                   
+                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                              XXXXXXXXXXXXX                    XX                                                                                                   
+                          XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                        XXXXXX                       XX                                                                                                   
+                                XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                           XX                                                                                                   
+         X                            XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                             X                        X                         XXX                                                                                                   
+         X                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                    X                        X                         XX                                                                                                    
+         X                                          XXXXXXXXXXXXXXXX                                           X                        X                         XX                                                                                                    
+         X                                                                                                     X                        X                         XX                                                                                                    
+         X                                                                                                     X                        X                         XX                                                                                                    
+         X                                                                                                     X                        X                         X                                                                               
+"
+
+var eve_fall = "
+
+
+
+  XXXX                                                                                                                                                                                                               XXXX       XXX          
+  XXXX                                                                                                                                                                       XXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXX       XX           
+  XXXX                                                                                                                                                               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX      XXX           
+  XXXX                                                                                                                                                         XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  XXXX      XX            
+   XXX                                XXXXXXXXXXXXXXX                                                                                                     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX          
+   XXXXXXXXX              XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                       XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           
+   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                            XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX          XXXXXXXXXXXXXXXXXXXXXXX              
+    XXX   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                      XXXXXXXXXXXXXXXXXXXXXXX   XXXXXXXXXXXXXXXXXXXX              XXXXXXXXXXXXXXXXXX              
+    XXX   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                XXXXXXXXXXXXXXXXXXXXXXXXX     XXXXXXX XXXXXXXXXX                XXXXXXXXXXXXXXXX               
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                           XXXXX   XXXXXXXXXXX XXXXXX     XXXXXX  XXXXXXXXXX                XXXXXXXX XXXXXXX               
+  XXXXXXXXXXXXXXXXXXXXXX          XXXXXXXXXXXXXXXXXXX    XXXXXXX XXXXXXXXXXX XXXXXXX                                                       XXXX      XXXXXXXXXXX XXXXXX     XXXXXX XXXXX   XXX               XXXXXXXX  XXXXXX                
+    XXXXXXXXXXXXXXXX              XXXXXXXXXXX  XXXXXX     XXXXXX XXXXXXXXXXX      XXXXX                                                  XXXX        XXXXXXXXXXXX XXXXXXXXXXXXXXX  XXXXX  XXXX              XXXXXXXX    XXXX                 
+     XXXXXXXXXXXXX                XXXXXXXXXXXX XXXXXX     XXXXXX XXXXXXXXXXX         XXXX                                                X           XXXX   XXXXXX   XXXXXXXXXX  XXXXXXX  XXX              XXXXXXX      XXX                  
+      XXXXXXXXXXXXX                XXXXXXXXXXXXXXXXXXX   XXXXXX  XXXXXX  XXX                                                                           XXX    XXXXXXXXXX XXXXXXXXXXXXX   XXX            XXXXXXXX       XXXX                  
+       XX  XXXXXXXXX                XXX  XXXXXX   XXXXXXXXXXXXXXXXXXXX  XXXX                                                                            XXXX    XXXXXXXXXXXXXXXXXXXX XXXXX             XXXXXX         XXXX                   
+  X    XXXX  XXXXXXXX                XXX   XXXXXXXXXXXXXXX  XXXXXXXXX  XXXX                                                                               XXXXX      XXXXXXXXX     XXXX              XXXXXX          XXXXX                   
+  XXX   XXX    XXXXXXXXX              XXX   XXXXXXXXXXXXXXXXXXXXXXX   XXXX                                                                                  XXXXXXX         XXXXXXXX              XXXXX              XXXX                    
+    XX  XXXX      XXXXXXXX              XXXXX  XXXXXXXXXXXXXXXXX   XXXXX                                                                                         XXXXXXXXXXXXXXXX             XXXXX                 XXXX                     
+     XXX XXXX        XXXXXX                XXXXXXX  XX          XXXXXX                                                                                                              XXXX                           XXXXX                     
+      XXX XXX           XXXXXXX                XXXXXXXXXXXXXXXXXXX                                                                                              XXXXXXXXXXXXXXXXXXX                               XXXX                       
+        XXXXXX               XXXXXX                                                                                          X                                                                                    XXX                        
+         XXXXXX                      X                         XXXXX                                                        XXX                                                                                  XXXX                        
+           XXXX                                   XXXXXXXX                                                                 XXXXX                                                                               XXXXX              X          
+            XXXXX                                                                                                         XXX   X                                                                             XXXXX            XXXX          
+             XXXXX                                                                                            X          XXX  XXX                                                                            XXXX            XXXX            
+  XX           XXXX                                                                                           X  X      XXXXXXXX                                                                            XXXX         XXXXXXX             
+  XXXX           XXX                                                                                         XX  X    XXXXXX                                                                              XXXXX      XXXXX XXXXX             
+   XXXXXX         XXXX                                                                                       XXXX  XXXXXX                                                                                XXXX    XXXXXX    XXXX              
+   XXXXXXXXXX       XXX                                                                                     XXXX   XXXXXX                                                                               XXXXXXXXXXX        XXXX              
+     XXXXXXXXXXXX    XXXX                                                                           XXXXXXXXXXX    XXXXX                                                                              XXXXXXXXX           XXXX   XX          
+            XXXXXXXX   XXX                                                                          XXXXXXXXXXXXXXXXXXXXX                                                                            XXXXXX               XXX   XX           
+                 XXXXXXX XXX                                                                            XXXXXXXXXXXXXXXXX                                                                         XXXXX                  XX                  
+                    XXXXXXXXXXX                                                                          XXXXXXXXXXXXXXX                                                                                                XXX                  
+                         XXXXXXXX                                                                                                                                                                                     XXXX                   
+                            XX XXXX                                                                                                                                                                                  XXXX        XX          
+                                  XXXXX                                                                                                                                                                              XXXX    XXXXXX          
+                                        XXXX                                                                                                                                                                        XXXXXXXXXXXXX            
+                                                                                                                                                                                                                   XXXXXXXXXX                
+                                                                                                                                                                                                                   XXXXXX                    
+                                                                                                                                                                                                                   X                "

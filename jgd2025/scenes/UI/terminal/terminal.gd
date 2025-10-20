@@ -10,6 +10,9 @@ extends CanvasLayer
 @onready var prompt_label: Label = $MarginContainer/Panel/VBoxContainer/InputArea/Prompt
 @onready var special_label: RichTextLabel = $SubViewportContainer/SubViewport/SpecialLabel
 @onready var special_label2: RichTextLabel = $SubViewportContainer/SubViewport/SpecialLabel2
+@onready var special_label3: RichTextLabel = $SubViewportContainer/SubViewport/SpecialLabel3
+@onready var special_label4: RichTextLabel = $SubViewportContainer/SubViewport/SpecialLabel4
+@onready var special_label5: RichTextLabel = $SubViewportContainer/SubViewport/SpecialLabel5
 @onready var special_white: ColorRect = $CenterContainer/White
 
 var _tween: Tween

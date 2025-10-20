@@ -1,16 +1,18 @@
 # MazeManager.gd
 extends Node3D
 
-# ... (wall_scene, decal_pattern_scene 保持不变) ...
-@export var wall_scene: PackedScene
-@export var decal_pattern_scene: PackedScene
+# --- (你的 physics_wall 和 visual_wall 变量保持不变) ---
+@export var physics_wall_scene: PackedScene
+@export var visual_wall_scene: PackedScene
 
-@export var wall_height = 15.0
+# --- **关键改动** ---
+@onready var main_maze_area_collider: CollisionShape3D = $MainMazeArea/CollisionShape3D
+# --- 结束改动 ---
+
 @export var player_path: NodePath
+# ... (你其他的 @export 变量保持不变) ...
 @export var wall_rise_time = 2.5
-# 每个墙体之间开始升起的间隔时间（秒）
 @export var ripple_delay = 0.05
-# 每次波纹同时升起几块墙
 @export_range(1, 100, 1) var ripple_batch_size: int = 1
 
 @onready var grid_map = $GridMap
@@ -18,141 +20,161 @@ extends Node3D
 @onready var player = get_node(player_path)
 
 var maze_has_risen = false
-var player_has_landed = false
 var opening_ended = false
-var wall_to_decal_map = {}
+var main_maze_aabb: AABB
+
+var wall_height: float = 1.0 # 一个内部变量，将在 _ready() 中被自动设置
 
 
 func _ready():
-	# ... (这个函数完全保持不变) ...
-	if not wall_scene or not decal_pattern_scene:
-		print_rich("[color=red]错误：[/color]MazeManager 未指定 Wall Scene 或 Decal Pattern Scene！")
-		return
+	# --- **新代码：自动检测墙体高度** ---
+	if physics_wall_scene:
+		# 1. 临时实例化一个墙体
+		var temp_wall = physics_wall_scene.instantiate()
 		
-	for cell in grid_map.get_used_cells():
-		var local_pos = grid_map.map_to_local(cell)
+		# 2. 查找它的碰撞体或模型来获取高度
+		# (我们假设它有一个 BoxShape3D 或 BoxMesh)
+		var collision_shape: CollisionShape3D = temp_wall.find_child("CollisionShape3D", true, false)
+		if collision_shape and collision_shape.shape and collision_shape.shape is BoxShape3D:
+			wall_height = collision_shape.shape.size.y
+		else:
+			# 如果找不到碰撞体，就找模型
+			var mesh_instance: MeshInstance3D = temp_wall.find_child("MeshInstance3D", true, false)
+			if mesh_instance and mesh_instance.mesh and mesh_instance.mesh is BoxMesh:
+				wall_height = mesh_instance.mesh.size.y
+			else:
+				print_rich("[color=yellow]警告：[/color] 无法在 'physics_wall_scene' 中自动检测 'wall_height'。将使用默认值 1.0。")
 		
-		# --- 1. 创建墙体 (带碰撞，但隐藏) ---
-		var wall_instance = wall_scene.instantiate()
-		wall_instance.position = local_pos
-		wall_instance.position.y = - (wall_height / 2.0)
-		wall_instance.hide()
-		add_child(wall_instance)
-		wall_instance.add_to_group("walls")
-		
-		# --- 2. 创建 Decal 图案 (纯视觉，可见) ---
-		var decal_instance = decal_pattern_scene.instantiate()
-		decal_instance.position = local_pos
-		decal_instance.position.y = 1.0
-		add_child(decal_instance)
-		
-		# --- 3. 存储它们的对应关系 ---
-		wall_to_decal_map[wall_instance.get_instance_id()] = decal_instance
-		
+		# 3. 销毁临时实例
+		temp_wall.queue_free()
+	else:
+		print_rich("[color=red]错误：[/color] 'physics_wall_scene' 未指定！无法确定 'wall_height'。")
+	
 	grid_map.hide()
+	grid_map.collision_layer = 0
+	if not main_maze_area_collider:
+		print_rich("[color=red]错误：[/color]MazeManager 找不到 'MainMazeArea/CollisionShape3D' 节点！")
 
-
+	
 func _process(_delta):
-	# ... (这个函数完全保持不变) ...
-	if not maze_has_risen and not player_has_landed and player.is_on_floor() and opening_ended:
-		player_has_landed = true
+	if not maze_has_risen and player.is_on_floor() and opening_ended:
+		maze_has_risen = true
 		print("玩家已落地，启动计时器！")
 		rise_timer.start()
 
 
 func _on_rise_timer_timeout():
-	# ... (这个函数完全保持不变) ...
 	print("计时结束，迷宫升起！")
 	raise_maze()
 
 
 # --- 这是被重写的 raise_maze 函数 ---
 func raise_maze():
-	if maze_has_risen:
-		return
-	maze_has_risen = true
+	if not main_maze_area_collider: return # 安全检查
+
+	# --- **新逻辑** ---
+	# 1. 动态地从你拖动的Box中创建 AABB
+	# (注意：这假设 Area3D 和 GridMap 都是 MazeManager 的子节点)
+	var box_shape: BoxShape3D = main_maze_area_collider.shape
+	var box_size = box_shape.size
+	# 盒子的中心点(本地坐标) = Area3D的本地位置 + CollisionShape3D的本地位置
+	var box_center_local = main_maze_area_collider.get_parent_node_3d().position + main_maze_area_collider.position
 	
-	# 1. 获取所有墙体
-	var walls = get_tree().get_nodes_in_group("walls")
+	# AABB 的起始点 = 中心点 - 尺寸的一半
+	var aabb_pos_local = box_center_local - (box_size / 2.0)
+	main_maze_aabb = AABB(aabb_pos_local, box_size) # 存储这个AABB
+	# --- 结束新逻辑 ---
 	
-	# 2. 根据离玩家的距离对墙体进行排序
-	walls.sort_custom(_sort_walls_by_distance)
+	# 2. 获取玩家的2D位置（这是扩散中心）
+	var player_pos_2d = player.global_position * Vector3(1, 0, 1)
 	
-	# 3. 检查玩家是否在墙上
-	var wall_player_is_on = _is_player_on_wall_top() # 这个函数现在返回一个Node
+	# 3. 遍历 GridMap，找出所有墙
+	var cells_to_raise: Array = []
+	var cells_data: Dictionary = {}
+	
+	for cell in grid_map.get_used_cells():
+		var item_id = grid_map.get_cell_item(cell)
+		
+		var local_pos = grid_map.map_to_local(cell)
+		var dist_2d = (local_pos * Vector3(1, 0, 1)).distance_to(player_pos_2d)
+		var is_physics = false 
+			
+		# --- **核心分层逻辑** (使用动态AABB) ---
+		if main_maze_aabb.has_point(local_pos):
+			is_physics = true
+			# --- 结束核心逻辑 ---
+			
+		cells_to_raise.append(cell)
+		cells_data[cell] = {"distance": dist_2d, "is_physics": is_physics}
+
+	cells_to_raise.sort_custom(func(a, b): return cells_data[a].distance < cells_data[b].distance)
+
+	var player_on_wall_cell = _get_player_on_wall_cell()
+	var player_wall_index = -1
 	
 	var tween = create_tween()
-	tween.set_parallel(true) # 动画是并行的，但我们会用 delay 错开
-	
-	# --- 新增代码 ---
-	# 确保 batch_size 至少为1，防止除零错误
+	tween.set_parallel(true)
 	var batch_size = max(1, ripple_batch_size)
-	# --- 结束新增 ---
 	
-	# 4. 遍历排序后的墙体列表
-	for i in range(walls.size()):
-		var wall = walls[i]
+	for i in range(cells_to_raise.size()):
+		var cell: Vector3i = cells_to_raise[i]
+		var data = cells_data[cell]
+		var wall_instance: Node3D = null
 		
-		# 5. --- 修改此行 ---
-		# 计算每个墙体的延迟时间 (使用批量计算)
-		var calculated_delay = (i / batch_size) * ripple_delay
-		
-		# 6. 隐藏对应的 Decal
-		var decal = wall_to_decal_map.get(wall.get_instance_id())
-		if decal:
-			tween.tween_callback(decal.hide).set_delay(calculated_delay)
-			
-		# 7. 显示墙体
-		tween.tween_callback(wall.show).set_delay(calculated_delay)
-		
-		# 8. 动画墙体位置
-		var target_y = wall.position.y + wall_height
-		tween.tween_property(wall, "position:y", target_y, wall_rise_time).set_delay(calculated_delay).set_ease(Tween.EASE_OUT_IN)
+		if data.is_physics:
+			wall_instance = physics_wall_scene.instantiate()
+		else:
+			wall_instance = visual_wall_scene.instantiate()
 
-	# 9. (新) 处理玩家的上升
-	if wall_player_is_on:
+		var local_pos = grid_map.map_to_local(cell)
+		wall_instance.position = local_pos
+		wall_instance.position.y = - (wall_height / 2.0)
+		wall_instance.hide()
+		add_child(wall_instance)
+		
+		if data.is_physics:
+			wall_instance.add_to_group("walls")
+		
+		var calculated_delay = (i / batch_size) * ripple_delay
+		tween.tween_callback(wall_instance.show).set_delay(calculated_delay)
+		var target_y = wall_instance.position.y + wall_height
+		tween.tween_property(wall_instance, "position:y", target_y, wall_rise_time).set_delay(calculated_delay).set_ease(Tween.EASE_OUT_IN)
+
+		if cell == player_on_wall_cell:
+			player_wall_index = i
+
+	if player_wall_index != -1:
 		print("玩家在墙顶上，将随墙体一起上升。")
-		
-		# 找到玩家所在墙体的索引，以获取正确的延迟
-		var player_wall_index = walls.find(wall_player_is_on)
-		var player_delay = 0.0
-		
-		if player_wall_index != -1:
-			# --- 修改此行 ---
-			# 玩家的延迟也使用批量计算
-			player_delay = (player_wall_index / batch_size) * ripple_delay
-			
+		var player_delay = (player_wall_index / batch_size) * ripple_delay
 		var player_target_y = player.global_position.y + wall_height
-		# 使用和墙体相同的延迟来动画玩家
 		tween.tween_property(player, "global_position:y", player_target_y, wall_rise_time).set_delay(player_delay).set_ease(Tween.EASE_OUT_IN)
 
-# --- 这是一个新的辅助函数 ---
-# 用于排序的自定义比较函数
-func _sort_walls_by_distance(wall_a, wall_b):
-	# 我们只比较 xz 平面上的距离，忽略高度
-	var player_pos_2d = player.global_position * Vector3(1, 0, 1)
-	var dist_a = (wall_a.global_position * Vector3(1, 0, 1)).distance_to(player_pos_2d)
-	var dist_b = (wall_b.global_position * Vector3(1, 0, 1)).distance_to(player_pos_2d)
+func _get_player_on_wall_cell() -> Vector3i:
+	if not main_maze_aabb: return Vector3i.MAX # 确保AABB已经被创建
 	
-	# 返回 true 表示 a 应该排在 b 前面
-	return dist_a < dist_b
+	var space_state = get_world_3d().direct_space_state
+	var query = PhysicsRayQueryParameters3D.create(player.global_position, player.global_position + Vector3.DOWN * 1.0)
+	query.exclude = [player]
+	var result = space_state.intersect_ray(query)
+	
+	if result:
+		var hit_pos_local = grid_map.to_local(result.position)
+		var cell = grid_map.local_to_map(hit_pos_local)
+		
+		if main_maze_aabb.has_point(hit_pos_local):
+			return cell
+			
+	return Vector3i.MAX
 
-
-# --- 这是被修改的 _is_player_on_wall_top 函数 ---
-# (它现在返回 Node 或 null)
 func _is_player_on_wall_top() -> Node:
 	var space_state = get_world_3d().direct_space_state
 	var query = PhysicsRayQueryParameters3D.create(player.global_position, player.global_position + Vector3.DOWN * 1.0)
 	query.exclude = [player]
-	
 	var result = space_state.intersect_ray(query)
 	if result:
-		# 检查碰到的是不是一个 "walls" 分组里的成员
 		if result.collider.is_in_group("walls"):
-			return result.collider # 返回它碰到的那个墙体
-			
-	return null # 没有碰到墙体
-
-
+			return result.collider 
+	return null
+	
 func _on_maze_load_wall_end_opening_sig() -> void:
 	opening_ended = true

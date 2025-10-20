@@ -89,7 +89,7 @@ func _ready() -> void:
 	check_controls()
 	if can_pause:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	camera_pivot.rotation.x = deg_to_rad(-90)
+	camera_pivot.rotation.x = deg_to_rad(-88.5)
 
 
 func check_controls() -> void:
@@ -360,8 +360,8 @@ func shake_camera(intensity: float = 0.3, duration: float = 0.5, frequency: floa
 		# Random shake offset
 		var random_rotation = Vector3(
 			randf_range(-shake_intensity, shake_intensity),
-			randf_range(-shake_intensity, shake_intensity),
-			randf_range(-shake_intensity, shake_intensity)
+			0.0,
+			0.0
 		)
 		
 		shaking_tween.tween_property(camera_pivot, "rotation", original_rotation + random_rotation, time_per_shake)

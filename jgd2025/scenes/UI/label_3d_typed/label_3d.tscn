@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmbss067n8pop"]
+
+[ext_resource type="FontFile" uid="uid://d306of0f77q3u" path="res://scenes/UI/fonts/sarasa-mono-sc-regular.ttf" id="1_56qrw"]
+[ext_resource type="Script" uid="uid://bo2q6pijpv4gp" path="res://other_scripts/type_label_3d.gd" id="2_ju3sd"]
+
+[node name="Label3D" type="Label3D"]
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 0, 0, 0)
+text = "E> 开门"
+font = ExtResource("1_56qrw")
+font_size = 65
+outline_size = 0
+horizontal_alignment = 0
+script = ExtResource("2_ju3sd")

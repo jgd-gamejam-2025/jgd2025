@@ -1,4 +1,7 @@
-[gd_scene load_steps=20 format=4 uid="uid://bq1b1f8xlttga"]
+[gd_scene load_steps=22 format=4 uid="uid://bq1b1f8xlttga"]
+
+[ext_resource type="PackedScene" uid="uid://djs0b34qda0px" path="res://scenes/UI/label_3d_typed/description.tscn" id="1_70auf"]
+[ext_resource type="PackedScene" uid="uid://cmbss067n8pop" path="res://scenes/UI/label_3d_typed/label_3d.tscn" id="1_nnxuu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tgbu7"]
 size = Vector3(0.14733887, 4.293579, 1.8227234)
@@ -337,3 +340,11 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6055064, -0.03925411, -6.237562)
 mesh = SubResource("ArrayMesh_7jmdd")
 skeleton = NodePath("")
+
+[node name="Description" parent="." instance=ExtResource("1_70auf")]
+
+[node name="Label3D" parent="Description" instance=ExtResource("1_nnxuu")]
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 0.0475716, 1.8683133, 1.4534597)
+
+[node name="Label3D2" parent="Description" instance=ExtResource("1_nnxuu")]
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, -0.22983357, 1.8683133, 0.8874985)

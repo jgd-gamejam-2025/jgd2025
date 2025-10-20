@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bo8l5uc1r1y5m"
-path="res://.godot/imported/sm_ceiling.fbx-16f0c26b15b3c9ffaa6a6508b6a6194f.scn"
+uid="uid://kt2yylhp23wu"
+path="res://.godot/imported/sm_room.fbx-15a3e0990f1fceade88ab01551b61975.scn"
 
 [deps]
 
-source_file="res://assets/room/props/sm_ceiling.fbx"
-dest_files=["res://.godot/imported/sm_ceiling.fbx-16f0c26b15b3c9ffaa6a6508b6a6194f.scn"]
+source_file="res://assets/models/room/props/sm_room.fbx"
+dest_files=["res://.godot/imported/sm_room.fbx-15a3e0990f1fceade88ab01551b61975.scn"]
 
 [params]
 

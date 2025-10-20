@@ -59,6 +59,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var crouch_raycast = %CrouchRaycast
 
 @onready var pad = %Pad
+@onready var interaction_raycast: RayCast3D = $CameraPivot/SmoothCamera/RayCast3D
 
 # Dynamic values used for calculation
 var input_direction: Vector2
@@ -143,10 +144,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.is_action_pressed(PAUSE):
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
-	if event.is_action_pressed(USE_E):
-		if pad.is_playing:
-			return
-		print("Use E pressed")
+	# if event.is_action_pressed(USE_E):
+	# 	if pad.is_playing:
+	# 		return
+	# 	print("Use E pressed")
 
 	if event.is_action_pressed(USE_F):
 		if pad.is_playing:
@@ -177,6 +178,20 @@ func _physics_process(delta: float) -> void:
 		can_climb = true
 	
 	move_and_slide()
+
+	check_interactable()
+
+signal interact_obj(target: Node)
+func check_interactable():
+	if interaction_raycast.is_colliding():
+		var target = interaction_raycast.get_collider()
+		if target.is_in_group("interactable"):
+			# print("Looking at interactable: %s" % target.name)
+			if Input.is_action_just_pressed(USE_E):
+				interact_obj.emit(target)
+				print("Interacting with: %s" % target.name)
+				#if target.has_method("interact"):
+					#target.interact()
 
 
 func _process(_delta: float):

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ct4wwsotumarq"
-path="res://.godot/imported/sm_drawer.fbx-763d326603500fad92ce202440834481.scn"
+uid="uid://bg2teeua5yhld"
+path="res://.godot/imported/sm_front_wall.fbx-23eb26cac43112ca18be93c457cad061.scn"
 
 [deps]
 
-source_file="res://assets/room/props/sm_drawer.fbx"
-dest_files=["res://.godot/imported/sm_drawer.fbx-763d326603500fad92ce202440834481.scn"]
+source_file="res://assets/models/room/props/sm_front_wall.fbx"
+dest_files=["res://.godot/imported/sm_front_wall.fbx-23eb26cac43112ca18be93c457cad061.scn"]
 
 [params]
 

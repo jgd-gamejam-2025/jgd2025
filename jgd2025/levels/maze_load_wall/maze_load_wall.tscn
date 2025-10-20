@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="4_j3jbl"]
 [ext_resource type="PackedScene" uid="uid://b5dqdjonab3mu" path="res://levels/maze_load_wall/wall.tscn" id="4_rgiwp"]
 [ext_resource type="Material" uid="uid://bdappx3pmcbo8" path="res://levels/maze_load_wall/sceneFromPortal.tres" id="4_wt3j4"]
-[ext_resource type="PackedScene" uid="uid://n27jlgmaqfod" path="res://levels/maze_load_wall/wall_visual.tscn" id="8_ucvxd"]
+[ext_resource type="PackedScene" uid="uid://doikdctb1iar3" path="res://levels/maze_load_wall/wall_visual.tscn" id="8_ucvxd"]
 [ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="10_2r1ki"]
-[ext_resource type="PackedScene" uid="uid://6k8k6xhr47r5" path="res://levels/opening/Opening.tscn" id="10_vudfa"]
+[ext_resource type="PackedScene" uid="uid://6k8k6xhr47r5" path="res://scenes/opening/Opening.tscn" id="10_vudfa"]
 [ext_resource type="PackedScene" uid="uid://b7l5sv4fjhjwm" path="res://scenes/UI/notification/Notification.tscn" id="11_ucvxd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]

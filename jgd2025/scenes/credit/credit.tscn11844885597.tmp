@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://did5la61ylocu"]
+
+[ext_resource type="Script" uid="uid://c4x4l2oeov6fv" path="res://scenes/credit/credit.gd" id="1_tyxre"]
+[ext_resource type="PackedScene" uid="uid://5ltrsa0ifrxn" path="res://scenes/UI/terminal/Terminal.tscn" id="2_ijqtv"]
+
+[node name="Credit" type="CanvasLayer"]
+script = ExtResource("1_tyxre")
+
+[node name="Terminal" parent="." instance=ExtResource("2_ijqtv")]

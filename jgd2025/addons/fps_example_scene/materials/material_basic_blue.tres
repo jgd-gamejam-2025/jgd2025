@@ -1,5 +1,9 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://brpu7xylrg2l2"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://brpu7xylrg2l2"]
+
+[ext_resource type="Texture2D" uid="uid://ucfma05hkaee" path="res://levels/maze_load_wall/maze1.png" id="1_gy1ws"]
 
 [resource]
 albedo_color = Color(0.7752624, 0.7752624, 0.7752624, 1)
-uv1_triplanar = true
+albedo_texture = ExtResource("1_gy1ws")
+uv1_scale = Vector3(128, 128, 128)
+texture_filter = 0

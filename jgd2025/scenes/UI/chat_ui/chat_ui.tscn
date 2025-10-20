@@ -22,9 +22,9 @@ in_3d_space = true
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mmueg"]
 shader = ExtResource("2_7gws6")
 shader_parameter/warp_texture = SubResource("NoiseTexture2D_wk3ky")
-shader_parameter/intensity = 0.158000007505
-shader_parameter/tint_color = Color(0.44599587, 0.9499791, 0.9684175, 1)
-shader_parameter/tint_amount = 0.22800001083
+shader_parameter/intensity = 0.046000002185
+shader_parameter/tint_color = Color(0.90588236, 0.9490196, 0.96862745, 1)
+shader_parameter/tint_amount = 0.06000000285
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wk3ky"]
 
@@ -74,7 +74,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h4ouj")
-debug_mode = true
 qwen = false
 
 [node name="Panel" type="Panel" parent="."]

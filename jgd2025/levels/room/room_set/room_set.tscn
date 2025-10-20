@@ -1,46 +1,41 @@
-[gd_scene load_steps=18 format=3 uid="uid://hvjmwcffrk1r"]
+[gd_scene load_steps=21 format=3 uid="uid://hvjmwcffrk1r"]
 
-[ext_resource type="PackedScene" uid="uid://ccchwx0ejpq83" path="res://assets/room/props/sm_back_wall.fbx" id="1_yr7qc"]
-[ext_resource type="PackedScene" uid="uid://c3q8b04800k1" path="res://assets/room/props/sm_bed.fbx" id="2_xmftu"]
-[ext_resource type="PackedScene" uid="uid://bo8l5uc1r1y5m" path="res://assets/room/props/sm_ceiling.fbx" id="3_u8qrr"]
-[ext_resource type="PackedScene" uid="uid://b8j4c6dkbi18a" path="res://assets/room/props/sm_desk.tscn" id="4_yr7qc"]
-[ext_resource type="PackedScene" uid="uid://bu5dlx6kxic7i" path="res://assets/room/props/sm_door6.fbx" id="5_gkcqr"]
-[ext_resource type="PackedScene" uid="uid://ct4wwsotumarq" path="res://assets/room/props/sm_drawer.fbx" id="6_1egsj"]
-[ext_resource type="PackedScene" uid="uid://xjw06c0aqacy" path="res://assets/room/props/sm_floor.fbx" id="7_hf3ha"]
-[ext_resource type="PackedScene" uid="uid://b5ukykokcmee5" path="res://assets/room/props/sm_front_wall.tscn" id="8_xmftu"]
-[ext_resource type="PackedScene" uid="uid://t2v64tryju0o" path="res://assets/room/props/sm_left_wall.fbx" id="9_vmynx"]
-[ext_resource type="PackedScene" uid="uid://l8i63hmjre17" path="res://assets/room/props/sm_notebook.fbx" id="10_gyg7q"]
-[ext_resource type="PackedScene" uid="uid://dy85jce0nhgje" path="res://assets/room/props/sm_office_chair.fbx" id="11_0u7gq"]
-[ext_resource type="PackedScene" uid="uid://dbe8vg710e0v6" path="res://assets/room/props/sm_photo1.fbx" id="12_g4oan"]
-[ext_resource type="PackedScene" uid="uid://b5k7t2p476cbo" path="res://assets/room/props/sm_photo3.fbx" id="13_c884x"]
-[ext_resource type="PackedScene" uid="uid://ckh8ht2s8bpql" path="res://assets/room/props/sm_right_wall.fbx" id="14_xko21"]
-[ext_resource type="PackedScene" uid="uid://kt2yylhp23wu" path="res://assets/room/props/sm_room.fbx" id="15_us5n1"]
-[ext_resource type="PackedScene" uid="uid://dyee2pj006yw8" path="res://assets/room/props/sm_round_photo.fbx" id="16_aqn6w"]
-[ext_resource type="PackedScene" uid="uid://dy8mfy00pmnu5" path="res://assets/room/props/sm_window.fbx" id="17_1oib4"]
+[ext_resource type="Script" uid="uid://bc33uqhfe7e16" path="res://levels/room/room_set/room_set.gd" id="1_xmftu"]
+[ext_resource type="PackedScene" uid="uid://ccchwx0ejpq83" path="res://assets/models/room/props/sm_back_wall.fbx" id="1_yr7qc"]
+[ext_resource type="PackedScene" uid="uid://c3q8b04800k1" path="res://assets/models/room/props/sm_bed.fbx" id="2_xmftu"]
+[ext_resource type="PackedScene" uid="uid://bo8l5uc1r1y5m" path="res://assets/models/room/props/sm_ceiling.fbx" id="3_u8qrr"]
+[ext_resource type="PackedScene" uid="uid://b8j4c6dkbi18a" path="res://assets/models/room/props/sm_desk.tscn" id="4_yr7qc"]
+[ext_resource type="PackedScene" uid="uid://ct4wwsotumarq" path="res://assets/models/room/props/sm_drawer.fbx" id="6_1egsj"]
+[ext_resource type="PackedScene" uid="uid://xjw06c0aqacy" path="res://assets/models/room/props/sm_floor.fbx" id="7_hf3ha"]
+[ext_resource type="PackedScene" uid="uid://b5ukykokcmee5" path="res://assets/models/room/props/sm_front_wall.tscn" id="8_xmftu"]
+[ext_resource type="PackedScene" uid="uid://t2v64tryju0o" path="res://assets/models/room/props/sm_left_wall.fbx" id="9_vmynx"]
+[ext_resource type="PackedScene" uid="uid://l8i63hmjre17" path="res://assets/models/room/props/sm_notebook.fbx" id="10_gyg7q"]
+[ext_resource type="PackedScene" uid="uid://dy85jce0nhgje" path="res://assets/models/room/props/sm_office_chair.fbx" id="11_0u7gq"]
+[ext_resource type="PackedScene" uid="uid://dbe8vg710e0v6" path="res://assets/models/room/props/sm_photo1.fbx" id="12_g4oan"]
+[ext_resource type="PackedScene" uid="uid://b5k7t2p476cbo" path="res://assets/models/room/props/sm_photo3.fbx" id="13_c884x"]
+[ext_resource type="PackedScene" uid="uid://ckh8ht2s8bpql" path="res://assets/models/room/props/sm_right_wall.fbx" id="14_xko21"]
+[ext_resource type="PackedScene" uid="uid://kt2yylhp23wu" path="res://assets/models/room/props/sm_room.fbx" id="15_us5n1"]
+[ext_resource type="PackedScene" uid="uid://dyee2pj006yw8" path="res://assets/models/room/props/sm_round_photo.fbx" id="16_aqn6w"]
+[ext_resource type="PackedScene" uid="uid://dy8mfy00pmnu5" path="res://assets/models/room/props/sm_window.fbx" id="17_1oib4"]
+[ext_resource type="PackedScene" uid="uid://bq1b1f8xlttga" path="res://scenes/room_props/door.tscn" id="18_bifd2"]
+[ext_resource type="PackedScene" uid="uid://db0b5cr4g7osi" path="res://scenes/room_props/lc_door.tscn" id="19_gkcqr"]
+[ext_resource type="PackedScene" uid="uid://bj6xpbx1qyavw" path="res://scenes/room_props/rc_door.tscn" id="20_1egsj"]
 
 [node name="RoomSet" type="Node3D"]
+script = ExtResource("1_xmftu")
 
 [node name="sm_back_wall" parent="." instance=ExtResource("1_yr7qc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.835075, 0, -5.055475)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.932134, 0, -5.055475)
 
 [node name="sm_bed" parent="." instance=ExtResource("2_xmftu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0572834, 0, -1.9418125)
 
 [node name="sm_ceiling" parent="." instance=ExtResource("3_u8qrr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5795045, 5.761842, -5.055475)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5795045, 5.7390976, -5.055475)
 visible = false
 
 [node name="sm_desk" parent="." instance=ExtResource("4_yr7qc")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.1688545, 0, -9.619924)
-
-[node name="Door" parent="." instance=ExtResource("5_gkcqr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6000016, 0, -9.502886)
-
-[node name="LClosetDoor" parent="." instance=ExtResource("5_gkcqr")]
-transform = Transform3D(-1, 8.742278e-08, -8.742278e-08, 8.742278e-08, 1, 0, -8.742278e-08, 7.642742e-15, 1, 1.7483959, -2.3841858e-07, -4.4856577)
-
-[node name="RClosetDoor" parent="." instance=ExtResource("5_gkcqr")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.7456827, 0, -0.7875602)
 
 [node name="sm_drawer" parent="." instance=ExtResource("6_1egsj")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.15095401, 0, 0.15853596)
@@ -52,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4907475, 0, -5.055475)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6901875, 0, -5.055475)
 
 [node name="sm_left_wall" parent="." instance=ExtResource("9_vmynx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5795045, 0.09162474, 0.6690576)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5795045, 0.09162474, 0.62962747)
 
 [node name="sm_notebook" parent="." instance=ExtResource("10_gyg7q")]
 transform = Transform3D(0.78510076, 0, 0.6193681, 0, 1, 0, -0.6193681, 0, 0.78510076, -0.981346, 2.0560918, -9.673256)
@@ -83,4 +78,33 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, -5.230252, 3.6530344, 0.64294004)
 
 [node name="sm_window" parent="." instance=ExtResource("17_1oib4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8155107, 2.9114013, -5.0421476)
+transform = Transform3D(1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.02, -6.8155107, 2.9114013, -5.0421476)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45618248, 2.4375913, -0.06523514)
+light_energy = 0.1
+light_indirect_energy = 0.682
+shadow_enabled = true
+shadow_bias = 0.776
+shadow_normal_bias = 2.787
+shadow_blur = 6.169
+distance_fade_enabled = true
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4005837, 5.305491, -8.497273)
+light_energy = 0.1
+light_indirect_energy = 0.682
+shadow_enabled = true
+shadow_bias = 0.776
+shadow_normal_bias = 2.787
+shadow_blur = 6.169
+distance_fade_enabled = true
+
+[node name="Door" parent="." instance=ExtResource("18_bifd2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7617626, 0, -9.469364)
+
+[node name="LCDoor" parent="." instance=ExtResource("19_gkcqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7765398, 0, -4.4494123)
+
+[node name="RCDoor" parent="." instance=ExtResource("20_1egsj")]
+transform = Transform3D(-0.99999994, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -0.99999994, 1.7354212, 4.7683716e-07, -0.7616143)

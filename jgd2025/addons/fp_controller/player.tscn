@@ -321,6 +321,9 @@ fov = 85.0
 near = 0.15
 script = ExtResource("2_1py82")
 
+[node name="RayCast3D" type="RayCast3D" parent="CameraPivot/SmoothCamera"]
+target_position = Vector3(0, 0, -3)
+
 [node name="ReflectionProbe" type="ReflectionProbe" parent="CameraPivot/SmoothCamera"]
 visible = false
 

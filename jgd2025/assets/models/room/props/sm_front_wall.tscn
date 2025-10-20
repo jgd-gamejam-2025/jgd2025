@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b5ukykokcmee5"]
 
-[ext_resource type="PackedScene" uid="uid://bg2teeua5yhld" path="res://assets/room/props/sm_front_wall.fbx" id="1_5lx5d"]
+[ext_resource type="PackedScene" uid="uid://bg2teeua5yhld" path="res://assets/models/room/props/sm_front_wall.fbx" id="1_5lx5d"]
 
 [node name="sm_front_wall" instance=ExtResource("1_5lx5d")]
 

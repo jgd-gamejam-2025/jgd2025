@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dyee2pj006yw8"
-path="res://.godot/imported/sm_round_photo.fbx-4494506f6908a36a344989e6ce521e66.scn"
+uid="uid://c3q8b04800k1"
+path="res://.godot/imported/sm_bed.fbx-c1b0c5e99b5519e5b5f93b6ea79154a2.scn"
 
 [deps]
 
-source_file="res://assets/room/props/sm_round_photo.fbx"
-dest_files=["res://.godot/imported/sm_round_photo.fbx-4494506f6908a36a344989e6ce521e66.scn"]
+source_file="res://assets/models/room/props/sm_bed.fbx"
+dest_files=["res://.godot/imported/sm_bed.fbx-c1b0c5e99b5519e5b5f93b6ea79154a2.scn"]
 
 [params]
 

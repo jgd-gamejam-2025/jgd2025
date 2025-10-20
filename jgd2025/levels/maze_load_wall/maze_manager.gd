@@ -9,7 +9,6 @@ extends Node3D
 @onready var main_maze_area_collider: CollisionShape3D = $MainMazeArea/CollisionShape3D
 # --- 结束改动 ---
 
-@export var wall_height = 15.0
 @export var player_path: NodePath
 # ... (你其他的 @export 变量保持不变) ...
 @export var wall_rise_time = 2.5
@@ -24,8 +23,33 @@ var maze_has_risen = false
 var opening_ended = false
 var main_maze_aabb: AABB
 
+var wall_height: float = 1.0 # 一个内部变量，将在 _ready() 中被自动设置
+
 
 func _ready():
+	# --- **新代码：自动检测墙体高度** ---
+	if physics_wall_scene:
+		# 1. 临时实例化一个墙体
+		var temp_wall = physics_wall_scene.instantiate()
+		
+		# 2. 查找它的碰撞体或模型来获取高度
+		# (我们假设它有一个 BoxShape3D 或 BoxMesh)
+		var collision_shape: CollisionShape3D = temp_wall.find_child("CollisionShape3D", true, false)
+		if collision_shape and collision_shape.shape and collision_shape.shape is BoxShape3D:
+			wall_height = collision_shape.shape.size.y
+		else:
+			# 如果找不到碰撞体，就找模型
+			var mesh_instance: MeshInstance3D = temp_wall.find_child("MeshInstance3D", true, false)
+			if mesh_instance and mesh_instance.mesh and mesh_instance.mesh is BoxMesh:
+				wall_height = mesh_instance.mesh.size.y
+			else:
+				print_rich("[color=yellow]警告：[/color] 无法在 'physics_wall_scene' 中自动检测 'wall_height'。将使用默认值 1.0。")
+		
+		# 3. 销毁临时实例
+		temp_wall.queue_free()
+	else:
+		print_rich("[color=red]错误：[/color] 'physics_wall_scene' 未指定！无法确定 'wall_height'。")
+	
 	grid_map.hide()
 	grid_map.collision_layer = 0
 	if not main_maze_area_collider:

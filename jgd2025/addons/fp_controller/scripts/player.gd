@@ -182,11 +182,26 @@ func _physics_process(delta: float) -> void:
 	check_interactable()
 
 signal interact_obj(target: Node)
+var old_looking_target: Node = null
 func check_interactable():
 	if interaction_raycast.is_colliding():
 		var target = interaction_raycast.get_collider()
+		print("Raycast hit: %s" % target.name)
+		if old_looking_target==null or target.name != old_looking_target.name:
+			# handle hiding/showing effects for old and new targets
+			if old_looking_target and old_looking_target.is_in_group("interactable"):
+				for child in old_looking_target.get_children():
+					if child.is_in_group("Description"):
+						child.call("hide_effect")
+			
+			print(old_looking_target,"->", target.name)
+			old_looking_target = target
+			if target.is_in_group("interactable"):
+				for child in target.get_children():
+					if child.is_in_group("Description"):
+						child.call("show_effect")
+				
 		if target.is_in_group("interactable"):
-			# print("Looking at interactable: %s" % target.name)
 			if Input.is_action_just_pressed(USE_E):
 				interact_obj.emit(target)
 				print("Interacting with: %s" % target.name)

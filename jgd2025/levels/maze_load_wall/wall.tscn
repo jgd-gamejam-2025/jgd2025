@@ -3,11 +3,12 @@
 [sub_resource type="BoxMesh" id="BoxMesh_xntwr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fbuk2"]
+size = Vector3(1, 15, 1)
 
 [node name="BasicWallBlock" type="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 15, 0, 0, 0, 1, 0, 7.5, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 15, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_xntwr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

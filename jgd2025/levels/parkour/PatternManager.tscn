@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bope77266p2xs"]
+
+[ext_resource type="Script" uid="uid://b4r70ybra7tkd" path="res://levels/parkour/pattern_manager.gd" id="1_qrwb8"]
+
+[node name="PatternManager" type="Node3D"]
+script = ExtResource("1_qrwb8")
+
+[node name="PatternTimer" type="Timer" parent="."]

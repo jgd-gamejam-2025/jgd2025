@@ -4,58 +4,29 @@ extends Node3D
 @onready var pad = $Player.pad
 @onready var chat_ui = pad.chat_ui
 @onready var notification_box = $Notification
+const far_away_position = Vector3(0, -1000, 0)
 
-@onready var set_template = $RoomSet
+@onready var room1 = $RoomSet
+@onready var room2 = $RoomSet2
+@onready var room3 = $RoomSet3
+@onready var room4 = $RoomSet4
 
-var set_index = 0
-var correct_choices = [1, 2, 3]
-
-var curr_set
+var curr_room = 1
+var curr_pass = false
 
 func _ready():
 	pad.connect("pad_activated", _on_pad_pad_activated)
 	pad.connect("pad_deactivated", _on_pad_pad_deactivated)
+	# room1 & room2 are ready
+	put_away(room3)
+	put_away(room4)
+	# put_away($TrueDoor21)
+	# put_away($TrueDoor22)
+	put_away($TrueDoor3)
 	Transition.end()
 	chat_ui.set_bg_transparent()
-	#set_template.hide()
-	# generate_set(Vector3(0,0,0))
-	#curr_set.set_question("Q1\n Answer is A", "A", "B", "C")
-	#await get_tree().create_timer(4).timeout
-	#curr_set.open_start_doors()
-	#await get_tree().create_timer(12).timeout
 	get_notification("嘿，你看到什么了？")
 
-
-func generate_set(target_position: Vector3) -> void:
-	curr_set = set_template.duplicate()
-	add_child(curr_set)
-	curr_set.show()
-	curr_set.position = target_position
-	curr_set.connect("choice_made", choice_made_handler)
-
-func choice_made_handler(idx: int) -> void:
-	await get_tree().create_timer(1.5).timeout
-	curr_set.open_end_doors()
-	var next_position = curr_set.get_next_set_global_position()
-	curr_set.disconnect("choice_made", choice_made_handler)
-	generate_set(next_position)
-	if idx == correct_choices[set_index]:
-		set_index += 1
-
-	match set_index:
-		0:
-			curr_set.set_question("Q1\n 答案是 A", "A", "B", "C")
-		1:
-			curr_set.set_question("Q2\n 答案是 B", "A", "B", "C")
-		2:
-			curr_set.set_question("Q3\n 答案是 C", "A", "B", "C")
-		_:
-			#chat_ui.show_message("Congratulations! You've completed the test!")
-			# level_complete()
-			return	
-	
-	await get_tree().create_timer(1.5).timeout
-	curr_set.open_start_doors()
 	
 func get_notification(message: String, duration: float = 3.0, name_text: String = "Eve"):
 	chat_ui.to_chat_mode()
@@ -82,7 +53,7 @@ func _on_use_e_pressed() -> void:
 	print("USE_E detected in room.gd")
 	
 func _on_use_f_pressed() -> void:
-	print("USE_F detected in room.gd")
+	next_step()
 
 func _on_pad_pad_activated() -> void:
 	notification_box.end_notification()
@@ -90,7 +61,59 @@ func _on_pad_pad_activated() -> void:
 func _on_pad_pad_deactivated() -> void:
 	pass
 
-
 func _on_player_interact_obj(target: Node) -> void:
 	if target.name == "Door2":
 		rotate_door(target, -90)
+	if target.name == "Monitor":
+		print("Interacted with Monitor")
+
+func next_step() -> void:
+	match curr_room:
+		1:
+			if not curr_pass:
+				rotate_door($TrueDoor1, 90)
+				curr_pass = true
+			else:
+				await rotate_door($TrueDoor1, 180).finished
+				await get_tree().process_frame
+				put_away(room1)
+				load_node(room3)
+				load_node($TrueDoor3)
+				curr_room = 2
+				curr_pass = false
+		2:
+			if not curr_pass:
+				rotate_door($TrueDoor21, 50)
+				rotate_door($TrueDoor22, 90)
+				curr_pass = true
+			else:
+				await rotate_door($TrueDoor21, 180).finished
+				await rotate_door($TrueDoor22, 0).finished
+				await get_tree().process_frame
+				put_away($TrueDoor1)
+				put_away(room2)
+				load_node(room4)
+				curr_room = 3
+				curr_pass = false
+		3:
+			if not curr_pass:
+				rotate_door($TrueDoor3, 110)
+				curr_pass = true
+			else:
+				await rotate_door($TrueDoor3, 0).finished
+				await get_tree().process_frame
+				put_away(room3)
+				curr_room = 4
+				curr_pass = false
+
+func put_away(room_set: Node3D) -> void:
+	room_set.position += far_away_position
+	room_set.hide()
+	# for child in room_set.find_children("*", "CollisionShape3D"):
+	# 	child.disabled = true
+
+func load_node(room_set: Node3D) -> void:
+	room_set.position -= far_away_position
+	room_set.show()
+	# for child in room_set.find_children("*", "CollisionShape3D"):
+	# 	child.disabled = false

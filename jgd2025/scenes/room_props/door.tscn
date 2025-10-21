@@ -1,10 +1,7 @@
-[gd_scene load_steps=22 format=4 uid="uid://bq1b1f8xlttga"]
-
-[ext_resource type="PackedScene" uid="uid://djs0b34qda0px" path="res://scenes/UI/label_3d_typed/description.tscn" id="1_70auf"]
-[ext_resource type="PackedScene" uid="uid://cmbss067n8pop" path="res://scenes/UI/label_3d_typed/label_3d.tscn" id="1_nnxuu"]
+[gd_scene load_steps=20 format=4 uid="uid://bq1b1f8xlttga"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tgbu7"]
-size = Vector3(0.4308777, 4.293579, 1.8227234)
+size = Vector3(0.30846405, 4.293579, 1.8227234)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5eaiv"]
 resource_name = "metal"
@@ -293,8 +290,9 @@ shadow_mesh = SubResource("ArrayMesh_nvgqs")
 [node name="Door" type="StaticBody3D" groups=["interactable"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09474337, 2.1731567, 0.92836)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08674395, 2.1731567, 0.92836)
 shape = SubResource("BoxShape3D_tgbu7")
+disabled = true
 
 [node name="door6" type="Node3D" parent="."]
 transform = Transform3D(-1, -8.742278e-08, 8.742278e-08, -8.742278e-08, 1, 0, 8.742278e-08, 7.642742e-15, 1, 4.5153403, 2.3841858e-07, 6.2124486)
@@ -340,11 +338,3 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6055064, -0.03925411, -6.237562)
 mesh = SubResource("ArrayMesh_7jmdd")
 skeleton = NodePath("")
-
-[node name="Description" parent="." instance=ExtResource("1_70auf")]
-
-[node name="Label3D" parent="Description" instance=ExtResource("1_nnxuu")]
-transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 0.0475716, 1.8683133, 1.4534597)
-
-[node name="Label3D2" parent="Description" instance=ExtResource("1_nnxuu")]
-transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, -0.22983357, 1.8683133, 0.8874985)

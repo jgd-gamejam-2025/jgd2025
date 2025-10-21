@@ -42,6 +42,9 @@ size = Vector3(8.706482, 0.07002282, 11.520852)
 [node name="RoomSet" type="Node3D"]
 script = ExtResource("1_xmftu")
 
+[node name="sm_right_wall" parent="." groups=["blow"] instance=ExtResource("14_xko21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5795045, -0.029212475, -10.753376)
+
 [node name="WallBody" type="Node3D" parent="."]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="WallBody"]
@@ -107,9 +110,6 @@ debug_color = Color(0.97176117, 0, 0.4489975, 0.41960785)
 [node name="sm_back_wall" parent="." instance=ExtResource("1_yr7qc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.932134, 0, -5.055475)
 
-[node name="sm_bed" parent="." instance=ExtResource("2_xmftu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0572834, 0, -1.9418125)
-
 [node name="sm_ceiling" parent="." instance=ExtResource("3_u8qrr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5795045, 5.7390976, -5.055475)
 
@@ -126,23 +126,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5795045, 0.09162474, 0.629
 transform = Transform3D(0.78510076, 0, 0.6193681, 0, 1, 0, -0.6193681, 0, 0.78510076, -0.981346, 2.0560918, -9.673256)
 visible = false
 
-[node name="sm_office_chair" parent="." instance=ExtResource("11_0u7gq")]
+[node name="sm_office_chair" parent="." groups=["blow"] instance=ExtResource("11_0u7gq")]
 transform = Transform3D(0.92853767, 0, -0.37123817, 0, 1, 0, 0.37123817, 0, 0.92853767, -5.7849784, 0, -7.6563153)
+
+[node name="sm_photo5" parent="." groups=["blow"] instance=ExtResource("13_c884x")]
+transform = Transform3D(-4.3711385e-08, 0.9999999, 0, 4.3711385e-08, 1.9106853e-15, 0.99999994, 0.99999994, 4.3711385e-08, -4.3711385e-08, -6.6517115, 4.5664196, -9.496115)
+
+[node name="sm_photo3" parent="." groups=["blow"] instance=ExtResource("13_c884x")]
+transform = Transform3D(-4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0, 1, -6.6517115, 4.379731, -8.033363)
+
+[node name="sm_photo4" parent="." groups=["blow"] instance=ExtResource("13_c884x")]
+transform = Transform3D(-4.3711385e-08, 0.9999999, 0, 4.3711385e-08, 1.9106853e-15, 0.99999994, 0.99999994, 4.3711385e-08, -4.3711385e-08, -6.6517115, 3.067994, -8.52547)
 
 [node name="sm_photo1" parent="." instance=ExtResource("12_g4oan")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.22053337, 3.664167, 0.5927758)
-
-[node name="sm_photo3" parent="." instance=ExtResource("13_c884x")]
-transform = Transform3D(-4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0, 1, -6.6517115, 4.379731, -8.033363)
-
-[node name="sm_photo4" parent="." instance=ExtResource("13_c884x")]
-transform = Transform3D(-4.3711385e-08, 0.9999999, 0, 4.3711385e-08, 1.9106853e-15, 0.99999994, 0.99999994, 4.3711385e-08, -4.3711385e-08, -6.6517115, 3.067994, -8.52547)
-
-[node name="sm_photo5" parent="." instance=ExtResource("13_c884x")]
-transform = Transform3D(-4.3711385e-08, 0.9999999, 0, 4.3711385e-08, 1.9106853e-15, 0.99999994, 0.99999994, 4.3711385e-08, -4.3711385e-08, -6.6517115, 4.5664196, -9.496115)
-
-[node name="sm_right_wall" parent="." instance=ExtResource("14_xko21")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5795045, -0.029212475, -10.753376)
 
 [node name="sm_room" parent="." instance=ExtResource("15_us5n1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5795045, 0, -5.055475)
@@ -150,6 +147,9 @@ visible = false
 
 [node name="sm_round_photo" parent="." instance=ExtResource("16_aqn6w")]
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, -5.230252, 3.6530344, 0.64294004)
+
+[node name="sm_bed" parent="." groups=["blow"] instance=ExtResource("2_xmftu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0572834, 0, -1.9418125)
 
 [node name="sm_window" parent="." instance=ExtResource("17_1oib4")]
 transform = Transform3D(1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.02, -6.8155107, 2.9114013, -5.0421476)

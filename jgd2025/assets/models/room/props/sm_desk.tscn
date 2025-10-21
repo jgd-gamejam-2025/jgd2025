@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bomgqaaic0hw0"]
+
+[ext_resource type="PackedScene" uid="uid://c2v0v25aheln1" path="res://assets/models/room/props/sm_desk.fbx" id="1_lb5gu"]
+
+[node name="sm_desk" instance=ExtResource("1_lb5gu")]
+
+[node name="notebook" parent="desk" index="0" groups=["blow"]]
+
+[node name="group21" parent="desk/computer" index="0" groups=["blow"]]
+
+[node name="pCube16" parent="desk/computer" index="1" groups=["blow"]]
+
+[node name="computer2" parent="desk/computer" index="2" groups=["blow"]]
+
+[node name="pen_holder" parent="desk" index="2" groups=["blow"]]
+
+[node name="photo_frame" parent="desk" index="3" groups=["blow"]]
+
+[node name="desk2" parent="desk" index="4" groups=["blow"]]

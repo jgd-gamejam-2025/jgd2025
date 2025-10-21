@@ -54,38 +54,68 @@ func _on_use_e_pressed() -> void:
 	print("USE_E detected in room.gd")
 	
 func _on_use_f_pressed() -> void:
-	var wobble_level = 230
+	var wobble_level = 99
 	var tween = create_tween()
 	tween.tween_callback(func():
-		blow_away(room1.get_node("sm_ceiling"), 2, false)
+		blow_away(room1.get_node("sm_ceiling"), 4, false)
 	)
 	tween.tween_interval(0.2)
 	tween.tween_callback(func():
-		blow_away(room1.get_node("sm_right_wall"), 2, false)
+		blow_away(room1.get_node("sm_right_wall"), 4, false)
+	)
+	tween.tween_interval(0.2)
+	tween.tween_callback(func():
+		blow_away($TrueDoor22, 5, true, wobble_level)
+	)
+	tween.tween_interval(0.2)
+	tween.tween_callback(func():
+		blow_away(room1.get_node("sm_front_wall2"), 5, true, 77)
 	)
 	tween.tween_interval(0.5)
-	tween.tween_callback(func():
-		blow_away(room1.get_node("Desk"), 2, true, wobble_level)
+	await tween.finished
+	tween = create_tween()
+	var tween2 = create_tween()
+	var all_blow_nodes = get_tree().get_nodes_in_group("blow")
+	for node in all_blow_nodes:
+		if node.visible == false:
+			continue
+		print("Blowing away: %s" % node.name)
+		tween.tween_callback(func():
+			blow_away(node, 3, true, wobble_level)
+		)
+		tween.tween_interval(0.3)
+	# tween.tween_callback(func():
+	# 	blow_away(room1.get_node("Desk"), 2, true, wobble_level)
+	# )
+	# tween.tween_interval(0.5)
+	# tween.tween_callback(func():
+	# 	blow_away(room1.get_node("sm_office_chair"), 2, true, wobble_level)
+	# )
+	# tween.tween_interval(0.5)
+	# tween.tween_callback(func():
+	# 	blow_away(room1.get_node("sm_photo5"), 2, true, wobble_level)
+	# )
+	# tween.tween_interval(0.5)
+	# tween.tween_callback(func():
+	# 	blow_away(room1.get_node("sm_photo3"), 2, true, wobble_level)
+	# )
+	# tween.tween_interval(0.5)
+	# tween.tween_callback(func():
+	# 	blow_away(room1.get_node("sm_photo4"), 2, true, wobble_level)
+	# )
+	tween2.tween_interval(2.5)
+	tween2.tween_callback(func():
+		pad.move_when_angle = 30
+		pad.move_until_angle = 0
 	)
-	tween.tween_interval(0.5)
-	tween.tween_callback(func():
-		blow_away(room1.get_node("sm_office_chair"), 2, true, wobble_level)
+	tween2.tween_interval(1)
+	tween2.tween_callback(func():
+		pad.follow_player = false
+		blow_away(pad, 5, true, wobble_level)
 	)
-	tween.tween_interval(0.5)
-	tween.tween_callback(func():
-		blow_away(room1.get_node("sm_photo5"), 2, true, wobble_level)
-	)
-	tween.tween_interval(0.5)
-	tween.tween_callback(func():
-		blow_away(room1.get_node("sm_photo3"), 2, true, wobble_level)
-	)
-	tween.tween_interval(0.5)
-	tween.tween_callback(func():
-		blow_away(room1.get_node("sm_photo4"), 2, true, wobble_level)
-	)
-	tween.tween_interval(1.5)
-	tween.tween_callback(func():
-		blow_away(player, 2, true, wobble_level)
+	tween2.tween_interval(1)
+	tween2.tween_callback(func():
+		blow_away(player, 5, true, wobble_level)
 	)
 	# next_step()
 

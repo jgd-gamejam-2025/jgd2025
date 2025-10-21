@@ -1,13 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://1m82bdnhye7k"]
+[gd_scene load_steps=22 format=3 uid="uid://1m82bdnhye7k"]
 
 [ext_resource type="Script" uid="uid://cr4hyuccgxpea" path="res://levels/maze_load_wall/maze_load_wall.gd" id="1_wt3j4"]
-[ext_resource type="Material" uid="uid://brpu7xylrg2l2" path="res://addons/fps_example_scene/materials/material_basic_blue.tres" id="3_04mdw"]
 [ext_resource type="Material" uid="uid://ctjp2430ogink" path="res://levels/maze_load_wall/portal.tres" id="3_ill1l"]
 [ext_resource type="MeshLibrary" uid="uid://b402l3ni4b5qk" path="res://levels/maze_load_wall/kenny_natural_kit.tres" id="3_k2rf3"]
 [ext_resource type="Script" uid="uid://co3ukivelgk2u" path="res://levels/maze_load_wall/maze_manager.gd" id="3_lulup"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="4_j3jbl"]
 [ext_resource type="PackedScene" uid="uid://b5dqdjonab3mu" path="res://levels/maze_load_wall/wall.tscn" id="4_rgiwp"]
 [ext_resource type="Material" uid="uid://bdappx3pmcbo8" path="res://levels/maze_load_wall/sceneFromPortal.tres" id="4_wt3j4"]
+[ext_resource type="Texture2D" uid="uid://ucfma05hkaee" path="res://levels/maze_load_wall/maze1.png" id="5_2r1ki"]
 [ext_resource type="PackedScene" uid="uid://doikdctb1iar3" path="res://levels/maze_load_wall/wall_visual.tscn" id="8_ucvxd"]
 [ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="10_2r1ki"]
 [ext_resource type="PackedScene" uid="uid://6k8k6xhr47r5" path="res://scenes/opening/Opening.tscn" id="10_vudfa"]
@@ -31,8 +31,13 @@ glow_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_ucvxd"]
 size = Vector3(31, 51, 39)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucvxd"]
+albedo_texture = ExtResource("5_2r1ki")
+uv1_scale = Vector3(128, 128, 128)
+texture_filter = 0
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_n6tjd"]
-material = ExtResource("3_04mdw")
+material = SubResource("StandardMaterial3D_ucvxd")
 size = Vector2(4096, 4096)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h1lgg"]

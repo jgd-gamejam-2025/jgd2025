@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://1q153ukjsf3t"]
+
+[ext_resource type="Script" uid="uid://dhf36vatna78q" path="res://levels/parkour/parkour_block.gd" id="1_jj5ce"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jj5ce"]
+transparency = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_jj5ce"]
+material = SubResource("StandardMaterial3D_jj5ce")
+size = Vector3(1, 7.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2m5m2"]
+size = Vector3(1, 7.5, 1)
+
+[node name="ParkourBlock" type="StaticBody3D"]
+script = ExtResource("1_jj5ce")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_jj5ce")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_2m5m2")

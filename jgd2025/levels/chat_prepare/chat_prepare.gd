@@ -40,10 +40,13 @@ func create_sequence() -> Tween:
 
 func _ready():
 	chat_ui.set_ai_name("Eve")
-	chat_ui.set_system_prompt(ai_prompt)
+	chat_ui.init_system_prompt({
+		"ai": ai_prompt,
+	})
 	welcome_messages_fix.shuffle()
 	chat_ui.show_welcome_text("嘿！")
 	chat_ui.start_chat_worker()
+	chat_ui.select_ai_chat("ai")
 	$SmallTalkTimer.start()
 	small_talking = true
 

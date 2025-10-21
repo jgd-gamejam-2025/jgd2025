@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://me3sd4mx2ekp"]
+
+[ext_resource type="PackedScene" uid="uid://c2v0v25aheln1" path="res://assets/models/room/props/sm_desk.fbx" id="1_bbv1j"]
+[ext_resource type="PackedScene" uid="uid://djs0b34qda0px" path="res://scenes/UI/label_3d_typed/description.tscn" id="1_kafw2"]
+[ext_resource type="PackedScene" uid="uid://cmbss067n8pop" path="res://scenes/UI/label_3d_typed/label_3d.tscn" id="2_fle27"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mgjl8"]
+size = Vector3(4.748016, 2.6685944, 2.107788)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4d1bu"]
+size = Vector3(2.6684418, 1.700264, 0.5118103)
+
+[node name="Desk" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008326292, 0.8342972, -0.15106201)
+shape = SubResource("BoxShape3D_mgjl8")
+
+[node name="Monitor" type="StaticBody3D" parent="." groups=["interactable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Monitor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09804535, 3.16394, 0.31672668)
+shape = SubResource("BoxShape3D_4d1bu")
+
+[node name="Description" parent="Monitor" instance=ExtResource("1_kafw2")]
+
+[node name="Label3D" parent="Monitor/Description" instance=ExtResource("2_fle27")]
+transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, 0.58203757, 3.2789757, 0.2759514)
+text = "E> 使用终端"
+
+[node name="sm_desk" parent="." instance=ExtResource("1_bbv1j")]
+transform = Transform3D(0.915, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

@@ -186,7 +186,6 @@ var old_looking_target: Node = null
 func check_interactable():
 	if interaction_raycast.is_colliding():
 		var target = interaction_raycast.get_collider()
-		print("Raycast hit: %s" % target.name)
 		if old_looking_target==null or target.name != old_looking_target.name:
 			# handle hiding/showing effects for old and new targets
 			if old_looking_target and old_looking_target.is_in_group("interactable"):
@@ -194,7 +193,6 @@ func check_interactable():
 					if child.is_in_group("Description"):
 						child.call("hide_effect")
 			
-			print(old_looking_target,"->", target.name)
 			old_looking_target = target
 			if target.is_in_group("interactable"):
 				for child in target.get_children():
@@ -204,7 +202,6 @@ func check_interactable():
 		if target.is_in_group("interactable"):
 			if Input.is_action_just_pressed(USE_E):
 				interact_obj.emit(target)
-				print("Interacting with: %s" % target.name)
 				#if target.has_method("interact"):
 					#target.interact()
 

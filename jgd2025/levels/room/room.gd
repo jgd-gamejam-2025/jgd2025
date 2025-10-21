@@ -5,6 +5,7 @@ extends Node3D
 @onready var chat_ui = pad.chat_ui
 @onready var notification_box = $Notification
 const far_away_position = Vector3(0, -1000, 0)
+@onready var blow_point: Marker3D = $BlownTo
 
 @onready var room1 = $RoomSet
 @onready var room2 = $RoomSet2
@@ -53,7 +54,40 @@ func _on_use_e_pressed() -> void:
 	print("USE_E detected in room.gd")
 	
 func _on_use_f_pressed() -> void:
-	next_step()
+	var wobble_level = 230
+	var tween = create_tween()
+	tween.tween_callback(func():
+		blow_away(room1.get_node("sm_ceiling"), 2, false)
+	)
+	tween.tween_interval(0.2)
+	tween.tween_callback(func():
+		blow_away(room1.get_node("sm_right_wall"), 2, false)
+	)
+	tween.tween_interval(0.5)
+	tween.tween_callback(func():
+		blow_away(room1.get_node("Desk"), 2, true, wobble_level)
+	)
+	tween.tween_interval(0.5)
+	tween.tween_callback(func():
+		blow_away(room1.get_node("sm_office_chair"), 2, true, wobble_level)
+	)
+	tween.tween_interval(0.5)
+	tween.tween_callback(func():
+		blow_away(room1.get_node("sm_photo5"), 2, true, wobble_level)
+	)
+	tween.tween_interval(0.5)
+	tween.tween_callback(func():
+		blow_away(room1.get_node("sm_photo3"), 2, true, wobble_level)
+	)
+	tween.tween_interval(0.5)
+	tween.tween_callback(func():
+		blow_away(room1.get_node("sm_photo4"), 2, true, wobble_level)
+	)
+	tween.tween_interval(1.5)
+	tween.tween_callback(func():
+		blow_away(player, 2, true, wobble_level)
+	)
+	# next_step()
 
 func _on_pad_pad_activated() -> void:
 	notification_box.end_notification()
@@ -129,3 +163,44 @@ func load_node(room_set: Node3D) -> void:
 	room_set.show()
 	# for child in room_set.find_children("*", "CollisionShape3D"):
 	# 	child.disabled = false
+
+func blow_away(node: Node3D, duration: float = 2.0, tumble: bool = true, tumble_strength: float = 720.0) -> Tween:
+	# effect: blow an object away but not using physics
+	# The object should be blown away like a super strong wind is pushing it to the blow_point
+	
+	var tween = create_tween()
+	tween.set_parallel(true)
+	
+	# Calculate the target position
+	var end_pos = blow_point.global_position
+	
+	# Move with easing to simulate wind acceleration and deceleration
+	tween.tween_property(node, "global_position", end_pos, duration)\
+		.set_trans(Tween.TRANS_EXPO)\
+		.set_ease(Tween.EASE_IN_OUT)
+	
+	# Add tumbling rotation if enabled (simulates wind making it spin)
+	if tumble:
+		var random_rotation = Vector3(
+			randf_range(-tumble_strength, tumble_strength),
+			randf_range(-tumble_strength, tumble_strength),
+			randf_range(-tumble_strength, tumble_strength)
+		)
+		tween.tween_property(node, "rotation_degrees", node.rotation_degrees + random_rotation, duration)\
+			.set_trans(Tween.TRANS_QUAD)\
+			.set_ease(Tween.EASE_OUT)
+	
+	# Optional: Add wobble during movement by modulating the main tween
+	var wobble_tween = create_tween()
+	wobble_tween.set_loops(int(duration * 10))
+	wobble_tween.tween_callback(func():
+		var wobble_offset = Vector3(
+			randf_range(-0.3, 0.3),
+			randf_range(-0.2, 0.2),
+			randf_range(-0.3, 0.3)
+		)
+		node.position += wobble_offset
+	).set_delay(0.05)
+	
+	return tween
+	

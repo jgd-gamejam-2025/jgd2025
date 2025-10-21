@@ -20,8 +20,8 @@ func _ready():
 	# room1 & room2 are ready
 	put_away(room3)
 	put_away(room4)
-	# put_away($TrueDoor21)
-	# put_away($TrueDoor22)
+	put_away($TrueDoor23)
+	put_away($TrueDoor24)
 	put_away($TrueDoor3)
 	Transition.end()
 	chat_ui.set_bg_transparent()
@@ -78,19 +78,31 @@ func next_step() -> void:
 				await get_tree().process_frame
 				put_away(room1)
 				load_node(room3)
+				load_node($TrueDoor23)
+				load_node($TrueDoor24)
 				load_node($TrueDoor3)
 				curr_room = 2
 				curr_pass = false
 		2:
 			if not curr_pass:
-				rotate_door($TrueDoor21, 50)
-				rotate_door($TrueDoor22, 90)
+				var temp_tween = create_tween()
+				temp_tween.set_parallel()
+				temp_tween.tween_property($TrueDoor21, "rotation_degrees:y", 50, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+				temp_tween.tween_property($TrueDoor22, "rotation_degrees:y", 90, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+				temp_tween.tween_property($TrueDoor23, "rotation_degrees:y", -100, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+				temp_tween.tween_property($TrueDoor24, "rotation_degrees:y", 120, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 				curr_pass = true
 			else:
-				await rotate_door($TrueDoor21, 180).finished
-				await rotate_door($TrueDoor22, 0).finished
-				await get_tree().process_frame
+				var temp_tween = create_tween()
+				temp_tween.set_parallel()
+				temp_tween.tween_property($TrueDoor21, "rotation_degrees:y", 180, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+				temp_tween.tween_property($TrueDoor22, "rotation_degrees:y", 0, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+				temp_tween.tween_property($TrueDoor23, "rotation_degrees:y", 0, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+				temp_tween.tween_property($TrueDoor24, "rotation_degrees:y", 0, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+				await temp_tween.finished
 				put_away($TrueDoor1)
+				put_away($TrueDoor21)
+				put_away($TrueDoor22)
 				put_away(room2)
 				load_node(room4)
 				curr_room = 3

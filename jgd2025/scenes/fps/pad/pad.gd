@@ -26,8 +26,10 @@ var is_playing = false
 
 var _current_t := 0.0
 
+var follow_player := true
+
 func _process(delta: float) -> void:
-	if not camera_pivot or not player: # 确保 player 也被正确获取
+	if not follow_player or not camera_pivot or not player: # 确保 player 也被正确获取
 		return
 
 	var t: float # 先声明 t

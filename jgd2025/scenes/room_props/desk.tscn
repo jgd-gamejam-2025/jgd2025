@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://me3sd4mx2ekp"]
 
-[ext_resource type="PackedScene" uid="uid://c2v0v25aheln1" path="res://assets/models/room/props/sm_desk.fbx" id="1_bbv1j"]
 [ext_resource type="PackedScene" uid="uid://djs0b34qda0px" path="res://scenes/UI/label_3d_typed/description.tscn" id="1_kafw2"]
 [ext_resource type="PackedScene" uid="uid://cmbss067n8pop" path="res://scenes/UI/label_3d_typed/label_3d.tscn" id="2_fle27"]
+[ext_resource type="PackedScene" uid="uid://bomgqaaic0hw0" path="res://assets/models/room/props/sm_desk.tscn" id="3_kafw2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mgjl8"]
 size = Vector3(4.748016, 2.6685944, 2.107788)
@@ -30,5 +30,5 @@ shape = SubResource("BoxShape3D_4d1bu")
 transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, 0.58203757, 3.2789757, 0.2759514)
 text = "E> 使用终端"
 
-[node name="sm_desk" parent="." instance=ExtResource("1_bbv1j")]
+[node name="sm_desk" parent="." instance=ExtResource("3_kafw2")]
 transform = Transform3D(0.915, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://c2hgmqr4djchj"]
+[gd_scene load_steps=15 format=3 uid="uid://c2hgmqr4djchj"]
 
 [ext_resource type="Script" uid="uid://djhym7xyj1hvl" path="res://levels/room/room.gd" id="1_266tv"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="2_j1o6v"]
+[ext_resource type="Environment" uid="uid://co477l4reg26p" path="res://scenes/room_props/burning_sky.tres" id="2_y8hd4"]
 [ext_resource type="PackedScene" uid="uid://bq1b1f8xlttga" path="res://scenes/room_props/door.tscn" id="4_2akcw"]
 [ext_resource type="PackedScene" uid="uid://db0b5cr4g7osi" path="res://scenes/room_props/lc_door.tscn" id="5_e15db"]
 [ext_resource type="PackedScene" uid="uid://hvjmwcffrk1r" path="res://levels/room/room_set/room_set.tscn" id="5_y43wp"]
@@ -9,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bj6xpbx1qyavw" path="res://scenes/room_props/rc_door.tscn" id="6_62xjn"]
 [ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="6_v36xs"]
 [ext_resource type="PackedScene" uid="uid://t2v64tryju0o" path="res://assets/models/room/props/sm_left_wall.fbx" id="7_e15db"]
-
-[sub_resource type="Environment" id="Environment_e15db"]
+[ext_resource type="PackedScene" uid="uid://b2m6ywvc2648y" path="res://levels/tps_test_scene/model/机器人.glb" id="10_62xjn"]
+[ext_resource type="PackedScene" uid="uid://bud1w7th4nk2" path="res://assets/models/eve/eve01.glb" id="12_pf8v0"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_266tv"]
 
@@ -21,7 +22,7 @@ size = Vector2(600, 392)
 script = ExtResource("1_266tv")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_e15db")
+environment = ExtResource("2_y8hd4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -42,7 +43,7 @@ use_collision = true
 polygon = PackedVector2Array(0, 0, 2.08165e-12, 2, 6.035904, 2.1070576, 10, 2.08165e-12)
 
 [node name="BlownTo" type="Marker3D" parent="."]
-transform = Transform3D(0.49999994, 0, 0, 0, -0.49999988, 7.549789e-08, 0, -7.549788e-08, -0.49999994, 88.43291, 53.939857, -146.89047)
+transform = Transform3D(0.49999994, 0, 0, 0, -0.49999988, 7.549789e-08, 0, -7.549788e-08, -0.49999994, 301.3672, 1304.2512, -1107.8453)
 
 [node name="TrueDoor1" parent="." instance=ExtResource("6_62xjn")]
 transform = Transform3D(-0.49999997, 0, 7.5497894e-08, 0, 0.5, 0, -7.5497894e-08, 0, -0.49999997, 0.8470066, 0, -0.381)
@@ -59,6 +60,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7791731, 0, -4.4494123)
 
 [node name="TrueDoor21" parent="." instance=ExtResource("5_e15db")]
 transform = Transform3D(-0.49999988, 0, 4.3711378e-08, 0, 0.5, 0, -4.3711378e-08, 0, -0.49999988, 0.82823944, 0, -2.9039989)
+visible = false
 
 [node name="TrueDoor22" parent="." instance=ExtResource("6_62xjn")]
 transform = Transform3D(0.49999982, 0, 0, 0, 0.5, 0, 0, 0, 0.49999982, 0.83710694, 2.3841858e-07, -4.747897)
@@ -115,5 +117,12 @@ skeleton = NodePath("../..")
 
 [node name="Buttons" parent="." instance=ExtResource("6_v36xs")]
 is_3d_scene = true
+
+[node name="机器人2" parent="." instance=ExtResource("10_62xjn")]
+transform = Transform3D(0.7441407, -0.080993675, -0.6630949, -0.11633892, 0.9617414, -0.24803013, 0.6578146, 0.26171297, 0.706248, 53.537704, -167.96965, -97.1749)
+visible = false
+
+[node name="eve01" parent="." instance=ExtResource("12_pf8v0")]
+transform = Transform3D(669.09076, -143.44168, -414.41776, -19.809742, 745.3372, -289.96548, 438.0927, 252.77853, 619.8208, 257.24304, 357.82373, -445.38843)
 
 [connection signal="interact_obj" from="Player" to="." method="_on_player_interact_obj"]

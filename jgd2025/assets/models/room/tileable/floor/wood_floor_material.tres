@@ -1,0 +1,22 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/models/room/tileable/floor/wood_floor_basecolor.tga" id="1"]
+[ext_resource type="Texture2D" path="res://assets/models/room/tileable/floor/wood_floor_normal.tga" id="2"]
+[ext_resource type="Texture2D" path="res://assets/models/room/tileable/floor/wood_floor_roughness.tga" id="3"]
+[ext_resource type="Texture2D" path="res://assets/models/room/tileable/floor/wood_floor_ambientocclusion.tga" id="4"]
+[ext_resource type="Texture2D" path="res://assets/models/room/tileable/floor/wood_floor_height.tga" id="5"]
+
+[resource]
+albedo_texture = ExtResource("1")
+normal_enabled = true
+normal_texture = ExtResource("2")
+roughness_texture = ExtResource("3")
+ao_enabled = true
+ao_texture = ExtResource("4")
+ao_texture_channel = 0
+heightmap_enabled = true
+heightmap_texture = ExtResource("5")
+heightmap_scale = 0.05
+uv1_scale = Vector3(1, 1, 1)
+uv1_triplanar = false
+texture_filter = 2

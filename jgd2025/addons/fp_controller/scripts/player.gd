@@ -380,3 +380,37 @@ func shake_camera(intensity: float = 0.3, duration: float = 0.5, frequency: floa
 	
 	# Return to original rotation
 	shaking_tween.tween_property(camera_pivot, "rotation", original_rotation, time_per_shake)
+
+var look_at_tween: Tween
+## 让摄像头看向目标节点（带平滑过渡）
+func look_at_target(target: Node3D, duration: float = 0.5) -> void:
+	if not target:
+		push_warning("look_at_target: target is null")
+		return
+	
+	# 停止之前的look_at动画
+	if look_at_tween:
+		look_at_tween.kill()
+	
+	# 计算从玩家到目标的方向
+	var direction = (target.global_position - global_position).normalized()
+	
+	# 计算玩家的水平旋转（Y轴）
+	var horizontal_angle = atan2(-direction.x, -direction.z)
+	
+	# 计算摄像头的垂直旋转（X轴）
+	var horizontal_distance = Vector2(direction.x, direction.z).length()
+	var vertical_angle = atan2(direction.y, horizontal_distance)
+	var clamped_vertical_angle = clampf(vertical_angle, deg_to_rad(-89.0), deg_to_rad(89.0))
+	
+	# 创建平滑过渡动画
+	look_at_tween = create_tween()
+	look_at_tween.set_parallel(true)
+	look_at_tween.set_ease(Tween.EASE_OUT)
+	look_at_tween.set_trans(Tween.TRANS_CUBIC)
+	
+	# 平滑旋转玩家身体
+	look_at_tween.tween_property(self, "rotation:y", horizontal_angle, duration)
+	
+	# 平滑旋转摄像头
+	look_at_tween.tween_property(camera_pivot, "rotation:x", clamped_vertical_angle, duration)

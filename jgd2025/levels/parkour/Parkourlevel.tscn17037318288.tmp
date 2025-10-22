@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://ninaqy0juq80"]
+
+[ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="1_ttdno"]
+[ext_resource type="PackedScene" uid="uid://bope77266p2xs" path="res://levels/parkour/PatternManager.tscn" id="2_rr5jy"]
+[ext_resource type="Script" uid="uid://dhf36vatna78q" path="res://levels/parkour/parkour_block.gd" id="3_qotcg"]
+[ext_resource type="PackedScene" uid="uid://1q153ukjsf3t" path="res://levels/parkour/ParkourBlock.tscn" id="4_l4es4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b2ye3"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_aavk3"]
+sky_material = SubResource("ProceduralSkyMaterial_b2ye3")
+
+[sub_resource type="Environment" id="Environment_l2y0h"]
+background_mode = 2
+sky = SubResource("Sky_aavk3")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l2y0h")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_ttdno")]
+transform = Transform3D(1.0606601, 0, -1.0606601, 0, 1.5, 0, 1.0606601, 0, 1.0606601, 0, 249.56992, 0)
+walk_speed = 5.0
+
+[node name="Runway" type="Node3D" parent="."]
+
+[node name="PatternManager" parent="Runway" instance=ExtResource("2_rr5jy")]
+script = ExtResource("3_qotcg")
+drop_height = 10.0
+animation_duration = 0.4
+
+[node name="RunwayBlock" type="Node3D" parent="Runway"]
+
+[node name="ParkourBlock2" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1)
+
+[node name="ParkourBlock3" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="ParkourBlock" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+
+[node name="ParkourBlock4" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="ParkourBlock5" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1)
+
+[node name="ParkourBlock7" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="ParkourBlock8" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+
+[node name="ParkourBlock9" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="ParkourBlock10" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="ParkourBlock11" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="ParkourBlock13" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+
+[node name="ParkourBlock14" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="ParkourBlock15" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+
+[node name="ParkourBlock16" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+
+[node name="ParkourBlock17" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1)
+
+[node name="ParkourBlock18" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+
+[node name="ParkourBlock12" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="ParkourBlock6" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="ParkourBlock19" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+
+[node name="ParkourBlock20" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="ParkourBlock21" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
+
+[node name="ParkourBlock22" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
+
+[node name="ParkourBlock23" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2)
+
+[node name="ParkourBlock24" parent="Runway/RunwayBlock" groups=["runway_group_1"] instance=ExtResource("4_l4es4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)

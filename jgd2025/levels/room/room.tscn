@@ -1,48 +1,53 @@
-[gd_scene load_steps=14 format=3 uid="uid://c2hgmqr4djchj"]
+[gd_scene load_steps=20 format=3 uid="uid://c2hgmqr4djchj"]
 
 [ext_resource type="Script" uid="uid://djhym7xyj1hvl" path="res://levels/room/room.gd" id="1_266tv"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="2_j1o6v"]
+[ext_resource type="Environment" uid="uid://co477l4reg26p" path="res://scenes/room_props/burning_sky.tres" id="2_y8hd4"]
 [ext_resource type="PackedScene" uid="uid://bq1b1f8xlttga" path="res://scenes/room_props/door.tscn" id="4_2akcw"]
 [ext_resource type="PackedScene" uid="uid://db0b5cr4g7osi" path="res://scenes/room_props/lc_door.tscn" id="5_e15db"]
 [ext_resource type="PackedScene" uid="uid://hvjmwcffrk1r" path="res://levels/room/room_set/room_set.tscn" id="5_y43wp"]
 [ext_resource type="PackedScene" uid="uid://b7l5sv4fjhjwm" path="res://scenes/UI/notification/Notification.tscn" id="5_yqly8"]
 [ext_resource type="PackedScene" uid="uid://bj6xpbx1qyavw" path="res://scenes/room_props/rc_door.tscn" id="6_62xjn"]
 [ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="6_v36xs"]
+[ext_resource type="PackedScene" uid="uid://t2v64tryju0o" path="res://assets/models/room/props/sm_left_wall.fbx" id="7_e15db"]
+[ext_resource type="PackedScene" uid="uid://bud1w7th4nk2" path="res://assets/models/eve/eve01.glb" id="12_pf8v0"]
+[ext_resource type="PackedScene" uid="uid://5ltrsa0ifrxn" path="res://scenes/UI/terminal/Terminal.tscn" id="13_axngq"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_pf8v0"]
+flip_faces = true
+size = Vector3(21.04, 15.18, 21.28)
 
-[sub_resource type="Sky" id="Sky_aavk3"]
-sky_material = SubResource("ProceduralSkyMaterial_r6mis")
+[sub_resource type="BoxShape3D" id="BoxShape3D_pf8v0"]
+size = Vector3(7.9678345, 2.8485107, 8.03418)
 
-[sub_resource type="Environment" id="Environment_aaj73"]
-sky = SubResource("Sky_aavk3")
-ambient_light_source = 1
-reflected_light_source = 1
-ssil_radius = 12.83
-ssil_intensity = 1.4
-ssil_sharpness = 0.51
-ssil_normal_rejection = 0.0
-glow_enabled = true
-glow_intensity = 1.2
-glow_strength = 0.72
-volumetric_fog_density = 0.0
-volumetric_fog_emission_energy = 0.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_axngq"]
+size = Vector3(12.244644, 2.8485107, 16.201538)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8t5sh"]
+size = Vector3(15.279667, 2.8485107, 17.214386)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_266tv"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_n6tjd"]
 size = Vector2(600, 392)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_pf8v0"]
+
 [node name="Room" type="Node3D"]
 script = ExtResource("1_266tv")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_aaj73")
+environment = ExtResource("2_y8hd4")
+
+[node name="Sunblock" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7641659, 0)
+mesh = SubResource("BoxMesh_pf8v0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+visible = false
+light_color = Color(1, 0.65, 0.4, 1)
+light_energy = 1.5
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_j1o6v")]
@@ -56,36 +61,78 @@ visible = false
 use_collision = true
 polygon = PackedVector2Array(0, 0, 2.08165e-12, 2, 6.035904, 2.1070576, 10, 2.08165e-12)
 
+[node name="BlownTo" type="Marker3D" parent="."]
+transform = Transform3D(0.49999994, 0, 0, 0, -0.49999988, 7.549789e-08, 0, -7.549788e-08, -0.49999994, -228.9624, 759.95807, 333.43262)
+
 [node name="TrueDoor1" parent="." instance=ExtResource("6_62xjn")]
-transform = Transform3D(-0.49999997, 0, 7.5497894e-08, 0, 0.5, 0, -7.5497894e-08, 0, -0.49999997, 0.881, 0, -0.381)
+transform = Transform3D(-0.49999994, 0, 7.549789e-08, 0, 0.5, 0, -7.549789e-08, 0, -0.49999994, 0.8470066, 0, -0.381)
 
 [node name="RoomSet" parent="." instance=ExtResource("5_y43wp")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.013, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.06714435, 0, 0)
 
 [node name="Door1" parent="RoomSet" instance=ExtResource("4_2akcw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7617626, 0, -9.469364)
-
-[node name="LCDoor1" parent="RoomSet" instance=ExtResource("5_e15db")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7765398, 0, -4.4494123)
-
-[node name="TrueDoor21" parent="." instance=ExtResource("5_e15db")]
-transform = Transform3D(-0.49999988, 0, 4.3711378e-08, 0, 0.5, 0, -4.3711378e-08, 0, -0.49999988, 0.8327303, 0, -2.872295)
-
-[node name="TrueDoor22" parent="." instance=ExtResource("6_62xjn")]
-transform = Transform3D(0.49999982, 0, 0, 0, 0.5, 0, 0, 0, 0.49999982, 0.8532895, 2.3841858e-07, -4.716193)
-
-[node name="RoomSet2" parent="." instance=ExtResource("5_y43wp")]
-transform = Transform3D(-0.49999997, 0, 4.3711385e-08, 0, 0.5, 0, -4.3711385e-08, 0, -0.49999997, 1.721, 0, -5.097)
-
-[node name="TrueDoor3" parent="." instance=ExtResource("4_2akcw")]
-transform = Transform3D(0.49999994, 0, 0, 0, -0.49999988, 7.549789e-08, 0, -7.549788e-08, -0.49999994, 0.85318434, 1.2183394, -0.33299112)
-
-[node name="RoomSet3" parent="." instance=ExtResource("5_y43wp")]
-transform = Transform3D(0.5, 0, 0, 0, -0.49999997, 7.5497894e-08, 0, -7.5497894e-08, -0.49999997, -0.028, 1.2760739, -5.068)
 visible = false
 
+[node name="LCDoor1" parent="RoomSet" instance=ExtResource("5_e15db")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7791731, 0, -4.4494123)
+
+[node name="TrueDoor21" parent="." instance=ExtResource("5_e15db")]
+transform = Transform3D(-0.49999988, 0, 4.3711378e-08, 0, 0.5, 0, -4.3711378e-08, 0, -0.49999988, 0.82823944, 0, -2.9039989)
+
+[node name="TrueDoor22" parent="." instance=ExtResource("6_62xjn")]
+transform = Transform3D(0.49999982, 0, 0, 0, 0.5, 0, 0, 0, 0.49999982, 0.83710694, 2.3841858e-07, -4.747897)
+
+[node name="TrueDoor23" parent="." instance=ExtResource("5_e15db")]
+transform = Transform3D(-0.49999988, 7.54979e-08, 0, -7.549788e-08, -0.5, 0, 0, 0, 0.49999988, 0.64803606, 1.2229294, -4.722411)
+visible = false
+
+[node name="TrueDoor24" parent="." instance=ExtResource("6_62xjn")]
+transform = Transform3D(0.49999982, 0, 0, 0, -0.5, 4.3711374e-08, 0, -4.371139e-08, -0.49999982, 0.66903603, 1.2229294, -2.8794107)
+visible = false
+
+[node name="ClearArea2" type="Area3D" parent="."]
+transform = Transform3D(-0.49999997, 0, 4.3711385e-08, 0, 0.5, 0, -4.3711385e-08, 0, -0.49999997, 1.721, 0, -5.128704)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClearArea2"]
+transform = Transform3D(0.9999955, 0, 5.968559e-13, 0, 1, 0, -5.968559e-13, 0, 0.9999955, -2.82654, 0.9242554, -3.5170846)
+shape = SubResource("BoxShape3D_pf8v0")
+
+[node name="RoomSet2" parent="." instance=ExtResource("5_y43wp")]
+transform = Transform3D(-0.49999997, 0, 4.3711385e-08, 0, 0.5, 0, -4.3711385e-08, 0, -0.49999997, 1.721, 0, -5.128704)
+
+[node name="TrueDoor3" parent="." instance=ExtResource("4_2akcw")]
+transform = Transform3D(0.49999994, 0, 0, 0, -0.49999988, 7.549789e-08, 0, -7.549788e-08, -0.49999994, 0.75042725, 1.2183394, -0.36469507)
+visible = false
+
+[node name="ClearArea3" type="Area3D" parent="."]
+transform = Transform3D(0.24999997, 0, -4.371138e-08, 0, 0.25, 0, 4.371138e-08, 0, 0.24999997, 0.8604998, 0, -2.5643523)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClearArea3"]
+transform = Transform3D(0.9999955, 0, 9.066525e-12, 0, 1, 0, -9.066525e-12, 0, 0.9999955, -10.888611, -3.698783, -2.1044645)
+shape = SubResource("BoxShape3D_axngq")
+
+[node name="RoomSet3" parent="." instance=ExtResource("5_y43wp")]
+transform = Transform3D(0.5, 0, 0, 0, -0.49999997, 7.5497894e-08, 0, -7.5497894e-08, -0.49999997, -0.11231196, 1.2760739, -5.099704)
+visible = false
+
+[node name="extra_wall1" parent="RoomSet3" instance=ExtResource("7_e15db")]
+transform = Transform3D(-4.371138e-08, 0, -0.15972333, 2.842171e-14, 0.9999995, -1.0587912e-22, 0.9999995, -2.842171e-14, -6.9817254e-09, 1.677176, -5.714351, -3.0690017)
+
+[node name="extra_wall2" parent="RoomSet3" instance=ExtResource("7_e15db")]
+transform = Transform3D(-4.3711378e-08, 0, 0.03364738, 8.526513e-14, 0.999999, 2.646978e-23, 0.9999989, -7.1054274e-14, 1.4707723e-09, 1.7279241, 2.7180839, -3.0689945)
+
+[node name="ClearArea4" type="Area3D" parent="."]
+transform = Transform3D(0.24999997, 0, -4.371138e-08, 0, 0.25, 0, 4.371138e-08, 0, 0.24999997, 0.8604998, 0, -2.5643523)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClearArea4"]
+transform = Transform3D(0.9999955, 0, 1.21787025e-11, 0, 1, 0, -1.21787025e-11, 0, 0.9999955, 9.0897255, -2.1858897, -2.0948238)
+shape = SubResource("BoxShape3D_8t5sh")
+
 [node name="RoomSet4" parent="." instance=ExtResource("5_y43wp")]
-transform = Transform3D(-0.5, 0, 4.3711385e-08, 0, 0.49999994, 0, -4.371139e-08, 0, -0.49999994, 1.6802304, -0.95367837, -5.075)
+transform = Transform3D(-0.5, 0, 4.3711385e-08, 0, 0.49999994, 0, -4.371139e-08, 0, -0.49999994, 1.6350253, -0.95367837, -5.1067038)
 visible = false
 
 [node name="LCDoor1" parent="RoomSet4" instance=ExtResource("5_e15db")]
@@ -106,9 +153,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.768, 0, 33.568)
 mesh = SubResource("PlaneMesh_n6tjd")
 skeleton = NodePath("../..")
 
-[node name="Notification" parent="." instance=ExtResource("5_yqly8")]
-
 [node name="Buttons" parent="." instance=ExtResource("6_v36xs")]
 is_3d_scene = true
 
+[node name="eve01" parent="." instance=ExtResource("12_pf8v0")]
+transform = Transform3D(-656.0632, 150.73442, 432.27325, -19.809752, 745.3371, -289.96545, -457.37146, -248.49881, -607.5028, -346.67273, 357.82373, 445.2605)
+
+[node name="EveArea3D" type="Area3D" parent="eve01"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="eve01/EveArea3D"]
+transform = Transform3D(1, 1.4901161e-08, 5.9604645e-08, -1.4901161e-08, 1.0000002, -7.4505806e-08, 8.940697e-08, 0, 1, -0.05242601, 0.4255842, -0.06360817)
+shape = SubResource("SphereShape3D_pf8v0")
+
+[node name="Terminal" parent="." instance=ExtResource("13_axngq")]
+visible = false
+
+[node name="Notification" parent="." instance=ExtResource("5_yqly8")]
+
 [connection signal="interact_obj" from="Player" to="." method="_on_player_interact_obj"]
+[connection signal="body_entered" from="ClearArea2" to="." method="_on_clear_area_2_body_entered"]
+[connection signal="body_entered" from="ClearArea3" to="." method="_on_clear_area_3_body_entered"]
+[connection signal="body_entered" from="ClearArea4" to="." method="_on_clear_area_4_body_entered"]
+[connection signal="body_entered" from="eve01/EveArea3D" to="." method="_on_eve_area_3d_body_entered"]
+[connection signal="input_submitted" from="Terminal" to="." method="_on_terminal_input_submitted"]

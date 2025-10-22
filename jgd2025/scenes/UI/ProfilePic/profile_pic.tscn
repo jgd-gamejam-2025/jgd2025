@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://db7chujuf7je8"]
+[gd_scene load_steps=6 format=3 uid="uid://db7chujuf7je8"]
 
+[ext_resource type="Script" uid="uid://bv0sqws5bxqgc" path="res://scenes/UI/ProfilePic/profile_pic.gd" id="1_7vn4b"]
 [ext_resource type="Texture2D" uid="uid://dj5jrgpxoqm5e" path="res://assets/Eve/Eve_normal2.png" id="1_c7awx"]
+[ext_resource type="Texture2D" uid="uid://id6lh8j8ec65" path="res://assets/Eve/unknown_pic.png" id="3_0vggm"]
 
 [sub_resource type="Gradient" id="Gradient_m60jq"]
 interpolation_mode = 1
@@ -29,6 +31,7 @@ offset_bottom = 71.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(128, 0)
+script = ExtResource("1_7vn4b")
 
 [node name="ImageFrame" type="TextureRect" parent="."]
 clip_children = 2
@@ -47,7 +50,7 @@ grow_vertical = 2
 scale = Vector2(0.25, 0.25)
 texture = SubResource("GradientTexture2D_4sbbt")
 
-[node name="TextureRect" type="TextureRect" parent="ImageFrame"]
+[node name="Eve" type="TextureRect" parent="ImageFrame"]
 texture_filter = 5
 use_parent_material = true
 layout_mode = 1
@@ -64,3 +67,22 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.625, 0.625)
 texture = ExtResource("1_c7awx")
+
+[node name="Unknown" type="TextureRect" parent="ImageFrame"]
+visible = false
+texture_filter = 5
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -531.99994
+offset_top = -504.0
+offset_right = 1183.2002
+offset_bottom = 1211.2002
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("3_0vggm")

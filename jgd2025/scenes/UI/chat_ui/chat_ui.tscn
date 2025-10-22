@@ -22,9 +22,9 @@ in_3d_space = true
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mmueg"]
 shader = ExtResource("2_7gws6")
 shader_parameter/warp_texture = SubResource("NoiseTexture2D_wk3ky")
-shader_parameter/intensity = 0.046000002185
+shader_parameter/intensity = 0.2170000103075
 shader_parameter/tint_color = Color(0.90588236, 0.9490196, 0.96862745, 1)
-shader_parameter/tint_amount = 0.06000000285
+shader_parameter/tint_amount = 0.0250000011875
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wk3ky"]
 
@@ -171,6 +171,7 @@ text = "Eve"
 horizontal_alignment = 1
 
 [node name="ProfilePic" parent="Panel" instance=ExtResource("5_8ats8")]
+unique_name_in_owner = true
 layout_mode = 1
 
 [node name="Scroll" type="ScrollContainer" parent="Panel"]

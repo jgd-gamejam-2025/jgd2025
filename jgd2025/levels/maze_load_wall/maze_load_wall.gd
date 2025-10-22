@@ -13,6 +13,7 @@ signal end_opening_sig
 @export var next_scene : PackedScene
 func _ready():
 	player.can_move = false
+	player.camera_pivot.rotation.x = deg_to_rad(-88.5)
 	Transition.end()
 	chat_ui.set_ai_name("Eve")
 	chat_ui.init_system_prompt({"ai":ai_prompt})

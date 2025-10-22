@@ -117,6 +117,9 @@ shape = SubResource("ConvexPolygonShape3D_h1lgg")
 
 [node name="Player" parent="." instance=ExtResource("4_17sqg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
+walk_back_speed = 15.0
+walk_speed = 15.0
+sprint_speed = 15.0
 
 [node name="light" type="Node" parent="."]
 
@@ -895,5 +898,6 @@ material = SubResource("StandardMaterial3D_a646p")
 
 [node name="Buttons" parent="." instance=ExtResource("4_kp8pu")]
 is_3d_scene = true
+
 [node name="机器人2" parent="." instance=ExtResource("5_aw82a")]
 transform = Transform3D(0.9053541, 0, -0.42465776, -0.11633892, 0.9617414, -0.24803013, 0.40841085, 0.27395922, 0.8707163, 0.39586258, -100.536316, -415.0822)

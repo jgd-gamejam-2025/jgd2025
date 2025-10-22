@@ -34,7 +34,7 @@ func _ready() -> void:
 	input_field.grab_focus()
 	
 	# Welcome message
-	write_line("Terminal v1.0 initialized.\nType your commands below.")
+	#write_line("Terminal v1.0 initialized.\nType your commands below.")
 
 func _input(event: InputEvent) -> void:
 	if _input_blocked:
@@ -116,9 +116,6 @@ func write_line(text: String, type_speed: float = default_type_speed) -> Tween:
 	return _tween
 
 func _on_input_submitted(text: String) -> void:
-	if text.strip_edges().is_empty():
-		return
-		
 	# Echo the command with full prompt
 	var pre_text = "[color=#03f0fc]%s@%s>[/color] %s\n" % [user_name, host_name, text]
 	write_line_static(pre_text)

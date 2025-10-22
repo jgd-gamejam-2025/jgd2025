@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://hvjmwcffrk1r"]
+[gd_scene load_steps=27 format=3 uid="uid://hvjmwcffrk1r"]
 
 [ext_resource type="Script" uid="uid://bc33uqhfe7e16" path="res://levels/room/room_set/room_set.gd" id="1_xmftu"]
 [ext_resource type="PackedScene" uid="uid://ccchwx0ejpq83" path="res://assets/models/room/props/sm_back_wall.fbx" id="1_yr7qc"]
@@ -38,6 +38,12 @@ size = Vector3(8.706482, 5.831085, 0.6546097)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u8qrr"]
 size = Vector3(8.706482, 0.07002282, 11.520852)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mdfb2"]
+size = Vector3(2.9863281, 1.8760986, 4.7136383)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vmynx"]
+size = Vector3(1.1802368, 2.3565674, 0.96131134)
 
 [node name="RoomSet" type="Node3D"]
 script = ExtResource("1_xmftu")
@@ -106,6 +112,17 @@ debug_color = Color(0.97176117, 0, 0.4489975, 0.41960785)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.221794, -0.002913475, -6.5177875)
 shape = SubResource("BoxShape3D_u8qrr")
 debug_color = Color(0.97176117, 0, 0.4489975, 0.41960785)
+
+[node name="InteriorBlock" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0572834, 0, -1.9418125)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteriorBlock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01171875, 0.43804932, 0.21872711)
+shape = SubResource("BoxShape3D_mdfb2")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="InteriorBlock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9000087, 0.6782837, 2.0636225)
+shape = SubResource("BoxShape3D_vmynx")
 
 [node name="sm_back_wall" parent="." instance=ExtResource("1_yr7qc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.932134, 0, -5.055475)

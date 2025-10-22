@@ -151,9 +151,6 @@ theme_override_colors/default_color = Color(0.85, 0.85, 0.85, 1)
 theme_override_colors/font_selected_color = Color(0.85, 0.85, 0.85, 1)
 theme_override_colors/selection_color = Color(0.2, 0.2, 0.2, 1)
 bbcode_enabled = true
-text = "[color=#03f0fc]> Connection confirmed.[/color]
-[color=#666666]> Type 'help' for available commands[/color]
-"
 scroll_following = true
 context_menu_enabled = true
 

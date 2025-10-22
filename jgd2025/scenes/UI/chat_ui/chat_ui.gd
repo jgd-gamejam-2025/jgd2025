@@ -17,6 +17,8 @@ var key_aiChat_dict: Dictionary = {}
 @onready var detail_bubble = $Panel/MarginContainer/BubblesScroll/VBoxContainer/DetailBubble
 @onready var flat_bubble = $Panel/MarginContainer/BubblesScroll/VBoxContainer/FlatBubble
 @onready var image_bubble = $Panel/MarginContainer/BubblesScroll/VBoxContainer/ImageBubble
+@onready var profile_pic = $Panel/ProfilePic
+@onready var name_tag = $Panel/Name
 var in_chat_mode = false
 var make_new_bubble_on_next_token = true
 #--------------
@@ -49,7 +51,8 @@ func send_text_to_ai():
 	make_new_bubble_on_next_token = true
 	textInput.editable = false
 	if not debug_mode:
-		current_aiChat.say(my_message)
+		if not block_text_generation:
+			current_aiChat.say(my_message)
 	else:
 		if my_message.begins_with("{") and my_message.ends_with("}"):
 			# make a signal for command received
@@ -179,7 +182,10 @@ func init_system_prompt(key_prompt_dict: Dictionary) -> void:
 	for key in key_prompt_dict.keys():
 		var new_chat = aiChat.duplicate()
 		add_child(new_chat)
-		new_chat.system_prompt = "\\no_think " + key_prompt_dict[key]
+		if qwen:
+			new_chat.system_prompt = "\\no_think " + key_prompt_dict[key]
+		else:
+			new_chat.system_prompt = key_prompt_dict[key]
 		key_aiChat_dict[key] = new_chat
 
 func select_ai_chat(key: String) -> void:
@@ -195,6 +201,7 @@ func start_chat_worker():
 
 func set_ai_name(new_name: String) -> void:
 	name_label.text = new_name
+	detail_bubble.name_label.text = new_name
 	
 func _on_text_input_focus_entered() -> void:
 	if not line_edit_focus_sent:
@@ -204,8 +211,6 @@ func _on_text_input_focus_entered() -> void:
 func to_chat_mode():
 	in_chat_mode = true
 	var input_hbox = $Panel/InputHBox
-	var profile_pic = $Panel/ProfilePic
-	var name_tag = $Panel/Name
 
 	var tween = create_tween()
 	var viewport_size = get_viewport().get_visible_rect().size

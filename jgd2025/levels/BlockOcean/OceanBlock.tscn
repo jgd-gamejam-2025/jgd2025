@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://byxwkwamqod2d"]
+
+[ext_resource type="Script" uid="uid://bt4wauuyd00i4" path="res://levels/BlockOcean/ocean_block.gd" id="1_gc6af"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h8wcy"]
+size = Vector3(5, 7.5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gc6af"]
+size = Vector3(5, 7.5, 5)
+
+[node name="OceanBlock" type="AnimatableBody3D" groups=["ocean_blocks"]]
+script = ExtResource("1_gc6af")
+ambient_fluctuation_height = 1.0
+ambient_fluctuation_speed = 2.0
+drop_duration = 5.0
+surge_rise_duration = 3.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_h8wcy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_gc6af")

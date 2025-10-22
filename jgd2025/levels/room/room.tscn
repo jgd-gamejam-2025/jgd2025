@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://djhym7xyj1hvl" path="res://levels/room/room.gd" id="1_266tv"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="2_j1o6v"]
-[ext_resource type="Environment" uid="uid://co477l4reg26p" path="res://scenes/room_props/burning_sky.tres" id="2_y8hd4"]
+[ext_resource type="Environment" uid="uid://c7f6xnduoc86t" path="res://scenes/room_props/burning_sky.tres" id="2_y8hd4"]
 [ext_resource type="PackedScene" uid="uid://bq1b1f8xlttga" path="res://scenes/room_props/door.tscn" id="4_2akcw"]
 [ext_resource type="PackedScene" uid="uid://db0b5cr4g7osi" path="res://scenes/room_props/lc_door.tscn" id="5_e15db"]
 [ext_resource type="PackedScene" uid="uid://hvjmwcffrk1r" path="res://levels/room/room_set/room_set.tscn" id="5_y43wp"]
@@ -75,7 +75,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7617626, 0, -9.469364)
 visible = false
 
 [node name="LCDoor1" parent="RoomSet" instance=ExtResource("5_e15db")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7791731, 0, -4.4494123)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6410027, 0, -4.4494123)
 
 [node name="TrueDoor21" parent="." instance=ExtResource("5_e15db")]
 transform = Transform3D(-0.49999988, 0, 4.3711378e-08, 0, 0.5, 0, -4.3711378e-08, 0, -0.49999988, 0.82823944, 0, -2.9039989)

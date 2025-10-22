@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://me3sd4mx2ekp" path="res://scenes/room_props/desk.tscn" id="5_yr7qc"]
 [ext_resource type="PackedScene" uid="uid://ct4wwsotumarq" path="res://assets/models/room/props/sm_drawer.fbx" id="6_1egsj"]
 [ext_resource type="PackedScene" uid="uid://xjw06c0aqacy" path="res://assets/models/room/props/sm_floor.fbx" id="7_hf3ha"]
-[ext_resource type="PackedScene" uid="uid://b5ukykokcmee5" path="res://assets/models/room/props/sm_front_wall.tscn" id="8_xmftu"]
+[ext_resource type="PackedScene" uid="uid://bg2teeua5yhld" path="res://assets/models/room/props/sm_front_wall.fbx" id="8_xmftu"]
 [ext_resource type="PackedScene" uid="uid://t2v64tryju0o" path="res://assets/models/room/props/sm_left_wall.fbx" id="9_vmynx"]
 [ext_resource type="PackedScene" uid="uid://l8i63hmjre17" path="res://assets/models/room/props/sm_notebook.fbx" id="10_gyg7q"]
 [ext_resource type="PackedScene" uid="uid://dy85jce0nhgje" path="res://assets/models/room/props/sm_office_chair.fbx" id="11_0u7gq"]

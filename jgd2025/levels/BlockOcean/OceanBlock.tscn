@@ -10,10 +10,10 @@ size = Vector3(5, 7.5, 5)
 
 [node name="OceanBlock" type="AnimatableBody3D" groups=["ocean_blocks"]]
 script = ExtResource("1_gc6af")
-ambient_fluctuation_height = 1.0
+ambient_fluctuation_height = 0.35
 ambient_fluctuation_speed = 2.0
 drop_duration = 5.0
-surge_rise_duration = 3.0
+surge_rise_duration = 5.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_h8wcy")

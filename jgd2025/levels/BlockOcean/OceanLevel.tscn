@@ -1,31 +1,119 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3e0lciniek4t"]
+[gd_scene load_steps=12 format=3 uid="uid://d3e0lciniek4t"]
 
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="1_fd5tf"]
 [ext_resource type="PackedScene" uid="uid://ch6u35p88u6gr" path="res://levels/BlockOcean/OceanManager.tscn" id="2_2anpd"]
 [ext_resource type="PackedScene" uid="uid://byxwkwamqod2d" path="res://levels/BlockOcean/OceanBlock.tscn" id="3_2anpd"]
 [ext_resource type="MeshLibrary" uid="uid://cvonh1wdskqfw" path="res://levels/BlockOcean/BlockOceanTileSet.tres" id="3_o25qf"]
+[ext_resource type="Shader" uid="uid://d25wrwj605gfw" path="res://shaders/light_beam.gdshader" id="5_beam_shader"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jek4i"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_top_color = Color(0.1, 0.15, 0.25, 1)
+sky_horizon_color = Color(0.2, 0.25, 0.35, 1)
+ground_bottom_color = Color(0.00081248966, 0.00081248966, 0.0014121981, 1)
+ground_horizon_color = Color(0.15, 0.18, 0.22, 1)
 
 [sub_resource type="Sky" id="Sky_aavk3"]
 sky_material = SubResource("ProceduralSkyMaterial_jek4i")
 
-[sub_resource type="Environment" id="Environment_oen6h"]
+[sub_resource type="Environment" id="Environment_2anpd"]
 background_mode = 2
+background_energy_multiplier = 6.52
 sky = SubResource("Sky_aavk3")
+ambient_light_source = 1
+ambient_light_color = Color(0.15, 0.18, 0.22, 1)
+ambient_light_energy = 0.2
 tonemap_mode = 2
+tonemap_exposure = 0.7
 glow_enabled = true
+glow_intensity = 7.55
+glow_strength = 1.77
+glow_bloom = 0.2
+volumetric_fog_albedo = Color(0.3, 0.35, 0.45, 1)
+volumetric_fog_emission_energy = 0.2
+adjustment_enabled = true
+adjustment_brightness = 0.8
+adjustment_contrast = 1.1
+adjustment_saturation = 0.9
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_beam"]
+top_radius = 15.0
+bottom_radius = 15.0
+height = 200.0
+radial_segments = 32
+rings = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_beam"]
+render_priority = 0
+shader = ExtResource("5_beam_shader")
+shader_parameter/beam_color = Color(0.8, 0.9, 1, 1)
+shader_parameter/emission_strength = 6.0
+shader_parameter/edge_fade = 0.3
+shader_parameter/alpha = 0.4
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_o25qf"]
+flip_faces = true
+top_radius = 15.0
+bottom_radius = 15.0
+height = 200.0
+radial_segments = 32
+rings = 1
 
 [node name="OceanLevel" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_oen6h")
+environment = SubResource("Environment_2anpd")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0.7, 0.75, 0.85, 1)
+light_energy = 1.216
 shadow_enabled = true
+
+[node name="LightPillar" type="Node3D" parent="."]
+
+[node name="LightBeamCylinder" type="MeshInstance3D" parent="LightPillar"]
+transform = Transform3D(0.4575467, 0, 0.1899652, 0, 0.3773847, 0, -0.20185938, 0, 0.43058664, 0, 19.933918, 0)
+mesh = SubResource("CylinderMesh_beam")
+surface_material_override/0 = SubResource("ShaderMaterial_beam")
+
+[node name="LightBeamCylinder2" type="MeshInstance3D" parent="LightPillar"]
+transform = Transform3D(0.4574587, 0, 0.19011496, 0, -1.1662508, 0, -0.20182055, 0, 0.43092608, 0, -134.04852, 0)
+mesh = SubResource("CylinderMesh_o25qf")
+surface_material_override/0 = SubResource("ShaderMaterial_beam")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="LightPillar"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 399.86273, 0)
+light_color = Color(0.9, 0.95, 1, 1)
+light_energy = 20.0
+light_indirect_energy = 10.0
+light_volumetric_fog_energy = 15.0
+shadow_enabled = true
+spot_range = 410.5367
+spot_attenuation = 0.3
+spot_angle = 12.388369
+spot_angle_attenuation = 1.5
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="LightPillar"]
+transform = Transform3D(1, 0, 0, 0, -0.45556048, 0.89020485, 0, -0.89020485, -0.45556048, 37.52214, 200, -96.26996)
+visible = false
+light_color = Color(0.9, 0.95, 1, 1)
+light_energy = 20.0
+light_indirect_energy = 10.0
+light_volumetric_fog_energy = 15.0
+shadow_enabled = true
+spot_range = 300.0
+spot_attenuation = 0.3
+spot_angle = 21.36763
+spot_angle_attenuation = 1.5
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LightPillar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.973923, 0)
+visible = false
+light_color = Color(0.85, 0.9, 1, 1)
+light_energy = 3.0
+light_volumetric_fog_energy = 2.0
+omni_range = 150.0
+omni_attenuation = 0.3
 
 [node name="Player" parent="." instance=ExtResource("1_fd5tf")]
 transform = Transform3D(1.0606601, 0, -1.0606601, 0, 1.5, 0, 1.0606601, 0, 1.0606601, -78.89409, 8, -75.226456)
@@ -37,8 +125,9 @@ walk_speed = 5.0
 grid_map_path = NodePath("../GridMap")
 ocean_block_scene = ExtResource("3_2anpd")
 player_path = NodePath("../../Player")
-tsunami_spread_speed = 3.0
-surge_height = 30.0
+tsunami_start_delay = 1.0
+tsunami_spread_speed = 4.0
+surge_height = 160.0
 
 [node name="GridMap" type="GridMap" parent="Ocean"]
 mesh_library = ExtResource("3_o25qf")

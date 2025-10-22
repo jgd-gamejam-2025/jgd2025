@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cierppgmrwkme"]
+
+[ext_resource type="PackedScene" uid="uid://bg2teeua5yhld" path="res://assets/models/room/props/sm_front_wall.fbx" id="1_fqgu7"]
+
+[node name="sm_front_wall" instance=ExtResource("1_fqgu7")]
+
+[node name="closet" parent="front_wall" index="0"]
+visible = false

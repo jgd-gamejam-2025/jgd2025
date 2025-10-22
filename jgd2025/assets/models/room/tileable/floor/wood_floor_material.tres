@@ -1,22 +1,20 @@
-[gd_resource type="StandardMaterial3D" load_steps=6 format=3]
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://bbdrayrfgp7wk"]
 
-[ext_resource type="Texture2D" path="res://assets/models/room/tileable/floor/wood_floor_basecolor.tga" id="1"]
-[ext_resource type="Texture2D" path="res://assets/models/room/tileable/floor/wood_floor_normal.tga" id="2"]
-[ext_resource type="Texture2D" path="res://assets/models/room/tileable/floor/wood_floor_roughness.tga" id="3"]
-[ext_resource type="Texture2D" path="res://assets/models/room/tileable/floor/wood_floor_ambientocclusion.tga" id="4"]
-[ext_resource type="Texture2D" path="res://assets/models/room/tileable/floor/wood_floor_height.tga" id="5"]
+[ext_resource type="Texture2D" uid="uid://ckf8o3qpqkrgp" path="res://assets/models/room/tileable/floor/wood_floor_basecolor.tga" id="1"]
+[ext_resource type="Texture2D" uid="uid://b1t4bkesmwlni" path="res://assets/models/room/tileable/floor/wood_floor_normal.tga" id="2"]
+[ext_resource type="Texture2D" uid="uid://ctiyragp0twui" path="res://assets/models/room/tileable/floor/wood_floor_roughness.tga" id="3"]
+[ext_resource type="Texture2D" uid="uid://bm3qpqf6yu2di" path="res://assets/models/room/tileable/floor/wood_floor_ambientocclusion.tga" id="4"]
+[ext_resource type="Texture2D" uid="uid://cm0aujewafbb4" path="res://assets/models/room/tileable/floor/wood_floor_height.tga" id="5"]
 
 [resource]
 albedo_texture = ExtResource("1")
+roughness_texture = ExtResource("3")
 normal_enabled = true
 normal_texture = ExtResource("2")
-roughness_texture = ExtResource("3")
 ao_enabled = true
 ao_texture = ExtResource("4")
-ao_texture_channel = 0
 heightmap_enabled = true
-heightmap_texture = ExtResource("5")
 heightmap_scale = 0.05
-uv1_scale = Vector3(1, 1, 1)
-uv1_triplanar = false
+heightmap_texture = ExtResource("5")
+uv1_scale = Vector3(9.34, 9.34, 9.34)
 texture_filter = 2

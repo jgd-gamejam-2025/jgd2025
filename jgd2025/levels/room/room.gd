@@ -137,7 +137,7 @@ func _on_terminal_input_submitted(command: String) -> void:
 				2:
 					get_notification("事故发生在哪一年？")
 				3:
-					get_notification("最喜欢的卡通角色叫什么？")
+					get_notification("小熊的名字叫什么？")
 				4:
 					get_notification("人工智能是否拥有自由？")
 			# chat_ui.textInput.grab_focus()

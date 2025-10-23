@@ -21,6 +21,10 @@ gguf/
 # Debug symbols
 *.pdb
 *.so
+
+# macOS system files
+.DS_Store
+
 jgd2025/addons/nobodywho/~nobodywho-godot-x86_64-pc-windows-msvc-release.dll
 build/exported-game.exe
 build/exported-game.pck

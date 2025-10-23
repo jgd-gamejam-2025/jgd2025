@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://ckqfn6lkriq3k"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "Play"
+id = 1256202815
+guid = "{D862B3DF-5DDF-47F9-8AE7-E47FC53F13D5}"
+dummy = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://1m82bdnhye7k"]
+[gd_scene load_steps=30 format=3 uid="uid://1m82bdnhye7k"]
 
 [ext_resource type="Script" uid="uid://cr4hyuccgxpea" path="res://levels/maze_load_wall/maze_load_wall.gd" id="1_wt3j4"]
 [ext_resource type="Material" uid="uid://ctjp2430ogink" path="res://levels/maze_load_wall/portal.tres" id="3_ill1l"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="10_2r1ki"]
 [ext_resource type="PackedScene" uid="uid://6k8k6xhr47r5" path="res://scenes/opening/Opening.tscn" id="10_vudfa"]
 [ext_resource type="PackedScene" uid="uid://b7l5sv4fjhjwm" path="res://scenes/UI/notification/Notification.tscn" id="11_ucvxd"]
+[ext_resource type="PackedScene" uid="uid://78exdosy10ho" path="res://scenes/NotificationArea/notification_area.tscn" id="14_gstnd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -25,11 +26,46 @@ background_mode = 2
 sky = SubResource("Sky_aavk3")
 tonemap_mode = 2
 glow_enabled = true
+fog_light_color = Color(0.7, 0.75, 0.8, 1)
+fog_light_energy = 0.8
+fog_sun_scatter = 0.1
+fog_density = 0.015
+fog_aerial_perspective = 0.3
+fog_sky_affect = 0.5
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.02
+volumetric_fog_albedo = Color(0.75, 0.78, 0.85, 1)
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_ambient_inject = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vudfa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ucvxd"]
 size = Vector3(31, 51, 39)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p23jy"]
+albedo_texture = ExtResource("5_2r1ki")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1c6g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkmtq"]
+albedo_texture = ExtResource("5_2r1ki")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eyaib"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2r1ki"]
+albedo_texture = ExtResource("5_2r1ki")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gstnd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ov85a"]
+albedo_texture = ExtResource("5_2r1ki")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ggcw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucvxd"]
 albedo_texture = ExtResource("5_2r1ki")
@@ -45,6 +81,15 @@ points = PackedVector3Array(-50, 0, -50, -50, 0, 50, 50, 0, -50, 50, 0, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2r1ki"]
 size = Vector3(80, 30, 80)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gstnd"]
+size = Vector3(28.588844, 4.3947754, 24.893677)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ov85a"]
+size = Vector3(18.428299, 4.880615, 18.261475)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ggcw"]
+size = Vector3(106.93471, 2.7575684, 86.894104)
 
 [node name="MazeLoadWall" type="Node3D"]
 script = ExtResource("1_wt3j4")
@@ -143,8 +188,36 @@ material = ExtResource("4_wt3j4")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
+[node name="Sprite3D" type="Sprite3D" parent="Floor"]
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, 28, 0.01, -28)
+material_override = SubResource("StandardMaterial3D_p23jy")
+material_overlay = SubResource("StandardMaterial3D_j1c6g")
+texture_filter = 0
+texture = ExtResource("5_2r1ki")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Floor"]
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, -36, 0.01, -28)
+material_override = SubResource("StandardMaterial3D_kkmtq")
+material_overlay = SubResource("StandardMaterial3D_eyaib")
+texture_filter = 0
+texture = ExtResource("5_2r1ki")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Floor"]
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, -36, 0.01, 36)
+material_override = SubResource("StandardMaterial3D_2r1ki")
+material_overlay = SubResource("StandardMaterial3D_gstnd")
+texture_filter = 0
+texture = ExtResource("5_2r1ki")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Floor"]
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, 28, 0.01, 36)
+material_override = SubResource("StandardMaterial3D_ov85a")
+material_overlay = SubResource("StandardMaterial3D_5ggcw")
+texture_filter = 0
+texture = ExtResource("5_2r1ki")
+
 [node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, -4.0063143, 0, 4.0063953)
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, -4, 0, 4)
 layers = 4
 mesh = SubResource("PlaneMesh_n6tjd")
 skeleton = NodePath("../..")
@@ -188,6 +261,45 @@ shape = SubResource("BoxShape3D_2r1ki")
 visible = false
 is_3d_scene = true
 
+[node name="NotificationArea" parent="." instance=ExtResource("14_gstnd")]
+text = "这看起来是一个迷宫......"
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NotificationArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.06866, 2.859146, -21.757633)
+shape = SubResource("BoxShape3D_gstnd")
+
+[node name="NotificationArea2" parent="." instance=ExtResource("14_gstnd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.454586, 0, -29.613369)
+text = "这完全是死路吧！？"
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NotificationArea2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.852394, 2.5805607, -8.837044)
+shape = SubResource("BoxShape3D_ov85a")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="NotificationArea2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.258472, 2.1307182, -9.991676)
+shape = SubResource("BoxShape3D_ov85a")
+
+[node name="NotificationArea3" parent="." instance=ExtResource("14_gstnd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.454586, 0, -29.613369)
+text = "在墙之上....！？"
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NotificationArea3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.533619, 12.507708, -31.937843)
+shape = SubResource("BoxShape3D_5ggcw")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="NotificationArea3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.447186, 11.16165, 33.65885)
+shape = SubResource("BoxShape3D_5ggcw")
+
+[node name="HitTimer" type="Timer" parent="."]
+wait_time = 120.0
+autostart = true
+
 [connection signal="end_opening_sig" from="." to="MazeManager" method="_on_maze_load_wall_end_opening_sig"]
 [connection signal="timeout" from="MazeManager/RiseTimer" to="MazeManager" method="_on_rise_timer_timeout"]
 [connection signal="opening_end" from="Opening" to="." method="_on_opening_opening_end"]
+[connection signal="area_text" from="NotificationArea" to="." method="_on_notification_area_area_text"]
+[connection signal="area_text" from="NotificationArea2" to="." method="_on_notification_area_2_area_text"]
+[connection signal="area_text" from="NotificationArea3" to="." method="_on_notification_area_area_text"]
+[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]

@@ -320,7 +320,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.5, 2.08165e-12
 [node name="SmoothCamera" type="Camera3D" parent="CameraPivot"]
 cull_mask = 1048573
 fov = 85.0
-near = 0.15
+near = 0.01
 script = ExtResource("2_1py82")
 
 [node name="RayCast3D" type="RayCast3D" parent="CameraPivot/SmoothCamera"]
@@ -349,7 +349,7 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.5, 2.08165e-12)
 cull_mask = 2
 fov = 85.0
-near = 0.15
+near = 0.3
 
 [node name="PadVobbling" type="Node3D" parent="CameraPivot"]
 

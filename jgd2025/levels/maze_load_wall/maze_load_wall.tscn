@@ -144,27 +144,27 @@ material = ExtResource("4_wt3j4")
 [node name="Floor" type="StaticBody3D" parent="."]
 
 [node name="Sprite3D" type="Sprite3D" parent="Floor"]
-transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, 28.036158, 0.01, -28.01832)
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, 28, 0.01, -28)
 texture_filter = 0
 texture = ExtResource("5_2r1ki")
 
 [node name="Sprite3D2" type="Sprite3D" parent="Floor"]
-transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, -36.105446, 0.01, -28.01832)
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, -36, 0.01, -28)
 texture_filter = 0
 texture = ExtResource("5_2r1ki")
 
 [node name="Sprite3D3" type="Sprite3D" parent="Floor"]
-transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, -35.914314, 0.01, 35.99613)
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, -36, 0.01, 36)
 texture_filter = 0
 texture = ExtResource("5_2r1ki")
 
 [node name="Sprite3D4" type="Sprite3D" parent="Floor"]
-transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, 28.079124, 0.01, 35.99613)
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, 28, 0.01, 36)
 texture_filter = 0
 texture = ExtResource("5_2r1ki")
 
 [node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, -4.0063143, 0, 4.0063953)
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, -4, 0, 4)
 layers = 4
 mesh = SubResource("PlaneMesh_n6tjd")
 skeleton = NodePath("../..")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://78exdosy10ho"]
+
+[ext_resource type="Script" uid="uid://bbm1htmy7xo48" path="res://scenes/NotificationArea/notification_area.gd" id="1_7jqf3"]
+
+[node name="NotificationArea" type="Area3D"]
+script = ExtResource("1_7jqf3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

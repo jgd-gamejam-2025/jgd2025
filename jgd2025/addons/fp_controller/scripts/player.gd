@@ -186,6 +186,8 @@ var old_looking_target: Node = null
 func check_interactable():
 	if interaction_raycast.is_colliding():
 		var target = interaction_raycast.get_collider()
+		if not target:
+			return
 		if old_looking_target==null or target.name != old_looking_target.name:
 			# handle hiding/showing effects for old and new targets
 			if old_looking_target and old_looking_target.is_in_group("interactable"):

@@ -6,19 +6,19 @@
 				<SoundcasterSession Name="test" ID="{DEBD0EA9-87BE-44D0-8436-8414B7F4AC61}">
 					<ModuleList>
 						<Module>
-							<ObjectRef Name="Play_AI_Typing" ID="{5F0595F7-FE1B-4D43-AD04-66CCA22E8660}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
+							<ObjectRef Name="Begin_to_none" ID="{8933958D-ECCE-482E-805B-31EE01D162FD}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
 							<Position X="0" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Play_Player_enter" ID="{3711CE7B-2BAA-4B8F-9C47-4F50C4EA13A4}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
+							<ObjectRef Name="None_to_Title" ID="{362CD5C9-3566-4788-86FD-1AB4B73D6592}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
 							<Position X="1" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Play_Player_Typing" ID="{773C4242-BCF9-4C5A-A8B8-7ABBEB189DFB}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
+							<ObjectRef Name="Play_begin" ID="{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
 							<Position X="2" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="AI_Typing_fault" ID="{8B388CC3-B363-41F1-8EE4-EBF6CEA2F36C}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+							<ObjectRef Name="Title_to_Maze" ID="{01BD5A0E-3FDA-4CBF-BE09-EE1217BAA8D5}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
 							<Position X="3" Y="0"/>
 						</Module>
 					</ModuleList>

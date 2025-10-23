@@ -110,6 +110,49 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Maze_Landing" ID="{36B66DC0-988B-4EB1-B9AE-4A4534358803}">
+					<ChildrenList>
+						<Action Name="" ID="{EA6396C3-8603-4E3D-B7F5-89222E47A191}" ShortID="425113486">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Maze_Landing" ID="{A2D48E2D-46B8-4325-BF71-B720B2716CB2}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Takeout_ipad" ID="{749CAEB4-BA26-41E3-8E27-93DA4CD7F39C}">
+					<ChildrenList>
+						<Action Name="" ID="{600628A0-796B-4F9B-A996-4FE169C281BE}" ShortID="367138970">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Take out_ipad" ID="{D8A8E52B-BE7A-40DD-BBB0-0AE34E91D834}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Putdown_ipad" ID="{F4F6CDB0-C437-463C-A59C-DFBA053DB85E}">
+					<ChildrenList>
+						<Action Name="" ID="{0F0562DD-E9FF-4417-A77F-A1DAF20AFEAE}" ShortID="623777657">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Take out_ipad" ID="{D8A8E52B-BE7A-40DD-BBB0-0AE34E91D834}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{9CB3D168-EC02-4AC2-AE34-0369F358CE14}" ShortID="439691459">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Put down_ipad" ID="{8E732A61-6F84-45AD-884E-4A1E7CFB8CFA}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

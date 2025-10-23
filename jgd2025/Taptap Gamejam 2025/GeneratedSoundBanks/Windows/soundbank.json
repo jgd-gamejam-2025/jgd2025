@@ -10,11 +10,19 @@
     "Type": "User",
     "GUID": "{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}",
     "Language": "SFX",
-    "Hash": "{171C5CEB-E97F-AD21-E1E0-0292515EE3F9}",
+    "Hash": "{3355EDB0-42BA-4F14-684D-C514DB650BAA}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\soundbank",
     "ShortName": "soundbank",
     "Path": "soundbank.bnk",
     "Media": [
+     {
+      "Id": "23533593",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "迷宫落地.wav",
+      "CachePath": "9A/{9AFE240E-3566-6CCE-64C3-E3B3FA2C5B89}.wem"
+     },
      {
       "Id": "29920152",
       "Language": "SFX",
@@ -30,6 +38,14 @@
       "Location": "Memory",
       "ShortName": "玩家键盘4.wav",
       "CachePath": "4E/{4E9F620E-AB92-99D7-010B-5F7470196FEB}.wem"
+     },
+     {
+      "Id": "58820668",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "掏出ipad.wav",
+      "CachePath": "60/{608C1747-943E-89EE-282A-A22F69032C0A}.wem"
      },
      {
       "Id": "68659470",
@@ -94,6 +110,14 @@
       "Location": "Memory",
       "ShortName": "键盘故障8.wav",
       "CachePath": "34/{349AC122-E182-B03C-9A2E-AE0F2C9C785B}.wem"
+     },
+     {
+      "Id": "459764901",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "放下ipad.wav",
+      "CachePath": "5D/{5D9462CC-EFB8-0AFC-07F1-60038A49D475}.wem"
      },
      {
       "Id": "487841005",
@@ -257,6 +281,20 @@
         "Name": "None",
         "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\None",
         "GUID": "{2F007002-5601-4B2B-A35F-140428F1A126}"
+       }
+      ]
+     },
+     {
+      "Id": "2598202372",
+      "Name": "Maze_Landing",
+      "ObjectPath": "\\Events\\Default Work Unit\\Maze_Landing",
+      "GUID": "{36B66DC0-988B-4EB1-B9AE-4A4534358803}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.75",
+      "DurationMax": "0.75",
+      "MediaRefs": [
+       {
+        "Id": "23533593"
        }
       ]
      },
@@ -458,6 +496,34 @@
       ]
      },
      {
+      "Id": "2538431492",
+      "Name": "Play_Putdown_ipad",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Putdown_ipad",
+      "GUID": "{F4F6CDB0-C437-463C-A59C-DFBA053DB85E}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.6041667",
+      "DurationMax": "0.6041667",
+      "MediaRefs": [
+       {
+        "Id": "459764901"
+       }
+      ]
+     },
+     {
+      "Id": "2792899676",
+      "Name": "Play_Takeout_ipad",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Takeout_ipad",
+      "GUID": "{749CAEB4-BA26-41E3-8E27-93DA4CD7F39C}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.125",
+      "DurationMax": "1.125",
+      "MediaRefs": [
+       {
+        "Id": "58820668"
+       }
+      ]
+     },
+     {
       "Id": "130021575",
       "Name": "Title_to_Maze",
       "ObjectPath": "\\Events\\Default Work Unit\\Title_to_Maze",
@@ -513,6 +579,6 @@
     ]
    }
   ],
-  "FileHash": "{7D491FD1-C0D2-41C8-9659-F83B05DD89DB}"
+  "FileHash": "{7F7689DA-148B-56DA-A85E-86A4DD2866FF}"
  }
 }

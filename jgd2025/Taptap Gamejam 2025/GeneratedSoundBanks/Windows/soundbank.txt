@@ -1,9 +1,12 @@
 Event	ID	Name			Wwise Object Path	Notes
 	88175825	Play_Player_Typing			\Default Work Unit\Play_Player_Typing	
+	130021575	Title_to_Maze			\Default Work Unit\Title_to_Maze	
 	2025015394	Play_Player_enter			\Default Work Unit\Play_Player_enter	
 	2375588297	Play_begin			\Default Work Unit\Play_begin	
 	2435819095	Plau_AI_Typing_Fault			\Default Work Unit\Plau_AI_Typing_Fault	
 	3734422766	Play_AI_Typing			\Default Work Unit\Play_AI_Typing	
+	3907958213	Begin_to_none			\Default Work Unit\Begin_to_none	
+	4080990482	None_to_Title			\Default Work Unit\None_to_Title	
 
 State Group	ID	Name			Wwise Object Path	Notes
 	2724869341	Music_Switch			\Default Work Unit\Music_Switch	
@@ -15,8 +18,10 @@ State	ID	Name	State Group			Notes
 	3581653674	EVE_Title	Music_Switch			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	29920152	故障暂停	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\B1\{B13EAF9A-19B9-CB7C-075D-9BE31B69A38E}.wem		\Interactive Music Hierarchy\Music\Transition\故障暂停\故障暂停		168160
 	48012793	玩家键盘4	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\4E\{4E9F620E-AB92-99D7-010B-5F7470196FEB}.wem		\Actor-Mixer Hierarchy\SFX\Player_Typing\玩家键盘4		14560
 	68659470	玩家键盘5	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\8A\{8A395D1F-7550-228F-FF55-D89A7DDDA5B3}.wem		\Actor-Mixer Hierarchy\SFX\Player_Typing\玩家键盘5		25660
+	71858515	Mouldwood Depths 70bpm	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\89\{89C4ED0D-90BF-9236-BFD2-C94B530966D2}.wem		\Interactive Music Hierarchy\Music\Music_Swtich\Music_Maze\Mouldwood Depths 70bpm\Mouldwood Depths 70bpm		21065240
 	121547523	ai键盘2	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\FB\{FB1DB552-8D67-DC25-14C8-6ED2FBCFCF75}.wem		\Actor-Mixer Hierarchy\SFX\Typing_AI\ai键盘2		20160
 	141075990	键盘故障1	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\3D\{3D24D65D-32F7-5763-40ED-468DAF361D83}.wem		\Actor-Mixer Hierarchy\SFX\AI_Typing_fault\键盘故障1		39460
 	188047372	玩家键盘3	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\C7\{C75A2A5C-8F26-E2C9-A420-F2D34EDA5233}.wem		\Actor-Mixer Hierarchy\SFX\Player_Typing\玩家键盘3		14560
@@ -30,9 +35,11 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	555395762	键盘故障9	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\D4\{D40485B9-2936-345E-457B-32450C20C964}.wem		\Actor-Mixer Hierarchy\SFX\AI_Typing_fault\键盘故障9		40160
 	577889029	ai键盘7	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\C0\{C02F3F3B-7D75-1A41-7E1B-1FF73CB07DFF}.wem		\Actor-Mixer Hierarchy\SFX\Typing_AI\ai键盘7		20860
 	684943731	键盘故障5	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\7F\{7FB99C99-EFE9-67C9-95C1-40A7EF2EFFD4}.wem		\Actor-Mixer Hierarchy\SFX\AI_Typing_fault\键盘故障5		38360
+	728430949	EVE标题 loop state	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\9B\{9B1F6CDA-C9FA-3B79-6AF7-D4544F663314}.wem		\Interactive Music Hierarchy\Music\Music_Swtich\EVE_Title\EVE_Title_loop state\EVE标题 loop state		5376208
 	762829969	键盘故障6	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\CD\{CD3E2AB9-3D56-9506-F5CC-3CD0C3E68C22}.wem		\Actor-Mixer Hierarchy\SFX\AI_Typing_fault\键盘故障6		21260
 	798867152	键盘故障7	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\86\{869C2FE8-233C-830B-AE5C-4101895C0967}.wem		\Actor-Mixer Hierarchy\SFX\AI_Typing_fault\键盘故障7		41608
 	803442919	ai键盘4	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\76\{76451F6C-8244-D618-A82D-2966AC3E4A31}.wem		\Actor-Mixer Hierarchy\SFX\Typing_AI\ai键盘4		17960
+	805998164	EVE标题 Transition	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\76\{7625F7EC-81A6-0F0A-F834-A952E19CBD80}.wem		\Interactive Music Hierarchy\Music\Transition\EVE_Title_Transition\EVE标题 Transition		2688208
 	806688815	ai键盘6	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\AC\{AC68194A-2736-08CC-36B1-EA609A295DC3}.wem		\Actor-Mixer Hierarchy\SFX\Typing_AI\ai键盘6		20860
 	811350998	Eve开头_2	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\B7\{B7E299D3-98CE-DE93-53EE-90FB6B2686CE}.wem		\Interactive Music Hierarchy\Music\Music_Swtich\Music_Begin\Eve开头_2\Eve开头_2		14848160
 	891554058	ai键盘8	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\1B\{1B8CCC74-715A-25C7-5DE0-9BF7A98686D7}.wem		\Actor-Mixer Hierarchy\SFX\Typing_AI\ai键盘8		16460

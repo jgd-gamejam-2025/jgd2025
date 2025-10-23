@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c2hgmqr4djchj"]
+[gd_scene load_steps=23 format=3 uid="uid://c2hgmqr4djchj"]
 
 [ext_resource type="Script" uid="uid://djhym7xyj1hvl" path="res://levels/room/room.gd" id="1_266tv"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="2_j1o6v"]
@@ -10,8 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://bj6xpbx1qyavw" path="res://scenes/room_props/rc_door.tscn" id="6_62xjn"]
 [ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="6_v36xs"]
 [ext_resource type="PackedScene" uid="uid://t2v64tryju0o" path="res://assets/models/room/props/sm_left_wall.fbx" id="7_e15db"]
+[ext_resource type="PackedScene" uid="uid://dqw6g3i12knmo" path="res://scenes/room_props/bear.tscn" id="8_axngq"]
+[ext_resource type="PackedScene" uid="uid://fn682jbuv6dh" path="res://scenes/UI/props/props.tscn" id="12_kseuc"]
 [ext_resource type="PackedScene" uid="uid://bud1w7th4nk2" path="res://assets/models/eve/eve01.glb" id="12_pf8v0"]
 [ext_resource type="PackedScene" uid="uid://5ltrsa0ifrxn" path="res://scenes/UI/terminal/Terminal.tscn" id="13_axngq"]
+[ext_resource type="PackedScene" uid="uid://dejraktjypadw" path="res://scenes/room_props/news.tscn" id="15_kseuc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pf8v0"]
 flip_faces = true
@@ -77,8 +80,11 @@ visible = false
 [node name="LCDoor1" parent="RoomSet" instance=ExtResource("5_e15db")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6410027, 0, -4.4494123)
 
+[node name="Bear" parent="RoomSet" instance=ExtResource("8_axngq")]
+transform = Transform3D(0.007410344, 0.08152104, 0.9966442, -0.00060611626, 0.9966716, -0.08151878, -0.99997246, 0, 0.0074350913, -0.684543, 1.3284616, 0)
+
 [node name="TrueDoor21" parent="." instance=ExtResource("5_e15db")]
-transform = Transform3D(-0.49999988, 0, 4.3711378e-08, 0, 0.5, 0, -4.3711378e-08, 0, -0.49999988, 0.82823944, 0, -2.9039989)
+transform = Transform3D(-0.49999988, 0, 4.3711378e-08, 0, 0.5, 0, -4.3711378e-08, 0, -0.49999988, 0.85218704, 0, -2.9039989)
 
 [node name="TrueDoor22" parent="." instance=ExtResource("6_62xjn")]
 transform = Transform3D(0.49999982, 0, 0, 0, 0.5, 0, 0, 0, 0.49999982, 0.83710694, 2.3841858e-07, -4.747897)
@@ -165,10 +171,16 @@ transform = Transform3D(-656.0632, 150.73442, 432.27325, -19.809752, 745.3371, -
 transform = Transform3D(1, 1.4901161e-08, 5.9604645e-08, -1.4901161e-08, 1.0000002, -7.4505806e-08, 8.940697e-08, 0, 1, -0.05242601, 0.4255842, -0.06360817)
 shape = SubResource("SphereShape3D_pf8v0")
 
+[node name="Props" parent="." instance=ExtResource("12_kseuc")]
+visible = false
+
 [node name="Terminal" parent="." instance=ExtResource("13_axngq")]
 visible = false
 
 [node name="Notification" parent="." instance=ExtResource("5_yqly8")]
+
+[node name="Newspaper" parent="." instance=ExtResource("15_kseuc")]
+transform = Transform3D(-0.4475093, 0, 0.8942793, 0, 1, 0, -0.8942793, 0, -0.4475093, 4.478302, 1.0050954, -0.41710323)
 
 [connection signal="interact_obj" from="Player" to="." method="_on_player_interact_obj"]
 [connection signal="body_entered" from="ClearArea2" to="." method="_on_clear_area_2_body_entered"]

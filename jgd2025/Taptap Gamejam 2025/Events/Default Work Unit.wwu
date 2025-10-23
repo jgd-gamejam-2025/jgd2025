@@ -8,7 +8,17 @@
 						<Action Name="" ID="{6F54028A-7510-48B9-B21C-4B60F3C8EB11}" ShortID="14966573">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Music_Begin" ID="{55F6F76B-04FC-4D26-A345-02F29542C442}" WorkUnitID="{F5C2B02C-28FA-4C87-B714-B49391A9778B}"/>
+									<ObjectRef Name="Music_Swtich" ID="{3949CA24-7514-4CF6-A320-D8FCFE0A4AB9}" WorkUnitID="{F5C2B02C-28FA-4C87-B714-B49391A9778B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{AEF7143F-27CB-42CB-A8CA-386A41C6D0CD}" ShortID="381998339">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Begin" ID="{9D31A35C-59F9-403D-B097-9890DC3921B9}" WorkUnitID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -53,6 +63,48 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="AI_Typing_fault" ID="{8B388CC3-B363-41F1-8EE4-EBF6CEA2F36C}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Begin_to_none" ID="{8933958D-ECCE-482E-805B-31EE01D162FD}">
+					<ChildrenList>
+						<Action Name="" ID="{9CBF669C-4D4C-4A2D-B3BF-F61A6AEC91CC}" ShortID="1069132943">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="None" ID="{2F007002-5601-4B2B-A35F-140428F1A126}" WorkUnitID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="None_to_Title" ID="{362CD5C9-3566-4788-86FD-1AB4B73D6592}">
+					<ChildrenList>
+						<Action Name="" ID="{DD2B2106-4F2E-4C48-BDBB-DB40A296D6AB}" ShortID="816771873">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="EVE_Title" ID="{AE380017-9A16-42B1-81C0-8A0C452AF087}" WorkUnitID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Title_to_Maze" ID="{01BD5A0E-3FDA-4CBF-BE09-EE1217BAA8D5}">
+					<ChildrenList>
+						<Action Name="" ID="{4EE66406-A113-4D6F-849B-3389BBBA1E32}" ShortID="131202566">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Maze" ID="{D3D7F946-B924-4665-A447-3054F0CED4C1}" WorkUnitID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

@@ -10,11 +10,19 @@
     "Type": "User",
     "GUID": "{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}",
     "Language": "SFX",
-    "Hash": "{ACF67BCE-D05F-AF5D-DA4E-73EDC052FEDD}",
+    "Hash": "{171C5CEB-E97F-AD21-E1E0-0292515EE3F9}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\soundbank",
     "ShortName": "soundbank",
     "Path": "soundbank.bnk",
     "Media": [
+     {
+      "Id": "29920152",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "故障暂停.wav",
+      "CachePath": "B1/{B13EAF9A-19B9-CB7C-075D-9BE31B69A38E}.wem"
+     },
      {
       "Id": "48012793",
       "Language": "SFX",
@@ -30,6 +38,14 @@
       "Location": "Memory",
       "ShortName": "玩家键盘5.wav",
       "CachePath": "8A/{8A395D1F-7550-228F-FF55-D89A7DDDA5B3}.wem"
+     },
+     {
+      "Id": "71858515",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Mouldwood Depths 70bpm.wav",
+      "CachePath": "89/{89C4ED0D-90BF-9236-BFD2-C94B530966D2}.wem"
      },
      {
       "Id": "121547523",
@@ -136,6 +152,14 @@
       "CachePath": "7F/{7FB99C99-EFE9-67C9-95C1-40A7EF2EFFD4}.wem"
      },
      {
+      "Id": "728430949",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EVE标题 loop state.wav",
+      "CachePath": "9B/{9B1F6CDA-C9FA-3B79-6AF7-D4544F663314}.wem"
+     },
+     {
       "Id": "762829969",
       "Language": "SFX",
       "Streaming": "false",
@@ -158,6 +182,14 @@
       "Location": "Memory",
       "ShortName": "ai键盘4.wav",
       "CachePath": "76/{76451F6C-8244-D618-A82D-2966AC3E4A31}.wem"
+     },
+     {
+      "Id": "805998164",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EVE标题 Transition.wav",
+      "CachePath": "76/{7625F7EC-81A6-0F0A-F834-A952E19CBD80}.wem"
      },
      {
       "Id": "806688815",
@@ -209,6 +241,44 @@
      }
     ],
     "Events": [
+     {
+      "Id": "3907958213",
+      "Name": "Begin_to_none",
+      "ObjectPath": "\\Events\\Default Work Unit\\Begin_to_none",
+      "GUID": "{8933958D-ECCE-482E-805B-31EE01D162FD}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "2724869341",
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\None",
+        "GUID": "{2F007002-5601-4B2B-A35F-140428F1A126}"
+       }
+      ]
+     },
+     {
+      "Id": "4080990482",
+      "Name": "None_to_Title",
+      "ObjectPath": "\\Events\\Default Work Unit\\None_to_Title",
+      "GUID": "{362CD5C9-3566-4788-86FD-1AB4B73D6592}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "2724869341",
+        "Id": "3581653674",
+        "Name": "EVE_Title",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\EVE_Title",
+        "GUID": "{AE380017-9A16-42B1-81C0-8A0C452AF087}"
+       }
+      ]
+     },
      {
       "Id": "2435819095",
       "Name": "Plau_AI_Typing_Fault",
@@ -290,7 +360,60 @@
       "DurationType": "Infinite",
       "MediaRefs": [
        {
-        "Id": "811350998"
+        "Id": "29920152"
+       },
+       {
+        "Id": "805998164"
+       }
+      ],
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "3581653674",
+         "GUID": "{AE380017-9A16-42B1-81C0-8A0C452AF087}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "728430949"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "349818688",
+         "GUID": "{9D31A35C-59F9-403D-B097-9890DC3921B9}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "811350998"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "2943799864",
+         "GUID": "{D3D7F946-B924-4665-A447-3054F0CED4C1}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "71858515"
+         }
+        ]
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "2724869341",
+        "Id": "349818688",
+        "Name": "Begin",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\Begin",
+        "GUID": "{9D31A35C-59F9-403D-B097-9890DC3921B9}"
        }
       ]
      },
@@ -333,10 +456,63 @@
         "Id": "916669482"
        }
       ]
+     },
+     {
+      "Id": "130021575",
+      "Name": "Title_to_Maze",
+      "ObjectPath": "\\Events\\Default Work Unit\\Title_to_Maze",
+      "GUID": "{01BD5A0E-3FDA-4CBF-BE09-EE1217BAA8D5}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "2724869341",
+        "Id": "2943799864",
+        "Name": "Maze",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\Maze",
+        "GUID": "{D3D7F946-B924-4665-A447-3054F0CED4C1}"
+       }
+      ]
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "2724869341",
+      "Name": "Music_Switch",
+      "ObjectPath": "\\States\\Default Work Unit\\Music_Switch",
+      "GUID": "{82CD0991-C986-4FFA-91F5-E444A6537528}",
+      "States": [
+       {
+        "Id": "349818688",
+        "Name": "Begin",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\Begin",
+        "GUID": "{9D31A35C-59F9-403D-B097-9890DC3921B9}"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\None",
+        "GUID": "{2F007002-5601-4B2B-A35F-140428F1A126}"
+       },
+       {
+        "Id": "2943799864",
+        "Name": "Maze",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\Maze",
+        "GUID": "{D3D7F946-B924-4665-A447-3054F0CED4C1}"
+       },
+       {
+        "Id": "3581653674",
+        "Name": "EVE_Title",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\EVE_Title",
+        "GUID": "{AE380017-9A16-42B1-81C0-8A0C452AF087}"
+       }
+      ]
      }
     ]
    }
   ],
-  "FileHash": "{11D92EE3-55DF-5BDB-01FE-4753C5578519}"
+  "FileHash": "{7D491FD1-C0D2-41C8-9659-F83B05DD89DB}"
  }
 }

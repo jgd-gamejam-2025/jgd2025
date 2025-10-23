@@ -13,11 +13,14 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID BEGIN_TO_NONE = 3907958213U;
+        static const AkUniqueID NONE_TO_TITLE = 4080990482U;
         static const AkUniqueID PLAU_AI_TYPING_FAULT = 2435819095U;
         static const AkUniqueID PLAY_AI_TYPING = 3734422766U;
         static const AkUniqueID PLAY_BEGIN = 2375588297U;
         static const AkUniqueID PLAY_PLAYER_ENTER = 2025015394U;
         static const AkUniqueID PLAY_PLAYER_TYPING = 88175825U;
+        static const AkUniqueID TITLE_TO_MAZE = 130021575U;
     } // namespace EVENTS
 
     namespace STATES
@@ -36,11 +39,6 @@ namespace AK
         } // namespace MUSIC_SWITCH
 
     } // namespace STATES
-
-    namespace GAME_PARAMETERS
-    {
-        static const AkUniqueID TITLE_TRANSITION = 3977771177U;
-    } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {

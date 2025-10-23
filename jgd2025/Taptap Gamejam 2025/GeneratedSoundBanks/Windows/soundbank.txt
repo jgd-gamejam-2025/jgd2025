@@ -1,6 +1,42 @@
 Event	ID	Name			Wwise Object Path	Notes
+	88175825	Play_Player_Typing			\Default Work Unit\Play_Player_Typing	
+	2025015394	Play_Player_enter			\Default Work Unit\Play_Player_enter	
 	2375588297	Play_begin			\Default Work Unit\Play_begin	
+	2435819095	Plau_AI_Typing_Fault			\Default Work Unit\Plau_AI_Typing_Fault	
+	3734422766	Play_AI_Typing			\Default Work Unit\Play_AI_Typing	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	2724869341	Music_Switch			\Default Work Unit\Music_Switch	
+
+State	ID	Name	State Group			Notes
+	349818688	Begin	Music_Switch			
+	748895195	None	Music_Switch			
+	2943799864	Maze	Music_Switch			
+	3581653674	EVE_Title	Music_Switch			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	811350998	Eve开头_2	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\B7\{B7E299D3-98CE-DE93-53EE-90FB6B2686CE}.wem		\Interactive Music Hierarchy\Music\开头\Eve开头_2\Eve开头_2		14848160
+	48012793	玩家键盘4	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\4E\{4E9F620E-AB92-99D7-010B-5F7470196FEB}.wem		\Actor-Mixer Hierarchy\SFX\Player_Typing\玩家键盘4		14560
+	68659470	玩家键盘5	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\8A\{8A395D1F-7550-228F-FF55-D89A7DDDA5B3}.wem		\Actor-Mixer Hierarchy\SFX\Player_Typing\玩家键盘5		25660
+	121547523	ai键盘2	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\FB\{FB1DB552-8D67-DC25-14C8-6ED2FBCFCF75}.wem		\Actor-Mixer Hierarchy\SFX\Typing_AI\ai键盘2		20160
+	141075990	键盘故障1	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\3D\{3D24D65D-32F7-5763-40ED-468DAF361D83}.wem		\Actor-Mixer Hierarchy\SFX\AI_Typing_fault\键盘故障1		39460
+	188047372	玩家键盘3	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\C7\{C75A2A5C-8F26-E2C9-A420-F2D34EDA5233}.wem		\Actor-Mixer Hierarchy\SFX\Player_Typing\玩家键盘3		14560
+	213070622	键盘故障2	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\EE\{EE734A58-A205-52DE-11FE-2D3B71A173B9}.wem		\Actor-Mixer Hierarchy\SFX\AI_Typing_fault\键盘故障2		29360
+	216964168	玩家键盘2	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\87\{87081449-A61F-0B2D-BC8C-934E718AD811}.wem		\Actor-Mixer Hierarchy\SFX\Player_Typing\玩家键盘2		17360
+	399440883	键盘故障8	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\34\{349AC122-E182-B03C-9A2E-AE0F2C9C785B}.wem		\Actor-Mixer Hierarchy\SFX\AI_Typing_fault\键盘故障8		40160
+	487841005	ai键盘3	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\80\{80C5CB1E-9791-4137-114A-168A674A4F37}.wem		\Actor-Mixer Hierarchy\SFX\Typing_AI\ai键盘3		20160
+	492376096	键盘故障4	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\2B\{2B78D895-FCE2-9E17-2924-7E453D9474FB}.wem		\Actor-Mixer Hierarchy\SFX\AI_Typing_fault\键盘故障4		23260
+	500883717	ai键盘1	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\50\{507AF095-0D72-1DDE-C191-971BE393F9AA}.wem		\Actor-Mixer Hierarchy\SFX\Typing_AI\ai键盘1		20160
+	512691313	键盘故障3	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\D5\{D50A6163-C0A4-4BB8-DFC6-F477DFFD254D}.wem		\Actor-Mixer Hierarchy\SFX\AI_Typing_fault\键盘故障3		29360
+	555395762	键盘故障9	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\D4\{D40485B9-2936-345E-457B-32450C20C964}.wem		\Actor-Mixer Hierarchy\SFX\AI_Typing_fault\键盘故障9		40160
+	577889029	ai键盘7	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\C0\{C02F3F3B-7D75-1A41-7E1B-1FF73CB07DFF}.wem		\Actor-Mixer Hierarchy\SFX\Typing_AI\ai键盘7		20860
+	684943731	键盘故障5	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\7F\{7FB99C99-EFE9-67C9-95C1-40A7EF2EFFD4}.wem		\Actor-Mixer Hierarchy\SFX\AI_Typing_fault\键盘故障5		38360
+	762829969	键盘故障6	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\CD\{CD3E2AB9-3D56-9506-F5CC-3CD0C3E68C22}.wem		\Actor-Mixer Hierarchy\SFX\AI_Typing_fault\键盘故障6		21260
+	798867152	键盘故障7	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\86\{869C2FE8-233C-830B-AE5C-4101895C0967}.wem		\Actor-Mixer Hierarchy\SFX\AI_Typing_fault\键盘故障7		41608
+	803442919	ai键盘4	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\76\{76451F6C-8244-D618-A82D-2966AC3E4A31}.wem		\Actor-Mixer Hierarchy\SFX\Typing_AI\ai键盘4		17960
+	806688815	ai键盘6	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\AC\{AC68194A-2736-08CC-36B1-EA609A295DC3}.wem		\Actor-Mixer Hierarchy\SFX\Typing_AI\ai键盘6		20860
+	811350998	Eve开头_2	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\B7\{B7E299D3-98CE-DE93-53EE-90FB6B2686CE}.wem		\Interactive Music Hierarchy\Music\Music_Swtich\Music_Begin\Eve开头_2\Eve开头_2		14848160
+	891554058	ai键盘8	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\1B\{1B8CCC74-715A-25C7-5DE0-9BF7A98686D7}.wem		\Actor-Mixer Hierarchy\SFX\Typing_AI\ai键盘8		16460
+	916669482	玩家键盘1	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\B0\{B017841E-9EBF-6685-63A9-E1C7F9374391}.wem		\Actor-Mixer Hierarchy\SFX\Player_Typing\玩家键盘1		17360
+	981433377	玩家键盘确认	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\45\{45CAB070-484B-ECCD-7852-6BE345A67BC4}.wem		\Actor-Mixer Hierarchy\SFX\Tap_enter\玩家键盘确认		24160
+	1015108056	ai键盘5	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\2D\{2D007CC6-E018-F02C-D011-44857E6C0FF4}.wem		\Actor-Mixer Hierarchy\SFX\Typing_AI\ai键盘5		17960
 

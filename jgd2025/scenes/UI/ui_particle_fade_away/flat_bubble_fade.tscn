@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2diivrwtc80k"]
+
+[ext_resource type="Script" uid="uid://vhklhh0nkygq" path="res://color_rect.gd" id="1_c8ukd"]
+[ext_resource type="PackedScene" uid="uid://bynn3w8xjct6b" path="res://scenes/UI/bubble_ui/ui_bubble.tscn" id="2_xjcbo"]
+[ext_resource type="Script" uid="uid://v3g3npm0ow0p" path="res://scenes/UI/chat_ui/cpu_particles_2d.gd" id="3_xjcbo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u31o6"]
+bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+border_width_left = 25
+border_width_top = 10
+border_width_right = 25
+border_width_bottom = 10
+border_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+
+[sub_resource type="Curve" id="Curve_c8ukd"]
+_data = [Vector2(0.008670524, 0.99039876), 0.0, 0.0, 0, 0, Vector2(0.982659, 0.16469717), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="FlatBubbleFade" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+clip_children = 1
+custom_minimum_size = Vector2(76, 58)
+layout_mode = 0
+offset_right = 803.0
+offset_bottom = 58.0
+script = ExtResource("1_c8ukd")
+
+[node name="RichTextLabel" parent="ColorRect" instance=ExtResource("2_xjcbo")]
+layout_mode = 0
+offset_left = 724.0
+offset_right = 800.0
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_u31o6")
+MAX_WIDTH = 700.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+modulate = Color(0.080783345, 0.080783345, 0.080783345, 1)
+position = Vector2(790, 29)
+amount = 400
+emission_shape = 1
+emission_sphere_radius = 20.13
+direction = Vector2(30, 0)
+spread = 0.0
+gravity = Vector2(980, 0)
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_c8ukd")
+script = ExtResource("3_xjcbo")
+
+[connection signal="faded" from="ColorRect" to="CPUParticles2D" method="_on_color_rect_faded"]

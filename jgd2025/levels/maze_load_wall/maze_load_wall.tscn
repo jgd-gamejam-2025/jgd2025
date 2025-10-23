@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://1m82bdnhye7k"]
+[gd_scene load_steps=30 format=3 uid="uid://1m82bdnhye7k"]
 
 [ext_resource type="Script" uid="uid://cr4hyuccgxpea" path="res://levels/maze_load_wall/maze_load_wall.gd" id="1_wt3j4"]
 [ext_resource type="Material" uid="uid://ctjp2430ogink" path="res://levels/maze_load_wall/portal.tres" id="3_ill1l"]
@@ -30,6 +30,30 @@ glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ucvxd"]
 size = Vector3(31, 51, 39)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p23jy"]
+albedo_texture = ExtResource("5_2r1ki")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1c6g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkmtq"]
+albedo_texture = ExtResource("5_2r1ki")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eyaib"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2r1ki"]
+albedo_texture = ExtResource("5_2r1ki")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gstnd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ov85a"]
+albedo_texture = ExtResource("5_2r1ki")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ggcw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucvxd"]
 albedo_texture = ExtResource("5_2r1ki")
@@ -145,21 +169,29 @@ material = ExtResource("4_wt3j4")
 
 [node name="Sprite3D" type="Sprite3D" parent="Floor"]
 transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, 28, 0.01, -28)
+material_override = SubResource("StandardMaterial3D_p23jy")
+material_overlay = SubResource("StandardMaterial3D_j1c6g")
 texture_filter = 0
 texture = ExtResource("5_2r1ki")
 
 [node name="Sprite3D2" type="Sprite3D" parent="Floor"]
 transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, -36, 0.01, -28)
+material_override = SubResource("StandardMaterial3D_kkmtq")
+material_overlay = SubResource("StandardMaterial3D_eyaib")
 texture_filter = 0
 texture = ExtResource("5_2r1ki")
 
 [node name="Sprite3D3" type="Sprite3D" parent="Floor"]
 transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, -36, 0.01, 36)
+material_override = SubResource("StandardMaterial3D_2r1ki")
+material_overlay = SubResource("StandardMaterial3D_gstnd")
 texture_filter = 0
 texture = ExtResource("5_2r1ki")
 
 [node name="Sprite3D4" type="Sprite3D" parent="Floor"]
 transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, 28, 0.01, 36)
+material_override = SubResource("StandardMaterial3D_ov85a")
+material_overlay = SubResource("StandardMaterial3D_5ggcw")
 texture_filter = 0
 texture = ExtResource("5_2r1ki")
 

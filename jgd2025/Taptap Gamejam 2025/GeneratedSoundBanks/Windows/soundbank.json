@@ -1,0 +1,45 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1661994096",
+    "Type": "User",
+    "GUID": "{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}",
+    "Language": "SFX",
+    "Hash": "{4BD6F425-7691-131A-BB87-F27282FF85CB}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\soundbank",
+    "ShortName": "soundbank",
+    "Path": "soundbank.bnk",
+    "Media": [
+     {
+      "Id": "811350998",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Eve开头_2.wav",
+      "CachePath": "B7/{B7E299D3-98CE-DE93-53EE-90FB6B2686CE}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "2375588297",
+      "Name": "Play_begin",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_begin",
+      "GUID": "{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "811350998"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{F20A3C17-88E7-F31C-3AA3-9CC577B76955}"
+ }
+}

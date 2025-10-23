@@ -109,11 +109,11 @@ name = "Factory Acoustic Textures"
 id = 2954047558
 
 [sub_resource type="WwiseTreeObject" id="WwiseTreeObject_mqnyt"]
-path = "\\SoundBanks\\Default Work Unit\\New_SoundBank"
+path = "\\SoundBanks\\Default Work Unit\\soundbank"
 type = 7
-name = "New_SoundBank"
-guid = "{C698E988-E820-4CEA-B8D7-C3C3717E179D}"
-id = 4072029455
+name = "soundbank"
+guid = "{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}"
+id = 1661994096
 
 [sub_resource type="WwiseTreeObject" id="WwiseTreeObject_v560u"]
 children = [SubResource("WwiseTreeObject_mqnyt")]
@@ -133,13 +133,13 @@ name = "Default Work Unit"
 id = 125608783
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_5n8hf"]
-max_duration = 6.1533337
-min_duration = 6.1533337
-path = "\\Events\\Default Work Unit\\Play"
+max_duration = 77.333336
+min_duration = 77.333336
+path = "\\Events\\Default Work Unit\\Play_begin"
 type = 3
-name = "Play"
-guid = "{D862B3DF-5DDF-47F9-8AE7-E47FC53F13D5}"
-id = 1256202815
+name = "Play_begin"
+guid = "{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}"
+id = 2375588297
 
 [sub_resource type="WwiseTreeObject" id="WwiseTreeObject_tnib1"]
 children = [SubResource("WwiseTreeObjectEvent_5n8hf")]

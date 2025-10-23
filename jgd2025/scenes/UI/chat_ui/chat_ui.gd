@@ -322,3 +322,4 @@ func add_image_bubble(texture: Texture):
 func set_bg_transparent(alpha:float  = 0.0) -> void:
 	$Panel/Background.color.a = alpha
 	$Panel/Shadow.hide()
+	bubble_scroll.get_v_scroll_bar().visible = false

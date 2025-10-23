@@ -13,8 +13,34 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID PLAU_AI_TYPING_FAULT = 2435819095U;
+        static const AkUniqueID PLAY_AI_TYPING = 3734422766U;
         static const AkUniqueID PLAY_BEGIN = 2375588297U;
+        static const AkUniqueID PLAY_PLAYER_ENTER = 2025015394U;
+        static const AkUniqueID PLAY_PLAYER_TYPING = 88175825U;
     } // namespace EVENTS
+
+    namespace STATES
+    {
+        namespace MUSIC_SWITCH
+        {
+            static const AkUniqueID GROUP = 2724869341U;
+
+            namespace STATE
+            {
+                static const AkUniqueID BEGIN = 349818688U;
+                static const AkUniqueID EVE_TITLE = 3581653674U;
+                static const AkUniqueID MAZE = 2943799864U;
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace MUSIC_SWITCH
+
+    } // namespace STATES
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID TITLE_TRANSITION = 3977771177U;
+    } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {

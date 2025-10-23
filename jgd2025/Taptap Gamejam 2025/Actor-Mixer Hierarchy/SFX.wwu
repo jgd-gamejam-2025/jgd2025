@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{B9805F89-AF91-44AC-93AB-62044E939ADE}" SchemaVersion="123">
+	<AudioObjects>
+		<WorkUnit Name="SFX" ID="{B9805F89-AF91-44AC-93AB-62044E939ADE}" PersistMode="Standalone">
+			<ChildrenList>
+				<RandomSequenceContainer Name="Player_Typing" ID="{9C8CF39F-54D4-48DE-9835-AECF7A869ED4}" ShortID="417587825">
+					<PropertyList>
+						<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
+						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{7DB2D5D3-34CA-46E5-9D57-1B7E61D71F8E}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="50"/>
+											<Property Name="Min" Type="Real64" Value="-100"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="玩家键盘1" ID="{E371DE1B-2451-47FA-8D8C-B187EB1BE26F}" ShortID="777514062">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{B9A4CD0B-583E-4F8E-A2D6-F60F24F8CC34}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="玩家键盘1" ID="{51F3FECA-B4D1-4351-8806-404077B2B4C2}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>玩家键盘1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="916669482"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="玩家键盘1" ID="{51F3FECA-B4D1-4351-8806-404077B2B4C2}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="玩家键盘2" ID="{E6F2CCE6-2069-43DE-A40B-A0E9C0A95A60}" ShortID="340982707">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="玩家键盘2" ID="{E7B179DD-A5B2-4F86-9B91-7C01BE962311}">
+									<Language>SFX</Language>
+									<AudioFile>玩家键盘2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="216964168"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="玩家键盘2" ID="{E7B179DD-A5B2-4F86-9B91-7C01BE962311}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="玩家键盘3" ID="{FE027E21-D7BF-4A40-A7D9-1E97795BC516}" ShortID="249008204">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="玩家键盘3" ID="{DC7CFADF-DB39-4E1A-A265-2562FEA0DE7B}">
+									<Language>SFX</Language>
+									<AudioFile>玩家键盘3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="188047372"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="玩家键盘3" ID="{DC7CFADF-DB39-4E1A-A265-2562FEA0DE7B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="玩家键盘4" ID="{5DFAAE0F-D23C-4223-B14D-D1F1F14AE975}" ShortID="610472062">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="玩家键盘4" ID="{C51ABA1C-42B6-4FB3-8E87-C4D3413E7A75}">
+									<Language>SFX</Language>
+									<AudioFile>玩家键盘4.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="48012793"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="玩家键盘4" ID="{C51ABA1C-42B6-4FB3-8E87-C4D3413E7A75}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="玩家键盘5" ID="{885CEA1F-C545-449C-A8E0-1B10C075F962}" ShortID="378086724">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="玩家键盘5" ID="{FED32322-8BB3-410F-889F-29AEC5A40681}">
+									<Language>SFX</Language>
+									<AudioFile>玩家键盘5.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="68659470"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="玩家键盘5" ID="{FED32322-8BB3-410F-889F-29AEC5A40681}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Playlist">
+							<Reference>
+								<ObjectRef Name="玩家键盘1" ID="{E371DE1B-2451-47FA-8D8C-B187EB1BE26F}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+							</Reference>
+							<Reference>
+								<ObjectRef Name="玩家键盘2" ID="{E6F2CCE6-2069-43DE-A40B-A0E9C0A95A60}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+							</Reference>
+							<Reference>
+								<ObjectRef Name="玩家键盘3" ID="{FE027E21-D7BF-4A40-A7D9-1E97795BC516}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+							</Reference>
+							<Reference>
+								<ObjectRef Name="玩家键盘4" ID="{5DFAAE0F-D23C-4223-B14D-D1F1F14AE975}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+							</Reference>
+							<Reference>
+								<ObjectRef Name="玩家键盘5" ID="{885CEA1F-C545-449C-A8E0-1B10C075F962}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</RandomSequenceContainer>
+				<BlendContainer Name="Tap_enter" ID="{33E0F6B1-3763-4B8E-B7C3-EE3F46B5EEAD}" ShortID="599839300">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{05DEE8BD-8ECD-4F81-99F5-4C4A3227B0B4}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="玩家键盘确认" ID="{144EB278-D645-4B79-96C3-64739DBEE116}" ShortID="599072758">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="玩家键盘确认" ID="{613FAB01-FCC2-424F-9A95-51931755D917}">
+									<Language>SFX</Language>
+									<AudioFile>玩家键盘确认.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="981433377"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="玩家键盘确认" ID="{613FAB01-FCC2-424F-9A95-51931755D917}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</BlendContainer>
+				<RandomSequenceContainer Name="Typing_AI" ID="{2AD54B30-A23C-4FBA-A5A7-D0EAA7FE62AE}" ShortID="880775535">
+					<PropertyList>
+						<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
+						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{1F7472CA-0032-496F-BF25-9B45E6A108C6}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="50"/>
+											<Property Name="Min" Type="Real64" Value="-50"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="ai键盘1" ID="{548714FD-A781-4113-B81B-69DEB40E076B}" ShortID="9530706">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ai键盘1" ID="{5559D77D-CC21-4F7F-BA18-55D26951E2B4}">
+									<Language>SFX</Language>
+									<AudioFile>ai键盘1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="500883717"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="ai键盘1" ID="{5559D77D-CC21-4F7F-BA18-55D26951E2B4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ai键盘2" ID="{67CA2FE0-E34F-403E-A6A7-469D87B0BFCC}" ShortID="26504644">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ai键盘2" ID="{66B5AB36-6C5C-4665-AC2C-D7D5C37B2E25}">
+									<Language>SFX</Language>
+									<AudioFile>ai键盘2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="121547523"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="ai键盘2" ID="{66B5AB36-6C5C-4665-AC2C-D7D5C37B2E25}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ai键盘3" ID="{EC3763C4-70A8-40C7-A20B-012B9970D355}" ShortID="505949999">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ai键盘3" ID="{A1351C3B-1734-4134-B7B4-0EA53F52EF4B}">
+									<Language>SFX</Language>
+									<AudioFile>ai键盘3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="487841005"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="ai键盘3" ID="{A1351C3B-1734-4134-B7B4-0EA53F52EF4B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ai键盘4" ID="{F753B451-889E-4438-B0B0-66C39F3CFCD3}" ShortID="342003771">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ai键盘4" ID="{BF382152-F49F-47D7-ACDD-2960653D3A92}">
+									<Language>SFX</Language>
+									<AudioFile>ai键盘4.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="803442919"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="ai键盘4" ID="{BF382152-F49F-47D7-ACDD-2960653D3A92}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ai键盘5" ID="{F53EABC3-BF3A-4EF7-9077-986A81812FB6}" ShortID="836832176">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ai键盘5" ID="{C1338807-4903-413C-B30C-A1D3054F8A15}">
+									<Language>SFX</Language>
+									<AudioFile>ai键盘5.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1015108056"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="ai键盘5" ID="{C1338807-4903-413C-B30C-A1D3054F8A15}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ai键盘6" ID="{E622D7E3-F075-4132-8BBA-9DB3D347D95D}" ShortID="235765450">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ai键盘6" ID="{AB990878-0305-4A36-8CAB-7E6D49220A80}">
+									<Language>SFX</Language>
+									<AudioFile>ai键盘6.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="806688815"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="ai键盘6" ID="{AB990878-0305-4A36-8CAB-7E6D49220A80}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ai键盘7" ID="{DDCA4022-7F84-4943-981E-DAC6CF805AD4}" ShortID="1046653224">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ai键盘7" ID="{659A874E-77BE-4F75-9E45-962A338992EF}">
+									<Language>SFX</Language>
+									<AudioFile>ai键盘7.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="577889029"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="ai键盘7" ID="{659A874E-77BE-4F75-9E45-962A338992EF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ai键盘8" ID="{398A9025-4406-4E08-AF28-06E49667D9B5}" ShortID="725688620">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ai键盘8" ID="{80ADC433-A7DC-43CA-A792-798B70516B74}">
+									<Language>SFX</Language>
+									<AudioFile>ai键盘8.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="891554058"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="ai键盘8" ID="{80ADC433-A7DC-43CA-A792-798B70516B74}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="AI_Typing_fault" ID="{8B388CC3-B363-41F1-8EE4-EBF6CEA2F36C}" ShortID="1066450318">
+					<PropertyList>
+						<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
+						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="键盘故障1" ID="{69843C5B-3468-4F83-84E3-E50305558F6B}" ShortID="635913716">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="键盘故障1" ID="{7FAEC517-4560-47EC-B853-DCF6FBA1657F}">
+									<Language>SFX</Language>
+									<AudioFile>键盘故障1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="141075990"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="键盘故障1" ID="{7FAEC517-4560-47EC-B853-DCF6FBA1657F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="键盘故障2" ID="{9E4470D8-594A-4EAB-A154-670877FE8961}" ShortID="744515998">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="键盘故障2" ID="{A7CB77C3-51C6-434B-A81B-C8FFD3D926DA}">
+									<Language>SFX</Language>
+									<AudioFile>键盘故障2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="213070622"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="键盘故障2" ID="{A7CB77C3-51C6-434B-A81B-C8FFD3D926DA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="键盘故障3" ID="{A02A97EA-6F46-4267-9DBF-EEA8F61AFED0}" ShortID="449746419">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="键盘故障3" ID="{55918887-6DB7-491A-A192-623EEB494152}">
+									<Language>SFX</Language>
+									<AudioFile>键盘故障3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="512691313"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="键盘故障3" ID="{55918887-6DB7-491A-A192-623EEB494152}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="键盘故障4" ID="{CC8A8D76-A34A-4B05-93FF-616855FFB135}" ShortID="20862898">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="键盘故障4" ID="{D17FA69A-AA4A-4BC4-A11B-B9B1EE8B8E2D}">
+									<Language>SFX</Language>
+									<AudioFile>键盘故障4.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="492376096"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="键盘故障4" ID="{D17FA69A-AA4A-4BC4-A11B-B9B1EE8B8E2D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="键盘故障5" ID="{955CA9F5-74EB-4E0E-B39A-BC8A2836A8EC}" ShortID="687103719">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="键盘故障5" ID="{EDD4856A-4D1D-4EF9-94AC-2F473E33668C}">
+									<Language>SFX</Language>
+									<AudioFile>键盘故障5.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="684943731"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="键盘故障5" ID="{EDD4856A-4D1D-4EF9-94AC-2F473E33668C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="键盘故障6" ID="{F6C0182A-55B7-4B33-8043-1D61BD18D8AE}" ShortID="638938713">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="键盘故障6" ID="{B905EB02-4EC5-4356-900F-8BCCDCF577F4}">
+									<Language>SFX</Language>
+									<AudioFile>键盘故障6.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="762829969"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="键盘故障6" ID="{B905EB02-4EC5-4356-900F-8BCCDCF577F4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="键盘故障7" ID="{50CF38A8-C015-4838-BE7C-FBFFDB65B007}" ShortID="640990365">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="键盘故障7" ID="{070F5079-FBFF-4105-A3BF-4934755E4714}">
+									<Language>SFX</Language>
+									<AudioFile>键盘故障7.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="798867152"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="键盘故障7" ID="{070F5079-FBFF-4105-A3BF-4934755E4714}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="键盘故障8" ID="{15428285-E992-4A00-AE2E-F19740C012C0}" ShortID="867737524">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="键盘故障8" ID="{5CB66413-7876-457C-B0D0-9E636D071CA6}">
+									<Language>SFX</Language>
+									<AudioFile>键盘故障8.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="399440883"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="键盘故障8" ID="{5CB66413-7876-457C-B0D0-9E636D071CA6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="键盘故障9" ID="{484F2995-82BC-457B-A92E-A8D77B723999}" ShortID="580572119">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="键盘故障9" ID="{0EE4CA17-AE7A-45A6-A5A5-799763E9F2C4}">
+									<Language>SFX</Language>
+									<AudioFile>键盘故障9.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="555395762"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="键盘故障9" ID="{0EE4CA17-AE7A-45A6-A5A5-799763E9F2C4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

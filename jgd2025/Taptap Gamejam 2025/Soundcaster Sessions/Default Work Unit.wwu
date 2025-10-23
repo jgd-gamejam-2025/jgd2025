@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{2CEC872A-2821-458C-ACCE-8A2000BA8471}" SchemaVersion="123">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{2CEC872A-2821-458C-ACCE-8A2000BA8471}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{2CEC872A-2821-458C-ACCE-8A2000BA8471}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="test" ID="{DEBD0EA9-87BE-44D0-8436-8414B7F4AC61}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Play_AI_Typing" ID="{5F0595F7-FE1B-4D43-AD04-66CCA22E8660}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_Player_enter" ID="{3711CE7B-2BAA-4B8F-9C47-4F50C4EA13A4}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_Player_Typing" ID="{773C4242-BCF9-4C5A-A8B8-7ABBEB189DFB}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="AI_Typing_fault" ID="{8B388CC3-B363-41F1-8EE4-EBF6CEA2F36C}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>

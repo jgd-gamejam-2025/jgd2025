@@ -48,7 +48,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4f2n4")
 
-[node name="Newspaper" type="StaticBody3D" groups=["interactable"]]
+[node name="Newspaper" type="StaticBody3D" groups=["blow", "interactable"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3125, 0.039794922, -0.18005371)

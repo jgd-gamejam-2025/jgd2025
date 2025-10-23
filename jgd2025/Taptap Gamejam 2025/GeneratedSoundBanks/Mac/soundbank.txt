@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2375588297	Play_begin			\Default Work Unit\Play_begin	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	811350998	Eve开头_2	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\B7\{B7E299D3-98CE-DE93-53EE-90FB6B2686CE}.wem		\Interactive Music Hierarchy\Music\开头\Eve开头_2\Eve开头_2		14848160
+

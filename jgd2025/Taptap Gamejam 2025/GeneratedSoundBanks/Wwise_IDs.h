@@ -14,12 +14,15 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID BEGIN_TO_NONE = 3907958213U;
+        static const AkUniqueID MAZE_LANDING = 2598202372U;
         static const AkUniqueID NONE_TO_TITLE = 4080990482U;
         static const AkUniqueID PLAU_AI_TYPING_FAULT = 2435819095U;
         static const AkUniqueID PLAY_AI_TYPING = 3734422766U;
         static const AkUniqueID PLAY_BEGIN = 2375588297U;
         static const AkUniqueID PLAY_PLAYER_ENTER = 2025015394U;
         static const AkUniqueID PLAY_PLAYER_TYPING = 88175825U;
+        static const AkUniqueID PLAY_PUTDOWN_IPAD = 2538431492U;
+        static const AkUniqueID PLAY_TAKEOUT_IPAD = 2792899676U;
         static const AkUniqueID TITLE_TO_MAZE = 130021575U;
     } // namespace EVENTS
 

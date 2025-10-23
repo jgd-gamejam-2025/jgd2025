@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}" SchemaVersion="123">
 	<States>
-		<WorkUnit Name="Default Work Unit" ID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="Music_Switch" ID="{82CD0991-C986-4FFA-91F5-E444A6537528}">
+					<ChildrenList>
+						<State Name="None" ID="{2F007002-5601-4B2B-A35F-140428F1A126}"/>
+						<State Name="Begin" ID="{9D31A35C-59F9-403D-B097-9890DC3921B9}"/>
+						<State Name="EVE_Title" ID="{AE380017-9A16-42B1-81C0-8A0C452AF087}"/>
+						<State Name="Maze" ID="{D3D7F946-B924-4665-A447-3054F0CED4C1}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</States>
 </WwiseDocument>

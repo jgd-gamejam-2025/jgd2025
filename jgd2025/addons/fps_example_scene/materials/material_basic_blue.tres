@@ -1,7 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://brpu7xylrg2l2"]
-
-[ext_resource type="Texture2D" uid="uid://xnj7w7sh3s56" path="res://addons/fps_example_scene/materials/textures/prototype-texture-with-size.png" id="1_2kovh"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://brpu7xylrg2l2"]
 
 [resource]
-albedo_texture = ExtResource("1_2kovh")
-uv1_triplanar = true
+albedo_color = Color(0.7752624, 0.7752624, 0.7752624, 1)

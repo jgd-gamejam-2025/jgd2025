@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj6xpbx1qyavw"]
+
+[ext_resource type="PackedScene" uid="uid://bu5dlx6kxic7i" path="res://assets/models/room/props/sm_door6.fbx" id="1_yivp8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tgbu7"]
+size = Vector3(0.56040955, 4.293579, 1.8227234)
+
+[node name="Door" type="StaticBody3D" groups=["interactable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06413996, 2.1731567, 0.92836)
+shape = SubResource("BoxShape3D_tgbu7")
+
+[node name="sm_door6" parent="." instance=ExtResource("1_yivp8")]

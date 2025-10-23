@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4l1u31adxkol"]
+
+[sub_resource type="Gradient" id="Gradient_7ie7i"]
+offsets = PackedFloat32Array(0.9860627, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5wnba"]
+gradient = SubResource("Gradient_7ie7i")
+
+[node name="FloorPatternDecal" type="Decal"]
+size = Vector3(1, 2, 1)
+texture_albedo = SubResource("GradientTexture2D_5wnba")
+cull_mask = 1048574

@@ -148,6 +148,21 @@ transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06
 texture_filter = 0
 texture = ExtResource("5_2r1ki")
 
+[node name="Sprite3D2" type="Sprite3D" parent="Floor"]
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, -36.105446, 0.01, -28.01832)
+texture_filter = 0
+texture = ExtResource("5_2r1ki")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Floor"]
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, -35.914314, 0.01, 35.99613)
+texture_filter = 0
+texture = ExtResource("5_2r1ki")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Floor"]
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, 28.079124, 0.01, 35.99613)
+texture_filter = 0
+texture = ExtResource("5_2r1ki")
+
 [node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, -4.0063143, 0, 4.0063953)
 layers = 4

@@ -1,0 +1,4 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d27oxwekg1hsx"]
+
+[resource]
+metallic = 0.55

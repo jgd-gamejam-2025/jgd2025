@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqepgwaunndxr"]
+
+[ext_resource type="PackedScene" uid="uid://xjw06c0aqacy" path="res://assets/models/room/props/sm_floor.fbx" id="1_edgij"]
+
+[node name="Floor" type="Node3D"]
+
+[node name="sm_floor" parent="." instance=ExtResource("1_edgij")]

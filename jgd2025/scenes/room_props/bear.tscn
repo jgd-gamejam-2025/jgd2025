@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqw6g3i12knmo"]
+
+[ext_resource type="PackedScene" uid="uid://dyanjxr8ahwah" path="res://assets/models/room/props/sm_toy.fbx" id="1_cx2ln"]
+
+[node name="Bear" type="Node3D"]
+
+[node name="sm_toy" parent="." instance=ExtResource("1_cx2ln")]

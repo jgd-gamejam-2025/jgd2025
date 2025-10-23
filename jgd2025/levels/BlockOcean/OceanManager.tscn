@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch6u35p88u6gr"]
+
+[ext_resource type="Script" uid="uid://cawqjsjc7bctg" path="res://levels/BlockOcean/ocean_manager.gd" id="1_jpnn8"]
+
+[node name="OceanManager" type="Node3D"]
+script = ExtResource("1_jpnn8")
+
+[node name="TsunamiStartTimer" type="Timer" parent="."]

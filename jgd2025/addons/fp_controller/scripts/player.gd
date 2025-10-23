@@ -11,6 +11,8 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var CROUCH: String = "crouch"
 @export var SPRINT: String = "sprint"
 @export var PAUSE: String = "pause"
+@export var USE_E: String = "use_e"
+@export var USE_F: String = "use_f"
 
 @export_group("Customizable player stats")
 @export var walk_back_speed: float = 1.5
@@ -56,6 +58,9 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 # Raycast for detecting ceiling
 @onready var crouch_raycast = %CrouchRaycast
 
+@onready var pad = %Pad
+@onready var interaction_raycast: RayCast3D = $CameraPivot/SmoothCamera/RayCast3D
+
 # Dynamic values used for calculation
 var input_direction: Vector2
 var ledge_position: Vector3 = Vector3.ZERO
@@ -84,6 +89,7 @@ func _ready() -> void:
 	check_controls()
 	if can_pause:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	# camera_pivot.rotation.x = deg_to_rad(-88.5)
 
 
 func check_controls() -> void:
@@ -112,6 +118,13 @@ func check_controls() -> void:
 		push_error("No control mapped for 'pause', using default...")
 		_add_input_map_event(PAUSE, KEY_ESCAPE)
 	
+	if !InputMap.has_action(USE_E):
+		push_error("No control mapped for 'use', using default...")
+		_add_input_map_event(USE_E, KEY_E)
+	if !InputMap.has_action(USE_F):
+		push_error("No control mapped for 'use', using default...")
+		_add_input_map_event(USE_F, KEY_F)
+
 	# Checking if controller inputs are mapped
 	if InputMap.action_get_events(CROUCH).any(func(event): return event is InputEventJoypadButton) == false:
 		_add_joy_button_event(CROUCH, JOY_BUTTON_B)
@@ -130,6 +143,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	if can_pause:
 		if event.is_action_pressed(PAUSE):
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
+	# if event.is_action_pressed(USE_E):
+	# 	if pad.is_playing:
+	# 		return
+	# 	print("Use E pressed")
+
+	if event.is_action_pressed(USE_F):
+		if pad.is_playing:
+			return
+		print("Use F pressed")
 
 
 func _physics_process(delta: float) -> void:
@@ -155,6 +178,32 @@ func _physics_process(delta: float) -> void:
 		can_climb = true
 	
 	move_and_slide()
+
+	check_interactable()
+
+signal interact_obj(target: Node)
+var old_looking_target: Node = null
+func check_interactable():
+	if interaction_raycast.is_colliding():
+		var target = interaction_raycast.get_collider()
+		if old_looking_target==null or target.name != old_looking_target.name:
+			# handle hiding/showing effects for old and new targets
+			if old_looking_target and old_looking_target.is_in_group("interactable"):
+				for child in old_looking_target.get_children():
+					if child.is_in_group("Description"):
+						child.call("hide_effect")
+			
+			old_looking_target = target
+			if target.is_in_group("interactable"):
+				for child in target.get_children():
+					if child.is_in_group("Description"):
+						child.call("show_effect")
+				
+		if target.is_in_group("interactable"):
+			if Input.is_action_just_pressed(USE_E):
+				interact_obj.emit(target)
+				#if target.has_method("interact"):
+					#target.interact()
 
 
 func _process(_delta: float):
@@ -298,3 +347,70 @@ func _add_joy_button_event(action_name: String, joy_button: JoyButton = 100) -> 
 	var joy_button_event = InputEventJoypadButton.new()
 	joy_button_event.button_index = joy_button
 	InputMap.action_add_event(action_name, joy_button_event)
+
+
+func _on_pad_pad_activated() -> void:
+	can_move = false
+
+func _on_pad_pad_deactivated() -> void:
+	can_move = true
+
+var shaking_tween: Tween
+func shake_camera(intensity: float = 0.3, duration: float = 0.5, frequency: float = 20.0) -> void:
+	if shaking_tween:
+		shaking_tween.kill()
+	shaking_tween = create_tween()
+	var original_rotation = camera_pivot.rotation
+	var shake_count = int(duration * frequency)
+	var time_per_shake = duration / shake_count
+	
+	for i in range(shake_count):
+		# Calculate decay factor (shake intensity decreases over time)
+		var decay = 1.0 - (float(i) / shake_count)
+		var shake_intensity = intensity * decay
+		
+		# Random shake offset
+		var random_rotation = Vector3(
+			randf_range(-shake_intensity, shake_intensity),
+			0.0,
+			0.0
+		)
+		
+		shaking_tween.tween_property(camera_pivot, "rotation", original_rotation + random_rotation, time_per_shake)
+	
+	# Return to original rotation
+	shaking_tween.tween_property(camera_pivot, "rotation", original_rotation, time_per_shake)
+
+var look_at_tween: Tween
+## 让摄像头看向目标节点（带平滑过渡）
+func look_at_target(target: Node3D, duration: float = 0.5) -> void:
+	if not target:
+		push_warning("look_at_target: target is null")
+		return
+	
+	# 停止之前的look_at动画
+	if look_at_tween:
+		look_at_tween.kill()
+	
+	# 计算从玩家到目标的方向
+	var direction = (target.global_position - global_position).normalized()
+	
+	# 计算玩家的水平旋转（Y轴）
+	var horizontal_angle = atan2(-direction.x, -direction.z)
+	
+	# 计算摄像头的垂直旋转（X轴）
+	var horizontal_distance = Vector2(direction.x, direction.z).length()
+	var vertical_angle = atan2(direction.y, horizontal_distance)
+	var clamped_vertical_angle = clampf(vertical_angle, deg_to_rad(-89.0), deg_to_rad(89.0))
+	
+	# 创建平滑过渡动画
+	look_at_tween = create_tween()
+	look_at_tween.set_parallel(true)
+	look_at_tween.set_ease(Tween.EASE_OUT)
+	look_at_tween.set_trans(Tween.TRANS_CUBIC)
+	
+	# 平滑旋转玩家身体
+	look_at_tween.tween_property(self, "rotation:y", horizontal_angle, duration)
+	
+	# 平滑旋转摄像头
+	look_at_tween.tween_property(camera_pivot, "rotation:x", clamped_vertical_angle, duration)

@@ -1,0 +1,442 @@
+[gd_scene load_steps=16 format=3 uid="uid://cqc7rv7rgyn5"]
+
+[ext_resource type="Material" uid="uid://brpu7xylrg2l2" path="res://addons/fps_example_scene/materials/material_basic_blue.tres" id="1_614rw"]
+[ext_resource type="Script" uid="uid://dk6ujpt1uj0eb" path="res://levels/tps_test_scene/Set/set.gd" id="1_iukoa"]
+[ext_resource type="FontFile" uid="uid://dlefqu74x4m18" path="res://scenes/UI/fonts/sarasa-mono-sc-bold.ttf" id="2_ikele"]
+[ext_resource type="Script" uid="uid://cn5243ahistp4" path="res://other_scripts/float_node3d.gd" id="3_or1ss"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp8pu"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.15
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hlatn"]
+size = Vector3(17.235718, 33.481934, 83)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nj0cr"]
+size = Vector3(7.3506155, 2.1347656, 47.075)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aw82a"]
+albedo_color = Color(0.085983776, 0.08598376, 0.08598376, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nj0cr"]
+albedo_color = Color(0.30446225, 0.30446225, 0.30446222, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_17sqg"]
+albedo_color = Color(0.23151812, 0.23151812, 0.23151812, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a646p"]
+albedo_color = Color(0.24840015, 0.24840018, 0.24840015, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_iukoa"]
+material = ExtResource("1_614rw")
+size = Vector2(600, 88.425)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hlatn"]
+material = ExtResource("1_614rw")
+size = Vector2(600, 150)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ikele"]
+size = Vector3(141.82715, 50, 82)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aw82a"]
+size = Vector3(141.82715, 50, 149.96008)
+
+[node name="Set" type="Node3D"]
+script = ExtResource("1_iukoa")
+
+[node name="light" type="Node" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="light"]
+transform = Transform3D(1, 0, 0, 0, 0.9156626, 0.40194777, 0, -0.40194777, 0.9156626, 0, 15.1278305, 104.96589)
+spot_range = 129.45857
+spot_attenuation = -0.75
+spot_angle = 25.59406
+spot_angle_attenuation = 1.5691686
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.1840324, -71.50699)
+light_energy = 3.286
+light_specular = 2.89
+omni_range = 47.304
+omni_attenuation = 1.345
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.098419, -85.72535)
+light_energy = 3.209
+light_indirect_energy = 1.831
+light_volumetric_fog_energy = 3.39
+omni_range = 16.51
+omni_attenuation = 1.496
+
+[node name="wall-1" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -8.599617, -24.134312)
+
+[node name="wall-top" type="CSGBox3D" parent="wall-1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12100029, 33.558, -52)
+size = Vector3(110, 1.927, 40)
+
+[node name="wall-left" type="CSGBox3D" parent="wall-1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 8.009, -52)
+size = Vector3(50, 50, 40)
+
+[node name="wall-left2" type="CSGBox3D" parent="wall-1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 8.009, -38.554)
+size = Vector3(11.454102, 50, 40)
+
+[node name="wall-left3" type="CSGBox3D" parent="wall-1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 8.009, -38.554)
+size = Vector3(11.454102, 50, 40)
+
+[node name="wall-right" type="CSGBox3D" parent="wall-1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 8.009, -52)
+size = Vector3(50, 50, 40)
+
+[node name="wall-2" type="Node3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.3, 0, -14.378, -24.134312)
+
+[node name="wall-top" type="CSGBox3D" parent="wall-2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08021742, 37.765793, -145.40704)
+size = Vector3(72.69733, 8.758422, 107.78125)
+
+[node name="wall-left" type="CSGBox3D" parent="wall-2"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -30, 9, -150)
+size = Vector3(13.2, 50, 100)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="wall-2/wall-left"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1772366, 18.16913, -0.8015137)
+size = Vector3(13.200195, 4, 100)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="wall-2/wall-left"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1772366, 8.609121, 0.10447693)
+size = Vector3(13.200195, 4, 100)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="wall-2/wall-left"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1772366, -1.9058743, 0.55747986)
+size = Vector3(13.200195, 4, 100)
+
+[node name="wall-right" type="CSGBox3D" parent="wall-2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 9, -150)
+size = Vector3(13.2, 50, 100)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="wall-2/wall-right"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1772366, 18.16913, -0.8015137)
+size = Vector3(13.200195, 4, 100)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="wall-2/wall-right"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1772366, 8.609121, 0.10447693)
+size = Vector3(13.200195, 4, 100)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="wall-2/wall-right"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1772366, -1.9058743, 0.55747986)
+size = Vector3(13.200195, 4, 100)
+
+[node name="wall-3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.134312)
+
+[node name="wall-top2" type="CSGBox3D" parent="wall-3"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.3, -0.03208697, 0.72831726, -79.17654)
+size = Vector3(72.69733, 8.758422, 129.87012)
+
+[node name="wall-top4" type="CSGBox3D" parent="wall-3"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.3, 28.571524, 0.72831726, -96.25229)
+size = Vector3(72.69733, 8.758422, 129.87012)
+
+[node name="wall-top3" type="CSGBox3D" parent="wall-3"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.3, -23.271267, 0.72831726, -88.441795)
+size = Vector3(47.719757, 8.758422, 68.101746)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="wall-3"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -13.070892, -9.499704, -57.577408)
+size = Vector3(40.41089, 23.863892, 2.9002686)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="wall-3"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.079941, -9.499704, -57.577408)
+size = Vector3(40.41089, 23.863892, 2.9002686)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="wall-3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.154276, -9.553703, -98.16761)
+size = Vector3(48.30005, 23.863892, 2.9002686)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="wall-3/CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.768219, 1.8200684)
+size = Vector3(48.30005, 8.327454, 2.9002686)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="wall-3/CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9194021, 1.8200684)
+size = Vector3(48.30005, 8.327454, 2.9002686)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="wall-3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.11855, -9.553703, -78.277405)
+size = Vector3(32.637573, 23.863892, 2.9002686)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="wall-3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.188293, -9.553703, -109.29363)
+size = Vector3(16.692322, 23.863892, 2.9002686)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="wall-3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.174168, -9.553703, -79.46447)
+size = Vector3(19.91272, 23.863892, 2.9002686)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="wall-3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.249271, -9.553703, -111.2238)
+size = Vector3(9.762512, 23.863892, 2.9002686)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="wall-3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.58732, -15.529297, -104.25166)
+size = Vector3(9.762512, 3.1896133, 4.0007935)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="wall-3"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -31.61947, -9.553703, -94.63001)
+size = Vector3(29.993118, 23.863892, 2.9002686)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="wall-3"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 42.944023, -9.553703, -101.55263)
+size = Vector3(43.838356, 23.863892, 2.9002686)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="wall-3"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 29.52835, -9.553703, -102.481125)
+size = Vector3(12.336891, 23.863892, 2.9002686)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="wall-3"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -21.361023, -9.553703, -102.303444)
+size = Vector3(15.227371, 23.863892, 2.9002686)
+
+[node name="light box" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.134312)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="light box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.016838, -4.605697, -99.352585)
+size = Vector3(1.4976196, 2.08609, 1.8123169)
+material = SubResource("StandardMaterial3D_kp8pu")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="light box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.27662, -4.605697, -99.352585)
+size = Vector3(1.4976196, 2.08609, 1.8123169)
+material = SubResource("StandardMaterial3D_kp8pu")
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="light box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.27662, -4.605697, -89.563736)
+size = Vector3(1.4976196, 2.08609, 1.8123169)
+material = SubResource("StandardMaterial3D_kp8pu")
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="light box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.27662, -4.605697, -113.567635)
+size = Vector3(1.4976196, 2.08609, 1.8123169)
+material = SubResource("StandardMaterial3D_kp8pu")
+
+[node name="Judge" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -8.599617, 0.5162735)
+
+[node name="Option1" type="Area3D" parent="Judge"]
+
+[node name="Option1" type="CollisionShape3D" parent="Judge/Option1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.50856, -8.259041, -368.21906)
+shape = SubResource("BoxShape3D_hlatn")
+debug_color = Color(0.9663064, 0, 0.48431534, 0.41960785)
+
+[node name="Label1" type="Label3D" parent="Judge/Option1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -364)
+outline_modulate = Color(0.45452422, 0.45452428, 0.45452422, 1)
+text = "A"
+font = ExtResource("2_ikele")
+font_size = 2382
+outline_size = 127
+script = ExtResource("3_or1ss")
+
+[node name="Option2" type="Area3D" parent="Judge"]
+
+[node name="Option1" type="CollisionShape3D" parent="Judge/Option2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.764915, -8.259041, -387.8731)
+shape = SubResource("BoxShape3D_hlatn")
+debug_color = Color(0.9663064, 0, 0.48431534, 0.41960785)
+
+[node name="Label2" type="Label3D" parent="Judge/Option2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -364)
+outline_modulate = Color(0.45452422, 0.45452428, 0.45452422, 1)
+text = "B
+"
+font = ExtResource("2_ikele")
+font_size = 2382
+outline_size = 127
+script = ExtResource("3_or1ss")
+
+[node name="Option3" type="Area3D" parent="Judge"]
+
+[node name="Option1" type="CollisionShape3D" parent="Judge/Option3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.162407, -8.259041, -387.8731)
+shape = SubResource("BoxShape3D_hlatn")
+debug_color = Color(0.9663064, 0, 0.48431534, 0.41960785)
+
+[node name="Label3" type="Label3D" parent="Judge/Option3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 0, -364)
+outline_modulate = Color(0.45452422, 0.45452428, 0.45452422, 1)
+text = "C
+"
+font = ExtResource("2_ikele")
+font_size = 2382
+outline_size = 127
+script = ExtResource("3_or1ss")
+
+[node name="EndLabel" type="Label3D" parent="Judge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 28, -488)
+outline_modulate = Color(0.45452422, 0.45452428, 0.45452422, 1)
+text = "This is the question"
+font = ExtResource("2_ikele")
+font_size = 2382
+outline_size = 127
+script = ExtResource("3_or1ss")
+
+[node name="wall-door" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -8.599617, 0.5162735)
+
+[node name="wall-top" type="CSGBox3D" parent="wall-door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17828178, 33.558, -52)
+size = Vector3(89.83246, 1.927, 40)
+
+[node name="wall-left" type="CSGBox3D" parent="wall-door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 8.009, -52)
+size = Vector3(30, 50, 40)
+
+[node name="Ldoor" type="CSGBox3D" parent="wall-door"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5041847, 8.008998, -35.67488)
+size = Vector3(15, 50, 1.161)
+
+[node name="Rdoor" type="CSGBox3D" parent="wall-door"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5245295, 7.854949, -35.646732)
+size = Vector3(15, 50, 1.161)
+
+[node name="wall-right" type="CSGBox3D" parent="wall-door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 8.009, -52)
+size = Vector3(30, 50, 40)
+
+[node name="bridge" type="Node3D" parent="."]
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="bridge"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 42.944023, -13.208412, -174.61284)
+size = Vector3(53.690174, 77.48355, 2.9002686)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="bridge"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.8506184, -16.920162, -177.92422)
+size = Vector3(54.2589, 1.7900467, 7.0641785)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="bridge"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -17.075127, -16.951782, -178.426)
+size = Vector3(55.26244, 1.7900467, 7.0641785)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="bridge"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -19.727158, -16.048897, -178.426)
+size = Vector3(55.26244, 1.7900467, 1.7601166)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="bridge"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 29.633562, -16.866676, -176.99118)
+size = Vector3(52.39281, 1.7900467, 7.0641785)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="bridge"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 32.694527, -15.675779, -172.71396)
+size = Vector3(43.838356, 2.9329872, 0.9422455)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="bridge"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -32.962593, -8.391762, -170.55188)
+size = Vector3(77.71105, 84.937164, 2.9002686)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="bridge"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 40.469627, -13.208412, -252.30629)
+size = Vector3(106.69653, 77.48355, 7.84906)
+
+[node name="EndDoor" type="CSGBox3D" parent="bridge"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5877895, 9.464996, -253.6231)
+size = Vector3(71.610565, 50.713943, 2.9002686)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="bridge"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -29.283096, -8.391762, -246.0841)
+size = Vector3(119.013245, 84.937164, 6.4140015)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="bridge"]
+
+[node name="FloorCollision2" type="CollisionShape3D" parent="bridge/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.907398, -17.116236, -184.44476)
+shape = SubResource("BoxShape3D_nj0cr")
+
+[node name="FloorCollision3" type="CollisionShape3D" parent="bridge/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.022364, -16.966911, -184.44476)
+shape = SubResource("BoxShape3D_nj0cr")
+
+[node name="FloorCollision4" type="CollisionShape3D" parent="bridge/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.055017, -17.015705, -184.44476)
+shape = SubResource("BoxShape3D_nj0cr")
+
+[node name="wall-underground" type="Node3D" parent="."]
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="wall-underground"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 2.7658463, -49.456463, -183.25723)
+size = Vector3(43.838, 90, 2.9)
+material = SubResource("StandardMaterial3D_aw82a")
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="wall-underground"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 7.8874283, -32.742817, -211.9616)
+size = Vector3(13.295954, 79.756836, 32.77666)
+material = SubResource("StandardMaterial3D_nj0cr")
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="wall-underground"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, -26.301292, -32.742817, -203.87161)
+size = Vector3(13.295954, 11.379395, 32.77666)
+material = SubResource("StandardMaterial3D_nj0cr")
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="wall-underground"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, -28.800568, -32.742817, -182.03813)
+size = Vector3(56.962917, 11.379395, 32.77666)
+material = SubResource("StandardMaterial3D_nj0cr")
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="wall-underground"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 7.8874283, -33.38336, -154.63553)
+size = Vector3(13.295954, 79.756836, 35.046215)
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="wall-underground"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 7.887429, -17.360254, -208.63553)
+size = Vector3(13.295954, 79.756836, 3)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="wall-underground"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 38.04783, -33.62625, -176.32178)
+size = Vector3(43.838, 12.86322, 2.9)
+material = SubResource("StandardMaterial3D_17sqg")
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="wall-underground"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 26.102856, -44.459476, -163.22629)
+size = Vector3(17.647028, 12.86322, 9.678027)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="wall-underground"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 16.097301, -44.459476, -188.16228)
+size = Vector3(17.647028, 12.86322, 9.678027)
+material = SubResource("StandardMaterial3D_a646p")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05000305, -15.930271, -246.83505)
+mesh = SubResource("PlaneMesh_iukoa")
+skeleton = NodePath("../../..")
+
+[node name="FloorMesh2" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05000305, -15.930271, -86.16035)
+mesh = SubResource("PlaneMesh_hlatn")
+skeleton = NodePath("../../..")
+
+[node name="FloorCollision5" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9477539, -41.049408, -247.4798)
+shape = SubResource("BoxShape3D_ikele")
+
+[node name="FloorCollision6" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9477539, -41.049408, -86.49748)
+shape = SubResource("BoxShape3D_aw82a")
+
+[node name="NextPosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -260)
+
+[connection signal="body_entered" from="Judge/Option1" to="." method="_on_option_1_body_entered"]
+[connection signal="body_entered" from="Judge/Option2" to="." method="_on_option_2_body_entered"]
+[connection signal="body_entered" from="Judge/Option3" to="." method="_on_option_3_body_entered"]

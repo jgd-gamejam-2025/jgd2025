@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://4th5a6yrnpg6"
+path="res://.godot/imported/键盘故障1.wav-0c335af90f993fab148a643a41ed9f59.sample"
+
+[deps]
+
+source_file="res://Taptap Gamejam 2025/Originals/SFX/键盘故障1.wav"
+dest_files=["res://.godot/imported/键盘故障1.wav-0c335af90f993fab148a643a41ed9f59.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://u3gdg1l1dnm4"
+path="res://.godot/imported/Mouldwood Depths 70bpm.wav-cbdbbc4e1e3d9a3f6e4cde7dcc873de6.sample"
+
+[deps]
+
+source_file="res://Taptap Gamejam 2025/Originals/SFX/Mouldwood Depths 70bpm.wav"
+dest_files=["res://.godot/imported/Mouldwood Depths 70bpm.wav-cbdbbc4e1e3d9a3f6e4cde7dcc873de6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

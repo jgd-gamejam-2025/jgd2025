@@ -1,6 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}" SchemaVersion="123">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_begin" ID="{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}">
+					<ChildrenList>
+						<Action Name="" ID="{6F54028A-7510-48B9-B21C-4B60F3C8EB11}" ShortID="14966573">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Swtich" ID="{3949CA24-7514-4CF6-A320-D8FCFE0A4AB9}" WorkUnitID="{F5C2B02C-28FA-4C87-B714-B49391A9778B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{AEF7143F-27CB-42CB-A8CA-386A41C6D0CD}" ShortID="381998339">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Begin" ID="{9D31A35C-59F9-403D-B097-9890DC3921B9}" WorkUnitID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Player_Typing" ID="{773C4242-BCF9-4C5A-A8B8-7ABBEB189DFB}">
+					<ChildrenList>
+						<Action Name="" ID="{2594E68D-56B6-4F2D-854B-69923B8CB98B}" ShortID="923471026">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Player_Typing" ID="{9C8CF39F-54D4-48DE-9835-AECF7A869ED4}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Player_enter" ID="{3711CE7B-2BAA-4B8F-9C47-4F50C4EA13A4}">
+					<ChildrenList>
+						<Action Name="" ID="{4A00ED99-F0AD-4561-B144-89ADD12159C4}" ShortID="811891990">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Tap_enter" ID="{33E0F6B1-3763-4B8E-B7C3-EE3F46B5EEAD}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_AI_Typing" ID="{5F0595F7-FE1B-4D43-AD04-66CCA22E8660}">
+					<ChildrenList>
+						<Action Name="" ID="{152D8131-2A9E-4A3B-9064-EB9248FD66AD}" ShortID="263203565">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Typing_AI" ID="{2AD54B30-A23C-4FBA-A5A7-D0EAA7FE62AE}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Plau_AI_Typing_Fault" ID="{C6E972AC-BD49-4AFD-9E6C-8066C6F12647}">
+					<ChildrenList>
+						<Action Name="" ID="{717CAC08-C575-4C85-B888-5969AEFA43E3}" ShortID="32510157">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="AI_Typing_fault" ID="{8B388CC3-B363-41F1-8EE4-EBF6CEA2F36C}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Begin_to_none" ID="{8933958D-ECCE-482E-805B-31EE01D162FD}">
+					<ChildrenList>
+						<Action Name="" ID="{9CBF669C-4D4C-4A2D-B3BF-F61A6AEC91CC}" ShortID="1069132943">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="None" ID="{2F007002-5601-4B2B-A35F-140428F1A126}" WorkUnitID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="None_to_Title" ID="{362CD5C9-3566-4788-86FD-1AB4B73D6592}">
+					<ChildrenList>
+						<Action Name="" ID="{DD2B2106-4F2E-4C48-BDBB-DB40A296D6AB}" ShortID="816771873">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="EVE_Title" ID="{AE380017-9A16-42B1-81C0-8A0C452AF087}" WorkUnitID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Title_to_Maze" ID="{01BD5A0E-3FDA-4CBF-BE09-EE1217BAA8D5}">
+					<ChildrenList>
+						<Action Name="" ID="{4EE66406-A113-4D6F-849B-3389BBBA1E32}" ShortID="131202566">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Maze" ID="{D3D7F946-B924-4665-A447-3054F0CED4C1}" WorkUnitID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Maze_Landing" ID="{36B66DC0-988B-4EB1-B9AE-4A4534358803}">
+					<ChildrenList>
+						<Action Name="" ID="{EA6396C3-8603-4E3D-B7F5-89222E47A191}" ShortID="425113486">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Maze_Landing" ID="{A2D48E2D-46B8-4325-BF71-B720B2716CB2}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Takeout_ipad" ID="{749CAEB4-BA26-41E3-8E27-93DA4CD7F39C}">
+					<ChildrenList>
+						<Action Name="" ID="{600628A0-796B-4F9B-A996-4FE169C281BE}" ShortID="367138970">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Take out_ipad" ID="{D8A8E52B-BE7A-40DD-BBB0-0AE34E91D834}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Putdown_ipad" ID="{F4F6CDB0-C437-463C-A59C-DFBA053DB85E}">
+					<ChildrenList>
+						<Action Name="" ID="{0F0562DD-E9FF-4417-A77F-A1DAF20AFEAE}" ShortID="623777657">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Take out_ipad" ID="{D8A8E52B-BE7A-40DD-BBB0-0AE34E91D834}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{9CB3D168-EC02-4AC2-AE34-0369F358CE14}" ShortID="439691459">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Put down_ipad" ID="{8E732A61-6F84-45AD-884E-4A1E7CFB8CFA}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

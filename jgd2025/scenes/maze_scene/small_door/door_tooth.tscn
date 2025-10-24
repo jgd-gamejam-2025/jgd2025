@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://xd74vrulagn4"]
+
+[ext_resource type="Material" path="res://assets/models/room/tileable/plaster_wall/plaster_wall_material.tres" id="1_5xjag"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qxstb"]
+material = ExtResource("1_5xjag")
+size = Vector3(0.25, 1.5, 0.25)
+
+[node name="DoorTooth" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+mesh = SubResource("BoxMesh_qxstb")

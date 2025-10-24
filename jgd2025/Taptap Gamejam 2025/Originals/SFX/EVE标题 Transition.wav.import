@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cryplpp7er4tr"
+path="res://.godot/imported/EVE标题 Transition.wav-1f2e125c23aa2ca77e2a66c6357ad3cd.sample"
+
+[deps]
+
+source_file="res://Taptap Gamejam 2025/Originals/SFX/EVE标题 Transition.wav"
+dest_files=["res://.godot/imported/EVE标题 Transition.wav-1f2e125c23aa2ca77e2a66c6357ad3cd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

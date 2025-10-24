@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://dofoxs3xynuoh"]
+
+[ext_resource type="Material" uid="uid://bdappx3pmcbo8" path="res://levels/maze_load_wall/sceneFromPortal.tres" id="1_ydu6o"]
+[ext_resource type="Material" uid="uid://ctjp2430ogink" path="res://levels/maze_load_wall/portal.tres" id="2_rxh4v"]
+
+[node name="SceneFromPortal" type="Node3D"]
+transform = Transform3D(0.35355338, 0, -0.35355338, 0, 0.5, 0, 0.35355338, 0, 0.35355338, 0, 0, 0)
+
+[node name="wall-top" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17828178, 33.558, -52)
+size = Vector3(89.83246, 1.927, 40)
+material = ExtResource("1_ydu6o")
+
+[node name="wall-left" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 8.009, -52)
+size = Vector3(30, 50, 40)
+material = ExtResource("1_ydu6o")
+
+[node name="wall-left2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5041847, 8.008998, -35.67488)
+size = Vector3(15, 50, 1.161)
+material = ExtResource("1_ydu6o")
+
+[node name="wall-left3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5245295, 7.854949, -35.646732)
+size = Vector3(15, 50, 1.161)
+material = ExtResource("1_ydu6o")
+
+[node name="wall-right" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 8.009, -52)
+size = Vector3(30, 50, 40)
+material = ExtResource("1_ydu6o")
+
+[node name="wall-left4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8700027, 8.008999, 4.344864)
+transparency = 0.5
+size = Vector3(15, 50, 1.161)
+material = ExtResource("2_rxh4v")
+
+[node name="wall-left5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.158699, 7.85495, 4.3730164)
+transparency = 0.5
+size = Vector3(15, 50, 1.161)
+material = ExtResource("2_rxh4v")

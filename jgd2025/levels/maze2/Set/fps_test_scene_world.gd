@@ -7,7 +7,7 @@ extends Node3D
 @onready var set_template = $Set
 @export var last_bridge_scene: PackedScene
 
-var set_index = 0
+var set_index = 2
 var correct_choices = [1, 3, 2, 2]
 var choice = 0
 var curr_set
@@ -86,9 +86,12 @@ func play_ending():
 	await get_tree().create_timer(1).timeout
 	get_notification("这地方……要崩溃了？！")
 	player.shake_camera(0.3, 1.5)
-	var env_night = preload("res://levels/BlockOcean/OceanLevelSky.tres")
+	var env_night = preload("res://levels/BlockOcean/OceanLevelSkyDark.tres")
 	# 或切换为夜晚
 	get_viewport().get_world_3d().environment = env_night
+	# Dim the light
+	# $DirectionalLight3D.light_energy = 0.2
+	# change the direction of the light to x 90 degrees
 	# load last bridge scene
 	# await get_tree().create_timer(2).timeout
 	var last_bridge = last_bridge_scene.instantiate()
@@ -134,6 +137,11 @@ func _on_parkour_started() -> void:
 	tween.parallel().tween_property($Robot, "position", $Robot.position + Vector3(0, -250, 50), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 
 func _on_ocean_started() -> void:
+	# Generally dim the light
+	var tween = create_tween()
+	var env := get_viewport().get_world_3d().environment
+	tween.parallel().tween_property($DirectionalLight3D, "light_energy", 0.05, 5)
+	tween.parallel().tween_property(env, "fog_density", 0.0, 5)
 	await get_tree().create_timer(2).timeout
 	get_notification("我ē̴̤͝l̵͎̈́̐p̸̹̎ ̴͚̅m̷̬̓ë̶̦́̎也…… ̴͚̅m̷̬̓")
 	for i in range(25):

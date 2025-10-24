@@ -35,7 +35,7 @@ script = ExtResource("1_bedjy")
 [node name="LightPillar" type="Node3D" parent="."]
 
 [node name="LightBeamCylinder" type="MeshInstance3D" parent="LightPillar"]
-transform = Transform3D(0.4575467, 0, 0.1899652, 0, 0.3773847, 0, -0.20185938, 0, 0.43058664, 0, 19.933918, 0)
+transform = Transform3D(0.50009596, 0, 0.00042712688, 0, 0.37738466, 0, -0.00045388937, 0, 0.47062874, 0, 19.933918, 0)
 mesh = SubResource("CylinderMesh_beam")
 surface_material_override/0 = SubResource("ShaderMaterial_beam")
 

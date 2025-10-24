@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="1_fd5tf"]
 [ext_resource type="Script" uid="uid://cnx2h2qw3c0bt" path="res://levels/BlockOcean/ocean_level.gd" id="1_jek4i"]
-[ext_resource type="Environment" uid="uid://cruq0vn7hem2x" path="res://levels/BlockOcean/OceanLevelSky.tres" id="2_oen6h"]
+[ext_resource type="Environment" uid="uid://c462jgu1pcumq" path="res://levels/BlockOcean/OceanLevelSkyDark.tres" id="2_2anpd"]
 [ext_resource type="PackedScene" uid="uid://daxrvykcey2yk" path="res://levels/BlockOcean/ocean_scene.tscn" id="3_fd5tf"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_jek4i"]
@@ -12,7 +12,7 @@ radius = 3.371
 script = ExtResource("1_jek4i")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("2_oen6h")
+environment = ExtResource("2_2anpd")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)

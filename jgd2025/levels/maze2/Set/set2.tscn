@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bysluvlg528e6"]
+[gd_scene load_steps=19 format=3 uid="uid://bysluvlg528e6"]
 
 [ext_resource type="Material" uid="uid://d27oxwekg1hsx" path="res://levels/tps_test_scene/material/white wall.tres" id="1_ubpq8"]
 [ext_resource type="Script" uid="uid://m0dgfvbn5ht7" path="res://levels/maze2/Set/set_2.gd" id="1_xhb0a"]
@@ -37,6 +37,9 @@ albedo_color = Color(0.23151812, 0.23151812, 0.23151812, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a646p"]
 albedo_color = Color(0.24840015, 0.24840018, 0.24840015, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7h38i"]
+size = Vector3(17.235718, 33.481934, 33.49231)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_15gwa"]
 size = Vector3(17.235718, 33.481934, 61.978516)
@@ -269,9 +272,9 @@ material = ExtResource("1_ubpq8")
 [node name="wall-underground" type="Node3D" parent="."]
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="wall-underground"]
-transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 2.7658463, -49.456463, -183.25723)
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 2.7658463, -48.529366, -183.24025)
 use_collision = true
-size = Vector3(43.838, 90, 2.9)
+size = Vector3(46.456814, 90, 2.9)
 material = SubResource("StandardMaterial3D_aw82a")
 
 [node name="CSGBox3D22" type="CSGBox3D" parent="wall-underground"]
@@ -307,6 +310,14 @@ transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -
 use_collision = true
 size = Vector3(17.647028, 12.86322, 9.678027)
 material = SubResource("StandardMaterial3D_a646p")
+
+[node name="AirBridge" type="Area3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -8.599617, 0.5162735)
+
+[node name="Option1" type="CollisionShape3D" parent="AirBridge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.217995, -8.259041, -341.74725)
+shape = SubResource("BoxShape3D_7h38i")
+debug_color = Color(0.69629747, 0.49369907, 0, 0.41960785)
 
 [node name="Judge" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -389,6 +400,7 @@ debug_color = Color(0.9663064, 0, 0.48431534, 0.41960785)
 [node name="NextPosition" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -152)
 
+[connection signal="body_entered" from="AirBridge" to="." method="_on_air_bridge_body_entered"]
 [connection signal="body_entered" from="Judge/Option1" to="." method="_on_option_1_body_entered"]
 [connection signal="body_entered" from="Judge/Option2" to="." method="_on_option_2_body_entered"]
 [connection signal="body_entered" from="Judge/Option3" to="." method="_on_option_3_body_entered"]

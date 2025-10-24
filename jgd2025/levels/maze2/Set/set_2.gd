@@ -57,3 +57,9 @@ func _on_load_next_body_entered(body: Node3D) -> void:
 	if body.name == "Player" and not send_load_next:
 		send_load_next = true
 		load_next.emit()
+
+signal walk_on_mid
+var sent_walk_on_mid = false
+func _on_air_bridge_body_entered(body: Node3D) -> void:
+	if body.name == "Player" and not sent_walk_on_mid:
+		walk_on_mid.emit()

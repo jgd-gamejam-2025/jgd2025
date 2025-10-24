@@ -3,6 +3,7 @@ extends Node3D
 var triggered_parkour = false
 var triggered_ocean = false
 var ocean_ended = false
+var parkour_ended = false
 func _on_parkour_start_body_entered(body: Node3D) -> void:
 	if body.name == "Player" and not triggered_parkour:
 		triggered_parkour = true
@@ -20,3 +21,9 @@ func _on_ocean_end_body_exited(body: Node3D) -> void:
 		ocean_ended = true
 		Transition.set_and_start("", "")
 		LevelManager.to_room()
+
+
+func _on_parkour_hell_body_entered(body: Node3D) -> void:
+	if not triggered_ocean and not parkour_ended and body.name == "Player":
+		parkour_ended = true
+		print("Parkour ended")# todo: reload

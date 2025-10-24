@@ -156,7 +156,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if can_move:
+	if can_move and not pad.is_playing:
 		if Input.get_vector(MOVE_LEFT, MOVE_RIGHT, MOVE_FORWARD, MOVE_BACK):
 			input_direction = Input.get_vector(MOVE_LEFT, MOVE_RIGHT, MOVE_FORWARD, MOVE_BACK)
 		elif Input.get_connected_joypads().size() != 0:
@@ -186,6 +186,8 @@ var old_looking_target: Node = null
 func check_interactable():
 	if interaction_raycast.is_colliding():
 		var target = interaction_raycast.get_collider()
+		if not target:
+			return
 		if old_looking_target==null or target.name != old_looking_target.name:
 			# handle hiding/showing effects for old and new targets
 			if old_looking_target and old_looking_target.is_in_group("interactable"):

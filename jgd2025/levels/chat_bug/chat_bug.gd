@@ -93,6 +93,8 @@ func _on_info_button_pressed() -> void:
 func _on_chat_ui_received_text(received_text: String) -> void:
 	text_sent_count += 1
 
+	if text_sent_count == 1:
+		chat_ui.add_sticker_bubble("love")
 	if text_sent_count == 5:
 		activate_bug_mode()
 

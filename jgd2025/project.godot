@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="EVE"
-run/main_scene="uid://bytjnt7nwkrxw"
+run/main_scene="uid://bco451gkhafpk"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(1, 1, 1, 1)
 boot_splash/image="uid://cqifewwygvy47"

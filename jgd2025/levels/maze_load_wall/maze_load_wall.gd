@@ -59,7 +59,7 @@ func end_opening() -> void:
 		get_notification("如果出问题，告诉我重新启动，我会帮你重启这段程序。")
 	else:
 		get_notification("让我们再试一次")
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(8).timeout
 		emit_signal("end_opening_sig")
 		player.can_move = true
 
@@ -103,12 +103,6 @@ func get_notification(message: String, duration: float = 3.0, name_text: String 
 func _on_hit_timer_timeout() -> void:
 	if curr_level == 1:
 		get_notification("这些墙壁……如果能上到顶上的话……")
-	# elif curr_level == 2:
-	# 	curr_level = 3
-	# 	get_notification("这些墙壁看起来像是被强行移开的。")
-	# elif curr_level == 3:
-	# 	curr_level = 4
-	# 	get_notification("希望我们能找到一些线索。")
 
 
 func _on_notification_area_area_text(text: String) -> void:
@@ -130,4 +124,6 @@ func _on_open_gate_body_entered(body: Node3D) -> void:
 
 func _on_enter_gate_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
-		$MazeTarget/Door.open_gate2()
+		get_notification("我有种奇怪的感觉……")
+		await get_tree().create_timer(1).timeout
+		LevelManager.to_maze2()

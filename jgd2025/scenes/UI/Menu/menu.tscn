@@ -3,8 +3,7 @@
 [ext_resource type="Script" uid="uid://doietcndwdsr4" path="res://scenes/UI/Menu/menu.gd" id="1_877lm"]
 [ext_resource type="Texture2D" uid="uid://2vaixlrl7qah" path="res://assets/Eve/title.png" id="3_877lm"]
 [ext_resource type="Texture2D" uid="uid://btpygk6sp4sf3" path="res://assets/Eve/poster - 副本.png" id="3_d2hwh"]
-
-[sub_resource type="Theme" id="Theme_am11f"]
+[ext_resource type="Theme" uid="uid://byj5ikantfwqn" path="res://scenes/UI/Menu/menu.tres" id="4_877lm"]
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_877lm")
@@ -70,21 +69,21 @@ theme_override_constants/separation = 18
 [node name="Continue" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-theme = SubResource("Theme_am11f")
+theme = ExtResource("4_877lm")
 text = "继续"
 alignment = 2
 
 [node name="NewGame" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-theme = SubResource("Theme_am11f")
+theme = ExtResource("4_877lm")
 text = "新游戏"
 alignment = 2
 
 [node name="Exit" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-theme = SubResource("Theme_am11f")
+theme = ExtResource("4_877lm")
 text = "退出"
 alignment = 2
 

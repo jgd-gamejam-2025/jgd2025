@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://cmfami4gcltvu" path="res://levels/level_manager/level_manager.gd" id="1_k4b6o"]
 [ext_resource type="PackedScene" uid="uid://1m82bdnhye7k" path="res://levels/maze_load_wall/maze_load_wall.tscn" id="2_2qq6n"]
 [ext_resource type="PackedScene" uid="uid://bytjnt7nwkrxw" path="res://levels/chat_bug/chat_bug.tscn" id="2_o0qhy"]
-[ext_resource type="PackedScene" uid="uid://ofyuav8psja7" path="res://levels/maze2/Set/fps_test_scene_world.tscn" id="4_q4blj"]
+[ext_resource type="PackedScene" uid="uid://ofyuav8psja7" path="res://levels/maze2/Set/fps_test_scene_world.tscn" id="4_o0qhy"]
 [ext_resource type="PackedScene" uid="uid://c2hgmqr4djchj" path="res://levels/room/room.tscn" id="5_kttg4"]
 
 [node name="LevelManager" type="Node"]
 script = ExtResource("1_k4b6o")
 chat_1 = ExtResource("2_o0qhy")
 eve_debug_scene = ExtResource("2_2qq6n")
-maze2_scene = ExtResource("4_q4blj")
+maze2_scene = ExtResource("4_o0qhy")
 room_scene = ExtResource("5_kttg4")

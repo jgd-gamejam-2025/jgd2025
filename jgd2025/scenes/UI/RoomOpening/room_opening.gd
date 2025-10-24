@@ -11,6 +11,8 @@ extends CanvasLayer
 @onready var button3 = $Control/VBoxContainer/Button3
 
 func _ready() -> void:
+	Transition.set_and_start("坍塌", "", 3.0)
+	await get_tree().create_timer(5).timeout
 	Transition.set_and_start("还记得吗？", "《流体恋人》", 3.0)
 	label.modulate.a = 0
 	label2.modulate.a = 0

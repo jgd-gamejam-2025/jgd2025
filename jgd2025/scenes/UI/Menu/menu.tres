@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://byj5ikantfwqn"]
+
+[ext_resource type="FontFile" uid="uid://dpx5atk0qm3yy" path="res://scenes/UI/fonts/SourceHanSansCN-Regular.otf" id="1_tyh3g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_877lm"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yv4w8"]
+bg_color = Color(0.07683582, 0.07683582, 0.07683582, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mlhdq"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_877lm"]
+bg_color = Color(0.28485027, 0.2848503, 0.28485018, 1)
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("1_tyh3g")
+Button/styles/focus = SubResource("StyleBoxEmpty_877lm")
+Button/styles/hover = SubResource("StyleBoxFlat_yv4w8")
+Button/styles/normal = SubResource("StyleBoxEmpty_mlhdq")
+Button/styles/pressed = SubResource("StyleBoxFlat_877lm")

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dpybbk8iuvfom"
+path="res://.godot/imported/EVE标题 loop state.wav-1c09429c737d4e0538533fba04e9f87d.sample"
+
+[deps]
+
+source_file="res://Taptap Gamejam 2025/Originals/SFX/EVE标题 loop state.wav"
+dest_files=["res://.godot/imported/EVE标题 loop state.wav-1c09429c737d4e0538533fba04e9f87d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -13,7 +13,9 @@ config_version=5
 config/name="EVE"
 run/main_scene="uid://bytjnt7nwkrxw"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="uid://c8n0easlsk2ri"
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/image="uid://cqifewwygvy47"
+config/icon="uid://bvcemmfcql6i2"
 
 [autoload]
 
@@ -22,11 +24,13 @@ AudioManager2D="*res://addons/2d-platformer/Scenes/Managers/AudioManager.tscn"
 GameManager2D="*res://addons/2d-platformer/Scripts/GameManager.gd"
 WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
 LevelManager="*res://levels/level_manager/LevelManager.tscn"
+Loading="*res://scenes/UI/TransitionUI/loading.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 
 [filesystem]
 

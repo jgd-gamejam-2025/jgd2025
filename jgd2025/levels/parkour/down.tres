@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ObstacleAction" load_steps=2 format=3 uid="uid://d1rvymtpx361l"]
+
+[ext_resource type="Script" uid="uid://pit1vpaptc44" path="res://levels/parkour/ObstacleAction.gd" id="1_ijfe6"]
+
+[resource]
+script = ExtResource("1_ijfe6")
+move_type = 2
+move_distance = 15.0
+move_duration = 3.0
+return_to_origin = true
+metadata/_custom_type_script = "uid://pit1vpaptc44"

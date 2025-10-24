@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkgfaapdkdnv2"]
+
+[ext_resource type="Environment" uid="uid://cruq0vn7hem2x" path="res://levels/BlockOcean/OceanLevelSky.tres" id="1_aape8"]
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = ExtResource("1_aape8")

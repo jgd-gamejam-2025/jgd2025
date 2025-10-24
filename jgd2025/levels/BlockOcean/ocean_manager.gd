@@ -43,10 +43,9 @@ func _ready():
 		return
 
 	# 2. 获取 Player 节点 (如果设置了)
-	if not player_path.is_empty():
-		player = get_node_or_null(player_path)
-		if not player:
-			print_rich("[color=yellow]警告：[/color]OceanManager 找不到 Player 节点！碰撞体优化将不可用。")
+	player = get_tree().get_first_node_in_group("player")
+	if not player:
+		print_rich("[color=yellow]警告：[/color]OceanManager 找不到 Player 节点！请确保 Player 在 'player' 分组中。")
 
 	# 3. 从 GridMap 生成 OceanBlock
 	await get_tree().process_frame # 等待 GridMap 加载完成
@@ -91,11 +90,11 @@ func _ready():
 	grid_map.collision_layer = 0
 
 	# 5. 设置并启动初始延迟计时器 (如果需要)
-	if tsunami_start_delay > 0.0:
-		tsunami_start_timer.wait_time = tsunami_start_delay
-		tsunami_start_timer.one_shot = true
-		tsunami_start_timer.timeout.connect(trigger_tsunami)
-		tsunami_start_timer.start()
+	#if tsunami_start_delay > 0.0:
+		#tsunami_start_timer.wait_time = tsunami_start_delay
+		#tsunami_start_timer.one_shot = true
+		#tsunami_start_timer.timeout.connect(trigger_tsunami)
+		#tsunami_start_timer.start()
 
 
 # --- _physics_process 用于集中计算波动和碰撞 ---

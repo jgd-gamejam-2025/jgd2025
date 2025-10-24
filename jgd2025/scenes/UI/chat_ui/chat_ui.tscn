@@ -1,7 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://byhcpq4t56qc3"]
+[gd_scene load_steps=19 format=3 uid="uid://byhcpq4t56qc3"]
 
 [ext_resource type="Script" uid="uid://c8tlo7ig0ena6" path="res://scenes/UI/chat_ui/chat_ui.gd" id="1_h4ouj"]
-[ext_resource type="Shader" uid="uid://bshbnhjaxel3e" path="res://scenes/fps/pad/canvas_blur.gdshader" id="2_7gws6"]
 [ext_resource type="PackedScene" uid="uid://s0tf56xdbeog" path="res://scenes/UI/bubble_ui/detail_bubble.tscn" id="2_8ats8"]
 [ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="3_hksxt"]
 [ext_resource type="PackedScene" uid="uid://immlbpyxbb8m" path="res://scenes/UI/bubble_ui/flat_bubble.tscn" id="3_spcoe"]
@@ -10,21 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://db7chujuf7je8" path="res://scenes/UI/ProfilePic/profile_pic.tscn" id="5_8ats8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_td1kd"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_qn37w"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wk3ky"]
-width = 128
-height = 128
-noise = SubResource("FastNoiseLite_qn37w")
-in_3d_space = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mmueg"]
-shader = ExtResource("2_7gws6")
-shader_parameter/warp_texture = SubResource("NoiseTexture2D_wk3ky")
-shader_parameter/intensity = 0.2170000103075
-shader_parameter/tint_color = Color(0.90588236, 0.9490196, 0.96862745, 1)
-shader_parameter/tint_amount = 0.0250000011875
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wk3ky"]
 
@@ -74,7 +58,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h4ouj")
-qwen = false
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -84,15 +67,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_td1kd")
-
-[node name="Glass" type="ColorRect" parent="Panel"]
-material = SubResource("ShaderMaterial_mmueg")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Background" type="ColorRect" parent="Panel"]
 layout_mode = 1
@@ -171,7 +145,6 @@ text = "Eve"
 horizontal_alignment = 1
 
 [node name="ProfilePic" parent="Panel" instance=ExtResource("5_8ats8")]
-unique_name_in_owner = true
 layout_mode = 1
 
 [node name="Scroll" type="ScrollContainer" parent="Panel"]

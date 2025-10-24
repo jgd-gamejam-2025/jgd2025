@@ -5,6 +5,7 @@ extends Node
 var show_opening = true
 
 @export var maze2_scene: PackedScene
+var set_idx = -1
 
 @export var room_scene: PackedScene
 

@@ -7,12 +7,14 @@ extends Node3D
 @onready var set_template = $Set
 @export var last_bridge_scene: PackedScene
 
-var set_index = 2
-var correct_choices = [1, 3, 2]
+var set_index = 3
+var correct_choices = [1, 3, 2, 2]
 var choice = 0
 var curr_set
 
 func _ready():
+	if LevelManager.set_idx >= 0:
+		set_index = LevelManager.set_idx
 	pad.connect("pad_activated", _on_pad_pad_activated)
 	pad.connect("pad_deactivated", _on_pad_pad_deactivated)
 	Transition.end()
@@ -25,11 +27,10 @@ func _ready():
 
 	set_template.hide()
 	generate_set(Vector3(0,0,0))
-	curr_set.set_question("", "流体恋人", "流体怪人", "立体恋人")
-	$BigDoor.open_gate2()
-	await get_tree().create_timer(4).timeout
-	await get_tree().create_timer(12).timeout
-	get_notification("嘿，你看到什么了？")
+	set_current_level()
+	if set_index == 3:
+		player.global_position = curr_set.get_node("SaveStart2").global_position
+		play_ending()
 
 
 func generate_set(target_position: Vector3) -> void:
@@ -58,17 +59,26 @@ func load_next_set():
 		return
 	generate_set(next_position)
 	$Robot.position = next_position
+	set_current_level()
+
+func set_current_level():
 	match set_index:
 		0:
 			curr_set.set_question("", "流体恋人", "流体怪人", "立体恋人")
+			$BigDoor.open_gate2()
+			await get_tree().create_timer(4).timeout
+			get_notification("看起来我们正在深入……我的记忆？")
+			await get_tree().create_timer(12).timeout
+			get_notification("嘿，你看到什么了？")
 		1:
 			curr_set.set_question("", "回溯", "穿梭", "引力")
+			player.global_position = curr_set.get_node("SaveStart1").global_position
 		2:
 			curr_set.set_question("", "计算", "", "逻辑")
 			curr_set.mid.hide()
+			player.global_position = curr_set.get_node("SaveStart1").global_position
 		_:
-			return	
-	
+			pass
 
 func play_ending():
 	get_notification("这地方……要崩溃了？！")
@@ -87,9 +97,8 @@ func play_ending():
 	last_bridge.connect("ocean_started", _on_ocean_started)
 
 	var tween = create_tween()
-	tween.parallel()
-	tween.tween_property($Robot, "position", $Robot.position + Vector3(0, -500, -400), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	tween.tween_property($Robot, "rotation", Vector3(-PI/3, 0, 0), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.parallel().tween_property($Robot/Model, "rotation", Vector3(-PI/1.2, 0, 0), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.parallel().tween_property($Robot, "position", $Robot.position + Vector3(0, -250, 50), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 
 
 func get_notification(message: String, duration: float = 3.0, name_text: String = "Eve"):
@@ -119,6 +128,7 @@ func _on_walk_on_mid_body_entered() -> void:
 
 func _on_load_next_body_entered() -> void:
 	load_next_set()
+	LevelManager.save_game("maze2", {"set_index": set_index})
 
 func _on_parkour_started() -> void:
 	get_notification("快跑！这里要塌了！")

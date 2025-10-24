@@ -40,11 +40,10 @@ func set_question(question: String, opt1:String, opt2:String, opt3:String):
 	op2_label.text = opt2
 	op3_label.text = opt3
 	
-func open_load_gate():
+func close_load_gate():
 	var tween = create_tween()
 	tween.set_parallel()
-	tween.tween_property(%LoadGate, "position:x", %LoadGate.position.x - 30.0, 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
-
+	tween.tween_property(%LoadGate, "position:x", %LoadGate.position.x + 13.0, 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
 
 signal hell
 func _on_hell_body_entered(body: Node3D) -> void:
@@ -63,3 +62,9 @@ var sent_walk_on_mid = false
 func _on_air_bridge_body_entered(body: Node3D) -> void:
 	if body.name == "Player" and not sent_walk_on_mid:
 		walk_on_mid.emit()
+
+var close_door_triggered = false
+func _on_close_door_body_entered(body: Node3D) -> void:
+	if body.name == "Player" and not close_door_triggered:
+		close_door_triggered = true
+		close_load_gate()

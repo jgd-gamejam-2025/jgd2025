@@ -28,7 +28,7 @@ func _on_ocean_start_body_entered(body: Node3D) -> void:
 func _on_ocean_end_body_exited(body: Node3D) -> void:
 	if body.name == "Player" and not ocean_ended:
 		ocean_ended = true
-		player.look_at_target($Marker3D)
+		# player.look_at_target($Marker3D)
 		await get_tree().create_timer(3.0).timeout
 		Transition.set_and_start("坍塌", "")
 		LevelManager.to_room()
@@ -37,4 +37,4 @@ func _on_ocean_end_body_exited(body: Node3D) -> void:
 func _on_parkour_hell_body_entered(body: Node3D) -> void:
 	if not ocean_ended and not parkour_ended and body.name == "Player":
 		parkour_ended = true
-		print("Parkour ended")# todo: reload
+		LevelManager.load_game()

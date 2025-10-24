@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bysluvlg528e6"]
+[gd_scene load_steps=20 format=3 uid="uid://bysluvlg528e6"]
 
 [ext_resource type="Material" uid="uid://d27oxwekg1hsx" path="res://levels/tps_test_scene/material/white wall.tres" id="1_ubpq8"]
 [ext_resource type="Script" uid="uid://m0dgfvbn5ht7" path="res://levels/maze2/Set/set_2.gd" id="1_xhb0a"]
@@ -46,6 +46,9 @@ size = Vector3(17.235718, 33.481934, 61.978516)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mbv61"]
 size = Vector3(66.09421, 26.85199, 42.27658)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uy7mv"]
+size = Vector3(96.39904, 26.85199, 12.655897)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xhb0a"]
 size = Vector3(66.09421, 26.85199, 42.27658)
@@ -217,7 +220,7 @@ material = ExtResource("1_ubpq8")
 
 [node name="LoadGate" type="CSGBox3D" parent="CSGCombiner3D"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.556137, -9.553703, -109.293625)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -9.554, -109.294)
 use_collision = true
 size = Vector3(16.692322, 23.863892, 2.9002686)
 material = ExtResource("1_ubpq8")
@@ -389,6 +392,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6623383, -13.646854, 27.512
 shape = SubResource("BoxShape3D_mbv61")
 debug_color = Color(0.9663064, 0, 0.48431534, 0.41960785)
 
+[node name="CloseDoor" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -304)
+
+[node name="Option1" type="CollisionShape3D" parent="CloseDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5957756, -13.646854, -5.466278)
+shape = SubResource("BoxShape3D_uy7mv")
+debug_color = Color(0.9663064, 0, 0.48431534, 0.41960785)
+
 [node name="Hell" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -152)
 
@@ -396,6 +407,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -152)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6623383, -46.724247, -30.391434)
 shape = SubResource("BoxShape3D_xhb0a")
 debug_color = Color(0.9663064, 0, 0.48431534, 0.41960785)
+
+[node name="SaveStart1" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3416653, -14.616577, -154.63684)
+
+[node name="SaveStart2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3416653, -14.616577, -297.8504)
 
 [node name="NextPosition" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -152)
@@ -405,4 +422,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -152)
 [connection signal="body_entered" from="Judge/Option2" to="." method="_on_option_2_body_entered"]
 [connection signal="body_entered" from="Judge/Option3" to="." method="_on_option_3_body_entered"]
 [connection signal="body_entered" from="LoadNext" to="." method="_on_load_next_body_entered"]
+[connection signal="body_entered" from="CloseDoor" to="." method="_on_close_door_body_entered"]
 [connection signal="body_entered" from="Hell" to="." method="_on_hell_body_entered"]

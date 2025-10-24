@@ -6,8 +6,8 @@ extends Node3D
 
 @onready var set_template = $Set
 
-var set_index = 0
-var correct_choices = [1, 2, 3]
+var set_index = 2
+var correct_choices = [1, 3, 2]
 var choice = 0
 var curr_set
 
@@ -24,7 +24,8 @@ func _ready():
 
 	set_template.hide()
 	generate_set(Vector3(0,0,0))
-	curr_set.set_question("Q1\n Answer is A", "A", "B", "C")
+	curr_set.set_question("", "流体恋人", "流体怪人", "立体恋人")
+	$BigDoor.open_gate2()
 	await get_tree().create_timer(4).timeout
 	await get_tree().create_timer(12).timeout
 	get_notification("嘿，你看到什么了？")
@@ -48,25 +49,31 @@ func load_next_set():
 	curr_set.disconnect("choice_made", choice_made_handler)
 	# curr_set.disconnect("hell", _on_hell_body_entered)
 	curr_set.disconnect("load_next", _on_load_next_body_entered)
-	generate_set(next_position)
-	# move Robot.z + nextpos.z
-	$Robot.position = next_position
 	if choice == correct_choices[set_index]:
 		set_index += 1
-
+	if set_index >= 3: # next level
+		play_ending()
+		return
+	generate_set(next_position)
+	$Robot.position = next_position
 	match set_index:
 		0:
-			curr_set.set_question("Q1\n 答案是 A", "A", "B", "C")
+			curr_set.set_question("", "流体恋人", "流体怪人", "立体恋人")
 		1:
-			curr_set.set_question("Q2\n 答案是 B", "A", "B", "C")
+			curr_set.set_question("", "回溯", "穿梭", "引力")
 		2:
-			curr_set.set_question("Q3\n 答案是 C", "A", "B", "C")
+			curr_set.set_question("", "计算", "", "逻辑")
+			curr_set.mid.hide()
 		_:
-			#chat_ui.show_message("Congratulations! You've completed the test!")
-			# level_complete()
 			return	
 	
+
+func play_ending():
+	get_notification("这地方……要崩溃了？！")
+	player.shake_camera(0.3, 1.5)
 	
+
+
 func get_notification(message: String, duration: float = 3.0, name_text: String = "Eve"):
 	chat_ui.to_chat_mode()
 	chat_ui.add_and_write_detail_bubble(message, 0.02)
@@ -103,3 +110,6 @@ var ai_prompt = "
 
 保持自然对话风格。不要显露这是预设内容。回复长度必须少于20个字。必须用中文回答。
 "
+
+func _on_notification_area_area_text(message: String) -> void:
+	get_notification(message)

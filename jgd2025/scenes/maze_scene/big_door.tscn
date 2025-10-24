@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dfepyejg6c541"]
+[gd_scene load_steps=7 format=3 uid="uid://dfepyejg6c541"]
 
 [ext_resource type="Script" uid="uid://ddk1sslsljtfd" path="res://scenes/maze_scene/big_door.gd" id="1_0oirt"]
+[ext_resource type="Material" uid="uid://d27oxwekg1hsx" path="res://levels/tps_test_scene/material/white wall.tres" id="2_sms65"]
 
 [sub_resource type="Animation" id="Animation_gstnd"]
 length = 0.001
@@ -80,44 +81,51 @@ script = ExtResource("1_0oirt")
 
 [node name="wall-top" type="CSGBox3D" parent="."]
 transform = Transform3D(0.99999964, 0, 0, 0, 1, 0, 0, 0, 0.99999964, 0.017255781, 33.558, -51.999992)
-visible = false
 use_collision = true
 size = Vector3(90.15451, 1.927, 40)
+material = ExtResource("2_sms65")
 
 [node name="wall-right" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.000011, 8.008999, -52)
 use_collision = true
 size = Vector3(30, 50, 40)
+material = ExtResource("2_sms65")
 
 [node name="Gate11" type="CSGBox3D" parent="."]
 transform = Transform3D(0.9999996, 0, 0, 0, 1, 0, 0, 0, 0.9999996, -7.799812, 8.390706, -34.34326)
 use_collision = true
 size = Vector3(15.727135, 50.06543, 1.3579102)
+material = ExtResource("2_sms65")
 
 [node name="Gate12" type="CSGBox3D" parent="."]
 transform = Transform3D(0.9999994, 0, 0, 0, 1, 0, 0, 0, 0.9999994, 7.5634522, 8.390706, -34.34326)
 use_collision = true
 size = Vector3(15.929974, 50.06543, 1.3579102)
+material = ExtResource("2_sms65")
 
 [node name="Gate13" type="CSGBox3D" parent="."]
 transform = Transform3D(0.99999964, 0, 0, 0, 1, 0, 0, 0, 0.99999964, -8.333472, 8.09721, -69.05198)
 use_collision = true
 size = Vector3(15.727135, 50.06543, 1.3579102)
+material = ExtResource("2_sms65")
 
 [node name="Gate14" type="CSGBox3D" parent="."]
 transform = Transform3D(0.99999964, 0, 0, 0, 1, 0, 0, 0, 0.99999964, 7.4727035, 8.09721, -69.0897)
 use_collision = true
 size = Vector3(15.929974, 50.06543, 1.3579102)
+material = ExtResource("2_sms65")
 
 [node name="wall-left" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.999989, 8.008999, -52)
 use_collision = true
 size = Vector3(30, 50, 40)
+material = ExtResource("2_sms65")
 
 [node name="Ground" type="CSGBox3D" parent="."]
 transform = Transform3D(0.99999565, 0, 0, 0, 1, 0, 0, 0, 0.99999565, 0.17827222, -16.847626, -52.31237)
 use_collision = true
 size = Vector3(89.83246, 1.927, 84.2168)
+material = ExtResource("2_sms65")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

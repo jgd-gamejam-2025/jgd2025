@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bq4opogi4ewr4"
+path="res://.godot/imported/玩家键盘3.wav-0868c5b6726415c13b5c3a41eb802b0d.sample"
+
+[deps]
+
+source_file="res://Taptap Gamejam 2025/Originals/SFX/玩家键盘3.wav"
+dest_files=["res://.godot/imported/玩家键盘3.wav-0868c5b6726415c13b5c3a41eb802b0d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -133,13 +133,13 @@ name = "Default Work Unit"
 id = 125608783
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_5n8hf"]
-max_duration = 77.333336
-min_duration = 77.333336
-path = "\\Events\\Default Work Unit\\Play_begin"
+max_duration = 0.0
+min_duration = 0.0
+path = "\\Events\\Default Work Unit\\Begin_to_none"
 type = 3
-name = "Play_begin"
-guid = "{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}"
-id = 2375588297
+name = "Begin_to_none"
+guid = "{8933958D-ECCE-482E-805B-31EE01D162FD}"
+id = 3907958213
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_tnib1"]
 max_duration = 0.75

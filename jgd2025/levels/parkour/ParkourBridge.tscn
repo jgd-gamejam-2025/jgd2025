@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://o006o6vprn6c"]
 
-[ext_resource type="Script" uid="uid://b3kdq3bs0xnbw" path="res://levels/parkour/parkour_bridge.gd" id="1_gxp3h"]
+[ext_resource type="Script" path="res://levels/parkour/parkour_bridge.gd" id="1_gxp3h"]
 [ext_resource type="PackedScene" uid="uid://bope77266p2xs" path="res://levels/parkour/PatternManager.tscn" id="1_sgd4a"]
 [ext_resource type="Script" uid="uid://c1soy455neg0k" path="res://levels/parkour/InteractiveObstacleManger.gd" id="2_gxp3h"]
 [ext_resource type="Resource" uid="uid://cswu5htmg84k7" path="res://levels/parkour/up.tres" id="3_tpqbj"]
@@ -43,6 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
 [node name="obstacle2" type="Node3D" parent="InteractiveObstacle"]
 script = ExtResource("2_gxp3h")
 obstacle_action = ExtResource("3_tpqbj")
+allow_retrigger_after_return = false
 
 [node name="Area3D" type="Area3D" parent="InteractiveObstacle/obstacle2"]
 
@@ -89,6 +90,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -9)
 [node name="obstacle3" type="Node3D" parent="InteractiveObstacle"]
 script = ExtResource("2_gxp3h")
 obstacle_action = ExtResource("5_5rud2")
+allow_retrigger_after_return = false
 
 [node name="Area3D" type="Area3D" parent="InteractiveObstacle/obstacle3"]
 
@@ -207,6 +209,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -15)
 [node name="obstacle4" type="Node3D" parent="InteractiveObstacle"]
 script = ExtResource("2_gxp3h")
 obstacle_action = ExtResource("6_8q7b8")
+allow_retrigger_after_return = false
 
 [node name="Area3D" type="Area3D" parent="InteractiveObstacle/obstacle4"]
 
@@ -235,6 +238,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -26)
 [node name="obstacle5" type="Node3D" parent="InteractiveObstacle"]
 script = ExtResource("2_gxp3h")
 obstacle_action = ExtResource("5_5rud2")
+action_delay = 150.0
+allow_retrigger_after_return = false
 
 [node name="Area3D" type="Area3D" parent="InteractiveObstacle/obstacle5"]
 

@@ -216,8 +216,10 @@ func _process(_delta: float):
 	if Input.get_connected_joypads().size() != 0:
 		_handle_joy_camera_motion()
 
-
+var can_move_camera: bool = true
 func _handle_camera_motion() -> void:
+	if not can_move_camera:
+		return
 	rotate_y(mouse_motion.x * camera_sensitivity)
 	camera_pivot.rotate_x(mouse_motion.y  * camera_sensitivity)
 	

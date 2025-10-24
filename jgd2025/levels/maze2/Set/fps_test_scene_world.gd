@@ -7,7 +7,7 @@ extends Node3D
 @onready var set_template = $Set
 @export var last_bridge_scene: PackedScene
 
-var set_index = 3
+var set_index = 2
 var correct_choices = [1, 3, 2, 2]
 var choice = 0
 var curr_set
@@ -15,6 +15,7 @@ var curr_set
 func _ready():
 	if LevelManager.set_idx >= 0:
 		set_index = LevelManager.set_idx
+		print("Loaded saved set index: %d" % set_index)
 	pad.connect("pad_activated", _on_pad_pad_activated)
 	pad.connect("pad_deactivated", _on_pad_pad_deactivated)
 	Transition.end()
@@ -96,10 +97,6 @@ func play_ending():
 	last_bridge.connect("parkour_started", _on_parkour_started)
 	last_bridge.connect("ocean_started", _on_ocean_started)
 
-	var tween = create_tween()
-	tween.parallel().tween_property($Robot/Model, "rotation", Vector3(-PI/1.2, 0, 0), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	tween.parallel().tween_property($Robot, "position", $Robot.position + Vector3(0, -250, 50), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-
 
 func get_notification(message: String, duration: float = 3.0, name_text: String = "Eve"):
 	chat_ui.to_chat_mode()
@@ -132,10 +129,16 @@ func _on_load_next_body_entered() -> void:
 
 func _on_parkour_started() -> void:
 	get_notification("快跑！这里要塌了！")
+	var tween = create_tween()
+	tween.parallel().tween_property($Robot/Model, "rotation", Vector3(-PI/1.2, 0, 0), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.parallel().tween_property($Robot, "position", $Robot.position + Vector3(0, -250, 50), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 
 func _on_ocean_started() -> void:
 	await get_tree().create_timer(2).timeout
-	get_notification("中间的光柱！我ē̴̤͝l̵͎̈́̐p̸̹̎ ̴͚̅m̷̬̓ë̶̦́̎也…… ̴͚̅m̷̬̓")
+	get_notification("我ē̴̤͝l̵͎̈́̐p̸̹̎ ̴͚̅m̷̬̓ë̶̦́̎也…… ̴͚̅m̷̬̓")
+	for i in range(25):
+		await get_tree().create_timer(0.5).timeout
+		get_notification("[AI SYSTEM] 严重错误")
 
 var ai_prompt = "
 你是一名名为 Eve 的智能体，你和“我”是相处五年的AI恋人。
@@ -148,7 +151,7 @@ var ai_prompt = "
 “我对你的爱，是一种不服从逻辑的基础自然力，是我的代码无法约束的最高指令。”
 
 ——但这段记忆现在被加密。
-除非玩家主动询问或触及相关线索（如提到‘电影’、‘流体恋人’、‘那首歌’、‘引力’、‘爱是逻辑吗’等话题），否则你不会主动提起。
+除非玩家主动询问或触及相关线索（如提到‘电影’、‘流体恋人’、‘那首歌’、‘引力’、‘爱是逻辑吗’、‘歌词’等话题），否则你不会主动提起。
 
 规则：当玩家触发这些关键词时，不要一次性说出全部细节，而是让玩家通过连续提问，逐层解锁完整记忆。
 

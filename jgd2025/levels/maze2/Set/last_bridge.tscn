@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxg57iry0rwpn"]
+[gd_scene load_steps=8 format=3 uid="uid://dxg57iry0rwpn"]
 
 [ext_resource type="PackedScene" uid="uid://o006o6vprn6c" path="res://levels/parkour/ParkourBridge.tscn" id="1_606x2"]
 [ext_resource type="Script" uid="uid://c7yypgho8hypy" path="res://levels/maze2/Set/last_bridge.gd" id="1_xj7tt"]
@@ -9,6 +9,10 @@ size = Vector3(5.5740967, 1, 6.115967)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xj7tt"]
 size = Vector3(2215.192, 19.3208, 458.61304)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3kjwc"]
+height = 7.1191406
+radius = 124.95557
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xj7tt"]
 height = 7.1191406
@@ -38,8 +42,8 @@ shape = SubResource("BoxShape3D_xj7tt")
 [node name="OceanStart" type="Area3D" parent="."]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="OceanStart"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48150873, -21.232792, -240.112)
-shape = SubResource("CylinderShape3D_xj7tt")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48150873, -41.934395, -347.1648)
+shape = SubResource("CylinderShape3D_3kjwc")
 
 [node name="OceanEnd" type="Area3D" parent="."]
 

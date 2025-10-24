@@ -40,6 +40,7 @@ func generate_set(target_position: Vector3) -> void:
 	curr_set.connect("choice_made", choice_made_handler)
 	curr_set.connect("hell", _on_hell_body_entered)
 	curr_set.connect("load_next", _on_load_next_body_entered)
+	curr_set.connect("walk_on_mid", _on_walk_on_mid_body_entered)
 
 func choice_made_handler(idx: int) -> void:
 	print("Choice made: %d" % idx)
@@ -100,6 +101,15 @@ func _on_hell_body_entered() -> void:
 	Transition.set_and_start("正在重新加载……", "")
 	await get_tree().create_timer(0.5).timeout
 	LevelManager.to_maze2()
+
+func _on_walk_on_mid_body_entered() -> void:
+	print("Walked on mid")
+	if set_index == 2:
+		get_notification("隐形桥……？是没加载出来吗？")
+		await get_tree().create_timer(2).timeout
+		get_notification("这一切都太奇怪了")
+		await get_tree().create_timer(2).timeout
+		get_notification("这次会通向哪儿呢？")
 
 func _on_load_next_body_entered() -> void:
 	load_next_set()

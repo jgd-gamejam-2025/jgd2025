@@ -23,6 +23,7 @@ func show_notification(message: String, duration: float = 3.0, name_text: String
 	if _tween:
 		_tween.kill()
 	_tween = create_tween()
+	box.position.y = hide_pos.y  # Ensure starting from hidden position
 	_tween.tween_property(box, "position:y", show_pos.y, 0.35).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 

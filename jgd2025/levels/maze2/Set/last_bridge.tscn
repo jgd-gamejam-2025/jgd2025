@@ -1,48 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://dxg57iry0rwpn"]
+[gd_scene load_steps=7 format=3 uid="uid://dxg57iry0rwpn"]
 
 [ext_resource type="PackedScene" uid="uid://o006o6vprn6c" path="res://levels/parkour/ParkourBridge.tscn" id="1_606x2"]
 [ext_resource type="Script" uid="uid://c7yypgho8hypy" path="res://levels/maze2/Set/last_bridge.gd" id="1_xj7tt"]
 [ext_resource type="PackedScene" uid="uid://daxrvykcey2yk" path="res://levels/BlockOcean/ocean_scene.tscn" id="3_xj7tt"]
-[ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="4_3kjwc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_606x2"]
 size = Vector3(5.5740967, 1, 6.115967)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xj7tt"]
-size = Vector3(170.15674, 1, 125.32765)
+size = Vector3(2215.192, 19.3208, 458.61304)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xj7tt"]
-radius = 5.080078
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vxxld"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_aavk3"]
-sky_material = SubResource("ProceduralSkyMaterial_vxxld")
-
-[sub_resource type="Environment" id="Environment_gldua"]
-background_mode = 2
-sky = SubResource("Sky_aavk3")
-tonemap_mode = 2
-glow_enabled = true
-fog_light_color = Color(0.7, 0.75, 0.8, 1)
-fog_light_energy = 0.8
-fog_sun_scatter = 0.1
-fog_density = 0.015
-fog_aerial_perspective = 0.3
-fog_sky_affect = 0.5
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.02
-volumetric_fog_albedo = Color(0.75, 0.78, 0.85, 1)
-volumetric_fog_emission_energy = 0.0
-volumetric_fog_ambient_inject = 0.5
+height = 7.1191406
+radius = 13.928223
 
 [node name="LastBridge" type="Node3D"]
 script = ExtResource("1_xj7tt")
 
 [node name="OceanScene" parent="." instance=ExtResource("3_xj7tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -49.90796, -340.0597)
+transform = Transform3D(0.5694517, 0, -0.8220248, 0, 1, 0, 0.8220248, 0, 0.5694517, 0, -49.90796, -340.0597)
 
 [node name="Runway" parent="." instance=ExtResource("1_606x2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19.860016, -165.42914)
@@ -56,7 +32,7 @@ shape = SubResource("BoxShape3D_606x2")
 [node name="ParkourHell" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ParkourHell"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.220749, -46.41834, -205.51776)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 892.26483, -77.10601, -340.44952)
 shape = SubResource("BoxShape3D_xj7tt")
 
 [node name="OceanStart" type="Area3D" parent="."]
@@ -68,19 +44,11 @@ shape = SubResource("CylinderShape3D_xj7tt")
 [node name="OceanEnd" type="Area3D" parent="."]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="OceanEnd"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -76.2448, -351.84128)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06918335, -61.42845, -339.8727)
 shape = SubResource("CylinderShape3D_xj7tt")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_gldua")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
-
-[node name="Player" parent="." instance=ExtResource("4_3kjwc")]
-transform = Transform3D(1.0606601, 0, -1.0606601, 0, 1.5, 0, 1.0606601, 0, 1.0606601, -0.16898346, -8.659653, -291.00342)
-walk_speed = 5.0
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -340.6017)
 
 [connection signal="body_entered" from="ParkourStart" to="." method="_on_parkour_start_body_entered"]
 [connection signal="body_entered" from="ParkourHell" to="." method="_on_parkour_hell_body_entered"]

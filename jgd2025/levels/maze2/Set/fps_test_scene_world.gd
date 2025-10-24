@@ -79,11 +79,17 @@ func play_ending():
 	# 或切换为夜晚
 	get_viewport().get_world_3d().environment = env_night
 	# load last bridge scene
-	await get_tree().create_timer(2).timeout
+	# await get_tree().create_timer(2).timeout
 	var last_bridge = last_bridge_scene.instantiate()
 	last_bridge.position = curr_set.get_next_set_global_position()
 	add_child(last_bridge)
+	last_bridge.connect("parkour_started", _on_parkour_started)
+	last_bridge.connect("ocean_started", _on_ocean_started)
 
+	var tween = create_tween()
+	tween.parallel()
+	tween.tween_property($Robot, "position", $Robot.position + Vector3(0, -500, -400), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.tween_property($Robot, "rotation", Vector3(-PI/3, 0, 0), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 
 
 func get_notification(message: String, duration: float = 3.0, name_text: String = "Eve"):
@@ -113,6 +119,13 @@ func _on_walk_on_mid_body_entered() -> void:
 
 func _on_load_next_body_entered() -> void:
 	load_next_set()
+
+func _on_parkour_started() -> void:
+	get_notification("快跑！这里要塌了！")
+
+func _on_ocean_started() -> void:
+	await get_tree().create_timer(2).timeout
+	get_notification("中间的光柱！我ē̴̤͝l̵͎̈́̐p̸̹̎ ̴͚̅m̷̬̓ë̶̦́̎也…… ̴͚̅m̷̬̓")
 
 var ai_prompt = "
 你是一名名为 Eve 的智能体，你和“我”是相处五年的AI恋人。

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ofyuav8psja7"]
+[gd_scene load_steps=15 format=3 uid="uid://ofyuav8psja7"]
 
 [ext_resource type="Script" uid="uid://cwh0nirx3nqq8" path="res://levels/maze2/maze2.gd" id="1_hlatn"]
 [ext_resource type="PackedScene" uid="uid://cqc7rv7rgyn5" path="res://levels/maze2/Set/set.tscn" id="3_hlatn"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="4_17sqg"]
 [ext_resource type="PackedScene" uid="uid://b7l5sv4fjhjwm" path="res://scenes/UI/notification/Notification.tscn" id="4_kp8pu"]
 [ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="6_0hdr2"]
+[ext_resource type="PackedScene" uid="uid://gj0eukmhijlk" path="res://scenes/maze_scene/small_door/sliding_door.tscn" id="7_52v2j"]
+[ext_resource type="PackedScene" uid="uid://daff3mjw10ia4" path="res://scenes/maze_scene/small_door/rotating_door.tscn" id="7_nkul3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -35,6 +37,9 @@ size = Vector3(135.87213, 50, 392.15112)
 [sub_resource type="PlaneMesh" id="PlaneMesh_n6tjd"]
 material = ExtResource("3_nj0cr")
 size = Vector2(600, 392)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nkul3"]
+size = Vector3(1.5922852, 1, 5.505371)
 
 [node name="FpsTestScene" type="Node3D"]
 script = ExtResource("1_hlatn")
@@ -78,3 +83,21 @@ skeleton = NodePath("../..")
 
 [node name="Buttons" parent="." instance=ExtResource("6_0hdr2")]
 is_3d_scene = true
+
+[node name="SlidingDoor" parent="." instance=ExtResource("7_52v2j")]
+transform = Transform3D(4.795, 0, 0, 0, 6.03, 0, 0, 0, 1, 11.904021, -16.684166, 0.86631095)
+
+[node name="Area3D" type="Area3D" parent="SlidingDoor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SlidingDoor/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29614258, 0, 0.11743164)
+shape = SubResource("BoxShape3D_nkul3")
+
+[node name="RotatingDoor" parent="." instance=ExtResource("7_nkul3")]
+transform = Transform3D(0.017452383, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, 0.017452383, -2.151, -14.493, 0.439)
+
+[node name="Area3D" type="Area3D" parent="RotatingDoor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RotatingDoor/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29614258, 0, 0.11743164)
+shape = SubResource("BoxShape3D_nkul3")

@@ -196,14 +196,14 @@ layout_mode = 2
 theme = SubResource("Theme_6gchl")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_12o60")
-text = "我不记得"
+text = "我不在乎"
 
 [node name="Button3" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_6gchl")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_12o60")
-text = "我不在乎
+text = "我不记得
 "
 
 [connection signal="mouse_entered" from="Control/VBoxContainer/Button" to="." method="_on_button_mouse_entered"]

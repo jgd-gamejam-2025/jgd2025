@@ -71,9 +71,9 @@ grow_vertical = 0
 
 [node name="Dot" type="TextureRect" parent="Control"]
 layout_mode = 0
-offset_left = -412.75854
+offset_left = -468.80005
 offset_top = -220.0
-offset_right = -156.75854
+offset_right = -212.80005
 offset_bottom = 36.0
 scale = Vector2(0.15, 0.15)
 pivot_offset = Vector2(128, 128)
@@ -81,13 +81,13 @@ texture = SubResource("GradientTexture2D_pr44b")
 
 [node name="LoadingLabel" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = -255.75854
+offset_left = -311.80005
 offset_top = -109.0
-offset_right = -91.758545
+offset_right = -79.80005
 offset_bottom = -74.0
 theme = ExtResource("1_0r0tb")
 theme_override_font_sizes/font_size = 34
-text = "正在保存..."
+text = "请勿关闭电源"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
 libraries = {

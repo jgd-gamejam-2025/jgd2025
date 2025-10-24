@@ -39,6 +39,8 @@ func load_game() -> Dictionary:
 	
 	# Call the corresponding scene transition function
 	match scene_name:
+		"chat_1":
+			to_chat_1()
 		"eve_debug":
 			if scene_data.get("show_opening", true):
 				to_eve_debug()

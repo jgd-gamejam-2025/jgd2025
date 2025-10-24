@@ -118,7 +118,8 @@ func _physics_process(_delta):
 		# b. 根据距离动态开关碰撞体
 		if player: # 只有玩家存在时才进行优化
 			var block_pos_2d = block.global_position * Vector3(1, 0, 1)
-			var dist_sq = block_pos_2d.distance_squared_to(player_pos)
+			var player_pos_2d = player_pos * Vector3(1, 0, 1)
+			var dist_sq = block_pos_2d.distance_squared_to(player_pos_2d)
 			# 使用平方距离比较，避免开方运算，稍快一点
 			if dist_sq < collision_enable_radius * collision_enable_radius:
 				block.enable_collision()

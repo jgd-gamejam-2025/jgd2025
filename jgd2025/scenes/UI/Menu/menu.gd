@@ -2,17 +2,28 @@ extends CanvasLayer
 
 func _ready() -> void:
 	var tween = create_tween()
+	tween.tween_interval(1.5)
 	tween.tween_property($ColorRect/Image, "modulate:a", 1, 1.0)
 
 	if not LevelManager.has_save():
 		$ColorRect/MarginContainer/VBoxContainer/Continue.hide()
 		
-
+var clicked_button = false
 func _on_continue_pressed() -> void:
+	if clicked_button:
+		return
+	clicked_button = true
+	await get_tree().create_timer(0.2).timeout
+	Transition.set_and_start("正在连接……", "", 2)
 	LevelManager.load_game()
 
 
 func _on_new_game_pressed() -> void:
+	if clicked_button:
+		return
+	clicked_button = true
+	await get_tree().create_timer(0.2).timeout
+	Transition.set_and_start("正在连接……", "", 2)
 	LevelManager.to_chat_1()
 
 

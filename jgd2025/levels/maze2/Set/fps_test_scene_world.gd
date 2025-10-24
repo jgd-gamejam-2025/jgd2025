@@ -7,7 +7,7 @@ extends Node3D
 @onready var set_template = $Set
 @export var last_bridge_scene: PackedScene
 
-var set_index = 2
+var set_index = 0
 var correct_choices = [1, 3, 2, 2]
 var choice = 0
 var curr_set

@@ -11,9 +11,6 @@ extends CanvasLayer
 @onready var button3 = $Control/VBoxContainer/Button3
 
 func _ready() -> void:
-	Transition.set_and_start("坍塌", "", 3.0)
-	await get_tree().create_timer(5).timeout
-	Transition.set_and_start("还记得吗？", "《流体恋人》", 3.0)
 	label.modulate.a = 0
 	label2.modulate.a = 0
 	label3.modulate.a = 0
@@ -21,9 +18,10 @@ func _ready() -> void:
 	label5.modulate.a = 0
 	texture_rect.modulate.a = 0
 	vbox_container.hide()
+	Transition.set_and_start("还记得吗？", "《流体恋人》", 4.0)
 
 	var tween = create_tween()
-	tween.tween_interval(3.5)
+	tween.tween_interval(7)
 	tween.tween_property(texture_rect, "modulate:a", 1, 1.0)
 	# tween.tween_interval(2.5)
 	# tween.tween_property(label, "modulate:a", 1, 1.0)
@@ -35,7 +33,7 @@ func _ready() -> void:
 	# tween.tween_property(label4, "modulate:a", 1, 1.0)
 	# tween.tween_interval(1)
 	# tween.tween_property(label5, "modulate:a", 1, 1.0)
-	# tween.tween_interval(1)
+	tween.tween_interval(3)
 	tween.tween_callback(
 		func():
 			vbox_container.show()

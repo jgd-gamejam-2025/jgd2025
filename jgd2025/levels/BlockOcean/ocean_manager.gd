@@ -71,7 +71,7 @@ func _ready():
 		var world_pos = cells_and_world_pos[cell]
 
 		var block_instance: OceanBlock = ocean_block_scene.instantiate()
-		block_instance.global_position = world_pos # 直接设置世界坐标
+		block_instance.position = self.to_local(world_pos)
 		add_child(block_instance)
 
 		# **调用新函数来设置波纹参数** (用于向心波浪)

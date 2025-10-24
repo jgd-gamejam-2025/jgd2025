@@ -3,8 +3,9 @@ extends Node3D
 @onready var pad = $Player.pad
 @onready var chat_ui = pad.chat_ui
 @onready var notification_box = $Notification
-
+@onready var player = $Player
 @onready var set_template = $Set
+@export var last_bridge_scene: PackedScene
 
 var set_index = 2
 var correct_choices = [1, 3, 2]
@@ -70,8 +71,18 @@ func load_next_set():
 
 func play_ending():
 	get_notification("这地方……要崩溃了？！")
+	await get_tree().create_timer(0.5).timeout
+	Transition.set_and_start("崩溃","",0.5)
 	player.shake_camera(0.3, 1.5)
-	
+	var env_night = preload("res://levels/BlockOcean/OceanLevelSky.tres")
+	# 或切换为夜晚
+	get_viewport().get_world_3d().environment = env_night
+	# load last bridge scene
+	await get_tree().create_timer(2).timeout
+	var last_bridge = last_bridge_scene.instantiate()
+	last_bridge.position = curr_set.get_next_set_global_position()
+	add_child(last_bridge)
+
 
 
 func get_notification(message: String, duration: float = 3.0, name_text: String = "Eve"):

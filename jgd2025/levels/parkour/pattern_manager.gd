@@ -87,8 +87,9 @@ func _ready():
 			# 如果设置了初始延迟，就等待
 			get_tree().create_timer(initial_delay).timeout.connect(_start_pattern)
 		else:
-			# 否则，立即开始
-			_start_pattern()
+			pass
+			# 否则，等待
+			#_start_pattern()
 	# --- **结束改动** ---
 
 

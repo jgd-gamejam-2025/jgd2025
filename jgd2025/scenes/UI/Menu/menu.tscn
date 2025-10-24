@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://bco451gkhafpk"]
+
+[ext_resource type="FontFile" uid="uid://bgivy0rnvhhw4" path="res://scenes/UI/fonts/SourceHanSansCN-Heavy.otf" id="1_evtfc"]
+[ext_resource type="FontFile" uid="uid://dpx5atk0qm3yy" path="res://scenes/UI/fonts/SourceHanSansCN-Regular.otf" id="2_d2hwh"]
+[ext_resource type="Texture2D" uid="uid://btpygk6sp4sf3" path="res://assets/Eve/poster - 副本.png" id="3_d2hwh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_877lm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yv4w8"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mlhdq"]
+
+[sub_resource type="Theme" id="Theme_am11f"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("2_d2hwh")
+Button/styles/focus = SubResource("StyleBoxEmpty_877lm")
+Button/styles/hover = SubResource("StyleBoxFlat_yv4w8")
+Button/styles/normal = SubResource("StyleBoxEmpty_mlhdq")
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 679.0
+offset_top = 105.0
+offset_right = 3159.0
+offset_bottom = 2387.0
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("3_d2hwh")
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1035.0
+offset_top = 299.0
+offset_right = -744.0
+offset_bottom = 518.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 95
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_am11f")
+text = "继续"
+
+[node name="Button2" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_am11f")
+text = "新游戏"
+
+[node name="Button3" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_am11f")
+text = "退出"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 840.0
+offset_top = 680.0
+offset_right = 1140.0
+offset_bottom = 830.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_evtfc")
+theme_override_font_sizes/font_size = 150
+text = "EVE"

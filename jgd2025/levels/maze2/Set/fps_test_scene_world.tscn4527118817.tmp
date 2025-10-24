@@ -891,7 +891,7 @@ shape = SubResource("BoxShape3D_nx4w8")
 [node name="Player" parent="." instance=ExtResource("3_nx4w8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
 floor_snap_length = 0.35
-sprint_speed = 50.0
+walk_speed = 50.0
 
 [node name="light" type="Node" parent="."]
 

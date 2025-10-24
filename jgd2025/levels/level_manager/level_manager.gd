@@ -5,7 +5,7 @@ extends Node
 var show_opening = true
 
 @export var maze2_scene: PackedScene
-var set_idx = -1
+var set_index = -1
 
 @export var room_scene: PackedScene
 
@@ -48,6 +48,8 @@ func load_game() -> Dictionary:
 			else:
 				restart_eve_debug()
 		"maze2":
+			if scene_data.get("set_index", -1) != -1:
+				set_index = scene_data["set_index"]
 			to_maze2()
 		"room":
 			to_room()
@@ -93,7 +95,7 @@ func to_maze2():
 	curr_scene = "maze2"
 	get_tree().change_scene_to_packed(maze2_scene)
 	await get_tree().create_timer(0.5).timeout
-	save_game(curr_scene, {})
+	save_game(curr_scene, {"set_index": set_index})
 
 func to_room():
 	curr_scene = "room"

@@ -13,8 +13,8 @@ var choice = 0
 var curr_set
 
 func _ready():
-	if LevelManager.set_idx >= 0:
-		set_index = LevelManager.set_idx
+	if LevelManager.set_index >= 0:
+		set_index = LevelManager.set_index
 		print("Loaded saved set index: %d" % set_index)
 	pad.connect("pad_activated", _on_pad_pad_activated)
 	pad.connect("pad_deactivated", _on_pad_pad_deactivated)
@@ -82,9 +82,9 @@ func set_current_level():
 			pass
 
 func play_ending():
+	Transition.set_and_start("崩溃","",0.75)
+	await get_tree().create_timer(1).timeout
 	get_notification("这地方……要崩溃了？！")
-	await get_tree().create_timer(0.5).timeout
-	Transition.set_and_start("崩溃","",0.5)
 	player.shake_camera(0.3, 1.5)
 	var env_night = preload("res://levels/BlockOcean/OceanLevelSky.tres")
 	# 或切换为夜晚

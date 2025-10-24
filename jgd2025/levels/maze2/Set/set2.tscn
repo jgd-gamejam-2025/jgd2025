@@ -45,7 +45,7 @@ size = Vector3(17.235718, 33.481934, 33.49231)
 size = Vector3(17.235718, 33.481934, 61.978516)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mbv61"]
-size = Vector3(66.09421, 26.85199, 42.27658)
+size = Vector3(26.565605, 26.85199, 15.8352585)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uy7mv"]
 size = Vector3(96.39904, 26.85199, 12.655897)
@@ -388,7 +388,7 @@ script = ExtResource("3_7h38i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -304)
 
 [node name="Option1" type="CollisionShape3D" parent="LoadNext"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6623383, -13.646854, 27.51294)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.008564, -13.646854, 40.733612)
 shape = SubResource("BoxShape3D_mbv61")
 debug_color = Color(0.9663064, 0, 0.48431534, 0.41960785)
 

@@ -59,6 +59,16 @@
 				</Event>
 				<Event Name="Plau_AI_Typing_Fault" ID="{C6E972AC-BD49-4AFD-9E6C-8066C6F12647}">
 					<ChildrenList>
+						<Action Name="" ID="{D66206E3-A3CA-4281-9D82-65AA508228BF}" ShortID="300205399">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Typing_AI" ID="{2AD54B30-A23C-4FBA-A5A7-D0EAA7FE62AE}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 						<Action Name="" ID="{717CAC08-C575-4C85-B888-5969AEFA43E3}" ShortID="32510157">
 							<ReferenceList>
 								<Reference Name="Target">

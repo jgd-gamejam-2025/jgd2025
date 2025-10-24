@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dlny5a4u2b1dh"
+path="res://.godot/imported/迷宫落地.wav-e99dd41c6eb526d210c8cf09e80e6563.sample"
+
+[deps]
+
+source_file="res://Taptap Gamejam 2025/Originals/SFX/迷宫落地.wav"
+dest_files=["res://.godot/imported/迷宫落地.wav-e99dd41c6eb526d210c8cf09e80e6563.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

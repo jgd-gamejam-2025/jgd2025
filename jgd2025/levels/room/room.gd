@@ -84,7 +84,9 @@ func _on_use_e_pressed() -> void:
 	print("USE_E detected in room.gd")
 	
 func _on_use_f_pressed() -> void:
-	# next_step()
+	next_step()
+	if curr_room == 4:
+		play_ending()
 	pass
 
 func _on_pad_pad_activated() -> void:
@@ -94,12 +96,16 @@ func _on_pad_pad_deactivated() -> void:
 	pass
 
 var used_terminal: bool = false
+var newspaper_on: bool = false
 func _on_player_interact_obj(target: Node) -> void:
 	if target.name == "Newspaper":
-		if not $Props.visible:
+		if newspaper_on:
+			$Props.hide()
+		else:
 			$Props.show()
-			
+		newspaper_on = not newspaper_on
 		return
+
 	if target.name == "Monitor" and terminal.visible == false and not used_terminal:
 		terminal.output_area.text = ""
 		terminal.show()
@@ -360,6 +366,7 @@ func play_ending():
 	tween.tween_interval(0.2)
 	tween.tween_callback(func():
 		blow_away(room4.get_node("sm_right_wall"), 4, false)
+		blow_away(room4.get_node("Poster"), 3, false)
 	)
 	tween.tween_interval(0.2)
 	tween.tween_callback(func():

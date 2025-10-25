@@ -50,3 +50,6 @@ func set_and_start(new_bg_text: String, new_center_text: String, wait_time: floa
 
 func show_EVE():
 	$EVE.show()
+	show()
+	await get_tree().create_timer(2).timeout
+	$EVE/Label.show()

@@ -140,7 +140,7 @@ func _on_ocean_started() -> void:
 	# Generally dim the light
 	var tween = create_tween()
 	var env := get_viewport().get_world_3d().environment
-	tween.parallel().tween_property($DirectionalLight3D, "light_energy", 0.1, 5)
+	tween.parallel().tween_property($DirectionalLight3D, "light_energy", 0.05, 5)
 	# tween.parallel().tween_property($DirectionalLight3D, "shadow_opacity", 0.3, 5)
 	tween.parallel().tween_property(env, "fog_density", 0.0, 5)
 	await get_tree().create_timer(2).timeout

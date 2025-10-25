@@ -15,7 +15,7 @@ func _ready() -> void:
 	var flip_count = 0
 	var max_flips = 21
 	
-	await get_tree().create_timer(2.0)
+	await get_tree().create_timer(3.0)
 	Transition.end()
 
 	var tween = create_tween()
@@ -66,8 +66,7 @@ func _on_text_input_text_submitted(new_text: String) -> void:
 		input_field.editable = false
 		await _type_target_text()
 		get_tree().root.set_input_as_handled()
-	else:
-		# proceed to next scene
-		Transition.set_and_start("", "")
-		await get_tree().create_timer(0.5).timeout
-		LevelManager.to_room()
+	# proceed to next scene
+	Transition.set_and_start("", "")
+	await get_tree().create_timer(0.5).timeout
+	LevelManager.to_room()

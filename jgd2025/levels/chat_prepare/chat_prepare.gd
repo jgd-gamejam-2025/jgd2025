@@ -33,7 +33,7 @@ func create_sequence() -> Tween:
 	return _tween
 
 func _ready():
-	chat_ui.set_ai_name("Eve制作组")
+	chat_ui.set_ai_name("Eve")
 	chat_ui.profile_pic.show_eve2()
 	chat_ui.detail_bubble.get_node("Control/ProfilePic").show_eve2()
 	chat_ui.image_bubble.get_node("Control/ProfilePic").show_eve2()

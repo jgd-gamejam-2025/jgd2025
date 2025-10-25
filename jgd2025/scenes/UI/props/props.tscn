@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://fn682jbuv6dh"]
+[gd_scene load_steps=11 format=3 uid="uid://fn682jbuv6dh"]
 
 [ext_resource type="Script" uid="uid://b14tcadpproqk" path="res://props.gd" id="1_qfnhk"]
 [ext_resource type="Texture2D" uid="uid://77lb7leqfqtd" path="res://assets/models/room/props/sm_newspaper_0.png" id="2_qp50g"]
 [ext_resource type="FontFile" uid="uid://b2u8q1nfy714o" path="res://scenes/UI/fonts/SourceHanSerifCN-Regular.otf" id="3_qp50g"]
+[ext_resource type="FontFile" uid="uid://qwvdvl2lpmdj" path="res://scenes/UI/fonts/SourceHanSansCN-ExtraLight.otf" id="4_g3s1g"]
 
 [sub_resource type="Gradient" id="Gradient_tupck"]
 offsets = PackedFloat32Array(0, 0.50318474, 1)
@@ -22,6 +23,15 @@ border_width_bottom = 40
 border_color = Color(0, 0, 0, 0.7764706)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7fgm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7fgm"]
+bg_color = Color(0, 0, 0, 0.7764706)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c3qpn"]
 
 [node name="Props" type="CanvasLayer"]
 script = ExtResource("1_qfnhk")
@@ -80,3 +90,21 @@ text = "《河畔日报》 – 2050年6月15日
 
 目前警方与技术部门正在调查，事故是否与自动驾驶系统的软件异常有关。"
 fit_content = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -232.0
+offset_top = -115.0
+offset_right = -68.0
+offset_bottom = -68.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_g3s1g")
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = SubResource("StyleBoxFlat_t7fgm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c3qpn")
+text = "按E关闭"

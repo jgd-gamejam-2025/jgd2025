@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://da38xev2hnr3u"]
+[gd_scene load_steps=5 format=3 uid="uid://da38xev2hnr3u"]
 
 [ext_resource type="Script" uid="uid://drifc33vtvx66" path="res://scenes/UI/TransitionUI/transition.gd" id="1_e5s63"]
 [ext_resource type="Theme" uid="uid://csjhowu7j47ua" path="res://scenes/UI/TransitionUI/transition.tres" id="2_5lax8"]
 [ext_resource type="Texture2D" uid="uid://bet3p2j6e5as5" path="res://assets/Eve/title_white.png" id="3_pr44b"]
+[ext_resource type="Theme" uid="uid://byj5ikantfwqn" path="res://scenes/UI/Menu/menu.tres" id="4_wrsch"]
 
 [node name="Transition" type="CanvasLayer"]
 layer = 5
@@ -175,7 +176,6 @@ text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="EVE" type="ColorRect" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -197,3 +197,21 @@ offset_bottom = 182.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_pr44b")
+
+[node name="Label" type="Label" parent="EVE"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -172.0
+offset_top = -376.0
+offset_right = 172.0
+offset_bottom = -257.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_wrsch")
+theme_override_font_sizes/font_size = 86
+text = "感谢游玩"

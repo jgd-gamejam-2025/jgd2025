@@ -111,7 +111,6 @@ transform = Transform3D(-0.49999997, 0, 4.3711385e-08, 0, 0.5, 0, -4.3711385e-08
 
 [node name="Newspaper" parent="RoomSet2" instance=ExtResource("15_kseuc")]
 transform = Transform3D(0.89501876, 0, -1.7885585, 0, 2, 0, 1.7885585, 0, 0.89501876, -5.514605, 2.0101907, -9.423201)
-visible = false
 
 [node name="TrueDoor3" parent="." instance=ExtResource("4_2akcw")]
 transform = Transform3D(0.49999994, 0, 0, 0, -0.49999988, 7.549789e-08, 0, -7.549788e-08, -0.49999994, 0.75042725, 1.2183394, -0.36469507)

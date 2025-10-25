@@ -3,7 +3,7 @@ extends Node
 signal credit_ended
 
 func _ready():
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(4.0).timeout
 	Transition.end()
 	next_step()
 

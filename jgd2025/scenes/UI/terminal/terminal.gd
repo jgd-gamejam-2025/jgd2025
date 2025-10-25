@@ -203,7 +203,7 @@ func write_art_sync(text: String, output_area: RichTextLabel = output_area, keep
 					var current_line = ""
 					# Process each character up to current position
 					for j in range(min(pos, line.length())):
-						if line[j] == "X":
+						if line[j] != " ":
 							# Get a random character
 							current_line += chars[randi() % chars_length]
 						else:

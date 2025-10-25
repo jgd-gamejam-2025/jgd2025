@@ -35,6 +35,9 @@ var target_scales_y: Dictionary = {} # 存储每个牙齿的目标 scale.y
 # --- **结束改回** ---
 var is_closed: bool = false
 var active_tweens: Array[Tween] = []
+var retracted_scale_y: float = 0.1  # 门牙缩回时的 scale.y
+
+@export var will_open: bool = false  # 如果为true，门初始关闭，触发时打开
 
 
 func _ready():
@@ -80,20 +83,39 @@ func _ready():
 			else:
 				teeth_right.append(child)
 
-			# --- **改回**: 将初始 scale.y 设为 0.1 ---
-			child.scale.y = 0.1
-			# --- **结束改回** ---
+			# --- **修改**: 根据 will_open 设置初始状态 ---
+			if will_open:
+				# 如果 will_open 为 true，门初始是关闭的（伸出）
+				child.scale.y = target_scale_y
+			else:
+				# 否则门初始是打开的（缩回）
+				child.scale.y = 0.1
+			# --- **结束修改** ---
 
 
-	# 5. 禁用关闭碰撞体 (同之前)
-	closed_collision.set_collision_layer_value(1, false)
-	closed_collision.set_collision_mask_value(1, false)
+	# 5. 根据 will_open 设置初始碰撞和状态
+	if will_open:
+		# 门初始关闭，启用碰撞
+		is_closed = true
+		closed_collision.set_collision_layer_value(1, true)
+		closed_collision.set_collision_mask_value(1, true)
+	else:
+		# 门初始打开，禁用碰撞
+		is_closed = false
+		closed_collision.set_collision_layer_value(1, false)
+		closed_collision.set_collision_mask_value(1, false)
 
 
-# --- ( _on_trigger_area_body_entered 保持不变 ) ---
 func _on_trigger_area_body_entered(body):
-	if not is_closed and body.is_in_group("player"):
-		close_door()
+	if body.is_in_group("player"):
+		if will_open:
+			# will_open 模式：门关着，触发打开
+			if is_closed:
+				open_door()
+		else:
+			# 正常模式：门开着，触发关闭
+			if not is_closed:
+				close_door()
 
 # --- ( close_door 函数，大部分逻辑改回 Y 轴 scale ) ---
 func close_door():
@@ -178,3 +200,61 @@ func _exit_tree():
 		if tween:
 			tween.kill()
 	active_tweens.clear()
+
+
+func open_door():
+	"""打开门，将所有门牙缩回到初始位置"""
+	if not is_closed:
+		return  # 门已经是开着的
+	
+	is_closed = false
+	
+	# 禁用关闭碰撞体
+	if is_instance_valid(closed_collision):
+		closed_collision.set_collision_layer_value(1, false)
+		closed_collision.set_collision_mask_value(1, false)
+	
+	# 重新启用触发器（可选）
+	if is_instance_valid(trigger_area):
+		trigger_area.monitoring = true
+	
+	# 停止所有活动的 tween
+	for tween in active_tweens:
+		if tween:
+			tween.kill()
+	active_tweens.clear()
+	
+	var all_teeth = teeth_left + teeth_right
+	var max_tween_duration = 0.0
+	
+	for tooth in all_teeth:
+		var current_scale_y = tooth.scale.y
+		var target_retracted_scale_y = retracted_scale_y
+		var scale_difference = abs(current_scale_y - target_retracted_scale_y)
+		
+		if scale_difference < 0.01:
+			continue
+		
+		# 使用随机速度计算缩回时间
+		var random_speed = randf_range(random_speed_min, random_speed_max)
+		var retract_duration = scale_difference / random_speed if random_speed > 0 else 1.0
+		
+		var tween = create_tween()
+		active_tweens.append(tween)
+		
+		# 缩回到初始 scale.y
+		tween.tween_property(tooth, "scale:y", target_retracted_scale_y, retract_duration)\
+			 .set_trans(Tween.TRANS_SINE)\
+			 .set_ease(Tween.EASE_IN_OUT)
+		
+		if retract_duration > max_tween_duration:
+			max_tween_duration = retract_duration
+	
+	# 等待所有动画完成
+	if not all_teeth.is_empty():
+		get_tree().create_timer(max_tween_duration).timeout.connect(func():
+			print("滑动门(Scale Y)已打开")
+			active_tweens.clear()
+		)
+	else:
+		print("滑动门(Scale Y)已打开")

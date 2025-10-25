@@ -8,6 +8,7 @@ extends Node3D
 @export var target_rotation_degrees: float = 90.0
 @export var rotation_axis: Vector3 = Vector3.UP
 @export var center_x_position: float = 0.0
+@export var will_open: bool = false  # 如果为true，门初始关闭，触发时打开
 
 # --- 内部变量 ---
 # 【修改】使用 $ 符号自动查找子节点
@@ -19,6 +20,7 @@ var trigger_area: Area3D = null # 将在 _ready 中查找
 var teeth_left: Array[Node3D] = []
 var teeth_right: Array[Node3D] = []
 var is_closed: bool = false
+var initial_rotations: Dictionary = {}  # 存储每个门牙的初始旋转
 
 
 func _ready():
@@ -57,6 +59,8 @@ func _ready():
 	# (修改：只在 teeth_container 里查找牙齿)
 	for child in teeth_container.get_children():
 		if child is Node3D: # 假设 DoorTooth 的根是 Node3D
+			# 保存初始旋转
+			initial_rotations[child] = child.rotation
 			if child.position.x < center_x_position:
 				temp_left.append(child)
 			else:
@@ -68,15 +72,44 @@ func _ready():
 	teeth_left = temp_left
 	teeth_right = temp_right
 
-	# 6. 禁用关闭碰撞体 (同之前)
-	closed_collision.set_collision_layer_value(1, false)
-	closed_collision.set_collision_mask_value(1, false)
+	# 6. 根据 will_open 设置初始状态
+	if will_open:
+		# 门初始关闭，立即旋转到关闭位置
+		_set_door_closed_instantly()
+		is_closed = true
+		closed_collision.set_collision_layer_value(1, true)
+		closed_collision.set_collision_mask_value(1, true)
+	else:
+		# 门初始打开，禁用碰撞
+		is_closed = false
+		closed_collision.set_collision_layer_value(1, false)
+		closed_collision.set_collision_mask_value(1, false)
+
+
+func _set_door_closed_instantly():
+	"""立即将门设置到关闭状态（无动画）"""
+	var target_rotation_rad_left = deg_to_rad(target_rotation_degrees)
+	var target_rotation_rad_right = deg_to_rad(-target_rotation_degrees)
+	
+	for tooth in teeth_left:
+		if tooth in initial_rotations:
+			tooth.rotation = initial_rotations[tooth] + rotation_axis.normalized() * target_rotation_rad_left
+	
+	for tooth in teeth_right:
+		if tooth in initial_rotations:
+			tooth.rotation = initial_rotations[tooth] + rotation_axis.normalized() * target_rotation_rad_right
 
 
 func _on_trigger_area_body_entered(body):
-	# (保持不变)
-	if not is_closed and body.is_in_group("player"):
-		close_door()
+	if body.is_in_group("player"):
+		if will_open:
+			# will_open 模式：门关着，触发打开
+			if is_closed:
+				open_door()
+		else:
+			# 正常模式：门开着，触发关闭
+			if not is_closed:
+				close_door()
 
 
 func close_door():
@@ -122,3 +155,43 @@ func close_door():
 			closed_collision.set_collision_mask_value(1, true)
 			print("旋转门已关闭")
 	)
+
+
+func open_door():
+	"""打开门，将所有门牙旋转回初始位置"""
+	if not is_closed:
+		return  # 门已经是开着的
+	
+	is_closed = false
+	
+	# 禁用关闭碰撞体
+	if is_instance_valid(closed_collision):
+		closed_collision.set_collision_layer_value(1, false)
+		closed_collision.set_collision_mask_value(1, false)
+	
+	# 重新启用触发器（可选）
+	if is_instance_valid(trigger_area):
+		trigger_area.monitoring = true
+	
+	var tween = create_tween()
+	tween.set_parallel(true)
+	
+	# 将左侧门牙旋转回初始位置
+	for i in range(teeth_left.size()):
+		var tooth = teeth_left[i]
+		var delay = i * delay_per_row
+		if tooth in initial_rotations:
+			tween.tween_property(tooth, "rotation", initial_rotations[tooth], close_duration)\
+				 .set_delay(delay)\
+				 .set_ease(Tween.EASE_IN_OUT)
+	
+	# 将右侧门牙旋转回初始位置
+	for i in range(teeth_right.size()):
+		var tooth = teeth_right[i]
+		var delay = i * delay_per_row
+		if tooth in initial_rotations:
+			tween.tween_property(tooth, "rotation", initial_rotations[tooth], close_duration)\
+				 .set_delay(delay)\
+				 .set_ease(Tween.EASE_IN_OUT)
+	
+	print("旋转门已打开")

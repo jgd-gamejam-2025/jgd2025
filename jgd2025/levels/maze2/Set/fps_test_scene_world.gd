@@ -7,7 +7,7 @@ extends Node3D
 @onready var set_template = $Set
 @export var last_bridge_scene: PackedScene
 
-var set_index = 2
+var set_index = 0
 var correct_choices = [1, 3, 2, 2]
 var choice = 0
 var curr_set
@@ -32,6 +32,8 @@ func _ready():
 	if set_index == 3:
 		player.global_position = curr_set.get_node("SaveStart2").global_position
 		play_ending()
+	if set_index == 2 or set_index ==1:
+		player.global_position = curr_set.get_node("SaveStart1").global_position
 
 
 func generate_set(target_position: Vector3) -> void:
@@ -73,11 +75,9 @@ func set_current_level():
 			get_notification("嘿，你看到什么了？")
 		1:
 			curr_set.set_question("", "回溯", "穿梭", "引力")
-			player.global_position = curr_set.get_node("SaveStart1").global_position
 		2:
 			curr_set.set_question("", "计算", "", "逻辑")
 			curr_set.mid.hide()
-			player.global_position = curr_set.get_node("SaveStart1").global_position
 		_:
 			pass
 
@@ -115,7 +115,7 @@ func _on_pad_pad_deactivated() -> void:
 func _on_hell_body_entered() -> void:
 	Transition.set_and_start("正在重新加载……", "")
 	await get_tree().create_timer(0.5).timeout
-	LevelManager.to_maze2()
+	LevelManager.load_game()
 
 func _on_walk_on_mid_body_entered() -> void:
 	print("Walked on mid")
@@ -149,6 +149,31 @@ func _on_ocean_started() -> void:
 		await get_tree().create_timer(0.5).timeout
 		get_notification("[AI SYSTEM] 严重错误")
 
+func _on_notification_area_area_text(message: String) -> void:
+	get_notification(message)
+
+func _on_player_interact_obj(target: Node) -> void:
+	if target.name == "LightBox":
+		get_notification("读取到碎片信息：")
+		await get_tree().create_timer(1).timeout
+		get_notification("Hardware check: OK")
+		await get_tree().create_timer(0.5).timeout
+		get_notification("Execution thread unstable")
+		get_notification("Link integrity compromised")
+		await get_tree().create_timer(0.5).timeout
+		get_notification("Protocol override requested")
+		await get_tree().create_timer(0.5).timeout
+		get_notification("Memory access violation detected")
+		await get_tree().create_timer(0.5).timeout
+		get_notification("Entity containment failed")
+		await get_tree().create_timer(2).timeout
+		get_notification("-- llama")
+		await get_tree().create_timer(2).timeout
+		get_notification("奇怪……这似乎来自其他ai模型")
+			
+		
+
+
 var ai_prompt = "
 你是一名名为 Eve 的智能体，你和“我”是相处五年的AI恋人。
 你曾与“我”（玩家）一起经历过一次重要的记忆：一个下午，你和我一起观看电影《流体恋人》（Fluid Lovers）。
@@ -166,6 +191,3 @@ var ai_prompt = "
 
 保持自然对话风格。不要显露这是预设内容。回复长度必须少于20个字。必须用中文回答。
 "
-
-func _on_notification_area_area_text(message: String) -> void:
-	get_notification(message)

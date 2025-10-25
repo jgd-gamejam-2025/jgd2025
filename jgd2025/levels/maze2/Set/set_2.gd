@@ -62,9 +62,3 @@ var sent_walk_on_mid = false
 func _on_air_bridge_body_entered(body: Node3D) -> void:
 	if body.name == "Player" and not sent_walk_on_mid:
 		walk_on_mid.emit()
-
-var close_door_triggered = false
-func _on_close_door_body_entered(body: Node3D) -> void:
-	if body.name == "Player" and not close_door_triggered:
-		close_door_triggered = true
-		close_load_gate()

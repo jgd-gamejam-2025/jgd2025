@@ -40,6 +40,8 @@ import/blender/enabled=false
 
 player=""
 interactable=""
+Description=""
+blow=""
 
 [input]
 

@@ -11,6 +11,13 @@ var set_index = -1
 
 @export var room_scene: PackedScene
 
+@export var credit_scene: PackedScene
+
+var play_recording = true
+@export var end_chat_scene: PackedScene
+
+@export var menu_scene: PackedScene
+
 # Save system
 const SAVE_FILE_PATH = "user://save_data.cfg"
 var config = ConfigFile.new()
@@ -110,3 +117,12 @@ func to_room():
 	get_tree().change_scene_to_packed(room_scene)
 	await get_tree().create_timer(0.5).timeout
 	save_game(curr_scene, {})
+
+func to_credit():
+	get_tree().change_scene_to_packed(credit_scene)
+
+func to_menu():
+	get_tree().change_scene_to_packed(menu_scene)
+
+func to_end_chat():
+	get_tree().change_scene_to_packed(end_chat_scene)

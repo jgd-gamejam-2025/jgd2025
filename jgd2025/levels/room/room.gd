@@ -382,25 +382,6 @@ func play_ending():
 			blow_away(node, 3, true, wobble_level)
 		)
 		tween.tween_interval(0.3)
-	# tween.tween_callback(func():
-	# 	blow_away(room4.get_node("Desk"), 2, true, wobble_level)
-	# )
-	# tween.tween_interval(0.5)
-	# tween.tween_callback(func():
-	# 	blow_away(room4.get_node("sm_office_chair"), 2, true, wobble_level)
-	# )
-	# tween.tween_interval(0.5)
-	# tween.tween_callback(func():
-	# 	blow_away(room4.get_node("sm_photo5"), 2, true, wobble_level)
-	# )
-	# tween.tween_interval(0.5)
-	# tween.tween_callback(func():
-	# 	blow_away(room4.get_node("sm_photo3"), 2, true, wobble_level)
-	# )
-	# tween.tween_interval(0.5)
-	# tween.tween_callback(func():
-	# 	blow_away(room1.get_node("sm_photo4"), 2, true, wobble_level)
-	# )
 	tween2.tween_interval(2.5)
 	tween2.tween_callback(func():
 		pad.move_when_angle = 30
@@ -526,7 +507,9 @@ var log4 = "
 
 func _on_eve_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
-		Transition.set_and_start("EVE", "")
+		Transition.show_EVE()
+		await get_tree().create_timer(0.5).timeout
+		LevelManager.to_credit()
 
 
 func _on_room_opening_ended() -> void:

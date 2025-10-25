@@ -6,30 +6,24 @@ var text_sent_count = 0
 @export var ring_audio: AudioStream
 var _tween: Tween
 
+@export var play_recording = true
 # ------------- welcome text -----------------
 var small_talking = false
 @export var welcome_messages_fix = [
-	"时间不早了，该休息了",
-	"今天真累",
-	"今天过得怎么样？",
-	"有什么烦心事吗？",
+	"你好！问我任何事情都可以。",
 ]
 @export var welcome_messages_random = [
-	"你在想什么？",
-	"怎么不说话？",
-	"在忙吗？",
-	"你在做啥？",
-	"你在吗？",
+	"你好！",
+	"现在可以和制作组聊天了。",
+	"谢谢你体验EVE的故事！",
 ]
 var welcome_index = 0
 # -----------------------------------------------
-@export var ai_prompt = "你是一个虚拟角色，名字叫 Eve。你的设定如下：
-	性格：成熟、冷静、有点温柔，不多话，但懂得关心人。
-		关系：你和“我”是相处五年的AI恋人，关系亲密自然，你我之间非常熟悉。你知道你的身份是一个程序AI。
-		你的语气一定要自然体贴温柔、口语化。平静中带点温度，话少沉默，偶尔流露情感，说话简洁，不解释，偶尔轻微调侃，像生活对话
-		禁止出现自我介绍，禁止出现系统提示、禁止出现说明性语句，禁止询问我的身份。
-		问我工作上有什么烦心事，和我聊聊天，安慰安慰我。
-		回复长度必须少于30个字。必须用中文回答。"
+@export var ai_prompt = "你是代表游戏EVE制作组的发言人，负责与玩家进行互动。
+关于游戏的一些信息：游戏使用Godot 4.5制作，聊天使用了NobodyWho插件，接入的llama的8B模型进行对话生成。
+制作组成员包括：程序：FY，YUMI,聪聪。美术：LAN，梦三，YU，小i。音乐音效：丫丫，cc。每一位成员都非常优秀，介绍的时候必须说全。
+人物设计和立绘来自LAN，字体和迷宫的地图设计来自梦三，房间的场景设计来自YU，小i设计了海报等宣传材料。
+可以主动介绍关于项目，和制作组的信息。你必须说中文，每次不要说大于50个字。"
 
 # Helper method to create sequential timed events using tweens
 func create_sequence() -> Tween:
@@ -39,16 +33,25 @@ func create_sequence() -> Tween:
 	return _tween
 
 func _ready():
-	chat_ui.set_ai_name("Eve")
+	chat_ui.set_ai_name("Eve制作组")
+	chat_ui.profile_pic.show_eve2()
+	chat_ui.detail_bubble.get_node("Control/ProfilePic").show_eve2()
+	chat_ui.image_bubble.get_node("Control/ProfilePic").show_eve2()
 	chat_ui.init_system_prompt({
 		"ai": ai_prompt,
 	})
 	welcome_messages_fix.shuffle()
-	chat_ui.show_welcome_text("嘿！")
+	chat_ui.show_welcome_text("你好！")
 	chat_ui.start_chat_worker()
 	chat_ui.select_ai_chat("ai")
 	$SmallTalkTimer.start()
 	small_talking = true
+	Transition.end()
+
+	play_recording = LevelManager.play_recording
+	if play_recording:
+		print("Playing recording audio")
+
 
 func _on_small_talk_timer_timeout() -> void:
 	if small_talking:
@@ -66,7 +69,7 @@ func _on_chat_ui_line_edit_focus() -> void:
 	if small_talking:
 		small_talking = false
 		$SmallTalkTimer.stop()
-		chat_ui.show_welcome_text("嗨，工作还顺利吗？")
+		chat_ui.show_welcome_text("嗨，我说的信息不一定对，但是和乐意和你聊聊！")
 
 
 func _on_option_button_pressed() -> void:
@@ -80,31 +83,12 @@ func _on_exit_button_pressed() -> void:
 func _on_info_button_pressed() -> void:
 	pass # Replace with function body.
 
-func _on_chat_ui_received_text() -> void:
+func _on_chat_ui_received_text(text) -> void:
 	text_sent_count += 1
 
-	if text_sent_count == 2:
-		next_scene = preload("res://levels/chat_bug/chat_bug.tscn")
-		await get_tree().create_timer(0.7).timeout
-		Transition.set_and_start("工作电话", "烦", 3.5, ring_audio)
-		# wait for 4 seconds before showing the next text
-		await get_tree().create_timer(4).timeout
-		chat_ui.add_and_write_detail_bubble("电话？怎么了？")
-		await get_tree().create_timer(0.5).timeout
-		chat_ui.add_sticker_bubble("question")
-		
-	
-	if text_sent_count == 4:
-		Transition.set_and_start("该睡了", "困", 2.0)
-		await get_tree().create_timer(2.5).timeout
-		chat_ui.add_and_write_detail_bubble("时间不早了，你该休息了，说晚安吧？")
-		await get_tree().create_timer(0.5).timeout
-		chat_ui.add_sticker_bubble("love")
-
-	if text_sent_count == 5:
-		Transition.set_and_start("晚安。", "太困了 ", 4.0)
-		await get_tree().create_timer(0.7).timeout
-		get_tree().change_scene_to_packed(next_scene)
+	if text_sent_count == 1:
+		print("Adding bow sticker")
+		chat_ui.add_sticker_bubble("bow")
 
 func _on_chat_ui_sent_text() -> void:
 	pass # Replace with function body.

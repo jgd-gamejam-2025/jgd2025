@@ -4,7 +4,7 @@ signal credit_ended
 
 func _ready():
 	await get_tree().create_timer(3.0).timeout
-	$EVE.hide()
+	Transition.end()
 	next_step()
 
 
@@ -30,9 +30,12 @@ func next_step() -> void:
 		terminal.special_label3.hide()
 		terminal.write_art_sync(credit4, terminal.special_label4, 10, false, 0.01)
 	)
-	#tween.tween_property(terminal.special_label, "position:y", terminal.special_label.position.y - 15000, 30)
+	tween.tween_interval(5.0)
 	await tween.finished
 	credit_ended.emit()
+	Transition.set_and_start("别走", "")
+	await get_tree().create_timer(0.5).timeout
+	LevelManager.to_end_chat()
 
 
 var credit1 = "                                                                                                                                                                                                                            
@@ -141,10 +144,7 @@ var credit2 = "                                                                 
                                                                                                           AAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA          
                                                                                                           AA   AAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                       
                                                                                                                                                                                                                               "
-var credit3 = "
-                                                                                                                                                                        
-                                                                                                                                                                                                              
-                                                                                                                                                                                                              
+var credit3 = "                                                                                                                                                                                                            
                                  A           A             AA        AA                            A                                                                                                               
                                A           AA             A  A      A  A                           AAA                               AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA             
                             AA AAA AAAAAAAA               A   AAAAAA   A                  AAAAAAAAA AAAA                             AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA             

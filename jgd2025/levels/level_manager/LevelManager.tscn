@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1h80mwwleuqs"]
+[gd_scene load_steps=10 format=3 uid="uid://b1h80mwwleuqs"]
 
 [ext_resource type="Script" uid="uid://cmfami4gcltvu" path="res://levels/level_manager/level_manager.gd" id="1_k4b6o"]
 [ext_resource type="PackedScene" uid="uid://1m82bdnhye7k" path="res://levels/maze_load_wall/maze_load_wall.tscn" id="2_2qq6n"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://ofyuav8psja7" path="res://levels/maze2/Set/fps_test_scene_world.tscn" id="4_o0qhy"]
 [ext_resource type="PackedScene" uid="uid://c2hgmqr4djchj" path="res://levels/room/room.tscn" id="5_kttg4"]
 [ext_resource type="PackedScene" uid="uid://cojwj7wmlvc5j" path="res://scenes/UI/ChatCut/chat_cut_scene.tscn" id="5_q4blj"]
+[ext_resource type="PackedScene" uid="uid://c1n0m7pcvm52p" path="res://levels/chat_prepare/chat_prepare.tscn" id="7_jhddx"]
+[ext_resource type="PackedScene" uid="uid://did5la61ylocu" path="res://scenes/credit/credit.tscn" id="7_o41ks"]
+[ext_resource type="PackedScene" uid="uid://bco451gkhafpk" path="res://scenes/UI/Menu/menu.tscn" id="8_o41ks"]
 
 [node name="LevelManager" type="Node"]
 script = ExtResource("1_k4b6o")
@@ -14,3 +17,6 @@ eve_debug_scene = ExtResource("2_2qq6n")
 maze2_scene = ExtResource("4_o0qhy")
 chat_cut_scene = ExtResource("5_q4blj")
 room_scene = ExtResource("5_kttg4")
+credit_scene = ExtResource("7_o41ks")
+end_chat_scene = ExtResource("7_jhddx")
+menu_scene = ExtResource("8_o41ks")

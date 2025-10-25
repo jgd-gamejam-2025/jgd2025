@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq5us7eimus0y"]
+[gd_scene load_steps=8 format=3 uid="uid://c7bqtg255romj"]
 
 [ext_resource type="Script" uid="uid://dvjcmu1hncynt" path="res://assets/ui/subtitle/ending_subtitle.gd" id="1_hiyes"]
-[ext_resource type="AudioStream" uid="uid://rlstab7nrqij" path="res://assets/ui/结局对话.wav" id="1_we7gq"]
+[ext_resource type="AudioStream" uid="uid://4kdh3mjpfud3" path="res://assets/audio/结局对话.wav" id="3_dq87h"]
 
 [sub_resource type="Animation" id="Animation_we7gq"]
 length = 0.001
@@ -20,7 +20,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Label:text")
+tracks/1/path = NodePath("CanvasLayer/Label:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -48,14 +48,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Label:text")
+tracks/1/path = NodePath("CanvasLayer/Label:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.2333333, 3.7666667, 4.9333334, 7.4333334, 9.066667, 12.166667, 13.7, 15.133333, 17.2, 18.2, 20.966667, 22.033333, 25.966667, 27.733334, 29.9, 31.066668, 32.9, 33.933334, 35.266666, 36.966667, 37.69127, 38.1, 39.766666, 41.4),
+"times": PackedFloat32Array(1.2333333, 3.7666667, 4.9333334, 7.4333334, 9.066667, 12.166667, 13.7, 15.133333, 17.2, 18.2, 20.966667, 22.033333, 25.966667, 27.733334, 29.9, 31.066668, 32.9, 33.933334, 35.266666, 37.1, 38.066666, 39.8, 41.533333, 43.133335),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": ["当模型变得足够庞大之后", "它对我们来说", "就成了一个黑盒", "我们再也搞不清楚", "它是怎么想的", "它怎么回忆过去", "怎么理解世界", "怎么做决定", "也许", "它甚至以为自己才是人类", "而我们", "只是它对话的对象", "Eve, 先别忙啦", "电影要开始啦", "啊， 对", "流体恋人吗？", "对啊~", "票都买好了", "你该不会忘了吧？", "差点", "最近忙于模型的事", "记性越来越差了", "走吧", ""]
+"values": ["当模型变得足够庞大之后", "它对我们来说", "就成了一个黑盒", "我们再也搞不清楚", "它是怎么想的", "它怎么回忆过去", "怎么理解世界", "怎么做决定", "也许", "它甚至以为自己才是人类", "而我们", "只是它对话的对象", "Eve, 先别忙啦", "电影要开始啦", "啊， 对", "流体恋人吗？", "对啊~", "票都买好了", "你该不会忘了吧？", "差点儿..", "最近忙模型的事", "记性越来越差了", "走吧", ""]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_we7gq"]
@@ -63,6 +63,15 @@ _data = {
 &"RESET": SubResource("Animation_we7gq"),
 &"ending_subtitle": SubResource("Animation_vdkgq")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hiyes"]
+bg_color = Color(0, 0, 0, 0.7921569)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vedtr"]
 
 [node name="EndingSubtitle" type="Node2D"]
 script = ExtResource("1_hiyes")
@@ -72,14 +81,26 @@ libraries = {
 &"": SubResource("AnimationLibrary_we7gq")
 }
 
-[node name="Label" type="Label" parent="."]
-custom_minimum_size = Vector2(1000, 500)
-offset_right = 1920.0
-offset_bottom = 1080.0
-size_flags_vertical = 1
-theme_override_font_sizes/font_size = 30
-horizontal_alignment = 1
-vertical_alignment = 2
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("1_we7gq")
+stream = ExtResource("3_dq87h")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -82.5
+offset_top = -257.0
+offset_right = 82.5
+offset_bottom = -169.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_hiyes")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vedtr")
+horizontal_alignment = 1
+vertical_alignment = 1

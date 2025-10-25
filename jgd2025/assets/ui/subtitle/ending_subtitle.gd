@@ -1,12 +1,10 @@
 extends Node2D
 
 
-@onready var ending_subtitle = $AnimationPlayer
+@onready var animaation_player = $AnimationPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ending_subtitle.play("ending_subtitle")
+	play_ending_audio()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func play_ending_audio():
+	animaation_player.play("ending_subtitle")

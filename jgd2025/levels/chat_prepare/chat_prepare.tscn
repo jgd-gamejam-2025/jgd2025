@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1n0m7pcvm52p"]
+[gd_scene load_steps=10 format=3 uid="uid://c1n0m7pcvm52p"]
 
 [ext_resource type="Script" uid="uid://bpxeoir7frp8w" path="res://levels/chat_prepare/chat_prepare.gd" id="1_gtmes"]
 [ext_resource type="WwiseEvent" uid="uid://csut6xamoko42" path="res://Wwise/resources/Event/{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}.tres" id="3_bxhim"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="4_70jtd"]
 [ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="7_bxhim"]
 [ext_resource type="FontFile" uid="uid://dche8c1u6rmg" path="res://scenes/UI/fonts/OPlusSans3-Bold.ttf" id="8_2ww3e"]
+[ext_resource type="PackedScene" uid="uid://c7bqtg255romj" path="res://assets/ui/subtitle/ending_subtitle.tscn" id="9_gpq3d"]
 [ext_resource type="FontFile" uid="uid://b8muwa7k4021" path="res://scenes/UI/fonts/OPlusSans3-Regular.ttf" id="9_j6bcj"]
 
 [node name="ChatPrepare" type="Node"]
@@ -71,6 +72,8 @@ text = "
 正在尝试重新启动"
 
 [node name="Buttons" parent="." instance=ExtResource("7_bxhim")]
+
+[node name="EndingSubtitle" parent="." instance=ExtResource("9_gpq3d")]
 
 [connection signal="line_edit_focus" from="ChatUI" to="." method="_on_chat_ui_line_edit_focus"]
 [connection signal="received_text" from="ChatUI" to="." method="_on_chat_ui_received_text"]

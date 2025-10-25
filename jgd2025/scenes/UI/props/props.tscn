@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b14tcadpproqk" path="res://props.gd" id="1_qfnhk"]
 [ext_resource type="Texture2D" uid="uid://77lb7leqfqtd" path="res://assets/models/room/props/sm_newspaper_0.png" id="2_qp50g"]
-[ext_resource type="FontFile" uid="uid://6nwmtv83i53x" path="res://scenes/UI/fonts/思源宋体.ttc" id="3_g3s1g"]
+[ext_resource type="FontFile" uid="uid://b2u8q1nfy714o" path="res://scenes/UI/fonts/SourceHanSerifCN-Regular.otf" id="3_qp50g"]
 
 [sub_resource type="Gradient" id="Gradient_tupck"]
 offsets = PackedFloat32Array(0, 0.50318474, 1)
@@ -68,7 +68,7 @@ offset_right = -159.2876
 offset_bottom = -145.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("3_g3s1g")
+theme_override_fonts/normal_font = ExtResource("3_qp50g")
 theme_override_font_sizes/normal_font_size = 34
 theme_override_styles/normal = SubResource("StyleBoxFlat_hpcpu")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_t7fgm")

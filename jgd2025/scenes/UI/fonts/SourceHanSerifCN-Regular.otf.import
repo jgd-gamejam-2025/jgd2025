@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://6nwmtv83i53x"
-path="res://.godot/imported/思源宋体.ttc-fbdce96e07b75248ee0a62ea6416d90d.fontdata"
+uid="uid://b2u8q1nfy714o"
+path="res://.godot/imported/SourceHanSerifCN-Regular.otf-3a19c1b9c8eda1d7dd22d4b6d160515e.fontdata"
 
 [deps]
 
-source_file="res://scenes/UI/fonts/思源宋体.ttc"
-dest_files=["res://.godot/imported/思源宋体.ttc-fbdce96e07b75248ee0a62ea6416d90d.fontdata"]
+source_file="res://scenes/UI/fonts/SourceHanSerifCN-Regular.otf"
+dest_files=["res://.godot/imported/SourceHanSerifCN-Regular.otf-3a19c1b9c8eda1d7dd22d4b6d160515e.fontdata"]
 
 [params]
 

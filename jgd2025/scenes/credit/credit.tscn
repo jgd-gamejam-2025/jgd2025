@@ -1,9 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://did5la61ylocu"]
+[gd_scene load_steps=4 format=3 uid="uid://did5la61ylocu"]
 
 [ext_resource type="Script" uid="uid://c4x4l2oeov6fv" path="res://scenes/credit/credit.gd" id="1_tyxre"]
 [ext_resource type="PackedScene" uid="uid://5ltrsa0ifrxn" path="res://scenes/UI/terminal/Terminal.tscn" id="2_ijqtv"]
+[ext_resource type="Texture2D" uid="uid://bet3p2j6e5as5" path="res://assets/Eve/title_white.png" id="3_ijqtv"]
 
 [node name="Credit" type="CanvasLayer"]
 script = ExtResource("1_tyxre")
 
 [node name="Terminal" parent="." instance=ExtResource("2_ijqtv")]
+
+[node name="EVE" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="EVE"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="EVE/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -549.5
+offset_top = -182.0
+offset_right = 549.5
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ijqtv")

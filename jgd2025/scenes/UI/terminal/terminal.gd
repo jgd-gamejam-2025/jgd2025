@@ -171,7 +171,7 @@ func write_lines_sync(text: String, output_area: RichTextLabel = output_area) ->
 	)
 	return _tween
 
-func write_art_sync(text: String, output_area: RichTextLabel = output_area, keep_flipping_time: float = 10.0, skip_generate: bool = false) -> Tween:
+func write_art_sync(text: String, output_area: RichTextLabel = output_area, keep_flipping_time: float = 10.0, skip_generate: bool = false, speed: float = default_type_speed) -> Tween:
 	var write_art_tween = create_tween()
 	
 	_is_typing = true
@@ -210,7 +210,7 @@ func write_art_sync(text: String, output_area: RichTextLabel = output_area, keep
 							current_line += line[j]  # Space or any other character
 					temp_text += current_line + "\n"
 				output_area.text = temp_text
-			).set_delay(default_type_speed)
+			).set_delay(speed)
 	else:
 		# If skipping generation, immediately show the full pattern with random characters
 		write_art_tween.tween_callback(func():
@@ -218,7 +218,7 @@ func write_art_sync(text: String, output_area: RichTextLabel = output_area, keep
 			for line in original_lines:
 				var current_line = ""
 				for char in line:
-					if char == "X":
+					if char != " ":
 						current_line += chars[randi() % chars_length]
 					else:
 						current_line += char
@@ -235,7 +235,7 @@ func write_art_sync(text: String, output_area: RichTextLabel = output_area, keep
 				for line in original_lines:
 					var current_line = ""
 					for char in line:
-						if char == "X":
+						if char != " ":
 							current_line += chars[randi() % chars_length]
 						else:
 							current_line += char
@@ -251,7 +251,7 @@ func write_art_sync(text: String, output_area: RichTextLabel = output_area, keep
 		for line in original_lines:
 			var final_line = ""
 			for char in line:
-				if char == "X":
+				if char != " ":
 					final_line += chars[randi() % chars_length]
 				else:
 					final_line += char

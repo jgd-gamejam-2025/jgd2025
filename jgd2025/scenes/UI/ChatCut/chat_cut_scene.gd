@@ -14,6 +14,8 @@ func _ready() -> void:
 	var flip_speed = 0.5
 	var flip_count = 0
 	var max_flips = 21
+	
+	await get_tree().create_timer(2.0)
 	Transition.end()
 
 	var tween = create_tween()
@@ -27,6 +29,7 @@ func _ready() -> void:
 		img2.visible = !img2.visible
 		flip_speed *= 0.8
 		flip_count += 1
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 var target_text = "我恨你"
 

@@ -61,6 +61,7 @@ grow_vertical = 2
 color = Color(0.12941177, 0.12941177, 0.12941177, 1)
 
 [node name="Shadow" type="TextureRect" parent="ChatUI/Panel"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0

@@ -60,6 +60,8 @@ func load_game() -> Dictionary:
 			if scene_data.get("set_index", -1) != -1:
 				set_index = scene_data["set_index"]
 			to_maze2()
+		"chat_cut":
+			to_chat_cut_scene()
 		"room":
 			to_room()
 		_:

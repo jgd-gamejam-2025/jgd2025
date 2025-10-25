@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://gee1je8fbl4b"]
+
+[ext_resource type="PackedScene" uid="uid://ct4wwsotumarq" path="res://assets/models/room/props/sm_drawer.fbx" id="1_upy8m"]
+
+[node name="sm_drawer" instance=ExtResource("1_upy8m")]
+
+[node name="polySurface358" parent="drawer/photo_frame" index="0"]
+visible = false
+
+[node name="polySurface359" parent="drawer/photo_frame" index="1"]
+visible = false

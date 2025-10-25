@@ -1,15 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://fn682jbuv6dh"]
+[gd_scene load_steps=8 format=3 uid="uid://fn682jbuv6dh"]
 
 [ext_resource type="Script" uid="uid://b14tcadpproqk" path="res://props.gd" id="1_qfnhk"]
-[ext_resource type="Texture2D" uid="uid://8mpifies7rc0" path="res://assets/ui/props/news.png" id="2_qp50g"]
+[ext_resource type="Texture2D" uid="uid://77lb7leqfqtd" path="res://assets/models/room/props/sm_newspaper_0.png" id="2_qp50g"]
+[ext_resource type="FontFile" uid="uid://6nwmtv83i53x" path="res://scenes/UI/fonts/思源宋体.ttc" id="3_g3s1g"]
 
 [sub_resource type="Gradient" id="Gradient_tupck"]
-colors = PackedColorArray(0.12941177, 0.12941177, 0.12941177, 0.5529412, 0.12941177, 0.12941177, 0.12941177, 0)
+offsets = PackedFloat32Array(0, 0.50318474, 1)
+colors = PackedColorArray(0.12941177, 0.12941177, 0.12941177, 0.5529412, 0.12941177, 0.12941177, 0.12941177, 0, 0.12941177, 0.12941177, 0.12941177, 0.2694268)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_g3s1g"]
 gradient = SubResource("Gradient_tupck")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpcpu"]
+bg_color = Color(0, 0, 0, 0.7764706)
+border_width_left = 40
+border_width_top = 30
+border_width_right = 40
+border_width_bottom = 40
+border_color = Color(0, 0, 0, 0.7764706)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7fgm"]
 
 [node name="Props" type="CanvasLayer"]
 script = ExtResource("1_qfnhk")
@@ -22,27 +34,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Shadow3" type="TextureRect" parent="Background"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -968.0
-offset_right = 970.0
-offset_bottom = 598.0
-grow_horizontal = 2
-texture = SubResource("GradientTexture2D_g3s1g")
-flip_v = true
-
 [node name="Shadow2" type="TextureRect" parent="Background"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -598.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 texture = SubResource("GradientTexture2D_g3s1g")
 
 [node name="Newspaper" type="TextureRect" parent="."]
@@ -51,12 +49,34 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -512.0
-offset_top = -512.0
-offset_right = 512.0
-offset_bottom = 512.0
+offset_left = -733.0
+offset_top = -518.0
+offset_right = 802.2876
+offset_bottom = 506.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.73, 0.73)
-pivot_offset = Vector2(512, 512)
 texture = ExtResource("2_qp50g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Newspaper"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 171.0
+offset_top = 409.0
+offset_right = -159.2876
+offset_bottom = -145.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_g3s1g")
+theme_override_font_sizes/normal_font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_hpcpu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t7fgm")
+text = "《河畔日报》 – 2050年6月15日
+
+昨夜深夜，河畔公路发生严重交通事故，造成一人死亡。
+
+据现场报告，事故车辆疑似处于自动驾驶模式，随后突然偏离车道，与迎面驶来的货车相撞。撞击前，车载系统曾短暂出现“连接中断”提示。
+
+目前警方与技术部门正在调查，事故是否与自动驾驶系统的软件异常有关。"
+fit_content = true

@@ -165,7 +165,6 @@ func next_step() -> void:
 				chat_ui.select_ai_chat("room2")
 				curr_pass = false
 				used_terminal = false
-				$Newspaper.show()
 		2:
 			if not curr_pass:
 				var temp_tween = create_tween()
@@ -194,7 +193,6 @@ func next_step() -> void:
 				chat_ui.select_ai_chat("room3")
 				used_terminal = false
 				curr_pass = false
-				$Newspaper.hide()
 		3:
 			if not curr_pass:
 				rotate_door($TrueDoor3, 110)

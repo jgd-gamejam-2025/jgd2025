@@ -100,6 +100,7 @@ visible = false
 
 [node name="ClearArea2" type="Area3D" parent="."]
 transform = Transform3D(-0.49999997, 0, 4.3711385e-08, 0, 0.5, 0, -4.3711385e-08, 0, -0.49999997, 1.721, 0, -5.128704)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClearArea2"]
 transform = Transform3D(0.9999955, 0, 5.968559e-13, 0, 1, 0, -5.968559e-13, 0, 0.9999955, -2.82654, 0.9242554, -3.5170846)
@@ -107,6 +108,10 @@ shape = SubResource("BoxShape3D_pf8v0")
 
 [node name="RoomSet2" parent="." instance=ExtResource("5_y43wp")]
 transform = Transform3D(-0.49999997, 0, 4.3711385e-08, 0, 0.5, 0, -4.3711385e-08, 0, -0.49999997, 1.721, 0, -5.128704)
+
+[node name="Newspaper" parent="RoomSet2" instance=ExtResource("15_kseuc")]
+transform = Transform3D(0.89501876, 0, -1.7885585, 0, 2, 0, 1.7885585, 0, 0.89501876, -5.514605, 2.0101907, -9.423201)
+visible = false
 
 [node name="TrueDoor3" parent="." instance=ExtResource("4_2akcw")]
 transform = Transform3D(0.49999994, 0, 0, 0, -0.49999988, 7.549789e-08, 0, -7.549788e-08, -0.49999994, 0.75042725, 1.2183394, -0.36469507)
@@ -179,10 +184,6 @@ visible = false
 visible = false
 
 [node name="Notification" parent="." instance=ExtResource("5_yqly8")]
-
-[node name="Newspaper" parent="." instance=ExtResource("15_kseuc")]
-transform = Transform3D(-0.4475093, 0, 0.8942793, 0, 1, 0, -0.8942793, 0, -0.4475093, 4.478302, 1.0050954, -0.41710323)
-visible = false
 
 [node name="RoomOpening" parent="." instance=ExtResource("16_326eg")]
 visible = false

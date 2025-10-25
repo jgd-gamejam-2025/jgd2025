@@ -7,6 +7,8 @@ var show_opening = true
 @export var maze2_scene: PackedScene
 var set_index = -1
 
+@export var chat_cut_scene: PackedScene
+
 @export var room_scene: PackedScene
 
 # Save system
@@ -97,6 +99,12 @@ func to_maze2():
 	await get_tree().create_timer(0.5).timeout
 	save_game(curr_scene, {"set_index": set_index})
 
+func to_chat_cut_scene():
+	curr_scene = "chat_cut"
+	get_tree().change_scene_to_packed(chat_cut_scene)
+	await get_tree().create_timer(0.5).timeout
+	save_game(curr_scene, {})
+	
 func to_room():
 	curr_scene = "room"
 	get_tree().change_scene_to_packed(room_scene)

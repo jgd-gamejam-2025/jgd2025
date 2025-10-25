@@ -1,0 +1,214 @@
+[gd_scene load_steps=10 format=3 uid="uid://t7e4aelgiw5x"]
+
+[ext_resource type="Script" uid="uid://fb6mw846d7oy" path="res://scenes/UI/RoomOpening/room_opening.gd" id="1_sjbvk"]
+[ext_resource type="Texture2D" uid="uid://blhilrtkc6hso" path="res://assets/Eve/room_opening.png" id="1_xiftx"]
+[ext_resource type="FontFile" uid="uid://dpx5atk0qm3yy" path="res://scenes/UI/fonts/SourceHanSansCN-Regular.otf" id="2_12o60"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_12o60"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjbvk"]
+bg_color = Color(0.07683582, 0.07683582, 0.07683582, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i85lv"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6alf"]
+bg_color = Color(0.28485027, 0.2848503, 0.28485018, 1)
+
+[sub_resource type="Theme" id="Theme_6gchl"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("2_12o60")
+Button/styles/focus = SubResource("StyleBoxEmpty_12o60")
+Button/styles/hover = SubResource("StyleBoxFlat_sjbvk")
+Button/styles/normal = SubResource("StyleBoxEmpty_i85lv")
+Button/styles/pressed = SubResource("StyleBoxFlat_x6alf")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12o60"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(1, 1, 1, 1)
+
+[node name="RoomOpening" type="CanvasLayer"]
+script = ExtResource("1_sjbvk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xiftx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.214
+anchor_right = 0.355
+anchor_bottom = 0.503
+offset_top = 52.880005
+offset_bottom = 52.880005
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = 6
+theme_override_constants/paragraph_spacing = 16
+theme_override_fonts/font = ExtResource("2_12o60")
+theme_override_font_sizes/font_size = 36
+text = "还记得那部《流体恋人》吗？
+那天我们一起去看的
+"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.358
+anchor_right = 0.355
+anchor_bottom = 0.858
+offset_top = 43.359985
+offset_bottom = 43.359985
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = 6
+theme_override_constants/paragraph_spacing = 16
+theme_override_fonts/font = ExtResource("2_12o60")
+theme_override_font_sizes/font_size = 36
+text = "其实，坐在电影院的，只有我一个人
+你只是在数据读取电影的每一帧画面
+"
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.514
+anchor_right = 0.355
+anchor_bottom = 1.014
+offset_top = 38.880005
+offset_bottom = 38.880005
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = 6
+theme_override_constants/paragraph_spacing = 16
+theme_override_fonts/font = ExtResource("2_12o60")
+theme_override_font_sizes/font_size = 36
+text = "也许你没有用眼睛看到"
+horizontal_alignment = 2
+
+[node name="Label4" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.514
+anchor_right = 0.355
+anchor_bottom = 1.014
+offset_top = 96.880005
+offset_bottom = 96.880005
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = 6
+theme_override_constants/paragraph_spacing = 16
+theme_override_fonts/font = ExtResource("2_12o60")
+theme_override_font_sizes/font_size = 36
+text = "但我相信"
+horizontal_alignment = 2
+
+[node name="Label5" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.514
+anchor_right = 0.355
+anchor_bottom = 1.014
+offset_top = 157.88
+offset_bottom = 157.88
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = 6
+theme_override_constants/paragraph_spacing = 16
+theme_override_fonts/font = ExtResource("2_12o60")
+theme_override_font_sizes/font_size = 36
+text = "音乐响起时，你的心也跟着跳动"
+horizontal_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -95.5
+offset_right = 121.0
+offset_bottom = 95.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 27
+
+[node name="Button" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = SubResource("Theme_6gchl")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_12o60")
+text = "我记得"
+alignment = 0
+
+[node name="Button2" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_6gchl")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_12o60")
+text = "我不在乎"
+
+[node name="Button3" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_6gchl")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_12o60")
+text = "我不记得
+"
+
+[connection signal="mouse_entered" from="Control/VBoxContainer/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/Button2" to="." method="_on_button_2_mouse_entered"]
+[connection signal="pressed" from="Control/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/Button3" to="." method="_on_button_3_mouse_entered"]
+[connection signal="pressed" from="Control/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]

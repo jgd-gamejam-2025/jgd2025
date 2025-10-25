@@ -43,10 +43,9 @@ func _ready():
 		return
 
 	# 2. 获取 Player 节点 (如果设置了)
-	if not player_path.is_empty():
-		player = get_node_or_null(player_path)
-		if not player:
-			print_rich("[color=yellow]警告：[/color]OceanManager 找不到 Player 节点！碰撞体优化将不可用。")
+	player = get_tree().get_first_node_in_group("player")
+	if not player:
+		print_rich("[color=yellow]警告：[/color]OceanManager 找不到 Player 节点！请确保 Player 在 'player' 分组中。")
 
 	# 3. 从 GridMap 生成 OceanBlock
 	await get_tree().process_frame # 等待 GridMap 加载完成
@@ -72,7 +71,7 @@ func _ready():
 		var world_pos = cells_and_world_pos[cell]
 
 		var block_instance: OceanBlock = ocean_block_scene.instantiate()
-		block_instance.global_position = world_pos # 直接设置世界坐标
+		block_instance.position = self.to_local(world_pos)
 		add_child(block_instance)
 
 		# **调用新函数来设置波纹参数** (用于向心波浪)
@@ -91,11 +90,11 @@ func _ready():
 	grid_map.collision_layer = 0
 
 	# 5. 设置并启动初始延迟计时器 (如果需要)
-	if tsunami_start_delay > 0.0:
-		tsunami_start_timer.wait_time = tsunami_start_delay
-		tsunami_start_timer.one_shot = true
-		tsunami_start_timer.timeout.connect(trigger_tsunami)
-		tsunami_start_timer.start()
+	#if tsunami_start_delay > 0.0:
+		#tsunami_start_timer.wait_time = tsunami_start_delay
+		#tsunami_start_timer.one_shot = true
+		#tsunami_start_timer.timeout.connect(trigger_tsunami)
+		#tsunami_start_timer.start()
 
 
 # --- _physics_process 用于集中计算波动和碰撞 ---
@@ -119,7 +118,8 @@ func _physics_process(_delta):
 		# b. 根据距离动态开关碰撞体
 		if player: # 只有玩家存在时才进行优化
 			var block_pos_2d = block.global_position * Vector3(1, 0, 1)
-			var dist_sq = block_pos_2d.distance_squared_to(player_pos)
+			var player_pos_2d = player_pos * Vector3(1, 0, 1)
+			var dist_sq = block_pos_2d.distance_squared_to(player_pos_2d)
 			# 使用平方距离比较，避免开方运算，稍快一点
 			if dist_sq < collision_enable_radius * collision_enable_radius:
 				block.enable_collision()

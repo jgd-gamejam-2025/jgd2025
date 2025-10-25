@@ -1,9 +1,12 @@
-[gd_scene load_steps=22 format=3 uid="uid://ofyuav8psja7"]
+[gd_scene load_steps=28 format=3 uid="uid://ofyuav8psja7"]
 
 [ext_resource type="Script" uid="uid://c8j73486nr6o8" path="res://levels/maze2/Set/fps_test_scene_world.gd" id="1_868cf"]
+[ext_resource type="PackedScene" uid="uid://dxg57iry0rwpn" path="res://levels/maze2/Set/last_bridge.tscn" id="2_15gwa"]
+[ext_resource type="PackedScene" uid="uid://78exdosy10ho" path="res://scenes/NotificationArea/notification_area.tscn" id="3_15gwa"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_nx4w8"]
 [ext_resource type="Material" uid="uid://d27oxwekg1hsx" path="res://levels/tps_test_scene/material/white wall.tres" id="4_15gwa"]
 [ext_resource type="PackedScene" uid="uid://bysluvlg528e6" path="res://levels/maze2/Set/set2.tscn" id="4_868cf"]
+[ext_resource type="PackedScene" uid="uid://dfepyejg6c541" path="res://scenes/maze_scene/big_door.tscn" id="5_8luys"]
 [ext_resource type="PackedScene" uid="uid://b7h4788xh1nu3" path="res://levels/tps_test_scene/model/line/013.glb" id="5_htxp8"]
 [ext_resource type="PackedScene" uid="uid://clm5h2ceura81" path="res://levels/tps_test_scene/model/line/022.glb" id="6_wtirf"]
 [ext_resource type="PackedScene" uid="uid://b7l5sv4fjhjwm" path="res://scenes/UI/notification/Notification.tscn" id="7_4ypbk"]
@@ -32,6 +35,7 @@ glow_enabled = true
 glow_normalized = true
 glow_intensity = 1.26
 glow_strength = 0.72
+fog_enabled = true
 fog_light_energy = 1.12
 fog_sun_scatter = 0.01
 fog_height = -1024.0
@@ -44,9 +48,12 @@ volumetric_fog_detail_spread = 1.3195077
 volumetric_fog_ambient_inject = 1.52
 volumetric_fog_sky_affect = 0.028
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_htxp8"]
+size = Vector3(50.96407, 1, 13.446838)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_868cf"]
 albedo_color = Color(0.86647767, 0.87934005, 0.89542544, 1)
-metallic = 0.55
+metallic = 0.79
 
 [sub_resource type="BoxMesh" id="BoxMesh_868cf"]
 material = SubResource("StandardMaterial3D_868cf")
@@ -54,6 +61,11 @@ size = Vector3(2000, 3, 288.935)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6dhc4"]
 size = Vector3(2095.9727, 37.569885, 206.21777)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8luys"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nx4w8"]
+size = Vector3(3.2202148, 50, 20.722168)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50rve"]
 albedo_color = Color(4.3125563, 4.3125563, 4.3125563, 1)
@@ -412,6 +424,34 @@ tracks/28/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-18.876232, -15.50161, -66.87535)]
+}
+
+[sub_resource type="Animation" id="Animation_a646p"]
+resource_name = "open_gate"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wall-door/wall-left2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03333336, 4.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-7.5041847, 8.008998, -35.67488), Vector3(-19.504185, 8.008998, -35.67488)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("wall-door/wall-left3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.866667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(7.5245295, 7.854949, -35.646732), Vector3(19.524529, 7.854949, -35.646732)]
 }
 
 [sub_resource type="Animation" id="Animation_8stf4"]
@@ -791,34 +831,6 @@ tracks/30/keys = {
 "values": [Vector3(-18.876232, -15.50161, -66.87535), Vector3(-18.876232, -15.50161, -66.622955), Vector3(-18.876232, -15.50161, -67.10542)]
 }
 
-[sub_resource type="Animation" id="Animation_a646p"]
-resource_name = "open_gate"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("wall-door/wall-left2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.03333336, 4.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-7.5041847, 8.008998, -35.67488), Vector3(-19.504185, 8.008998, -35.67488)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("wall-door/wall-left3:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 4.866667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(7.5245295, 7.854949, -35.646732), Vector3(19.524529, 7.854949, -35.646732)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_50rve"]
 _data = {
 &"RESET": SubResource("Animation_50rve"),
@@ -828,6 +840,7 @@ _data = {
 
 [node name="FpsTestScene" type="Node3D"]
 script = ExtResource("1_868cf")
+last_bridge_scene = ExtResource("2_15gwa")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_aaj73")
@@ -842,6 +855,17 @@ directional_shadow_split_2 = 0.428
 directional_shadow_split_3 = 0.797
 directional_shadow_fade_start = 0.331
 
+[node name="BigDoor" parent="." instance=ExtResource("5_8luys")]
+transform = Transform3D(0.49999997, 0, 0, 0, 0.5, 0, 0, 0, 0.49999997, 0, -8.189184, 28.05837)
+
+[node name="NotificationArea" parent="." instance=ExtResource("3_15gwa")]
+text = "地上...写了什么？"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NotificationArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.367552, -15.44394, -149.28282)
+shape = SubResource("BoxShape3D_htxp8")
+debug_color = Color(2.0214916e-06, 0.5992533, 0.70622456, 0.41960785)
+
 [node name="Floor" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
@@ -852,15 +876,28 @@ mesh = SubResource("BoxMesh_868cf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -34.8, -56.931)
 shape = SubResource("BoxShape3D_6dhc4")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(-4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0, 1, -34.019257, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_8luys")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(-4.371138e-08, -0.9999998, 0, 0.9999998, -4.371138e-08, 0, 0, 0, 1, 70.05548, 0, -265.11838)
+shape = SubResource("WorldBoundaryShape3D_8luys")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.940948, 0, -35.63503)
+shape = SubResource("BoxShape3D_nx4w8")
+
 [node name="Player" parent="." instance=ExtResource("3_nx4w8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
 floor_snap_length = 0.35
-walk_speed = 40.0
+walk_speed = 50.0
 
 [node name="light" type="Node" parent="."]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="light"]
 transform = Transform3D(1, 0, 0, 0, 0.9156626, 0.40194777, 0, -0.40194777, 0.9156626, 0, 15.1278305, 104.96589)
+visible = false
 spot_range = 104.305
 spot_attenuation = -0.75
 spot_angle = 25.59406
@@ -899,15 +936,15 @@ size = Vector3(40, 50, 40)
 material = ExtResource("4_15gwa")
 
 [node name="wall-left-light" type="CSGBox3D" parent="wall-1/wall-1-left"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0224, -14.511709, -52)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0224, -14.511709, -51.988037)
 use_collision = true
-size = Vector3(0.5, 0.5, 40)
+size = Vector3(0.5, 0.5, 40.023926)
 material = SubResource("StandardMaterial3D_50rve")
 
 [node name="wall-left-light2" type="CSGBox3D" parent="wall-1/wall-1-left"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0224, 2.3784008, -52)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0224, 2.3784008, -52.13208)
 use_collision = true
-size = Vector3(0.5, 0.5, 40)
+size = Vector3(0.5, 0.5, 39.73584)
 material = SubResource("StandardMaterial3D_50rve")
 
 [node name="wall-left6" type="CSGBox3D" parent="wall-1/wall-1-left"]
@@ -1605,26 +1642,31 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -8.599617, 8.248587)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17828178, 33.558, -52)
 use_collision = true
 size = Vector3(89.83246, 1.927, 40)
+material = ExtResource("4_15gwa")
 
 [node name="wall-left" type="CSGBox3D" parent="wall-door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 8.009, -52)
 use_collision = true
 size = Vector3(30, 50, 40)
+material = ExtResource("4_15gwa")
 
 [node name="wall-left2" type="CSGBox3D" parent="wall-door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6318445, 8.008998, -35.67488)
 use_collision = true
 size = Vector3(15, 50, 1.161)
+material = ExtResource("4_15gwa")
 
 [node name="wall-left3" type="CSGBox3D" parent="wall-door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5245295, 7.854949, -35.646732)
 use_collision = true
 size = Vector3(15, 50, 1.161)
+material = ExtResource("4_15gwa")
 
 [node name="wall-right" type="CSGBox3D" parent="wall-door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 8.009, -52)
 use_collision = true
 size = Vector3(30, 50, 40)
+material = ExtResource("4_15gwa")
 
 [node name="Notification" parent="." instance=ExtResource("7_4ypbk")]
 
@@ -1642,3 +1684,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_50rve")
 }
 autoplay = "循环动画"
+
+[connection signal="area_text" from="NotificationArea" to="." method="_on_notification_area_area_text"]

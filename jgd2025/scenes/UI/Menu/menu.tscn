@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://bco451gkhafpk"]
+
+[ext_resource type="Script" uid="uid://doietcndwdsr4" path="res://scenes/UI/Menu/menu.gd" id="1_877lm"]
+[ext_resource type="Texture2D" uid="uid://2vaixlrl7qah" path="res://assets/Eve/title.png" id="3_877lm"]
+[ext_resource type="Texture2D" uid="uid://btpygk6sp4sf3" path="res://assets/Eve/poster - 副本.png" id="3_d2hwh"]
+[ext_resource type="Theme" uid="uid://byj5ikantfwqn" path="res://scenes/UI/Menu/menu.tres" id="4_877lm"]
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_877lm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Image" type="TextureRect" parent="ColorRect"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 36.0
+offset_top = -534.0
+offset_right = 2516.0
+offset_bottom = 1748.0
+grow_vertical = 2
+scale = Vector2(0.47, 0.47)
+texture = ExtResource("3_d2hwh")
+
+[node name="Title" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -510.0
+offset_top = -104.0
+offset_right = 589.0
+offset_bottom = 260.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_877lm")
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = 14.0
+offset_right = -89.0
+offset_bottom = 173.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 95
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 18
+
+[node name="Continue" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("4_877lm")
+text = "继续"
+alignment = 2
+
+[node name="NewGame" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("4_877lm")
+text = "新游戏"
+alignment = 2
+
+[node name="Exit" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("4_877lm")
+text = "退出"
+alignment = 2
+
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

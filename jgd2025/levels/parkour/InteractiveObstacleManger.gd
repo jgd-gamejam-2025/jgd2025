@@ -21,6 +21,8 @@ enum ObstacleFindMode {
 # 4. 触发后，这个管理器是否应该禁用自身，避免重复触发？
 @export var disable_after_trigger: bool = false # 默认改为false，方便多次触发
 
+# 是否回复
+@export var allow_retrigger_after_return: bool = true
 
 # --- 内部变量 ---
 var triggered: bool = false
@@ -130,7 +132,7 @@ func _perform_action(obstacle: Node3D, action: ObstacleAction):
 		.set_ease(action.ease_type_int as Tween.EaseType)\
 		.set_trans(action.transition_type_int as Tween.TransitionType)
 		
-	if action.return_to_origin:
+	if action.return_to_origin and allow_retrigger_after_return:
 		tween.tween_callback(func(): _return_obstacle_to_origin(obstacle, action))\
 			.set_delay(action.return_delay)
 

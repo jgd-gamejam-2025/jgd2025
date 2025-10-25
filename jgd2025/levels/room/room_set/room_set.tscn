@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://hvjmwcffrk1r"]
+[gd_scene load_steps=29 format=3 uid="uid://hvjmwcffrk1r"]
 
 [ext_resource type="Script" uid="uid://bc33uqhfe7e16" path="res://levels/room/room_set/room_set.gd" id="1_xmftu"]
 [ext_resource type="PackedScene" uid="uid://ccchwx0ejpq83" path="res://assets/models/room/props/sm_back_wall.fbx" id="1_yr7qc"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dyee2pj006yw8" path="res://assets/models/room/props/sm_round_photo.fbx" id="16_aqn6w"]
 [ext_resource type="PackedScene" uid="uid://cierppgmrwkme" path="res://scenes/room_props/front_wall.tscn" id="16_yr7qc"]
 [ext_resource type="PackedScene" uid="uid://dy8mfy00pmnu5" path="res://assets/models/room/props/sm_window.fbx" id="17_1oib4"]
+[ext_resource type="Texture2D" uid="uid://cbcbp8quca14k" path="res://assets/Eve/poster_liquid_lover.png" id="18_xmftu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bifd2"]
 size = Vector3(0.44763184, 4.5029907, 2.8237305)
@@ -44,6 +45,9 @@ size = Vector3(2.9863281, 1.8760986, 4.7136383)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vmynx"]
 size = Vector3(1.1802368, 2.3565674, 0.96131134)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8qrr"]
+albedo_texture = ExtResource("18_xmftu")
 
 [node name="RoomSet" type="Node3D"]
 script = ExtResource("1_xmftu")
@@ -219,3 +223,8 @@ light_indirect_energy = 0.3
 light_volumetric_fog_energy = 1.269
 light_specular = 0.0
 omni_range = 11.739
+
+[node name="Poster" type="Sprite3D" parent="." groups=["blow"]]
+transform = Transform3D(-3.278354e-09, 0, -0.074999996, 0, 0.074999996, 0, 0.074999996, 0, -3.278354e-09, 1.5869827, 3.0730135, -5.9814916)
+material_override = SubResource("StandardMaterial3D_u8qrr")
+texture = ExtResource("18_xmftu")

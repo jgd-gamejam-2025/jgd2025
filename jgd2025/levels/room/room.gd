@@ -18,6 +18,9 @@ var curr_pass = false
 var unknown_name: String = "%"
 
 func _ready():
+	# Start
+	player.can_move_camera = false
+	$RoomOpening.show()
 	# Prepare chat
 	chat_ui.set_bg_transparent()
 	chat_ui.profile_pic.show_unknown()
@@ -53,8 +56,6 @@ func _ready():
 	room3.light_off()
 	room4.light_off()
 
-	# Start
-	Transition.end()
 	# get_notification("嘿，你看到什么了？")
 
 	
@@ -164,6 +165,7 @@ func next_step() -> void:
 				chat_ui.select_ai_chat("room2")
 				curr_pass = false
 				used_terminal = false
+				$Newspaper.show()
 		2:
 			if not curr_pass:
 				var temp_tween = create_tween()
@@ -192,6 +194,7 @@ func next_step() -> void:
 				chat_ui.select_ai_chat("room3")
 				used_terminal = false
 				curr_pass = false
+				$Newspaper.hide()
 		3:
 			if not curr_pass:
 				rotate_door($TrueDoor3, 110)
@@ -526,3 +529,9 @@ var log4 = "
 func _on_eve_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
 		Transition.set_and_start("EVE", "")
+
+
+func _on_room_opening_ended() -> void:
+	Transition.end()
+	await get_tree().create_timer(0.5).timeout
+	player.can_move_camera = true

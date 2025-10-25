@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvxcph62gkbsn"]
+
+[ext_resource type="Theme" uid="uid://csjhowu7j47ua" path="res://scenes/UI/TransitionUI/transition.tres" id="1_0r0tb"]
+[ext_resource type="Script" uid="uid://be8c504klfika" path="res://scenes/UI/TransitionUI/loading.gd" id="1_cxl28"]
+
+[sub_resource type="Gradient" id="Gradient_5lax8"]
+interpolation_mode = 1
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pr44b"]
+gradient = SubResource("Gradient_5lax8")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="Animation" id="Animation_wvw7t"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Control/Dot:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.15, 0.15)]
+}
+
+[sub_resource type="Animation" id="Animation_cxl28"]
+resource_name = "loading"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Control/Dot:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2.070531, 1.8660669, 5.2780304),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(0.15, 0.15), Vector2(0.1, 0.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kbs2q"]
+_data = {
+&"RESET": SubResource("Animation_wvw7t"),
+&"loading": SubResource("Animation_cxl28")
+}
+
+[node name="Loading" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_cxl28")
+
+[node name="Control" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Dot" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = -468.80005
+offset_top = -220.0
+offset_right = -212.80005
+offset_bottom = 36.0
+scale = Vector2(0.15, 0.15)
+pivot_offset = Vector2(128, 128)
+texture = SubResource("GradientTexture2D_pr44b")
+
+[node name="LoadingLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -311.80005
+offset_top = -109.0
+offset_right = -79.80005
+offset_bottom = -74.0
+theme = ExtResource("1_0r0tb")
+theme_override_font_sizes/font_size = 34
+text = "请勿关闭电源"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+libraries = {
+&"": SubResource("AnimationLibrary_kbs2q")
+}
+autoplay = "loading"

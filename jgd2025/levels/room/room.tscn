@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c2hgmqr4djchj"]
+[gd_scene load_steps=24 format=3 uid="uid://c2hgmqr4djchj"]
 
 [ext_resource type="Script" uid="uid://djhym7xyj1hvl" path="res://levels/room/room.gd" id="1_266tv"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="2_j1o6v"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bud1w7th4nk2" path="res://assets/models/eve/eve01.glb" id="12_pf8v0"]
 [ext_resource type="PackedScene" uid="uid://5ltrsa0ifrxn" path="res://scenes/UI/terminal/Terminal.tscn" id="13_axngq"]
 [ext_resource type="PackedScene" uid="uid://dejraktjypadw" path="res://scenes/room_props/news.tscn" id="15_kseuc"]
+[ext_resource type="PackedScene" uid="uid://t7e4aelgiw5x" path="res://scenes/UI/RoomOpening/room_opening.tscn" id="16_326eg"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pf8v0"]
 flip_faces = true
@@ -54,7 +55,7 @@ light_energy = 1.5
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_j1o6v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4035671, 1.0786653, -2.6633224)
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -0.09756082, -0.48797822, -3.105818)
 
 [node name="Obstacles" type="Node" parent="."]
 
@@ -181,6 +182,10 @@ visible = false
 
 [node name="Newspaper" parent="." instance=ExtResource("15_kseuc")]
 transform = Transform3D(-0.4475093, 0, 0.8942793, 0, 1, 0, -0.8942793, 0, -0.4475093, 4.478302, 1.0050954, -0.41710323)
+visible = false
+
+[node name="RoomOpening" parent="." instance=ExtResource("16_326eg")]
+visible = false
 
 [connection signal="interact_obj" from="Player" to="." method="_on_player_interact_obj"]
 [connection signal="body_entered" from="ClearArea2" to="." method="_on_clear_area_2_body_entered"]
@@ -188,3 +193,4 @@ transform = Transform3D(-0.4475093, 0, 0.8942793, 0, 1, 0, -0.8942793, 0, -0.447
 [connection signal="body_entered" from="ClearArea4" to="." method="_on_clear_area_4_body_entered"]
 [connection signal="body_entered" from="eve01/EveArea3D" to="." method="_on_eve_area_3d_body_entered"]
 [connection signal="input_submitted" from="Terminal" to="." method="_on_terminal_input_submitted"]
+[connection signal="ended" from="RoomOpening" to="." method="_on_room_opening_ended"]

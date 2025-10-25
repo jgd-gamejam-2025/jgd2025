@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bysluvlg528e6"]
+[gd_scene load_steps=20 format=3 uid="uid://bysluvlg528e6"]
 
 [ext_resource type="Material" uid="uid://d27oxwekg1hsx" path="res://levels/tps_test_scene/material/white wall.tres" id="1_ubpq8"]
 [ext_resource type="Script" uid="uid://m0dgfvbn5ht7" path="res://levels/maze2/Set/set_2.gd" id="1_xhb0a"]
@@ -7,12 +7,12 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6dhc4"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_868cf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhb0a"]
 albedo_color = Color(0.86647767, 0.87934005, 0.89542544, 1)
 metallic = 0.55
 
 [sub_resource type="BoxMesh" id="BoxMesh_6dhc4"]
-material = SubResource("StandardMaterial3D_868cf")
+material = SubResource("StandardMaterial3D_xhb0a")
 size = Vector3(2000, 3, 111)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8luys"]
@@ -38,11 +38,17 @@ albedo_color = Color(0.23151812, 0.23151812, 0.23151812, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a646p"]
 albedo_color = Color(0.24840015, 0.24840018, 0.24840015, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7h38i"]
+size = Vector3(17.235718, 33.481934, 33.49231)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_15gwa"]
 size = Vector3(17.235718, 33.481934, 61.978516)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mbv61"]
-size = Vector3(66.09421, 26.85199, 42.27658)
+size = Vector3(26.565605, 26.85199, 15.8352585)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uy7mv"]
+size = Vector3(96.39904, 26.85199, 12.655897)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xhb0a"]
 size = Vector3(66.09421, 26.85199, 42.27658)
@@ -71,6 +77,12 @@ use_collision = true
 size = Vector3(53.690174, 77.48355, 2.9002686)
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="bridge"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 54.628334, -13.208412, -179.48705)
+use_collision = true
+size = Vector3(43.941765, 77.48355, 21.26767)
+
+[node name="Mid" type="CSGBox3D" parent="bridge"]
+unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.851, -16.85, -180.805)
 use_collision = true
 size = Vector3(48.482937, 1.7900467, 7.0641785)
@@ -208,7 +220,7 @@ material = ExtResource("1_ubpq8")
 
 [node name="LoadGate" type="CSGBox3D" parent="CSGCombiner3D"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.556137, -9.553703, -109.293625)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -9.554, -109.294)
 use_collision = true
 size = Vector3(16.692322, 23.863892, 2.9002686)
 material = ExtResource("1_ubpq8")
@@ -263,9 +275,9 @@ material = ExtResource("1_ubpq8")
 [node name="wall-underground" type="Node3D" parent="."]
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="wall-underground"]
-transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 2.7658463, -49.456463, -183.25723)
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 2.7658463, -48.529366, -183.24025)
 use_collision = true
-size = Vector3(43.838, 90, 2.9)
+size = Vector3(46.456814, 90, 2.9)
 material = SubResource("StandardMaterial3D_aw82a")
 
 [node name="CSGBox3D22" type="CSGBox3D" parent="wall-underground"]
@@ -302,6 +314,14 @@ use_collision = true
 size = Vector3(17.647028, 12.86322, 9.678027)
 material = SubResource("StandardMaterial3D_a646p")
 
+[node name="AirBridge" type="Area3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -8.599617, 0.5162735)
+
+[node name="Option1" type="CollisionShape3D" parent="AirBridge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.217995, -8.259041, -341.74725)
+shape = SubResource("BoxShape3D_7h38i")
+debug_color = Color(0.69629747, 0.49369907, 0, 0.41960785)
+
 [node name="Judge" type="Node3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -8.599617, 0.5162735)
@@ -314,11 +334,12 @@ shape = SubResource("BoxShape3D_15gwa")
 debug_color = Color(0.9663064, 0, 0.48431534, 0.41960785)
 
 [node name="Label1" type="Label3D" parent="Judge/Option1"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -34, -14.488707, -313.39325)
-outline_modulate = Color(0.45452422, 0.45452428, 0.45452422, 1)
-text = "A"
+transform = Transform3D(1, 0, 0, 0, -8.742278e-08, 1, 0, -2, -4.371139e-08, -32.0981, -14.631569, -317.60114)
+modulate = Color(0.20871013, 0.20871016, 0.20871013, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = " 流体恋人"
 font = ExtResource("2_xhb0a")
-font_size = 2382
+font_size = 700
 outline_size = 127
 
 [node name="Option2" type="Area3D" parent="Judge"]
@@ -329,12 +350,12 @@ shape = SubResource("BoxShape3D_15gwa")
 debug_color = Color(0.9663064, 0, 0.48431534, 0.41960785)
 
 [node name="Label2" type="Label3D" parent="Judge/Option2"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 14, -14.488707, -313.39325)
-outline_modulate = Color(0.45452422, 0.45452428, 0.45452422, 1)
-text = "B
-"
+transform = Transform3D(1, 0, 0, 0, -8.742278e-08, 1, 0, -2, -4.371139e-08, 12.793642, -14.631569, -317.60114)
+modulate = Color(0.20871013, 0.20871016, 0.20871013, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = " 流体恋人"
 font = ExtResource("2_xhb0a")
-font_size = 2382
+font_size = 700
 outline_size = 127
 
 [node name="Option3" type="Area3D" parent="Judge"]
@@ -345,16 +366,17 @@ shape = SubResource("BoxShape3D_15gwa")
 debug_color = Color(0.9663064, 0, 0.48431534, 0.41960785)
 
 [node name="Label3" type="Label3D" parent="Judge/Option3"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 58, -14.488707, -313.39325)
-outline_modulate = Color(0.45452422, 0.45452428, 0.45452422, 1)
-text = "C
-"
+transform = Transform3D(1, 0, 0, 0, -8.742278e-08, 1, 0, -2, -4.371139e-08, 54.791245, -14.631569, -317.60114)
+modulate = Color(0.20871013, 0.20871016, 0.20871013, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = " 流体恋人"
 font = ExtResource("2_xhb0a")
-font_size = 2382
+font_size = 700
 outline_size = 127
 
 [node name="EndLabel" type="Label3D" parent="Judge"]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, 14, 64, -464)
+visible = false
 outline_modulate = Color(0.45452422, 0.45452428, 0.45452422, 1)
 text = "This is the question"
 font = ExtResource("2_xhb0a")
@@ -366,8 +388,16 @@ script = ExtResource("3_7h38i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -304)
 
 [node name="Option1" type="CollisionShape3D" parent="LoadNext"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6623383, -13.646854, 27.51294)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.008564, -13.646854, 40.733612)
 shape = SubResource("BoxShape3D_mbv61")
+debug_color = Color(0.9663064, 0, 0.48431534, 0.41960785)
+
+[node name="CloseDoor" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -304)
+
+[node name="Option1" type="CollisionShape3D" parent="CloseDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5957756, -13.646854, -5.466278)
+shape = SubResource("BoxShape3D_uy7mv")
 debug_color = Color(0.9663064, 0, 0.48431534, 0.41960785)
 
 [node name="Hell" type="Area3D" parent="."]
@@ -378,11 +408,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6623383, -46.724247, -30.39
 shape = SubResource("BoxShape3D_xhb0a")
 debug_color = Color(0.9663064, 0, 0.48431534, 0.41960785)
 
+[node name="SaveStart1" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3416653, -14.616577, -154.63684)
+
+[node name="SaveStart2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3416653, -14.616577, -297.8504)
+
 [node name="NextPosition" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -152)
 
+[connection signal="body_entered" from="AirBridge" to="." method="_on_air_bridge_body_entered"]
 [connection signal="body_entered" from="Judge/Option1" to="." method="_on_option_1_body_entered"]
 [connection signal="body_entered" from="Judge/Option2" to="." method="_on_option_2_body_entered"]
 [connection signal="body_entered" from="Judge/Option3" to="." method="_on_option_3_body_entered"]
 [connection signal="body_entered" from="LoadNext" to="." method="_on_load_next_body_entered"]
+[connection signal="body_entered" from="CloseDoor" to="." method="_on_close_door_body_entered"]
 [connection signal="body_entered" from="Hell" to="." method="_on_hell_body_entered"]

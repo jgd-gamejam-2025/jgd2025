@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://bysluvlg528e6"]
+[gd_scene load_steps=21 format=3 uid="uid://bysluvlg528e6"]
 
 [ext_resource type="Material" uid="uid://d27oxwekg1hsx" path="res://levels/tps_test_scene/material/white wall.tres" id="1_ubpq8"]
 [ext_resource type="Script" uid="uid://m0dgfvbn5ht7" path="res://levels/maze2/Set/set_2.gd" id="1_xhb0a"]
 [ext_resource type="FontFile" uid="uid://dlefqu74x4m18" path="res://scenes/UI/fonts/sarasa-mono-sc-bold.ttf" id="2_xhb0a"]
 [ext_resource type="Script" uid="uid://cn5243ahistp4" path="res://other_scripts/float_node3d.gd" id="3_7h38i"]
+[ext_resource type="PackedScene" uid="uid://gj0eukmhijlk" path="res://scenes/maze_scene/small_door/sliding_door.tscn" id="5_7h38i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6dhc4"]
 
@@ -48,7 +49,7 @@ size = Vector3(17.235718, 33.481934, 61.978516)
 size = Vector3(26.565605, 26.85199, 15.8352585)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uy7mv"]
-size = Vector3(96.39904, 26.85199, 12.655897)
+size = Vector3(65.07535, 2.6349335, 7.9124317)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xhb0a"]
 size = Vector3(66.09421, 26.85199, 42.27658)
@@ -392,11 +393,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.008564, -13.646854, 40.7336
 shape = SubResource("BoxShape3D_mbv61")
 debug_color = Color(0.9663064, 0, 0.48431534, 0.41960785)
 
-[node name="CloseDoor" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -304)
+[node name="SlidingDoor" parent="." instance=ExtResource("5_7h38i")]
+transform = Transform3D(5.9423842, 0, 0, 0, 12.059421, 0, 0, 0, 4.39, 42.441273, -14.524782, -301.42145)
+close_duration = 1.0
+random_speed_max = 1.0
 
-[node name="Option1" type="CollisionShape3D" parent="CloseDoor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5957756, -13.646854, -5.466278)
+[node name="CloseDoor" type="Area3D" parent="SlidingDoor"]
+transform = Transform3D(0.16828261, 0, 0, 0, 0.08292273, 0, 0, 0, 0.22779046, -5.9091954, 1.2044345, -1.8434143)
+
+[node name="Option1" type="CollisionShape3D" parent="SlidingDoor/CloseDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9467773, -14.35223, -0.09094238)
 shape = SubResource("BoxShape3D_uy7mv")
 debug_color = Color(0.9663064, 0, 0.48431534, 0.41960785)
 
@@ -422,5 +428,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -152)
 [connection signal="body_entered" from="Judge/Option2" to="." method="_on_option_2_body_entered"]
 [connection signal="body_entered" from="Judge/Option3" to="." method="_on_option_3_body_entered"]
 [connection signal="body_entered" from="LoadNext" to="." method="_on_load_next_body_entered"]
-[connection signal="body_entered" from="CloseDoor" to="." method="_on_close_door_body_entered"]
 [connection signal="body_entered" from="Hell" to="." method="_on_hell_body_entered"]

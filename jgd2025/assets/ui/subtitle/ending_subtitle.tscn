@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq5us7eimus0y"]
+
+[ext_resource type="Script" uid="uid://dvjcmu1hncynt" path="res://assets/ui/subtitle/ending_subtitle.gd" id="1_hiyes"]
+[ext_resource type="AudioStream" uid="uid://rlstab7nrqij" path="res://assets/ui/结局对话.wav" id="1_we7gq"]
+
+[sub_resource type="Animation" id="Animation_we7gq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+
+[sub_resource type="Animation" id="Animation_vdkgq"]
+resource_name = "ending_subtitle"
+length = 45.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.2333333, 3.7666667, 4.9333334, 7.4333334, 9.066667, 12.166667, 13.7, 15.133333, 17.2, 18.2, 20.966667, 22.033333, 25.966667, 27.733334, 29.9, 31.066668, 32.9, 33.933334, 35.266666, 36.966667, 37.69127, 38.1, 39.766666, 41.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["当模型变得足够庞大之后", "它对我们来说", "就成了一个黑盒", "我们再也搞不清楚", "它是怎么想的", "它怎么回忆过去", "怎么理解世界", "怎么做决定", "也许", "它甚至以为自己才是人类", "而我们", "只是它对话的对象", "Eve, 先别忙啦", "电影要开始啦", "啊， 对", "流体恋人吗？", "对啊~", "票都买好了", "你该不会忘了吧？", "差点", "最近忙于模型的事", "记性越来越差了", "走吧", ""]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_we7gq"]
+_data = {
+&"RESET": SubResource("Animation_we7gq"),
+&"ending_subtitle": SubResource("Animation_vdkgq")
+}
+
+[node name="EndingSubtitle" type="Node2D"]
+script = ExtResource("1_hiyes")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_we7gq")
+}
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(1000, 500)
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_we7gq")

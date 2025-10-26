@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{C63884F6-FE4E-E46F-3042-70DC3D78DD96}",
+    "Hash": "{6E05FB6E-2174-4F75-6CD2-830BFB4B2B88}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -44,6 +44,38 @@
     ],
     "StateGroups": [
      {
+      "Id": "1117531639",
+      "Name": "AMB",
+      "ObjectPath": "\\States\\Default Work Unit\\AMB",
+      "GUID": "{746459AE-473F-4C0B-B7B4-4936082F941D}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\AMB\\None",
+        "GUID": "{0E691C1D-1058-4144-96CE-1D1309E4CA19}"
+       },
+       {
+        "Id": "2077253480",
+        "Name": "Room",
+        "ObjectPath": "\\States\\Default Work Unit\\AMB\\Room",
+        "GUID": "{3A043E41-D37C-4426-800B-2F3403BBA86E}"
+       },
+       {
+        "Id": "2943799864",
+        "Name": "Maze",
+        "ObjectPath": "\\States\\Default Work Unit\\AMB\\Maze",
+        "GUID": "{1DC91425-399E-47C5-B730-75F6D8C92627}"
+       },
+       {
+        "Id": "4050983346",
+        "Name": "chatgpt",
+        "ObjectPath": "\\States\\Default Work Unit\\AMB\\chatgpt",
+        "GUID": "{2E6AA099-AA87-412E-9965-C9172F82E89C}"
+       }
+      ]
+     },
+     {
       "Id": "2724869341",
       "Name": "Music_Switch",
       "ObjectPath": "\\States\\Default Work Unit\\Music_Switch",
@@ -62,6 +94,18 @@
         "GUID": "{2F007002-5601-4B2B-A35F-140428F1A126}"
        },
        {
+        "Id": "1832156600",
+        "Name": "Maze_pretrans",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\Maze_pretrans",
+        "GUID": "{9C624977-AADC-489D-BA5C-7F779D105F70}"
+       },
+       {
+        "Id": "2077253480",
+        "Name": "room",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\room",
+        "GUID": "{2BFCFE8A-93AC-4C39-BB69-46DFDA56957A}"
+       },
+       {
         "Id": "2943799864",
         "Name": "Maze",
         "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\Maze",
@@ -72,6 +116,32 @@
         "Name": "EVE_Title",
         "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\EVE_Title",
         "GUID": "{AE380017-9A16-42B1-81C0-8A0C452AF087}"
+       }
+      ]
+     },
+     {
+      "Id": "3092587493",
+      "Name": "Pause",
+      "ObjectPath": "\\States\\Default Work Unit\\Pause",
+      "GUID": "{26327A09-9A23-4461-A318-6C467DEEBD64}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Pause\\None",
+        "GUID": "{A255A729-A9FC-41A2-9A5C-4F65414929B1}"
+       },
+       {
+        "Id": "930712164",
+        "Name": "off",
+        "ObjectPath": "\\States\\Default Work Unit\\Pause\\off",
+        "GUID": "{8F36B698-936A-4A12-8170-9A0FA923FE97}"
+       },
+       {
+        "Id": "1651971902",
+        "Name": "on",
+        "ObjectPath": "\\States\\Default Work Unit\\Pause\\on",
+        "GUID": "{C3C6E510-2E64-4114-A8E8-97DCFAB75068}"
        }
       ]
      }
@@ -555,6 +625,6 @@
     ]
    }
   ],
-  "FileHash": "{2A4EA1ED-350D-61C0-6D3E-E4A0F4D13AA0}"
+  "FileHash": "{E98005B2-B62C-B026-A3F3-03A1F006454D}"
  }
 }

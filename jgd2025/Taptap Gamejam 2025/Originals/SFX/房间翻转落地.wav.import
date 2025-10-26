@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b2k8uun4ibyfg"
+path="res://.godot/imported/房间翻转落地.wav-094b7f3c76a7b7c6902d32f1c6f396e1.sample"
+
+[deps]
+
+source_file="res://Taptap Gamejam 2025/Originals/SFX/房间翻转落地.wav"
+dest_files=["res://.godot/imported/房间翻转落地.wav-094b7f3c76a7b7c6902d32f1c6f396e1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

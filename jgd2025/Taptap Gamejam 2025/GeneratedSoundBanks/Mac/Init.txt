@@ -1,11 +1,19 @@
 State Group	ID	Name			Wwise Object Path	Notes
+	1117531639	AMB			\Default Work Unit\AMB	
 	2724869341	Music_Switch			\Default Work Unit\Music_Switch	
+	3092587493	Pause			\Default Work Unit\Pause	
 
 State	ID	Name	State Group			Notes
+	748895195	None	AMB			
+	2077253480	Room	AMB			
+	2943799864	Maze	AMB			
 	349818688	Begin	Music_Switch			
 	748895195	None	Music_Switch			
 	2943799864	Maze	Music_Switch			
 	3581653674	EVE_Title	Music_Switch			
+	748895195	None	Pause			
+	930712164	off	Pause			
+	1651971902	on	Pause			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	504532776	Brick			\Factory Acoustic Textures\Textures\Brick	

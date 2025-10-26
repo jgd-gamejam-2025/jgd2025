@@ -9,6 +9,23 @@
 						<State Name="Begin" ID="{9D31A35C-59F9-403D-B097-9890DC3921B9}"/>
 						<State Name="EVE_Title" ID="{AE380017-9A16-42B1-81C0-8A0C452AF087}"/>
 						<State Name="Maze" ID="{D3D7F946-B924-4665-A447-3054F0CED4C1}"/>
+						<State Name="Maze_pretrans" ID="{9C624977-AADC-489D-BA5C-7F779D105F70}"/>
+						<State Name="room" ID="{2BFCFE8A-93AC-4C39-BB69-46DFDA56957A}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="AMB" ID="{746459AE-473F-4C0B-B7B4-4936082F941D}">
+					<ChildrenList>
+						<State Name="None" ID="{0E691C1D-1058-4144-96CE-1D1309E4CA19}"/>
+						<State Name="Maze" ID="{1DC91425-399E-47C5-B730-75F6D8C92627}"/>
+						<State Name="Room" ID="{3A043E41-D37C-4426-800B-2F3403BBA86E}"/>
+						<State Name="chatgpt" ID="{2E6AA099-AA87-412E-9965-C9172F82E89C}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="Pause" ID="{26327A09-9A23-4461-A318-6C467DEEBD64}">
+					<ChildrenList>
+						<State Name="None" ID="{A255A729-A9FC-41A2-9A5C-4F65414929B1}"/>
+						<State Name="on" ID="{C3C6E510-2E64-4114-A8E8-97DCFAB75068}"/>
+						<State Name="off" ID="{8F36B698-936A-4A12-8170-9A0FA923FE97}"/>
 					</ChildrenList>
 				</StateGroup>
 			</ChildrenList>

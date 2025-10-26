@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://c5w426d3anvb3"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "SFX_Play_Room_footsteps"
+id = 2251224647
+guid = "{792BC129-6B13-4A2D-99B5-B4A9B00C0A43}"
+dummy = true

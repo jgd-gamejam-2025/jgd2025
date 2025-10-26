@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://da38xev2hnr3u"]
+[gd_scene load_steps=6 format=3 uid="uid://da38xev2hnr3u"]
 
 [ext_resource type="Script" uid="uid://drifc33vtvx66" path="res://scenes/UI/TransitionUI/transition.gd" id="1_e5s63"]
 [ext_resource type="Theme" uid="uid://csjhowu7j47ua" path="res://scenes/UI/TransitionUI/transition.tres" id="2_5lax8"]
+[ext_resource type="WwiseEvent" uid="uid://cljud4ytlyctm" path="res://Wwise/resources/Event/{7D313743-E29F-4FF9-9056-EA471F005FE0}.tres" id="2_7ogku"]
 [ext_resource type="Texture2D" uid="uid://bet3p2j6e5as5" path="res://assets/Eve/title_white.png" id="3_pr44b"]
 [ext_resource type="Theme" uid="uid://byj5ikantfwqn" path="res://scenes/UI/Menu/menu.tres" id="4_wrsch"]
 
 [node name="Transition" type="CanvasLayer"]
 layer = 5
 script = ExtResource("1_e5s63")
+wwise_loading = ExtResource("2_7ogku")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15

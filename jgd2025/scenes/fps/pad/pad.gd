@@ -21,12 +21,17 @@ signal pad_deactivated  # Signal when pad is deactivated
 
 # 平滑系数，用于减缓移动
 @export var smooth_speed := 6.0
+@export var wwise_out :WwiseEvent
+@export var wwise_in :WwiseEvent
+
 
 var is_playing = false
 
 var _current_t := 0.0
 
 var follow_player := true
+
+var _was_above_threshold := false  # 记录上一帧是否超过阈值
 
 func _process(delta: float) -> void:
 	if not follow_player or not camera_pivot or not player: # 确保 player 也被正确获取
@@ -52,6 +57,19 @@ func _process(delta: float) -> void:
 	# 插值位置与旋转
 	position = start_position.lerp(end_position, _current_t)
 	rotation_degrees = start_rotation.lerp(end_rotation, _current_t)
+	
+	# 检测阈值变化并播放音效（只播放一次）
+	var is_above_threshold = _current_t >= activation_threshold
+	if is_above_threshold != _was_above_threshold:
+		if is_above_threshold:
+			# 刚超过阈值，播放 wwise_out
+			if wwise_out:
+				wwise_out.post(player)
+		else:
+			# 刚低于阈值，播放 wwise_in
+			if wwise_in:
+				wwise_in.post(player)
+		_was_above_threshold = is_above_threshold
 	
 	# Check for pad activation
 	# (后面的激活检测逻辑保持不变，因为 t = 0 会自动处理掉激活状态)

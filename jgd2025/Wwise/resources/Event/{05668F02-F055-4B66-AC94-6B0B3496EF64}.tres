@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://cmj8coc6vtcn0"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "SFX_Maze_footstep"
+id = 3077740929
+guid = "{05668F02-F055-4B66-AC94-6B0B3496EF64}"
+dummy = true

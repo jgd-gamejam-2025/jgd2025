@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://djn8602b4fefm"
+path="res://.godot/imported/大门2.wav-cdf68fd91bd6d7af5d4c1ed926a962d2.sample"
+
+[deps]
+
+source_file="res://Taptap Gamejam 2025/Originals/SFX/大门2.wav"
+dest_files=["res://.godot/imported/大门2.wav-cdf68fd91bd6d7af5d4c1ed926a962d2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

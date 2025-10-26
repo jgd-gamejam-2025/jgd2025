@@ -60,6 +60,8 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var pad = %Pad
 @onready var interaction_raycast: RayCast3D = $CameraPivot/SmoothCamera/RayCast3D
+@export var wwise_walk_maze: WwiseEvent
+@export var wwise_walk_room: WwiseEvent
 
 # Dynamic values used for calculation
 var input_direction: Vector2
@@ -336,8 +338,41 @@ func _on_state_machine_transitioned(state: PlayerState) -> void:
 	
 	if is_moving:
 		view_bobbing_player.play("view_bobbing", .5, view_bobbing_amount, false)
+		_play_footstep_sound(state is Sprint)  # 播放脚步声，跑步时速度更快
 	else:
 		view_bobbing_player.play("RESET", .5)
+		_stop_footstep_sound()  # 停止脚步声
+
+func _play_footstep_sound(is_sprinting: bool = false) -> void:
+	# """播放脚步声（根据是否在跑步调整播放速度）"""
+	# if not footstep_audio or not footstep_audio.stream:
+	# 	return
+	
+	# # 如果已经在播放，不重复播放
+	# if footstep_audio.playing:
+	# 	return 
+	
+	# # 根据移动速度调整音频播放速度
+	# if is_sprinting:
+	# 	footstep_audio.pitch_scale = 1.3  # 跑步时脚步声更快
+	# else:
+	# 	footstep_audio.pitch_scale = 1.0  # 正常行走
+	
+	# footstep_audio.play()
+	if LevelManager.curr_scene == "room":
+		wwise_walk_room.post(self)
+	else:
+		wwise_walk_maze.post(self)
+
+
+func _stop_footstep_sound() -> void:
+	# """停止脚步声"""
+	# if footstep_audio and footstep_audio.playing:
+	# 	footstep_audio.stop()
+	if LevelManager.curr_scene == "room":
+		wwise_walk_room.stop(self)
+	else:
+		wwise_walk_maze.stop(self)
 
 
 func _add_input_map_event(action_name: String, keycode: int) -> void:

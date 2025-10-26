@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var box = $CenterContainer
 @onready var profile_pic = %ProfilePic
 @onready var panel_container = $CenterContainer/PanelContainer
+@export var wwise_notifcation: WwiseEvent
 var show_pos
 var hide_pos
 var _tween : Tween
@@ -25,7 +26,7 @@ func show_notification(message: String, duration: float = 3.0, name_text: String
 	_tween = create_tween()
 	box.position.y = hide_pos.y  # Ensure starting from hidden position
 	_tween.tween_property(box, "position:y", show_pos.y, 0.35).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-
+	wwise_notifcation.post(self)
 
 func end_notification() -> void:
 	if _tween:

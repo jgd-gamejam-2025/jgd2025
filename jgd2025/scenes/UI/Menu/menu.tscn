@@ -109,6 +109,9 @@ text = "AI角色的言论由语言模型生成，不代表制作组立场，内�
 event = ExtResource("5_yv4w8")
 trigger_on = 2
 
+[connection signal="mouse_entered" from="ColorRect/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="mouse_entered" from="ColorRect/MarginContainer/VBoxContainer/NewGame" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="mouse_entered" from="ColorRect/MarginContainer/VBoxContainer/Exit" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

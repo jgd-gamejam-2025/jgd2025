@@ -62,7 +62,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h4ouj")
-debug_mode = true
 qwen = false
 wwise_type_fault = ExtResource("2_qn37w")
 wwise_type = ExtResource("3_wk3ky")

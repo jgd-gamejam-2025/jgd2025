@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7l5sv4fjhjwm"]
+[gd_scene load_steps=11 format=3 uid="uid://b7l5sv4fjhjwm"]
 
 [ext_resource type="Script" uid="uid://caandmgf3l0vk" path="res://scenes/UI/notification/notification.gd" id="1_qxpuj"]
 [ext_resource type="Script" uid="uid://eaqfy06e0nte" path="res://scenes/UI/bubble_ui/detail_bubble.gd" id="2_ieb1t"]
+[ext_resource type="WwiseEvent" uid="uid://batwlg87rndat" path="res://Wwise/resources/Event/{41786BF5-4375-4A55-8762-18F43BE2A9E7}.tres" id="2_prjqc"]
 [ext_resource type="PackedScene" uid="uid://db7chujuf7je8" path="res://scenes/UI/ProfilePic/profile_pic.tscn" id="3_nixmn"]
 [ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="4_prjqc"]
 [ext_resource type="PackedScene" uid="uid://bynn3w8xjct6b" path="res://scenes/UI/bubble_ui/ui_bubble.tscn" id="5_bsch4"]
@@ -20,6 +21,7 @@ corner_radius_bottom_left = 40
 
 [node name="Notification" type="CanvasLayer"]
 script = ExtResource("1_qxpuj")
+wwise_notifcation = ExtResource("2_prjqc")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 7

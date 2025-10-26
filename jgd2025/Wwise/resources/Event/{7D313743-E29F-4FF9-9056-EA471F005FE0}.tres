@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://cljud4ytlyctm"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "SFX_Loading"
+id = 3955623867
+guid = "{7D313743-E29F-4FF9-9056-EA471F005FE0}"
+dummy = true

@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=25 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" uid="uid://bpxl08ies4o8i" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" uid="uid://djb7vvinol8a4" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
 [ext_resource type="Script" uid="uid://bdoh334e0i1rn" path="res://addons/fp_controller/scripts/player_state_machine.gd" id="2_wwa58"]
 [ext_resource type="PackedScene" uid="uid://bf4832mqy4vii" path="res://scenes/fps/pad/pad.tscn" id="3_njw88"]
+[ext_resource type="WwiseEvent" uid="uid://c5w426d3anvb3" path="res://Wwise/resources/Event/{792BC129-6B13-4A2D-99B5-B4A9B00C0A43}.tres" id="3_vfxpb"]
 [ext_resource type="Script" uid="uid://bnf3hpwwp4j6k" path="res://addons/fp_controller/scripts/player_move_state/idle.gd" id="3_xe000"]
 [ext_resource type="Script" uid="uid://cjetf16ifdhlp" path="res://addons/fp_controller/scripts/player_move_state/jump.gd" id="4_1lr3q"]
 [ext_resource type="Script" uid="uid://fmjsewj8rdnq" path="res://addons/fp_controller/scripts/player_move_state/walk.gd" id="5_bwgwe"]
@@ -11,7 +12,7 @@
 [ext_resource type="Script" uid="uid://ijhwolwk0a4k" path="res://addons/fp_controller/scripts/player_move_state/fall.gd" id="7_dv6ye"]
 [ext_resource type="Script" uid="uid://pikjo5be4xuw" path="res://addons/fp_controller/scripts/player_move_state/crouch.gd" id="9_yxb0u"]
 [ext_resource type="Script" uid="uid://wnc7cntkeqxq" path="res://addons/fp_controller/scripts/player_move_state/climb.gd" id="10_o7gmx"]
-[ext_resource type="WwiseEvent" uid="uid://6f57u2iukpba" path="res://Wwise/resources/Event/{36B66DC0-988B-4EB1-B9AE-4A4534358803}.tres" id="10_ttf0e"]
+[ext_resource type="WwiseEvent" uid="uid://cmj8coc6vtcn0" path="res://Wwise/resources/Event/{05668F02-F055-4B66-AC94-6B0B3496EF64}.tres" id="10_ttf0e"]
 [ext_resource type="Script" uid="uid://clgw30scqghds" path="res://addons/fp_controller/scripts/player_move_state/grab.gd" id="11_gkc45"]
 [ext_resource type="Script" uid="uid://c0vew2v5g1j3g" path="res://addons/fp_controller/scripts/player_move_state/slide.gd" id="12_bqyfq"]
 [ext_resource type="Script" uid="uid://c8rkifjyuvmq8" path="res://addons/fp_controller/scripts/player_ui.gd" id="12_d7xi0"]
@@ -244,6 +245,8 @@ height = 1.8
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_5ras8")
+wwise_walk_maze = ExtResource("10_ttf0e")
+wwise_walk_room = ExtResource("3_vfxpb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

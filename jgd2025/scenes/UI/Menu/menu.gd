@@ -12,6 +12,7 @@ var clicked_button = false
 func _on_continue_pressed() -> void:
 	if clicked_button:
 		return
+	Wwise.post_event("UI_Choose", self)
 	clicked_button = true
 	await get_tree().create_timer(0.2).timeout
 	Transition.set_and_start("正在连接……", "", 2)
@@ -21,6 +22,7 @@ func _on_continue_pressed() -> void:
 func _on_new_game_pressed() -> void:
 	if clicked_button:
 		return
+	Wwise.post_event("UI_Choose", self)
 	clicked_button = true
 	await get_tree().create_timer(0.2).timeout
 	Transition.set_and_start("正在连接……", "", 2)
@@ -28,4 +30,9 @@ func _on_new_game_pressed() -> void:
 
 
 func _on_exit_pressed() -> void:
+	Wwise.post_event("UI_Choose", self)
 	get_tree().quit()
+
+
+func _on_continue_mouse_entered() -> void:
+	Wwise.post_event("UI_Prechoose", self)

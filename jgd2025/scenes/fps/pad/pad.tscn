@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bf4832mqy4vii"]
+[gd_scene load_steps=9 format=3 uid="uid://bf4832mqy4vii"]
 
 [ext_resource type="PackedScene" uid="uid://byhcpq4t56qc3" path="res://scenes/UI/chat_ui/chat_ui.tscn" id="1_ng05o"]
 [ext_resource type="Script" uid="uid://4x8m3xe0ex31" path="res://scenes/fps/pad/pad.gd" id="1_oyeqh"]
+[ext_resource type="WwiseEvent" uid="uid://cj6o5gp7cxsba" path="res://Wwise/resources/Event/{749CAEB4-BA26-41E3-8E27-93DA4CD7F39C}.tres" id="2_hmtpe"]
+[ext_resource type="WwiseEvent" uid="uid://blks11mdn2h1e" path="res://Wwise/resources/Event/{F4F6CDB0-C437-463C-A59C-DFBA053DB85E}.tres" id="3_fcew8"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_oyeqh"]
 viewport_path = NodePath("SubViewport")
@@ -20,6 +22,8 @@ size = Vector3(0.03, 0.03, 0.805)
 [node name="Pad" type="MeshInstance3D"]
 skeleton = NodePath("../../Obstacles/BasicBlock2")
 script = ExtResource("1_oyeqh")
+wwise_out = ExtResource("2_hmtpe")
+wwise_in = ExtResource("3_fcew8")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.07, 0, 0, 0, -3.059797e-09, 0.07, 0, -0.07, -3.059797e-09, 0, -0.00068414956, 0)

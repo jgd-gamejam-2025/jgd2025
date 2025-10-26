@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://blks11mdn2h1e"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "SFX_Play_Putdown_ipad"
+id = 26301700
+guid = "{F4F6CDB0-C437-463C-A59C-DFBA053DB85E}"
+dummy = true

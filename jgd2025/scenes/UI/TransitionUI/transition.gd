@@ -6,10 +6,13 @@ extends CanvasLayer
 @onready var bg = $BG
 @onready var center_label = $Label
 
+@export var wwise_loading :WwiseEvent
+
 var _tween: Tween
 
 func start(wait_time: float = 0.0) -> Tween:
 	show()
+	wwise_loading.post(self)
 	$AudioStreamPlayer.play()
 	if _tween and _tween.is_valid():
 		_tween.kill()
@@ -23,6 +26,7 @@ func start(wait_time: float = 0.0) -> Tween:
 
 func end():
 	$AudioStreamPlayer.stop()
+	wwise_loading.stop(self)
 	hide()
 
 func _ready() -> void:

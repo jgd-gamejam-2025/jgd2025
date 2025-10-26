@@ -125,7 +125,7 @@
 						<Action Name="" ID="{EA6396C3-8603-4E3D-B7F5-89222E47A191}" ShortID="425113486">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Maze_Landing" ID="{A2D48E2D-46B8-4325-BF71-B720B2716CB2}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+									<ObjectRef Name="迷宫落地" ID="{1C44E3CE-2C0C-4164-AF29-2DB3755A3432}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -157,7 +157,110 @@
 						<Action Name="" ID="{9CB3D168-EC02-4AC2-AE34-0369F358CE14}" ShortID="439691459">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Put down_ipad" ID="{8E732A61-6F84-45AD-884E-4A1E7CFB8CFA}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+									<ObjectRef Name="Put down_ipad" ID="{A66DA517-4D83-4D66-B795-2143870B54D7}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_pillarup" ID="{B75E44DB-F107-4E91-B6CF-DE9E9FD9DF49}">
+					<ChildrenList>
+						<Action Name="" ID="{6FB96359-40F6-4D6C-8E40-5B6FC4AFB405}" ShortID="359567321">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pillar up" ID="{259AF2F9-DE9C-4E56-AE87-5E9D9D3B9650}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_AMB_Maze" ID="{103188C3-BD03-4904-8B27-E2B40B30E101}">
+					<ChildrenList>
+						<Action Name="" ID="{1F229938-9EA0-4FC4-91BC-5D66A38DBA27}" ShortID="851377335">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="AMB_Switch" ID="{D63601BD-A1F1-4915-87D7-D827919DAF40}" WorkUnitID="{31113548-3ABA-48C5-839E-39FE3F1493C3}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{7EBF0AFF-9D7A-4D41-AECB-6A9CF29152DC}" ShortID="350560740">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Maze" ID="{1DC91425-399E-47C5-B730-75F6D8C92627}" WorkUnitID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Set_AMB_room" ID="{A14D41F9-2DEE-4482-A19A-D8478FA3925D}">
+					<ChildrenList>
+						<Action Name="" ID="{AAD4EEA5-DF58-46FA-9704-BAEEC00F72C5}" ShortID="877619878">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Room" ID="{3A043E41-D37C-4426-800B-2F3403BBA86E}" WorkUnitID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Room_footsteps" ID="{792BC129-6B13-4A2D-99B5-B4A9B00C0A43}">
+					<ChildrenList>
+						<Action Name="" ID="{DA5C8058-AC16-41FB-A5B4-8798E47431AA}" ShortID="932004189">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Room_footsteps" ID="{CCE81E82-02A7-403E-8938-6B28D61F4DD1}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_AMB_Room" ID="{9720C59E-F760-45AD-A098-0544C9699211}">
+					<ChildrenList>
+						<Action Name="" ID="{768E9B40-E0C8-499E-B4A0-2A80F14713ED}" ShortID="683512200">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Room" ID="{3A043E41-D37C-4426-800B-2F3403BBA86E}" WorkUnitID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="SFX_pickup_newspaper" ID="{BC25D587-33DF-4863-A59F-463E698D111F}">
+					<ChildrenList>
+						<Action Name="" ID="{39DB4D6B-5E8A-4B57-B716-71527982BD6D}" ShortID="472231728">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="报纸拿起" ID="{CB594B55-9AE0-417A-8B52-DA58E05F7AD0}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="SFX_putdown_newspaper" ID="{9A488581-9667-4D97-AA61-DD782F09924D}">
+					<ChildrenList>
+						<Action Name="" ID="{CA5BD7A5-29FC-49BD-8927-CD812421FDCD}" ShortID="872855081">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="报纸拿起" ID="{CB594B55-9AE0-417A-8B52-DA58E05F7AD0}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{98F51C7E-1630-45E7-903D-26B443ECB37F}" ShortID="404027255">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="报纸放下" ID="{664EED1C-4505-47F8-943B-290C05A08B17}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

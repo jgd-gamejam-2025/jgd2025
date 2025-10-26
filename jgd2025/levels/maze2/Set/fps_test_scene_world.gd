@@ -14,11 +14,14 @@ var curr_set
 
 func _ready():
 	if LevelManager.set_index >= 0:
-		set_index = LevelManager.set_index
-		print("Loaded saved set index: %d" % set_index)
+		if LevelManager.set_index == 0.5:
+			set_index = 0
+			player.global_position = $SaveArea1/Marker3D.global_position
+		else:
+			set_index = LevelManager.set_index
+		print("Loaded saved set index: %d" % LevelManager.set_index)
 	pad.connect("pad_activated", _on_pad_pad_activated)
 	pad.connect("pad_deactivated", _on_pad_pad_deactivated)
-	Transition.end()
 	chat_ui.set_ai_name("Eve")
 	chat_ui.init_system_prompt({"ai":ai_prompt})
 	chat_ui.select_ai_chat("ai")
@@ -34,7 +37,7 @@ func _ready():
 		play_ending()
 	if set_index == 2 or set_index ==1:
 		player.global_position = curr_set.get_node("SaveStart1").global_position
-
+	Transition.end()
 
 func generate_set(target_position: Vector3) -> void:
 	curr_set = set_template.duplicate()
@@ -130,6 +133,11 @@ func _on_load_next_body_entered() -> void:
 	load_next_set()
 	LevelManager.save_game("maze2", {"set_index": set_index})
 
+func _on_save_area_1_body_entered(body: Node3D) -> void:
+	if body.name == "Player":
+		LevelManager.save_game("maze2", {"set_index": 0.5})
+		
+
 func _on_parkour_started() -> void:
 	get_notification("快跑！这里要塌了！")
 	var tween = create_tween()
@@ -140,7 +148,7 @@ func _on_ocean_started() -> void:
 	# Generally dim the light
 	var tween = create_tween()
 	var env := get_viewport().get_world_3d().environment
-	tween.parallel().tween_property($DirectionalLight3D, "light_energy", 0.1, 5)
+	tween.parallel().tween_property($DirectionalLight3D, "light_energy", 0.05, 5)
 	# tween.parallel().tween_property($DirectionalLight3D, "shadow_opacity", 0.3, 5)
 	tween.parallel().tween_property(env, "fog_density", 0.0, 5)
 	await get_tree().create_timer(2).timeout

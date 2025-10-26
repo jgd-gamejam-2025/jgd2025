@@ -27,17 +27,16 @@ func next_step() -> void:
 			await get_tree().create_timer(0.5).timeout
 			terminal.write_line_static(".\n")
 
-		for i in range(30):
+		for i in range(15):
 			await terminal.write_line(".").finished
 			
-		for i in range(30):
+		for i in range(45):
 			await terminal.write_line(" ").finished
 			# increase the text size gradually to 100
 		await get_tree().create_timer(0.5).timeout
 
-
-		var eve_ascii = terminal.expand_ascii_art(eve_ascii_raw, 3)
-		terminal.write_art_sync(eve_ascii, terminal.special_label, 10000)
+		# var eve_ascii = terminal.expand_ascii_art(eve_ascii_raw, 3)
+		terminal.write_art_sync(eve_ascii_raw, terminal.special_label, 10000)
 		terminal.write_art_sync(eve_fall, terminal.special_label2, 10000, true)
 
 		var total_time = 5  # Total time for the animation
@@ -55,6 +54,7 @@ func next_step() -> void:
 				300-16,
 				total_time  # Total animation time
 		).set_trans(Tween.TRANS_LINEAR)
+		tween.parallel().tween_property(terminal.special_label, "position:y", terminal.special_label.position.y+128.0, total_time)
 		# tween.tween_interval(5.0)
 		# tween.tween_callback(func():
 		# 	terminal.special_label.hide()
@@ -152,22 +152,37 @@ var start_screen_text_2 = "
 .
 "
 
-var eve_ascii_raw = "
-XXXXXXXXXXXXXXXXXXXXXXX                   XXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXX                 XXXXX XXXXXXXXXXXXXXXXXXXX 
-XXXX                XXXXX              XXXXXX  XXXX                 
-XXXX                 XXXXX            XXXXXX   XXXX                 
-XXXX                  XXXXX          XXXXXX    XXXX                 
-XXXX                   XXXXX        XXXXXX     XXXX                 
-XXXXXXXXXXXXXXXXX       XXXXX      XXXXXX      XXXXXXXXXXXXXXXXX    
-XXXXXXXXXXXXXXXXX        XXXXX    XXXXXX       XXXXXXXXXXXXXXXXX    
-XXXX                      XXXXXX XXXXXX        XXXX                 
-XXXX                       XXXXXXXXXXX         XXXX                 
-XXXX                        XXXXXXXXX          XXXX                 
-XXXX                         XXXXXXX           XXXX                 
-XXXX                          XXXXX            XXXX                 
-XXXXXXXXXXXXXXXXXXXX           XXX             XXXXXXXXXXXXXXXXXXXX 
-XXXXXXXXXXXXXXXXXXXXX           X              XXXXXXXXXXXXXXXXXXXXX
+var eve_ascii_raw = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                     X             XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX            XXXXX                                                                  XXXXX           XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX          XXXXXXXXXX                                                            XXXXXXXXXXX        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX        XXXXXXXXXXXXXX                                                         XXXXXXXXXXXXX       XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX      XXXXXXXXXXXXXXXXXX                                                    XXXXXXXXXXXXXXXXXXX    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    XXXXXXXXXXXXXXXXXXXXXX                                                XXXXXXXXXXXXXXXXXXXXXX   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           
+XXXXXXXXXXXXXXXX                                                       XXXXXXXXXXXXXXXXXXXXXXX                                           XXXXXXXXXXXXXXXXXXXXXX     XXXXXXXXXXXXXXXX                                                            
+XXXXXXXXXXXXXXXX                                                         XXXXXXXXXXXXXXXXXXXXXX                                        XXXXXXXXXXXXXXXXXXXXXX       XXXXXXXXXXXXXXXX                                                            
+XXXXXXXXXXXXXXXX                                                           XXXXXXXXXXXXXXXXXXXXXXX                                   XXXXXXXXXXXXXXXXXXXXXX         XXXXXXXXXXXXXXXX                                                            
+XXXXXXXXXXXXXXXX                                                             XXXXXXXXXXXXXXXXXXXXXXX                               XXXXXXXXXXXXXXXXXXXXXX           XXXXXXXXXXXXXXXX                                                            
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX               XXXXXXXXXXXXXXXXXXXXXX                           XXXXXXXXXXXXXXXXXXXXX              XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                 XXXXXXXXXXXXXXXXXXXXXX                      XXXXXXXXXXXXXXXXXXXXXXX               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                   XXXXXXXXXXXXXXXXXXXXXX                  XXXXXXXXXXXXXXXXXXXXXX                  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX          
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                     XXXXXXXXXXXXXXXXXXXXXXX             XXXXXXXXXXXXXXXXXXXXXX                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX          
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                        XXXXXXXXXXXXXXXXXXXXXX         XXXXXXXXXXXXXXXXXXXXXX                      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX          
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                         XXXXXXXXXXXXXXXXXXXXXXX    XXXXXXXXXXXXXXXXXXXXXXX                        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX          
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                            XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                          XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           
+XXXXXXXXXXXXXXXX                                                                               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                             XXXXXXXXXXXXXXXX                                                            
+XXXXXXXXXXXXXXXX                                                                                 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                               XXXXXXXXXXXXXXXX                                                            
+XXXXXXXXXXXXXXXX                                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                 XXXXXXXXXXXXXXXX                                                            
+XXXXXXXXXXXXXXXX                                                                                     XXXXXXXXXXXXXXXXXXXXXXXXXXXX                                   XXXXXXXXXXXXXXXX                                                            
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                       XXXXXXXXXXXXXXXXXXXXXX                                      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                         XXXXXXXXXXXXXXXXXXX                                       XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                           XXXXXXXXXXXXXX                                          XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                             XXXXXXXXXX                                            XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                XXXXX                                              XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX            
 "
 var eve_image_raw = "
                                             XX     X          XXXXX    XXXX          XXX                 XXXX   XXX                     X    XXX                                                       

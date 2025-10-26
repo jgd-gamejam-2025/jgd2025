@@ -84,7 +84,9 @@ func _on_use_e_pressed() -> void:
 	print("USE_E detected in room.gd")
 	
 func _on_use_f_pressed() -> void:
-	# next_step()
+	next_step()
+	if curr_room == 4:
+		play_ending()
 	pass
 
 func _on_pad_pad_activated() -> void:
@@ -94,12 +96,16 @@ func _on_pad_pad_deactivated() -> void:
 	pass
 
 var used_terminal: bool = false
+var newspaper_on: bool = false
 func _on_player_interact_obj(target: Node) -> void:
 	if target.name == "Newspaper":
-		if not $Props.visible:
+		if newspaper_on:
+			$Props.hide()
+		else:
 			$Props.show()
-			
+		newspaper_on = not newspaper_on
 		return
+
 	if target.name == "Monitor" and terminal.visible == false and not used_terminal:
 		terminal.output_area.text = ""
 		terminal.show()
@@ -165,7 +171,6 @@ func next_step() -> void:
 				chat_ui.select_ai_chat("room2")
 				curr_pass = false
 				used_terminal = false
-				$Newspaper.show()
 		2:
 			if not curr_pass:
 				var temp_tween = create_tween()
@@ -194,7 +199,6 @@ func next_step() -> void:
 				chat_ui.select_ai_chat("room3")
 				used_terminal = false
 				curr_pass = false
-				$Newspaper.hide()
 		3:
 			if not curr_pass:
 				rotate_door($TrueDoor3, 110)
@@ -362,6 +366,7 @@ func play_ending():
 	tween.tween_interval(0.2)
 	tween.tween_callback(func():
 		blow_away(room4.get_node("sm_right_wall"), 4, false)
+		blow_away(room4.get_node("Poster"), 3, false)
 	)
 	tween.tween_interval(0.2)
 	tween.tween_callback(func():
@@ -384,25 +389,6 @@ func play_ending():
 			blow_away(node, 3, true, wobble_level)
 		)
 		tween.tween_interval(0.3)
-	# tween.tween_callback(func():
-	# 	blow_away(room4.get_node("Desk"), 2, true, wobble_level)
-	# )
-	# tween.tween_interval(0.5)
-	# tween.tween_callback(func():
-	# 	blow_away(room4.get_node("sm_office_chair"), 2, true, wobble_level)
-	# )
-	# tween.tween_interval(0.5)
-	# tween.tween_callback(func():
-	# 	blow_away(room4.get_node("sm_photo5"), 2, true, wobble_level)
-	# )
-	# tween.tween_interval(0.5)
-	# tween.tween_callback(func():
-	# 	blow_away(room4.get_node("sm_photo3"), 2, true, wobble_level)
-	# )
-	# tween.tween_interval(0.5)
-	# tween.tween_callback(func():
-	# 	blow_away(room1.get_node("sm_photo4"), 2, true, wobble_level)
-	# )
 	tween2.tween_interval(2.5)
 	tween2.tween_callback(func():
 		pad.move_when_angle = 30
@@ -528,7 +514,9 @@ var log4 = "
 
 func _on_eve_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
-		Transition.set_and_start("EVE", "")
+		Transition.show_EVE()
+		await get_tree().create_timer(0.5).timeout
+		LevelManager.to_credit()
 
 
 func _on_room_opening_ended() -> void:

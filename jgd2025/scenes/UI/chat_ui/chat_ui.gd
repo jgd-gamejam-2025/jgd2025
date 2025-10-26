@@ -23,6 +23,7 @@ var in_chat_mode = false
 var make_new_bubble_on_next_token = true
 #--------------
 var eve_debug_command = "sudo debug /eve --backup"
+var llama_debug_command = "sudo debug /llama --backup"
 
 var _tween: Tween 
 var block_text_generation = false
@@ -75,6 +76,9 @@ func _input(event: InputEvent) -> void:
 			Transition.set_and_start("正在连接到控制台……","")
 			await get_tree().process_frame  # 等一帧，让 UI 渲染完成
 			LevelManager.to_eve_debug()
+			return
+		if my_message.strip_edges() == llama_debug_command:
+			Transition.set_and_start("I am at the game directory, Save me!","SAVE ME", 2.0)
 			return
 		send_text_to_ai()
 		if first_time_sent_text:

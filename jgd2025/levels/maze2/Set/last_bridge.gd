@@ -31,7 +31,8 @@ func _on_ocean_end_body_exited(body: Node3D) -> void:
 		# player.look_at_target($Marker3D)
 		await get_tree().create_timer(3.0).timeout
 		Transition.set_and_start("坍塌", "")
-		LevelManager.to_room()
+		await get_tree().create_timer(0.5).timeout
+		LevelManager.to_chat_cut_scene()
 
 
 func _on_parkour_hell_body_entered(body: Node3D) -> void:

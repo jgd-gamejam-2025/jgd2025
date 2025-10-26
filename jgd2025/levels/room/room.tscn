@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c2hgmqr4djchj"]
+[gd_scene load_steps=27 format=3 uid="uid://c2hgmqr4djchj"]
 
 [ext_resource type="Script" uid="uid://djhym7xyj1hvl" path="res://levels/room/room.gd" id="1_266tv"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="2_j1o6v"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="6_v36xs"]
 [ext_resource type="PackedScene" uid="uid://t2v64tryju0o" path="res://assets/models/room/props/sm_left_wall.fbx" id="7_e15db"]
 [ext_resource type="PackedScene" uid="uid://dqw6g3i12knmo" path="res://scenes/room_props/bear.tscn" id="8_axngq"]
+[ext_resource type="PackedScene" uid="uid://djs0b34qda0px" path="res://scenes/UI/label_3d_typed/description.tscn" id="10_s5tn8"]
+[ext_resource type="PackedScene" uid="uid://cmbss067n8pop" path="res://scenes/UI/label_3d_typed/label_3d.tscn" id="11_nijk1"]
 [ext_resource type="PackedScene" uid="uid://fn682jbuv6dh" path="res://scenes/UI/props/props.tscn" id="12_kseuc"]
 [ext_resource type="PackedScene" uid="uid://bud1w7th4nk2" path="res://assets/models/eve/eve01.glb" id="12_pf8v0"]
 [ext_resource type="PackedScene" uid="uid://5ltrsa0ifrxn" path="res://scenes/UI/terminal/Terminal.tscn" id="13_axngq"]
@@ -23,6 +25,9 @@ size = Vector3(21.04, 15.18, 21.28)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pf8v0"]
 size = Vector3(7.9678345, 2.8485107, 8.03418)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_326eg"]
+size = Vector3(0.18041992, 2.8959656, 2.2134094)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_axngq"]
 size = Vector3(12.244644, 2.8485107, 16.201538)
@@ -56,14 +61,6 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_j1o6v")]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -0.09756082, -0.48797822, -3.105818)
-
-[node name="Obstacles" type="Node" parent="."]
-
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Obstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.187749, 0.49041462, 1.6324787)
-visible = false
-use_collision = true
-polygon = PackedVector2Array(0, 0, 2.08165e-12, 2, 6.035904, 2.1070576, 10, 2.08165e-12)
 
 [node name="BlownTo" type="Marker3D" parent="."]
 transform = Transform3D(0.49999994, 0, 0, 0, -0.49999988, 7.549789e-08, 0, -7.549788e-08, -0.49999994, -228.9624, 759.95807, 333.43262)
@@ -100,6 +97,7 @@ visible = false
 
 [node name="ClearArea2" type="Area3D" parent="."]
 transform = Transform3D(-0.49999997, 0, 4.3711385e-08, 0, 0.5, 0, -4.3711385e-08, 0, -0.49999997, 1.721, 0, -5.128704)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClearArea2"]
 transform = Transform3D(0.9999955, 0, 5.968559e-13, 0, 1, 0, -5.968559e-13, 0, 0.9999955, -2.82654, 0.9242554, -3.5170846)
@@ -108,9 +106,25 @@ shape = SubResource("BoxShape3D_pf8v0")
 [node name="RoomSet2" parent="." instance=ExtResource("5_y43wp")]
 transform = Transform3D(-0.49999997, 0, 4.3711385e-08, 0, 0.5, 0, -4.3711385e-08, 0, -0.49999997, 1.721, 0, -5.128704)
 
+[node name="Newspaper" parent="RoomSet2" instance=ExtResource("15_kseuc")]
+transform = Transform3D(0.89501876, 0, -1.7885585, 0, 2, 0, 1.7885585, 0, 0.89501876, -5.514605, 2.0101907, -9.423201)
+
+[node name="Area3D" type="Area3D" parent="RoomSet2" groups=["Description", "interactable"]]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomSet2/Area3D"]
+transform = Transform3D(-0.99999344, 1.3200103e-14, 8.742219e-08, 0, -0.9999999, 1.5099201e-07, 8.74222e-08, 1.5099158e-07, 0.9999933, 1.7179993, 1.5422003, -3.581009)
+shape = SubResource("BoxShape3D_326eg")
+
+[node name="Description" parent="RoomSet2/Area3D" instance=ExtResource("10_s5tn8")]
+transform = Transform3D(-1, 1.3200468e-14, 8.742276e-08, 0, -0.9999999, 1.5099576e-07, 8.742278e-08, 1.5099576e-07, 0.9999999, 3.440085, 2.5521479, -0.058000565)
+
+[node name="Label3D" parent="RoomSet2/Area3D/Description" groups=["blow"] instance=ExtResource("11_nijk1")]
+transform = Transform3D(2.185568e-08, 1.9106838e-15, 0.49999976, 4.3711434e-08, -0.49999997, -1.0587912e-21, 0.49999976, 4.3711452e-08, -2.185568e-08, 1.8973712, -0.20938706, -4.304388)
+text = "C> 蹲下"
+
 [node name="TrueDoor3" parent="." instance=ExtResource("4_2akcw")]
 transform = Transform3D(0.49999994, 0, 0, 0, -0.49999988, 7.549789e-08, 0, -7.549788e-08, -0.49999994, 0.75042725, 1.2183394, -0.36469507)
-visible = false
 
 [node name="ClearArea3" type="Area3D" parent="."]
 transform = Transform3D(0.24999997, 0, -4.371138e-08, 0, 0.25, 0, 4.371138e-08, 0, 0.24999997, 0.8604998, 0, -2.5643523)
@@ -179,10 +193,6 @@ visible = false
 visible = false
 
 [node name="Notification" parent="." instance=ExtResource("5_yqly8")]
-
-[node name="Newspaper" parent="." instance=ExtResource("15_kseuc")]
-transform = Transform3D(-0.4475093, 0, 0.8942793, 0, 1, 0, -0.8942793, 0, -0.4475093, 4.478302, 1.0050954, -0.41710323)
-visible = false
 
 [node name="RoomOpening" parent="." instance=ExtResource("16_326eg")]
 visible = false

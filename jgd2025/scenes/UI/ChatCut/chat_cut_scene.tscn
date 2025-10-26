@@ -1,0 +1,254 @@
+[gd_scene load_steps=12 format=3 uid="uid://cojwj7wmlvc5j"]
+
+[ext_resource type="Script" uid="uid://cvh32hdqa0gb6" path="res://scenes/UI/ChatCut/chat_cut_scene.gd" id="1_gx2ag"]
+[ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="2_bye8a"]
+[ext_resource type="FontFile" uid="uid://dche8c1u6rmg" path="res://scenes/UI/fonts/OPlusSans3-Bold.ttf" id="3_wn7w8"]
+[ext_resource type="Texture2D" uid="uid://dj5jrgpxoqm5e" path="res://assets/Eve/Eve_normal2.png" id="5_xi7j0"]
+[ext_resource type="Texture2D" uid="uid://id6lh8j8ec65" path="res://assets/Eve/unknown_pic.png" id="7_gtk3c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_td1kd"]
+
+[sub_resource type="Gradient" id="Gradient_tupck"]
+offsets = PackedFloat32Array(0.046403714, 1)
+colors = PackedColorArray(0.12941177, 0.12941177, 0.12941177, 1, 0.12941177, 0.12941177, 0.12941177, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kd50e"]
+gradient = SubResource("Gradient_tupck")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_m60jq"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.693878)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4sbbt"]
+gradient = SubResource("Gradient_m60jq")
+width = 1024
+height = 1024
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="NobodyWhoSampler" id="NobodyWhoSampler_vgd05"]
+
+[node name="ChatCutScene" type="CanvasLayer"]
+script = ExtResource("1_gx2ag")
+
+[node name="ChatUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="ChatUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_td1kd")
+
+[node name="Background" type="ColorRect" parent="ChatUI/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12941177, 0.12941177, 0.12941177, 1)
+
+[node name="Shadow" type="TextureRect" parent="ChatUI/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.15100001
+offset_bottom = 3.9199982
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_kd50e")
+
+[node name="Name" type="Label" parent="ChatUI/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = 77.0
+offset_right = 22.0
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(22, 18)
+theme = ExtResource("2_bye8a")
+theme_override_fonts/font = ExtResource("3_wn7w8")
+theme_override_font_sizes/font_size = 25
+text = "Eve"
+horizontal_alignment = 1
+
+[node name="Name2" type="Label" parent="ChatUI/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = 77.0
+offset_right = 22.0
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(22, 18)
+theme = ExtResource("2_bye8a")
+theme_override_fonts/font = ExtResource("3_wn7w8")
+theme_override_font_sizes/font_size = 25
+text = "?"
+horizontal_alignment = 1
+
+[node name="ProfilePic" type="Control" parent="ChatUI/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -185.0
+offset_right = 128.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(128, 0)
+
+[node name="ImageFrame" type="TextureRect" parent="ChatUI/Panel/ProfilePic"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 896.0
+offset_bottom = 896.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+texture = SubResource("GradientTexture2D_4sbbt")
+
+[node name="Eve" type="TextureRect" parent="ChatUI/Panel/ProfilePic/ImageFrame"]
+texture_filter = 5
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -531.99994
+offset_top = -504.0
+offset_right = 1183.2002
+offset_bottom = 1211.2002
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("5_xi7j0")
+
+[node name="Eve2" type="TextureRect" parent="ChatUI/Panel/ProfilePic/ImageFrame"]
+texture_filter = 5
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -531.99994
+offset_top = -504.0
+offset_right = 1183.2002
+offset_bottom = 1211.2002
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("7_gtk3c")
+
+[node name="Scroll" type="ScrollContainer" parent="ChatUI/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = 101.0
+offset_right = 400.0
+offset_bottom = 161.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="ChatLog" type="RichTextLabel" parent="ChatUI/Panel/Scroll"]
+z_index = 1
+custom_minimum_size = Vector2(800, 60)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+focus_mode = 2
+theme = ExtResource("2_bye8a")
+bbcode_enabled = true
+text = "..."
+scroll_active = false
+autowrap_mode = 0
+context_menu_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+selection_enabled = true
+deselect_on_focus_loss_enabled = false
+
+[node name="InputHBox" type="HBoxContainer" parent="ChatUI/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = 168.0
+offset_right = 400.0
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(400, 0)
+theme_override_constants/separation = 8
+
+[node name="TextInput" type="LineEdit" parent="ChatUI/Panel/InputHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_bye8a")
+placeholder_text = "按回车进行对话..."
+clear_button_enabled = true
+
+[node name="SendButton" type="Button" parent="ChatUI/Panel/InputHBox"]
+visible = false
+layout_mode = 2
+text = "Send"
+
+[node name="NobodyWhoModel" type="NobodyWhoModel" parent="ChatUI"]
+model_path = "res://gguf/Llama3-8B-Chinese-Chat-q4_0-v2_1.gguf"
+
+[node name="NobodyWhoChat" type="NobodyWhoChat" parent="ChatUI" node_paths=PackedStringArray("model_node")]
+model_node = NodePath("../NobodyWhoModel")
+sampler = SubResource("NobodyWhoSampler_vgd05")
+system_prompt = "only return hello. /no_think"
+
+[connection signal="text_changed" from="ChatUI/Panel/InputHBox/TextInput" to="." method="_on_text_input_text_changed"]
+[connection signal="text_submitted" from="ChatUI/Panel/InputHBox/TextInput" to="." method="_on_text_input_text_submitted"]
+[connection signal="response_finished" from="ChatUI/NobodyWhoChat" to="ChatUI" method="_on_nobody_who_chat_response_finished"]
+[connection signal="response_updated" from="ChatUI/NobodyWhoChat" to="ChatUI" method="_on_nobody_who_chat_response_updated"]

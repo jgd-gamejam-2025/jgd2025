@@ -53,12 +53,10 @@ func _ready():
 	})
 	chat_ui.start_chat_worker()
 	chat_ui.select_ai_chat("dinner")
-	# $MorningTransition.show()
-	# Transition.end()
-	# await get_tree().create_timer(2).timeout
-	# $MorningTransition.hide()
+	Transition.end()
 	$SmallTalkTimer.start()
 	small_talking = true
+	
 
 func _on_small_talk_timer_timeout() -> void:
 	if small_talking:

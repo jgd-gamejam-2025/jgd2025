@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqm8vx7f3yw8r"]
+
+[ext_resource type="Script" uid="uid://cvupla55qm0cp" path="res://scenes/maze_scene/decoration/floating_cube.gd" id="1_floating"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_44be1"]
+
+[node name="FloatingCube" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_44be1")
+script = ExtResource("1_floating")

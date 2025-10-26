@@ -25,6 +25,7 @@ GameManager2D="*res://addons/2d-platformer/Scripts/GameManager.gd"
 WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
 LevelManager="*res://levels/level_manager/LevelManager.tscn"
 Loading="*res://scenes/UI/TransitionUI/loading.tscn"
+WwiseBGM="*res://scenes/Wwise/wwise.tscn"
 
 [display]
 
@@ -41,7 +42,6 @@ import/blender/enabled=false
 player=""
 interactable=""
 Description=""
-blow=""
 
 [input]
 

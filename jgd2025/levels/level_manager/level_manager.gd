@@ -7,7 +7,16 @@ var show_opening = true
 @export var maze2_scene: PackedScene
 var set_index = -1
 
+@export var chat_cut_scene: PackedScene
+
 @export var room_scene: PackedScene
+
+@export var credit_scene: PackedScene
+
+var play_recording = true
+@export var end_chat_scene: PackedScene
+
+@export var menu_scene: PackedScene
 
 # Save system
 const SAVE_FILE_PATH = "user://save_data.cfg"
@@ -51,6 +60,8 @@ func load_game() -> Dictionary:
 			if scene_data.get("set_index", -1) != -1:
 				set_index = scene_data["set_index"]
 			to_maze2()
+		"chat_cut":
+			to_chat_cut_scene()
 		"room":
 			to_room()
 		_:
@@ -97,8 +108,23 @@ func to_maze2():
 	await get_tree().create_timer(0.5).timeout
 	save_game(curr_scene, {"set_index": set_index})
 
+func to_chat_cut_scene():
+	curr_scene = "chat_cut"
+	get_tree().change_scene_to_packed(chat_cut_scene)
+	await get_tree().create_timer(0.5).timeout
+	save_game(curr_scene, {})
+	
 func to_room():
 	curr_scene = "room"
 	get_tree().change_scene_to_packed(room_scene)
 	await get_tree().create_timer(0.5).timeout
 	save_game(curr_scene, {})
+
+func to_credit():
+	get_tree().change_scene_to_packed(credit_scene)
+
+func to_menu():
+	get_tree().change_scene_to_packed(menu_scene)
+
+func to_end_chat():
+	get_tree().change_scene_to_packed(end_chat_scene)

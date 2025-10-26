@@ -14,7 +14,11 @@
 							<Position X="0" Y="1"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="SFX_Play_Takeout_ipad" ID="{749CAEB4-BA26-41E3-8E27-93DA4CD7F39C}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
+							<ObjectRef Name="Pause" ID="{AE801F0F-2996-421C-8064-4DDD6BD7F825}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
+							<Position X="0" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="MX_Mazepretans_to_chat" ID="{BE004A1F-9617-47C3-99E6-92D0EC2ED583}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
 							<Position X="0" Y="3"/>
 						</Module>
 						<Module>
@@ -26,7 +30,11 @@
 							<Position X="1" Y="1"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="SFX_Play_Putdown_ipad" ID="{F4F6CDB0-C437-463C-A59C-DFBA053DB85E}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
+							<ObjectRef Name="MX_Play_Maze" ID="{8F9E1686-BAB2-41CE-B068-78FB077CE2BF}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
+							<Position X="1" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Set_AMB_chat" ID="{B2F89EB7-FB90-4D26-A9C6-DED17DE5D4D6}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
 							<Position X="1" Y="3"/>
 						</Module>
 						<Module>
@@ -34,16 +42,20 @@
 							<Position X="2" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="SFX_pickup_newspaper" ID="{BC25D587-33DF-4863-A59F-463E698D111F}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
+							<ObjectRef Name="MX_Play_room" ID="{82A92C60-1166-4E9C-9D95-75755B7606AE}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
 							<Position X="2" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="MX_Maze_to_Mazepretrans" ID="{2995AF4A-4F57-4039-855F-1A877E9AF894}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
+							<Position X="2" Y="2"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="MX_Play_begin" ID="{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
 							<Position X="3" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="SFX_putdown_newspaper" ID="{9A488581-9667-4D97-AA61-DD782F09924D}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
-							<Position X="3" Y="1"/>
+							<ObjectRef Name="MX_Play_Mazepretrans" ID="{DE7EFB44-2A7A-43D4-A282-9776253E8ED9}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
+							<Position X="3" Y="2"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>

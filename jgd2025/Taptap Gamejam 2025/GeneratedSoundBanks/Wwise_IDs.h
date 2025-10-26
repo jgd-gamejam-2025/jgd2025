@@ -14,11 +14,19 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID MX_BEGIN_TO_NONE = 1069070997U;
+        static const AkUniqueID MX_MAZE_TO_MAZEPRETRANS = 3573176569U;
+        static const AkUniqueID MX_MAZEPRETANS_TO_CHAT = 3577866158U;
         static const AkUniqueID MX_PLAY_BEGIN = 891883193U;
+        static const AkUniqueID MX_PLAY_MAZE = 2737105275U;
+        static const AkUniqueID MX_PLAY_MAZEPRETRANS = 783866132U;
+        static const AkUniqueID MX_PLAY_ROOM = 1804546783U;
         static const AkUniqueID MX_PLAY_TITLE = 2665577840U;
         static const AkUniqueID MX_TITLE_TO_MAZE = 2331460791U;
+        static const AkUniqueID PAUSE = 3092587493U;
+        static const AkUniqueID PAUSE_BACK = 4234294329U;
         static const AkUniqueID PLAY_AMB_MAZE = 2190478052U;
         static const AkUniqueID PLAY_AMB_ROOM = 1075867404U;
+        static const AkUniqueID SET_AMB_CHAT = 2230674935U;
         static const AkUniqueID SET_AMB_ROOM = 3481726148U;
         static const AkUniqueID SFX_MAZE_LANDING = 4187727620U;
         static const AkUniqueID SFX_PICKUP_NEWSPAPER = 3066694657U;
@@ -41,6 +49,7 @@ namespace AK
 
             namespace STATE
             {
+                static const AkUniqueID CHATGPT = 4050983346U;
                 static const AkUniqueID MAZE = 2943799864U;
                 static const AkUniqueID NONE = 748895195U;
                 static const AkUniqueID ROOM = 2077253480U;
@@ -56,7 +65,9 @@ namespace AK
                 static const AkUniqueID BEGIN = 349818688U;
                 static const AkUniqueID EVE_TITLE = 3581653674U;
                 static const AkUniqueID MAZE = 2943799864U;
+                static const AkUniqueID MAZE_PRETRANS = 1832156600U;
                 static const AkUniqueID NONE = 748895195U;
+                static const AkUniqueID ROOM = 2077253480U;
             } // namespace STATE
         } // namespace MUSIC_SWITCH
 

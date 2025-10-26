@@ -66,6 +66,12 @@
         "Name": "Maze",
         "ObjectPath": "\\States\\Default Work Unit\\AMB\\Maze",
         "GUID": "{1DC91425-399E-47C5-B730-75F6D8C92627}"
+       },
+       {
+        "Id": "4050983346",
+        "Name": "chatgpt",
+        "ObjectPath": "\\States\\Default Work Unit\\AMB\\chatgpt",
+        "GUID": "{2E6AA099-AA87-412E-9965-C9172F82E89C}"
        }
       ]
      },
@@ -86,6 +92,18 @@
         "Name": "None",
         "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\None",
         "GUID": "{2F007002-5601-4B2B-A35F-140428F1A126}"
+       },
+       {
+        "Id": "1832156600",
+        "Name": "Maze_pretrans",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\Maze_pretrans",
+        "GUID": "{9C624977-AADC-489D-BA5C-7F779D105F70}"
+       },
+       {
+        "Id": "2077253480",
+        "Name": "room",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\room",
+        "GUID": "{2BFCFE8A-93AC-4C39-BB69-46DFDA56957A}"
        },
        {
         "Id": "2943799864",
@@ -607,6 +625,6 @@
     ]
    }
   ],
-  "FileHash": "{8B853D54-DC15-3E52-9163-49055AB4BD0D}"
+  "FileHash": "{83DBD43C-D1ED-4564-F586-06B4D0ECE9FD}"
  }
 }

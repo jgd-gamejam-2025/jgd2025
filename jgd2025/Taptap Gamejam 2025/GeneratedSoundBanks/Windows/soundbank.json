@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}",
     "Language": "SFX",
-    "Hash": "{DCBF77C3-DDFA-19A5-0E8E-8583FEB13D32}",
+    "Hash": "{1F90CA78-05EF-517B-13B1-24BC024BB5F6}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\soundbank",
     "ShortName": "soundbank",
     "Path": "soundbank.bnk",
@@ -112,6 +112,14 @@
       "CachePath": "C7/{C75A2A5C-8F26-E2C9-A420-F2D34EDA5233}.wem"
      },
      {
+      "Id": "204817462",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "迷宫build up.wav",
+      "CachePath": "5A/{5A859F1A-982B-685A-5329-9BE4BB68F3C8}.wem"
+     },
+     {
       "Id": "213070622",
       "Language": "SFX",
       "Streaming": "false",
@@ -208,6 +216,14 @@
       "CachePath": "D5/{D50A6163-C0A4-4BB8-DFC6-F477DFFD254D}.wem"
      },
      {
+      "Id": "536318512",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "AMB_chatgpt.wav",
+      "CachePath": "94/{94F2C240-0430-6A6C-B2DF-EDEE92FD79DE}.wem"
+     },
+     {
       "Id": "555395762",
       "Language": "SFX",
       "Streaming": "false",
@@ -246,6 +262,14 @@
       "Location": "Memory",
       "ShortName": "EVE标题 loop state.wav",
       "CachePath": "9B/{9B1F6CDA-C9FA-3B79-6AF7-D4544F663314}.wem"
+     },
+     {
+      "Id": "739824745",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Mouldwood Depths 70bpm.wav",
+      "CachePath": "89/{89C4ED0D-90BF-9236-BFD2-C94B530966D2}.wem"
      },
      {
       "Id": "762829969",
@@ -368,6 +392,14 @@
       "CachePath": "45/{45CAB070-484B-ECCD-7852-6BE345A67BC4}.wem"
      },
      {
+      "Id": "997217746",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "迷宫loop 2.wav",
+      "CachePath": "AA/{AAE7DAEB-E606-18C6-9943-27B502FC8E18}.wem"
+     },
+     {
       "Id": "1015108056",
       "Language": "SFX",
       "Streaming": "false",
@@ -397,6 +429,58 @@
       ]
      },
      {
+      "Id": "3573176569",
+      "Name": "MX_Maze_to_Mazepretrans",
+      "ObjectPath": "\\Events\\Default Work Unit\\MX_Maze_to_Mazepretrans",
+      "GUID": "{2995AF4A-4F57-4039-855F-1A877E9AF894}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "2724869341",
+        "Id": "1832156600",
+        "Name": "Maze_pretrans",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\Maze_pretrans",
+        "GUID": "{9C624977-AADC-489D-BA5C-7F779D105F70}"
+       },
+       {
+        "GroupId": "1117531639",
+        "Id": "2943799864",
+        "Name": "Maze",
+        "ObjectPath": "\\States\\Default Work Unit\\AMB\\Maze",
+        "GUID": "{1DC91425-399E-47C5-B730-75F6D8C92627}"
+       }
+      ]
+     },
+     {
+      "Id": "3577866158",
+      "Name": "MX_Mazepretans_to_chat",
+      "ObjectPath": "\\Events\\Default Work Unit\\MX_Mazepretans_to_chat",
+      "GUID": "{BE004A1F-9617-47C3-99E6-92D0EC2ED583}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "2724869341",
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\None",
+        "GUID": "{2F007002-5601-4B2B-A35F-140428F1A126}"
+       },
+       {
+        "GroupId": "1117531639",
+        "Id": "4050983346",
+        "Name": "chatgpt",
+        "ObjectPath": "\\States\\Default Work Unit\\AMB\\chatgpt",
+        "GUID": "{2E6AA099-AA87-412E-9965-C9172F82E89C}"
+       }
+      ]
+     },
+     {
       "Id": "891883193",
       "Name": "MX_Play_begin",
       "ObjectPath": "\\Events\\Default Work Unit\\MX_Play_begin",
@@ -405,6 +489,9 @@
       "MediaRefs": [
        {
         "Id": "29920152"
+       },
+       {
+        "Id": "204817462"
        },
        {
         "Id": "805998164"
@@ -449,6 +536,32 @@
           "Id": "897740158"
          }
         ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "1832156600",
+         "GUID": "{9C624977-AADC-489D-BA5C-7F779D105F70}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "997217746"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "2077253480",
+         "GUID": "{2BFCFE8A-93AC-4C39-BB69-46DFDA56957A}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "739824745"
+         }
+        ]
        }
       ],
       "ActionSetState": [
@@ -462,14 +575,468 @@
       ]
      },
      {
+      "Id": "2737105275",
+      "Name": "MX_Play_Maze",
+      "ObjectPath": "\\Events\\Default Work Unit\\MX_Play_Maze",
+      "GUID": "{8F9E1686-BAB2-41CE-B068-78FB077CE2BF}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "29920152"
+       },
+       {
+        "Id": "204817462"
+       },
+       {
+        "Id": "805998164"
+       }
+      ],
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "3581653674",
+         "GUID": "{AE380017-9A16-42B1-81C0-8A0C452AF087}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "728430949"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "349818688",
+         "GUID": "{9D31A35C-59F9-403D-B097-9890DC3921B9}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "811350998"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "2943799864",
+         "GUID": "{D3D7F946-B924-4665-A447-3054F0CED4C1}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "897740158"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "1832156600",
+         "GUID": "{9C624977-AADC-489D-BA5C-7F779D105F70}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "997217746"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "2077253480",
+         "GUID": "{2BFCFE8A-93AC-4C39-BB69-46DFDA56957A}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "739824745"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1117531639",
+         "Id": "2943799864",
+         "GUID": "{1DC91425-399E-47C5-B730-75F6D8C92627}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "294503425"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1117531639",
+         "Id": "2077253480",
+         "GUID": "{3A043E41-D37C-4426-800B-2F3403BBA86E}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "73482642"
+         },
+         {
+          "Id": "853826000"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1117531639",
+         "Id": "4050983346",
+         "GUID": "{2E6AA099-AA87-412E-9965-C9172F82E89C}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "536318512"
+         }
+        ]
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "2724869341",
+        "Id": "2943799864",
+        "Name": "Maze",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\Maze",
+        "GUID": "{D3D7F946-B924-4665-A447-3054F0CED4C1}"
+       }
+      ]
+     },
+     {
+      "Id": "783866132",
+      "Name": "MX_Play_Mazepretrans",
+      "ObjectPath": "\\Events\\Default Work Unit\\MX_Play_Mazepretrans",
+      "GUID": "{DE7EFB44-2A7A-43D4-A282-9776253E8ED9}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "29920152"
+       },
+       {
+        "Id": "204817462"
+       },
+       {
+        "Id": "805998164"
+       }
+      ],
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "3581653674",
+         "GUID": "{AE380017-9A16-42B1-81C0-8A0C452AF087}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "728430949"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "349818688",
+         "GUID": "{9D31A35C-59F9-403D-B097-9890DC3921B9}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "811350998"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "2943799864",
+         "GUID": "{D3D7F946-B924-4665-A447-3054F0CED4C1}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "897740158"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "1832156600",
+         "GUID": "{9C624977-AADC-489D-BA5C-7F779D105F70}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "997217746"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "2077253480",
+         "GUID": "{2BFCFE8A-93AC-4C39-BB69-46DFDA56957A}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "739824745"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1117531639",
+         "Id": "2943799864",
+         "GUID": "{1DC91425-399E-47C5-B730-75F6D8C92627}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "294503425"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1117531639",
+         "Id": "2077253480",
+         "GUID": "{3A043E41-D37C-4426-800B-2F3403BBA86E}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "73482642"
+         },
+         {
+          "Id": "853826000"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1117531639",
+         "Id": "4050983346",
+         "GUID": "{2E6AA099-AA87-412E-9965-C9172F82E89C}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "536318512"
+         }
+        ]
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "2724869341",
+        "Id": "1832156600",
+        "Name": "Maze_pretrans",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\Maze_pretrans",
+        "GUID": "{9C624977-AADC-489D-BA5C-7F779D105F70}"
+       },
+       {
+        "GroupId": "1117531639",
+        "Id": "2943799864",
+        "Name": "Maze",
+        "ObjectPath": "\\States\\Default Work Unit\\AMB\\Maze",
+        "GUID": "{1DC91425-399E-47C5-B730-75F6D8C92627}"
+       }
+      ]
+     },
+     {
+      "Id": "1804546783",
+      "Name": "MX_Play_room",
+      "ObjectPath": "\\Events\\Default Work Unit\\MX_Play_room",
+      "GUID": "{82A92C60-1166-4E9C-9D95-75755B7606AE}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "29920152"
+       },
+       {
+        "Id": "73482642"
+       },
+       {
+        "Id": "204817462"
+       },
+       {
+        "Id": "805998164"
+       },
+       {
+        "Id": "853826000"
+       }
+      ],
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "3581653674",
+         "GUID": "{AE380017-9A16-42B1-81C0-8A0C452AF087}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "728430949"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "349818688",
+         "GUID": "{9D31A35C-59F9-403D-B097-9890DC3921B9}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "811350998"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "2943799864",
+         "GUID": "{D3D7F946-B924-4665-A447-3054F0CED4C1}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "897740158"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "1832156600",
+         "GUID": "{9C624977-AADC-489D-BA5C-7F779D105F70}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "997217746"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "2077253480",
+         "GUID": "{2BFCFE8A-93AC-4C39-BB69-46DFDA56957A}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "739824745"
+         }
+        ]
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "2724869341",
+        "Id": "2077253480",
+        "Name": "room",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\room",
+        "GUID": "{2BFCFE8A-93AC-4C39-BB69-46DFDA56957A}"
+       }
+      ]
+     },
+     {
       "Id": "2665577840",
       "Name": "MX_Play_Title",
       "ObjectPath": "\\Events\\Default Work Unit\\MX_Play_Title",
       "GUID": "{362CD5C9-3566-4788-86FD-1AB4B73D6592}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "29920152"
+       },
+       {
+        "Id": "204817462"
+       },
+       {
+        "Id": "805998164"
+       }
+      ],
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "3581653674",
+         "GUID": "{AE380017-9A16-42B1-81C0-8A0C452AF087}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "728430949"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "349818688",
+         "GUID": "{9D31A35C-59F9-403D-B097-9890DC3921B9}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "811350998"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "2943799864",
+         "GUID": "{D3D7F946-B924-4665-A447-3054F0CED4C1}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "897740158"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "1832156600",
+         "GUID": "{9C624977-AADC-489D-BA5C-7F779D105F70}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "997217746"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "2077253480",
+         "GUID": "{2BFCFE8A-93AC-4C39-BB69-46DFDA56957A}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "739824745"
+         }
+        ]
+       }
+      ],
       "ActionSetState": [
        {
         "GroupId": "2724869341",
@@ -485,10 +1052,51 @@
       "Name": "MX_Title_to_Maze",
       "ObjectPath": "\\Events\\Default Work Unit\\MX_Title_to_Maze",
       "GUID": "{01BD5A0E-3FDA-4CBF-BE09-EE1217BAA8D5}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1117531639",
+         "Id": "2943799864",
+         "GUID": "{1DC91425-399E-47C5-B730-75F6D8C92627}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "294503425"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1117531639",
+         "Id": "2077253480",
+         "GUID": "{3A043E41-D37C-4426-800B-2F3403BBA86E}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "73482642"
+         },
+         {
+          "Id": "853826000"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1117531639",
+         "Id": "4050983346",
+         "GUID": "{2E6AA099-AA87-412E-9965-C9172F82E89C}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "536318512"
+         }
+        ]
+       }
+      ],
       "ActionSetState": [
        {
         "GroupId": "2724869341",
@@ -496,6 +1104,44 @@
         "Name": "Maze",
         "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\Maze",
         "GUID": "{D3D7F946-B924-4665-A447-3054F0CED4C1}"
+       }
+      ]
+     },
+     {
+      "Id": "3092587493",
+      "Name": "Pause",
+      "ObjectPath": "\\Events\\Default Work Unit\\Pause",
+      "GUID": "{AE801F0F-2996-421C-8064-4DDD6BD7F825}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "3092587493",
+        "Id": "1651971902",
+        "Name": "on",
+        "ObjectPath": "\\States\\Default Work Unit\\Pause\\on",
+        "GUID": "{C3C6E510-2E64-4114-A8E8-97DCFAB75068}"
+       }
+      ]
+     },
+     {
+      "Id": "4234294329",
+      "Name": "Pause_back",
+      "ObjectPath": "\\Events\\Default Work Unit\\Pause_back",
+      "GUID": "{6125F021-EF96-4C11-AC86-51BAD385504D}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "3092587493",
+        "Id": "930712164",
+        "Name": "off",
+        "ObjectPath": "\\States\\Default Work Unit\\Pause\\off",
+        "GUID": "{8F36B698-936A-4A12-8170-9A0FA923FE97}"
        }
       ]
      },
@@ -534,6 +1180,19 @@
           "Id": "853826000"
          }
         ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1117531639",
+         "Id": "4050983346",
+         "GUID": "{2E6AA099-AA87-412E-9965-C9172F82E89C}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "536318512"
+         }
+        ]
        }
       ],
       "ActionSetState": [
@@ -562,6 +1221,18 @@
         "Name": "Room",
         "ObjectPath": "\\States\\Default Work Unit\\AMB\\Room",
         "GUID": "{3A043E41-D37C-4426-800B-2F3403BBA86E}"
+       }
+      ]
+     },
+     {
+      "Id": "2230674935",
+      "Name": "Set_AMB_chat",
+      "ObjectPath": "\\Events\\Default Work Unit\\Set_AMB_chat",
+      "GUID": "{B2F89EB7-FB90-4D26-A9C6-DED17DE5D4D6}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "536318512"
        }
       ]
      },
@@ -841,6 +1512,12 @@
         "Name": "Maze",
         "ObjectPath": "\\States\\Default Work Unit\\AMB\\Maze",
         "GUID": "{1DC91425-399E-47C5-B730-75F6D8C92627}"
+       },
+       {
+        "Id": "4050983346",
+        "Name": "chatgpt",
+        "ObjectPath": "\\States\\Default Work Unit\\AMB\\chatgpt",
+        "GUID": "{2E6AA099-AA87-412E-9965-C9172F82E89C}"
        }
       ]
      },
@@ -863,6 +1540,18 @@
         "GUID": "{2F007002-5601-4B2B-A35F-140428F1A126}"
        },
        {
+        "Id": "1832156600",
+        "Name": "Maze_pretrans",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\Maze_pretrans",
+        "GUID": "{9C624977-AADC-489D-BA5C-7F779D105F70}"
+       },
+       {
+        "Id": "2077253480",
+        "Name": "room",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\room",
+        "GUID": "{2BFCFE8A-93AC-4C39-BB69-46DFDA56957A}"
+       },
+       {
         "Id": "2943799864",
         "Name": "Maze",
         "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\Maze",
@@ -875,10 +1564,36 @@
         "GUID": "{AE380017-9A16-42B1-81C0-8A0C452AF087}"
        }
       ]
+     },
+     {
+      "Id": "3092587493",
+      "Name": "Pause",
+      "ObjectPath": "\\States\\Default Work Unit\\Pause",
+      "GUID": "{26327A09-9A23-4461-A318-6C467DEEBD64}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Pause\\None",
+        "GUID": "{A255A729-A9FC-41A2-9A5C-4F65414929B1}"
+       },
+       {
+        "Id": "930712164",
+        "Name": "off",
+        "ObjectPath": "\\States\\Default Work Unit\\Pause\\off",
+        "GUID": "{8F36B698-936A-4A12-8170-9A0FA923FE97}"
+       },
+       {
+        "Id": "1651971902",
+        "Name": "on",
+        "ObjectPath": "\\States\\Default Work Unit\\Pause\\on",
+        "GUID": "{C3C6E510-2E64-4114-A8E8-97DCFAB75068}"
+       }
+      ]
      }
     ]
    }
   ],
-  "FileHash": "{78C71AA6-52CB-40CC-7DD4-D394830FCABD}"
+  "FileHash": "{E40ADFE1-EB46-71D8-5451-8959379855C3}"
  }
 }

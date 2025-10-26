@@ -27,7 +27,7 @@
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-11</Value>
+										<Value>-17</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -126,6 +126,36 @@
 								</Sound>
 							</ChildrenList>
 						</BlendContainer>
+						<Sound Name="AMB_chatgpt" ID="{5F570753-1447-4C12-9966-B946C4FA1FCE}" ShortID="250473687">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-17</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="AMB_chatgpt" ID="{8CA2FAA6-21A9-4AC6-A8EA-C2AA5FEA76D0}">
+									<Language>SFX</Language>
+									<AudioFile>AMB_chatgpt.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="536318512"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="AMB_chatgpt" ID="{8CA2FAA6-21A9-4AC6-A8EA-C2AA5FEA76D0}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 					<GroupingInfo>
 						<GroupingBehaviorList>
@@ -145,7 +175,34 @@
 								</PropertyList>
 							</GroupingBehavior>
 							<GroupingBehavior>
+								<ItemRef Name="AMB_chatgpt" ID="{5F570753-1447-4C12-9966-B946C4FA1FCE}"/>
+								<PropertyList>
+									<Property Name="FadeInTime" Type="Real64">
+										<ValueList>
+											<Value>8</Value>
+										</ValueList>
+									</Property>
+									<Property Name="FadeOutTime" Type="Real64">
+										<ValueList>
+											<Value>0.5</Value>
+										</ValueList>
+									</Property>
+								</PropertyList>
+							</GroupingBehavior>
+							<GroupingBehavior>
 								<ItemRef Name="AMB_ROOM" ID="{82E1DE84-540E-43E0-A72A-B2790BD24C72}"/>
+								<PropertyList>
+									<Property Name="FadeInTime" Type="Real64">
+										<ValueList>
+											<Value>0.5</Value>
+										</ValueList>
+									</Property>
+									<Property Name="FadeOutTime" Type="Real64">
+										<ValueList>
+											<Value>0.5</Value>
+										</ValueList>
+									</Property>
+								</PropertyList>
 							</GroupingBehavior>
 						</GroupingBehaviorList>
 						<GroupingList>
@@ -159,6 +216,12 @@
 								<SwitchRef Name="Room" ID="{3A043E41-D37C-4426-800B-2F3403BBA86E}"/>
 								<ItemList>
 									<ItemRef Name="AMB_ROOM" ID="{82E1DE84-540E-43E0-A72A-B2790BD24C72}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="chatgpt" ID="{2E6AA099-AA87-412E-9965-C9172F82E89C}"/>
+								<ItemList>
+									<ItemRef Name="AMB_chatgpt" ID="{5F570753-1447-4C12-9966-B946C4FA1FCE}"/>
 								</ItemList>
 							</Grouping>
 						</GroupingList>

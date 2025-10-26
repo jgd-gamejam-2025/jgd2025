@@ -114,6 +114,89 @@
 												</TransitionFadeOut>
 											</TransitionInfo>
 										</MusicTransition>
+										<MusicTransition Name="Transition" ID="{552DAFAC-EA74-4D6D-BD7D-40E2CC6C6315}">
+											<PropertyList>
+												<Property Name="DestinationContextType" Type="int16" Value="2"/>
+												<Property Name="SourceContextType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="DestinationContextObject">
+													<ObjectRef Name="Music_Maze" ID="{EDA7F466-E723-407B-8024-F5B81767D0A8}" WorkUnitID="{F5C2B02C-28FA-4C87-B714-B49391A9778B}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionInfo/>
+										</MusicTransition>
+										<MusicTransition Name="Transition" ID="{6B2C73B3-B4D3-4E6F-9B48-BDD60E329E34}">
+											<PropertyList>
+												<Property Name="DestinationContextType" Type="int16" Value="2"/>
+												<Property Name="ExitSourceAt" Type="int16" Value="0"/>
+												<Property Name="SourceContextType" Type="int16" Value="2"/>
+												<Property Name="UseTransitionObject" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="DestinationContextObject">
+													<ObjectRef Name="迷宫掉入洞前loop" ID="{857A94C6-65A6-4646-B369-F6C0C379EB50}" WorkUnitID="{F5C2B02C-28FA-4C87-B714-B49391A9778B}"/>
+												</Reference>
+												<Reference Name="SourceContextObject">
+													<ObjectRef Name="Music_Maze" ID="{EDA7F466-E723-407B-8024-F5B81767D0A8}" WorkUnitID="{F5C2B02C-28FA-4C87-B714-B49391A9778B}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionInfo>
+												<TransitionObjectRef Name="故障暂停" ID="{B8C4C584-DF76-4752-B0F3-B11A9872027B}" WorkUnitID="{F5C2B02C-28FA-4C87-B714-B49391A9778B}"/>
+												<DestinationFadeIn>
+													<MusicFade Name="Destination Fade-in" ID="{BA83E50A-BC91-495D-BE0C-CC7C6D76FA16}">
+														<PropertyList>
+															<Property Name="FadeOffset" Type="Real64" Value="-1"/>
+															<Property Name="FadeTime" Type="Real64" Value="1"/>
+														</PropertyList>
+													</MusicFade>
+												</DestinationFadeIn>
+											</TransitionInfo>
+										</MusicTransition>
+										<MusicTransition Name="Transition" ID="{9EA2D065-604B-4E97-B8EF-72C278CEE2DA}">
+											<PropertyList>
+												<Property Name="DestinationContextType" Type="int16" Value="2"/>
+												<Property Name="SourceContextType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="DestinationContextObject">
+													<ObjectRef Name="迷宫掉入洞前loop" ID="{857A94C6-65A6-4646-B369-F6C0C379EB50}" WorkUnitID="{F5C2B02C-28FA-4C87-B714-B49391A9778B}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionInfo/>
+										</MusicTransition>
+										<MusicTransition Name="Transition" ID="{C61BD026-CA38-44E6-A5A8-F6F30608D152}">
+											<PropertyList>
+												<Property Name="DestinationContextType" Type="int16" Value="1"/>
+												<Property Name="EnableTransitionFadeIn" Type="bool" Value="True"/>
+												<Property Name="ExitSourceAt" Type="int16" Value="0"/>
+												<Property Name="SourceContextType" Type="int16" Value="2"/>
+												<Property Name="UseTransitionObject" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="SourceContextObject">
+													<ObjectRef Name="迷宫掉入洞前loop" ID="{857A94C6-65A6-4646-B369-F6C0C379EB50}" WorkUnitID="{F5C2B02C-28FA-4C87-B714-B49391A9778B}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionInfo>
+												<TransitionObjectRef Name="迷宫build up" ID="{98FCDF91-3CC2-4660-A140-53368B495CFF}" WorkUnitID="{F5C2B02C-28FA-4C87-B714-B49391A9778B}"/>
+												<TransitionFadeIn>
+													<MusicFade Name="Transition Fade-in" ID="{C61A44C6-46DB-4348-B9CF-7FAC35189CE4}"/>
+												</TransitionFadeIn>
+											</TransitionInfo>
+										</MusicTransition>
+										<MusicTransition Name="Transition" ID="{D38EA0D1-581B-45F2-9F25-C893A3B2EB7B}">
+											<PropertyList>
+												<Property Name="DestinationContextType" Type="int16" Value="2"/>
+												<Property Name="SourceContextType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="DestinationContextObject">
+													<ObjectRef Name="Music_room" ID="{3698E9D5-4B57-48D5-AE5B-ED7E8CB8B369}" WorkUnitID="{F5C2B02C-28FA-4C87-B714-B49391A9778B}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionInfo/>
+										</MusicTransition>
 									</ChildrenList>
 									<TransitionInfo/>
 								</MusicTransition>
@@ -461,6 +544,11 @@
 							<PropertyList>
 								<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
 								<Property Name="Tempo" Type="Real64" Value="70"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>4</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -475,6 +563,18 @@
 											<PropertyList>
 												<Property Name="LoopCount" Type="int16" Value="0"/>
 											</PropertyList>
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{D722A46D-B62C-4D08-B318-0C496DA6C4EC}" ShortID="408143618">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Segment">
+															<ObjectRef Name="迷宫loop 1" ID="{4901AE8F-9F76-403D-AB23-A1EBB4840D84}" WorkUnitID="{F5C2B02C-28FA-4C87-B714-B49391A9778B}"/>
+														</Reference>
+													</ReferenceList>
+												</MusicPlaylistItem>
+											</ChildrenList>
 										</MusicPlaylistItem>
 									</Custom>
 								</Reference>
@@ -498,6 +598,11 @@
 								<MusicSegment Name="迷宫loop 1" ID="{4901AE8F-9F76-403D-AB23-A1EBB4840D84}" ShortID="636577707">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="62000"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -573,7 +678,282 @@
 													<MusicCue Name="Exit Cue" ID="{625FA8B3-288E-4BB3-8829-D7E1C156324F}">
 														<PropertyList>
 															<Property Name="CueType" Type="int16" Value="1"/>
-															<Property Name="TimeMs" Type="Real64" Value="54857.1428571429"/>
+															<Property Name="TimeMs" Type="Real64" Value="53142.8571428571"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+							</ChildrenList>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="迷宫掉入洞前loop" ID="{857A94C6-65A6-4646-B369-F6C0C379EB50}" ShortID="578093631">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+								<Reference Name="PlaylistRoot">
+									<Custom>
+										<MusicPlaylistItem Name="" ID="{C5C952A2-B7AA-4546-B0D0-434F962D79E8}" ShortID="135310923">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{5EF87061-23F8-4EB3-9185-D8EC033D6205}" ShortID="713019303">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Segment">
+															<ObjectRef Name="迷宫loop 2" ID="{FBE1806A-804C-407E-A13C-704CCF86B432}" WorkUnitID="{F5C2B02C-28FA-4C87-B714-B49391A9778B}"/>
+														</Reference>
+													</ReferenceList>
+												</MusicPlaylistItem>
+											</ChildrenList>
+										</MusicPlaylistItem>
+									</Custom>
+								</Reference>
+								<Reference Name="TransitionRoot">
+									<Custom>
+										<MusicTransition Name="Root" ID="{EB536EB0-2727-4ABA-8D39-AB91AB4CEB80}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicTransition Name="Transition" ID="{99197893-D127-42EB-AAAD-6136326A36DA}">
+													<TransitionInfo/>
+												</MusicTransition>
+											</ChildrenList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</Custom>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="迷宫loop 2" ID="{FBE1806A-804C-407E-A13C-704CCF86B432}" ShortID="156780803">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="60666.6666666667"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="迷宫loop 2" ID="{DEB81490-2E8D-487B-934F-4ECB48E2DE87}" ShortID="105442162">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+												</Reference>
+												<Reference Name="TransitionRoot">
+													<Custom>
+														<MusicTransition Name="Root" ID="{86CD97CC-7DE6-4890-9462-C20B0EFCA1EF}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="迷宫loop 2" ID="{078B635F-F231-4780-BFD3-3AFDAF3A3074}">
+													<Language>SFX</Language>
+													<AudioFile>迷宫loop 2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="997217746"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{783BA14F-799D-4B3A-B145-833A96476312}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="迷宫loop 2" ID="{1A0F3A4E-788A-43D2-84D5-CC31A0807E24}">
+																					<PropertyList>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="60666.6666666667"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="迷宫loop 2" ID="{078B635F-F231-4780-BFD3-3AFDAF3A3074}"/>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{2BFB2744-9878-4AF2-921E-566FC90331A4}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{925752E7-23E6-49A4-A480-D860AD7D8C70}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="50000"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+							</ChildrenList>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="Music_room" ID="{3698E9D5-4B57-48D5-AE5B-ED7E8CB8B369}" ShortID="641679586">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+								<Reference Name="PlaylistRoot">
+									<Custom>
+										<MusicPlaylistItem Name="" ID="{1946CA12-A58D-4A1E-A6E8-2C468742F580}" ShortID="463837021">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{262709C5-E79A-4E1B-BA50-CB4E2F7B5CBF}" ShortID="554835117">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Segment">
+															<ObjectRef Name="Mouldwood Depths 70bpm" ID="{1209B44D-0B17-4927-ADD0-07F51D92D8AB}" WorkUnitID="{F5C2B02C-28FA-4C87-B714-B49391A9778B}"/>
+														</Reference>
+													</ReferenceList>
+												</MusicPlaylistItem>
+											</ChildrenList>
+										</MusicPlaylistItem>
+									</Custom>
+								</Reference>
+								<Reference Name="TransitionRoot">
+									<Custom>
+										<MusicTransition Name="Root" ID="{64CD7181-8FEA-4FBA-9F1D-67BDA3748AA0}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicTransition Name="Transition" ID="{7D41E465-F999-4344-A77E-529AF709B5BF}">
+													<TransitionInfo/>
+												</MusicTransition>
+											</ChildrenList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</Custom>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="Mouldwood Depths 70bpm" ID="{1209B44D-0B17-4927-ADD0-07F51D92D8AB}" ShortID="12132127">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="109714.291666667"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="Mouldwood Depths 70bpm" ID="{2AF4FD1E-099A-41D5-8E7B-F08E04C607F3}" ShortID="639335412">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+												</Reference>
+												<Reference Name="TransitionRoot">
+													<Custom>
+														<MusicTransition Name="Root" ID="{44A8AB38-C32E-4A88-BC53-E533263D83F3}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Mouldwood Depths 70bpm" ID="{7BA12095-0DEC-49DE-B1AC-FF8C6C17B9D0}">
+													<Language>SFX</Language>
+													<AudioFile>Mouldwood Depths 70bpm.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="739824745"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{CA762D47-FA94-4BC0-961C-3075473CD0A9}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="Mouldwood Depths 70bpm" ID="{9689D25D-4693-4D1F-B39C-E3C1ACEAAE6C}">
+																					<PropertyList>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="109714.291666667"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="Mouldwood Depths 70bpm" ID="{7BA12095-0DEC-49DE-B1AC-FF8C6C17B9D0}"/>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{7B72F8F0-4C9A-4C87-9BF2-CB62F3C1BDCC}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{94B24030-2D43-413B-9CDC-C4EFAD772B3F}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="109714.291666667"/>
 														</PropertyList>
 													</MusicCue>
 												</Local>
@@ -595,7 +975,7 @@
 								<StateRef Name="on" ID="{C3C6E510-2E64-4114-A8E8-97DCFAB75068}"/>
 								<CustomState Name="" ID="{2306493B-5CD3-4881-96D0-679E7ABA7829}" ShortID="1073371897">
 									<PropertyList>
-										<Property Name="Volume" Type="Real64" Value="-6"/>
+										<Property Name="Volume" Type="Real64" Value="-12"/>
 									</PropertyList>
 								</CustomState>
 							</CustomState>
@@ -670,6 +1050,42 @@
 									</MultiSwitchEntry>
 								</Local>
 							</Reference>
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{F49FFD1D-DEE7-4CC4-AB66-C6937BF8DE6E}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="迷宫掉入洞前loop" ID="{857A94C6-65A6-4646-B369-F6C0C379EB50}" WorkUnitID="{F5C2B02C-28FA-4C87-B714-B49391A9778B}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="Maze_pretrans" ID="{9C624977-AADC-489D-BA5C-7F779D105F70}" WorkUnitID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{4FB5B6A0-4DE6-431B-A62B-1C5793458B4A}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="Music_room" ID="{3698E9D5-4B57-48D5-AE5B-ED7E8CB8B369}" WorkUnitID="{F5C2B02C-28FA-4C87-B714-B49391A9778B}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="room" ID="{2BFCFE8A-93AC-4C39-BB69-46DFDA56957A}" WorkUnitID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
 						</ObjectList>
 					</ObjectLists>
 				</MusicSwitchContainer>
@@ -680,7 +1096,7 @@
 								<Property Name="EndPosition" Type="Real64" Value="17620.1716738197"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-10</Value>
+										<Value>-11</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -774,6 +1190,23 @@
 							</ObjectLists>
 						</MusicSegment>
 						<MusicSegment Name="故障暂停" ID="{B8C4C584-DF76-4752-B0F3-B11A9872027B}" ShortID="894950221">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>21</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>16</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
@@ -848,7 +1281,102 @@
 											<MusicCue Name="Exit Cue" ID="{9138051B-D0E4-4957-AE13-7F8419846459}">
 												<PropertyList>
 													<Property Name="CueType" Type="int16" Value="1"/>
-													<Property Name="TimeMs" Type="Real64" Value="875"/>
+													<Property Name="TimeMs" Type="Real64" Value="375"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
+						<MusicSegment Name="迷宫build up" ID="{98FCDF91-3CC2-4660-A140-53368B495CFF}" ShortID="477494854">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="15375"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-11</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="迷宫build up" ID="{767BCB5C-2E4E-4D40-9A08-873C2EC36753}" ShortID="711911531">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{D8ED04EA-762C-4C14-8ADC-0970D5B953D5}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="迷宫build up" ID="{BDFBE469-8A04-48B8-BC01-1A1F4013BC81}">
+											<Language>SFX</Language>
+											<AudioFile>迷宫build up.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="204817462"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{6478EE42-7A11-4283-9CC0-D6A61F0CD6FB}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="迷宫build up" ID="{1AAB4910-58DE-48B4-AD94-B0EF4F1FEF71}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="8000"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="迷宫build up" ID="{BDFBE469-8A04-48B8-BC01-1A1F4013BC81}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{50EE1919-56B9-41E2-994F-129735BF6161}">
+												<PropertyList>
+													<Property Name="TimeMs" Type="Real64" Value="6701.07717575525"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{2E134788-071C-4EA7-87FE-C552ED5661CE}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="6701.07717575525"/>
 												</PropertyList>
 											</MusicCue>
 										</Local>

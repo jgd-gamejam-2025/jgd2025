@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dmk1q42l8s3c1"
+path="res://.godot/imported/AMB_chatgpt.wav-db6b8cb8ce4350c6ba4162089e353c74.sample"
+
+[deps]
+
+source_file="res://Taptap Gamejam 2025/Originals/SFX/AMB_chatgpt.wav"
+dest_files=["res://.godot/imported/AMB_chatgpt.wav-db6b8cb8ce4350c6ba4162089e353c74.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

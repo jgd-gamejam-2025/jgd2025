@@ -56,11 +56,11 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	22267547	报纸拿起	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\5E\{5E2F2F16-B6CA-0B15-1D08-B277644D207F}.wem		\Actor-Mixer Hierarchy\SFX\报纸拿起		168160
 	23533593	迷宫落地	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\9A\{9AFE240E-3566-6CCE-64C3-E3B3FA2C5B89}.wem		\Actor-Mixer Hierarchy\SFX\迷宫落地		144288
 	29920152	故障暂停	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\B1\{B13EAF9A-19B9-CB7C-075D-9BE31B69A38E}.wem		\Interactive Music Hierarchy\Music\Transition\故障暂停\故障暂停		168160
-	48012793	玩家键盘4	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\4E\{4E9F620E-AB92-99D7-010B-5F7470196FEB}.wem		\Actor-Mixer Hierarchy\SFX\Player_Typing\玩家键盘4		14560
+	48012793	玩家键盘4	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\3E\{3EA0A154-2DD6-DA11-B0C9-8CF4D6C6A68A}.wem		\Actor-Mixer Hierarchy\SFX\Player_Typing\玩家键盘4		7428
 	56285626	大门2	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\14\{14E7D94D-4752-D4B8-0C26-16710B3FA233}.wem		\Actor-Mixer Hierarchy\SFX\大门2		948160
 	57419463	灯泡变暗	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\CD\{CD8F0D37-98B7-E932-9AC4-5A0A961A5920}.wem		\Actor-Mixer Hierarchy\SFX\灯泡变暗		408160
 	58820668	掏出ipad	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\60\{608C1747-943E-89EE-282A-A22F69032C0A}.wem		\Actor-Mixer Hierarchy\SFX\掏出ipad		216208
-	68659470	玩家键盘5	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\8A\{8A395D1F-7550-228F-FF55-D89A7DDDA5B3}.wem		\Actor-Mixer Hierarchy\SFX\Player_Typing\玩家键盘5		25660
+	68659470	玩家键盘5	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\1A\{1A07AF9A-F2CC-59B2-8C80-C8296FB50841}.wem		\Actor-Mixer Hierarchy\SFX\Player_Typing\玩家键盘5		8292
 	73482642	AMB_Room_1	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\63\{63CA249C-8D2D-DD7A-8C1B-324047EE3D06}.wem		\Actor-Mixer Hierarchy\AMB\AMB_Switch\AMB_ROOM\AMB_Room_1		3072160
 	121547523	ai键盘2	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\FB\{FB1DB552-8D67-DC25-14C8-6ED2FBCFCF75}.wem		\Actor-Mixer Hierarchy\SFX\Typing_AI\ai键盘2		20160
 	123271742	room footstep2	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\80\{80BC400C-4DD1-666F-B580-F7EDAFEAF868}.wem		\Actor-Mixer Hierarchy\SFX\Room_footsteps\room footstep2		86560
@@ -68,10 +68,10 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	146562162	mazeft3	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\AB\{ABE44AFB-6E06-541A-0D1A-0A85F2E6DA97}.wem		\Actor-Mixer Hierarchy\SFX\Maze_Footstep\mazeft3		33408
 	156648797	UI_Prechoose	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\AF\{AF542999-9AC6-0D8A-BABD-D9D1EB8A3086}.wem		\Actor-Mixer Hierarchy\SFX\UI\UI_Prechoose		11560
 	185534084	room footstep4	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\9A\{9A03123C-7090-2B3D-464B-975D93E6EB15}.wem		\Actor-Mixer Hierarchy\SFX\Room_footsteps\room footstep4		84160
-	188047372	玩家键盘3	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\C7\{C75A2A5C-8F26-E2C9-A420-F2D34EDA5233}.wem		\Actor-Mixer Hierarchy\SFX\Player_Typing\玩家键盘3		14560
+	188047372	玩家键盘3	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\B7\{B755EF74-E685-167F-D879-6D1A155ACE8C}.wem		\Actor-Mixer Hierarchy\SFX\Player_Typing\玩家键盘3		5760
 	204817462	迷宫build up	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\5A\{5A859F1A-982B-685A-5329-9BE4BB68F3C8}.wem		\Interactive Music Hierarchy\Music\Transition\迷宫build up\迷宫build up		1536224
 	213070622	键盘故障2	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\EE\{EE734A58-A205-52DE-11FE-2D3B71A173B9}.wem		\Actor-Mixer Hierarchy\SFX\AI_Typing_fault\键盘故障2		29360
-	216964168	玩家键盘2	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\87\{87081449-A61F-0B2D-BC8C-934E718AD811}.wem		\Actor-Mixer Hierarchy\SFX\Player_Typing\玩家键盘2		17360
+	216964168	玩家键盘2	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\72\{72CC4C64-189B-4606-5B3C-F683FEFFE70E}.wem		\Actor-Mixer Hierarchy\SFX\Player_Typing\玩家键盘2		7068
 	244808737	大门1	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\52\{52BD6F45-3191-DBA0-053B-306D5012A575}.wem		\Actor-Mixer Hierarchy\SFX\大门1		1136160
 	250617542	room footstep1	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\46\{466C590E-7A54-4AE2-D2DE-AD951AB92CA1}.wem		\Actor-Mixer Hierarchy\SFX\Room_footsteps\room footstep1		84240
 	294503425	AMB_Maze	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\80\{807386D7-E4A4-F989-C761-86460B279545}.wem		\Actor-Mixer Hierarchy\AMB\AMB_Switch\AMB_Maze		5184208
@@ -112,7 +112,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	871092978	mazeft1	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\24\{24093115-143F-F96D-AB4A-5B39CF89C022}.wem		\Actor-Mixer Hierarchy\SFX\Maze_Footstep\mazeft1		16808
 	891554058	ai键盘8	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\1B\{1B8CCC74-715A-25C7-5DE0-9BF7A98686D7}.wem		\Actor-Mixer Hierarchy\SFX\Typing_AI\ai键盘8		16460
 	897740158	迷宫loop 1	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\39\{3940580B-3C21-A82B-C76D-EEAD977AAA1C}.wem		\Interactive Music Hierarchy\Music\Music_Swtich\Music_Maze\迷宫loop 1\迷宫loop 1		11904208
-	916669482	玩家键盘1	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\B0\{B017841E-9EBF-6685-63A9-E1C7F9374391}.wem		\Actor-Mixer Hierarchy\SFX\Player_Typing\玩家键盘1		17360
+	916669482	玩家键盘1	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\AF\{AFA45076-1ABB-86A0-994D-E5F4CB4DFD56}.wem		\Actor-Mixer Hierarchy\SFX\Player_Typing\玩家键盘1		8440
 	920076376	报纸放下	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\67\{673DB9A0-B2A2-DE21-612F-07885F07F113}.wem		\Actor-Mixer Hierarchy\SFX\报纸放下		187060
 	968607521	UI_choose	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\2D\{2DBF636C-A51E-5613-EF38-5B66634BF9BF}.wem		\Actor-Mixer Hierarchy\SFX\UI\UI_choose		72160
 	981433377	玩家键盘确认	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\45\{45CAB070-484B-ECCD-7852-6BE345A67BC4}.wem		\Actor-Mixer Hierarchy\SFX\玩家键盘确认		24160

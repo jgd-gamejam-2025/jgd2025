@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}",
     "Language": "SFX",
-    "Hash": "{ACFC1621-80AA-B8A8-CBDE-83DAA637E065}",
+    "Hash": "{A9E254DE-22DB-E6F7-62FD-073AF3C1DFCB}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\soundbank",
     "ShortName": "soundbank",
     "Path": "soundbank.bnk",
@@ -45,7 +45,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "玩家键盘4.wav",
-      "CachePath": "4E/{4E9F620E-AB92-99D7-010B-5F7470196FEB}.wem"
+      "CachePath": "3E/{3EA0A154-2DD6-DA11-B0C9-8CF4D6C6A68A}.wem"
      },
      {
       "Id": "56285626",
@@ -77,7 +77,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "玩家键盘5.wav",
-      "CachePath": "8A/{8A395D1F-7550-228F-FF55-D89A7DDDA5B3}.wem"
+      "CachePath": "1A/{1A07AF9A-F2CC-59B2-8C80-C8296FB50841}.wem"
      },
      {
       "Id": "73482642",
@@ -141,7 +141,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "玩家键盘3.wav",
-      "CachePath": "C7/{C75A2A5C-8F26-E2C9-A420-F2D34EDA5233}.wem"
+      "CachePath": "B7/{B755EF74-E685-167F-D879-6D1A155ACE8C}.wem"
      },
      {
       "Id": "204817462",
@@ -165,7 +165,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "玩家键盘2.wav",
-      "CachePath": "87/{87081449-A61F-0B2D-BC8C-934E718AD811}.wem"
+      "CachePath": "72/{72CC4C64-189B-4606-5B3C-F683FEFFE70E}.wem"
      },
      {
       "Id": "244808737",
@@ -493,7 +493,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "玩家键盘1.wav",
-      "CachePath": "B0/{B017841E-9EBF-6685-63A9-E1C7F9374391}.wem"
+      "CachePath": "AF/{AFA45076-1ABB-86A0-994D-E5F4CB4DFD56}.wem"
      },
      {
       "Id": "920076376",
@@ -1511,8 +1511,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_Play_Player_Typing",
       "GUID": "{773C4242-BCF9-4C5A-A8B8-7ABBEB189DFB}",
       "DurationType": "OneShot",
-      "DurationMin": "0.0728649",
-      "DurationMax": "0.14070995",
+      "DurationMin": "0.028401012",
+      "DurationMax": "0.04578737",
       "MediaRefs": [
        {
         "Id": "48012793"
@@ -1771,6 +1771,6 @@
     ]
    }
   ],
-  "FileHash": "{36C447E3-2066-56D8-D895-EDCE5F49F44E}"
+  "FileHash": "{EF648768-1A38-D01D-EDA2-599EDE086961}"
  }
 }

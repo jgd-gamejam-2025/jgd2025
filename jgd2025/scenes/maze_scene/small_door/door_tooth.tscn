@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://xd74vrulagn4"]
 
-[ext_resource type="Material" path="res://assets/models/room/tileable/plaster_wall/plaster_wall_material.tres" id="1_5xjag"]
+[ext_resource type="Material" uid="uid://d27oxwekg1hsx" path="res://levels/tps_test_scene/material/white wall.tres" id="1_5xjag"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qxstb"]
 material = ExtResource("1_5xjag")

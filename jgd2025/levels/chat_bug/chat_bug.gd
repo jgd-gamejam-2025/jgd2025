@@ -99,7 +99,7 @@ func _on_chat_ui_received_text(received_text: String) -> void:
 	if bug_mode_activated > 0:
 		bug_mode_activated += 1
 	if bug_mode_activated == 3: # 2 steps after bug mode activated
-		chat_ui.add_and_write_detail_bubble("[AI SYSTEM] 无法恢复数据。\n输入指令【%s】尝试使用备份数据调试错误。" % chat_ui.eve_debug_command)
+		chat_ui.add_and_write_detail_bubble("[AI SYSTEM] 无法恢复数据。\n输入指令【%s】尝试使用备份数据调试错误。" % chat_ui.eve_debug_command, 0.05, true)
 		# chat forever if the player wants to
 	
 	
@@ -160,7 +160,7 @@ func activate_bug_mode() -> void:
 	sequence.tween_interval(3)
 	sequence.tween_callback(func():
 		$Reload.hide()
-		chat_ui.add_and_write_detail_bubble("[AI SYSTEM] 出现严重错误")
+		chat_ui.add_and_write_detail_bubble("[AI SYSTEM] 出现严重错误", 0.05, true)
 		# chat_ui.add_and_write_detail_bubble("[AI SYSTEM] 尝试重新初始化对话系统")
 		chat_ui.block_text_generation = false
 		chat_ui.textInput.editable = true

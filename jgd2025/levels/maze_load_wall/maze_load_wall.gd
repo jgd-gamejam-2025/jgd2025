@@ -105,7 +105,7 @@ func _on_opening_opening_end() -> void:
 
 func get_notification(message: String, duration: float = 3.0, name_text: String = "Eve"):
 	chat_ui.to_chat_mode()
-	chat_ui.add_and_write_detail_bubble(message, 0.02)
+	chat_ui.add_and_write_detail_bubble(message, 0.02, false)
 	notification_box.show_notification(message, duration, name_text)
 
 

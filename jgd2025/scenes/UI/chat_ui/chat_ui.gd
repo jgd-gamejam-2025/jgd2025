@@ -18,6 +18,7 @@ var key_aiChat_dict: Dictionary = {}
 @onready var margin_container = $Panel/MarginContainer
 @onready var bubble_scroll = $Panel/MarginContainer/BubblesScroll
 @onready var bubble_scroll_bar = bubble_scroll.get_v_scroll_bar()
+@onready var vbox_container = $Panel/MarginContainer/BubblesScroll/VBoxContainer
 @onready var detail_bubble = $Panel/MarginContainer/BubblesScroll/VBoxContainer/DetailBubble
 @onready var flat_bubble = $Panel/MarginContainer/BubblesScroll/VBoxContainer/FlatBubble
 @onready var image_bubble = $Panel/MarginContainer/BubblesScroll/VBoxContainer/ImageBubble
@@ -252,7 +253,7 @@ func kill_text_animation(interval: float = 0.02) -> void:
 
 func add_flat_bubble(text: String) -> void:
 	var new_bubble = flat_bubble.duplicate()
-	$Panel/MarginContainer/BubblesScroll/VBoxContainer.add_child(new_bubble)
+	vbox_container.add_child(new_bubble)
 	new_bubble.rich_text_label.text = text
 	new_bubble.show()
 	await get_tree().process_frame
@@ -261,7 +262,7 @@ func add_flat_bubble(text: String) -> void:
 var current_detail_bubble = null
 func add_detail_bubble(show: bool = true) -> void:
 	var new_bubble = detail_bubble.duplicate()
-	$Panel/MarginContainer/BubblesScroll/VBoxContainer.add_child(new_bubble)
+	vbox_container.add_child(new_bubble)
 	new_bubble.rich_text_label.text = ""
 	if show:
 		new_bubble.show()
@@ -319,14 +320,14 @@ func add_fault_to_current_detail_bubble(text: String, interval: float = 0.05):
 
 func add_sticker_bubble(anim_name: String):
 	var new_bubble = image_bubble.duplicate()
-	$Panel/MarginContainer/BubblesScroll/VBoxContainer.add_child(new_bubble)
+	vbox_container.add_child(new_bubble)
 	new_bubble.set_sticker(anim_name)
 	new_bubble.show()
 	await get_tree().process_frame
 
 func add_image_bubble(texture: Texture):
 	var new_bubble = image_bubble.duplicate()
-	$Panel/MarginContainer/BubblesScroll/VBoxContainer.add_child(new_bubble)
+	vbox_container.add_child(new_bubble)
 	new_bubble.set_texture(texture)
 	new_bubble.show()
 	await get_tree().process_frame
@@ -335,6 +336,42 @@ func set_bg_transparent(alpha:float  = 0.0) -> void:
 	$Panel/Background.color.a = alpha
 	$Panel/Shadow.hide()
 	bubble_scroll.get_v_scroll_bar().visible = false
+
+
+func remove_bubbles(interval: float = 0.05) -> Tween:
+	"""逐渐移除 vbox_container 中的所有气泡，返回总体 Tween"""
+	var bubbles = []
+	
+	# 收集所有需要移除的气泡（跳过模板气泡）
+	for child in vbox_container.get_children():
+		if child.visible and child != detail_bubble and child != flat_bubble and child != image_bubble:
+			bubbles.append(child)
+	
+	# 创建一个总体的 Tween
+	var master_tween = create_tween()
+	
+	if bubbles.is_empty():
+		return master_tween
+	
+	# 从最后一个开始逐个移除
+	for i in range(bubbles.size() - 1, -1, -1):
+		var bubble = bubbles[i]
+		var delay = (bubbles.size() - 1 - i) * interval  # 计算每个气泡的延迟
+		
+		# 为每个气泡添加淡出和缩小动画
+		master_tween.set_parallel(false)
+		master_tween.tween_callback(func():
+			var fade_tween = create_tween()
+			fade_tween.set_parallel(true)
+			fade_tween.tween_property(bubble, "modulate:a", 0.0, 0.2)
+			fade_tween.tween_property(bubble, "scale", Vector2(0.8, 0.8), 0.2)
+			fade_tween.finished.connect(bubble.queue_free)
+		).set_delay(delay)
+	
+	# 添加最终等待时间（最后一个动画的完成时间）
+	master_tween.tween_interval(0.2)
+	
+	return master_tween
 
 
 var last_text_length = 0

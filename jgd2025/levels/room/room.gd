@@ -359,6 +359,8 @@ func handle_chat_command(command: String) -> void:
 
 func play_ending():
 	player.shake_camera(0.3, 1)
+	await get_tree().create_timer(1).timeout
+	await chat_ui.remove_bubbles(0.02).finished
 	await get_tree().create_timer(0.5).timeout
 	var wobble_level = 99
 	var tween = create_tween()

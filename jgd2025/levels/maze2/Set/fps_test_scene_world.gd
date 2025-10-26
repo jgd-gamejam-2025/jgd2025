@@ -23,7 +23,7 @@ func _ready():
 	pad.connect("pad_activated", _on_pad_pad_activated)
 	pad.connect("pad_deactivated", _on_pad_pad_deactivated)
 	chat_ui.set_ai_name("Eve")
-	chat_ui.init_system_prompt({"ai1":ai_prompt， "ai2":ai_prompt2, "ai3":ai_prompt3})
+	chat_ui.init_system_prompt({"ai1":ai_prompt,"ai2":ai_prompt2,"ai3":ai_prompt3})
 	chat_ui.select_ai_chat("ai1")
 	chat_ui.start_chat_worker()
 	chat_ui.show_welcome_text("这是什么地方？")

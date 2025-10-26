@@ -147,7 +147,7 @@ func activate_bug_mode() -> void:
 	)
 	sequence.tween_interval(3)
 	sequence.tween_callback(func():
-		Wwise.post_event("MX_Begin_to_none", LevelManger)
+		Wwise.post_event("MX_Begin_to_none", LevelManager)
 		$Reload.show()
 		$Reload/Label2.text += '.'
 		chat_ui._tween.kill()

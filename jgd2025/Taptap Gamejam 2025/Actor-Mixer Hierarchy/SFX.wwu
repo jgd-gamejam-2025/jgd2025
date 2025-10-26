@@ -419,6 +419,11 @@
 					<PropertyList>
 						<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
 						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-5</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -1330,6 +1335,13 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="大门1" ID="{F6478F7E-FB8E-447E-8C3B-F7BB9D717776}" ShortID="461895588">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>4</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
@@ -1352,6 +1364,13 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="大门2" ID="{36222D67-CA56-4C5A-B4CE-DF50B59CC930}" ShortID="967022591">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>4</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
@@ -1371,6 +1390,35 @@
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="大门2" ID="{FAD263C0-4BAA-4A25-BF47-F1945FCF7439}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="柱子升起1" ID="{59E80671-50BD-4B26-800D-7D7E767323EF}" ShortID="607377161">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-9</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="柱子升起1" ID="{F59ACD14-D814-407A-8713-C576AFFEF723}">
+							<Language>SFX</Language>
+							<AudioFile>柱子升起1.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="973310934"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="柱子升起1" ID="{F59ACD14-D814-407A-8713-C576AFFEF723}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>

@@ -36,6 +36,7 @@ namespace AK
         static const AkUniqueID SFX_PLAY_AI_TYPING = 3636131822U;
         static const AkUniqueID SFX_PLAY_AI_TYPING_FAULT = 693053491U;
         static const AkUniqueID SFX_PLAY_PILLARUP = 1307923593U;
+        static const AkUniqueID SFX_PLAY_PILLARUP2 = 1110709145U;
         static const AkUniqueID SFX_PLAY_PLAYER_TYPING = 1312151505U;
         static const AkUniqueID SFX_PLAY_PLR_TYPING_RETURN = 4078102291U;
         static const AkUniqueID SFX_PLAY_PUTDOWN_IPAD = 26301700U;

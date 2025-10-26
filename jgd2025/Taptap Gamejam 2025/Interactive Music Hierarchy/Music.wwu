@@ -546,7 +546,7 @@
 								<Property Name="Tempo" Type="Real64" Value="70"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>4</Value>
+										<Value>11</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -844,13 +844,13 @@
 												<Property Name="LoopCount" Type="int16" Value="0"/>
 											</PropertyList>
 											<ChildrenList>
-												<MusicPlaylistItem Name="" ID="{262709C5-E79A-4E1B-BA50-CB4E2F7B5CBF}" ShortID="554835117">
+												<MusicPlaylistItem Name="" ID="{AA9CCCF5-5F2C-4268-B689-C1D485DBF10A}" ShortID="790336191">
 													<PropertyList>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Segment">
-															<ObjectRef Name="Mouldwood Depths 70bpm" ID="{1209B44D-0B17-4927-ADD0-07F51D92D8AB}" WorkUnitID="{F5C2B02C-28FA-4C87-B714-B49391A9778B}"/>
+															<ObjectRef Name="房间loop" ID="{D65AFD9D-BBE3-4CE0-924E-B5A008ED11B1}" WorkUnitID="{F5C2B02C-28FA-4C87-B714-B49391A9778B}"/>
 														</Reference>
 													</ReferenceList>
 												</MusicPlaylistItem>
@@ -875,9 +875,9 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<MusicSegment Name="Mouldwood Depths 70bpm" ID="{1209B44D-0B17-4927-ADD0-07F51D92D8AB}" ShortID="12132127">
+								<MusicSegment Name="房间loop" ID="{D65AFD9D-BBE3-4CE0-924E-B5A008ED11B1}" ShortID="626664302">
 									<PropertyList>
-										<Property Name="EndPosition" Type="Real64" Value="109714.291666667"/>
+										<Property Name="EndPosition" Type="Real64" Value="50000"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -888,14 +888,14 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<MusicTrack Name="Mouldwood Depths 70bpm" ID="{2AF4FD1E-099A-41D5-8E7B-F08E04C607F3}" ShortID="639335412">
+										<MusicTrack Name="房间loop" ID="{3D54FD6C-F7F4-4C91-BCFC-653881BA7E84}" ShortID="477695410">
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
 												</Reference>
 												<Reference Name="TransitionRoot">
 													<Custom>
-														<MusicTransition Name="Root" ID="{44A8AB38-C32E-4A88-BC53-E533263D83F3}">
+														<MusicTransition Name="Root" ID="{46AFAE5B-C655-47B6-9608-F2301F2D3C14}">
 															<PropertyList>
 																<Property Name="IsFolder" Type="bool" Value="True"/>
 															</PropertyList>
@@ -905,11 +905,11 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Mouldwood Depths 70bpm" ID="{7BA12095-0DEC-49DE-B1AC-FF8C6C17B9D0}">
+												<AudioFileSource Name="房间loop" ID="{B86BD844-3F22-44B0-B9C4-46E101E5357B}">
 													<Language>SFX</Language>
-													<AudioFile>Mouldwood Depths 70bpm.wav</AudioFile>
+													<AudioFile>房间loop.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="739824745"/>
+														<MediaID ID="896854163"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
@@ -917,18 +917,18 @@
 												<ObjectList Name="Sequences">
 													<Reference>
 														<Local>
-															<MusicTrackSequence Name="" ID="{CA762D47-FA94-4BC0-961C-3075473CD0A9}">
+															<MusicTrackSequence Name="" ID="{B659DD3E-4FED-4332-8361-52C62D098090}">
 																<ObjectLists>
 																	<ObjectList Name="Clips">
 																		<Reference>
 																			<Local>
-																				<MusicClip Name="Mouldwood Depths 70bpm" ID="{9689D25D-4693-4D1F-B39C-E3C1ACEAAE6C}">
+																				<MusicClip Name="房间loop" ID="{7192A428-1F0F-4C27-B196-3839C430C7F0}">
 																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="109714.291666667"/>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="50000"/>
 																						<Property Name="FadeInMode" Type="int16" Value="0"/>
 																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
 																					</PropertyList>
-																					<AudioSourceRef Name="Mouldwood Depths 70bpm" ID="{7BA12095-0DEC-49DE-B1AC-FF8C6C17B9D0}"/>
+																					<AudioSourceRef Name="房间loop" ID="{B86BD844-3F22-44B0-B9C4-46E101E5357B}"/>
 																				</MusicClip>
 																			</Local>
 																		</Reference>
@@ -945,15 +945,15 @@
 										<ObjectList Name="Cues">
 											<Reference>
 												<Local>
-													<MusicCue Name="Entry Cue" ID="{7B72F8F0-4C9A-4C87-9BF2-CB62F3C1BDCC}"/>
+													<MusicCue Name="Entry Cue" ID="{F5EE4A39-71F8-4140-9A4E-5ED732DE3FB1}"/>
 												</Local>
 											</Reference>
 											<Reference>
 												<Local>
-													<MusicCue Name="Exit Cue" ID="{94B24030-2D43-413B-9CDC-C4EFAD772B3F}">
+													<MusicCue Name="Exit Cue" ID="{36861209-A438-4F09-B382-EE9AC8557CC7}">
 														<PropertyList>
 															<Property Name="CueType" Type="int16" Value="1"/>
-															<Property Name="TimeMs" Type="Real64" Value="109714.291666667"/>
+															<Property Name="TimeMs" Type="Real64" Value="44000"/>
 														</PropertyList>
 													</MusicCue>
 												</Local>

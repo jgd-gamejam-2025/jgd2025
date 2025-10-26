@@ -269,11 +269,11 @@ func add_detail_bubble(show: bool = true) -> void:
 		new_bubble.hide()
 	current_detail_bubble = new_bubble
 
-func add_and_write_detail_bubble(text: String, interval: float = 0.05):
+func add_and_write_detail_bubble(text: String, interval: float = 0.05, use_type_sound: bool = false):
 	add_detail_bubble()
-	return overwrite_current_detail_bubble(text, interval)
+	return overwrite_current_detail_bubble(text, interval, use_type_sound)
 
-func overwrite_current_detail_bubble(text: String, interval: float = 0.05):
+func overwrite_current_detail_bubble(text: String, interval: float = 0.05, use_type_sound: bool = false):
 	if current_detail_bubble:
 		if _tween:
 			_tween.kill()
@@ -286,7 +286,8 @@ func overwrite_current_detail_bubble(text: String, interval: float = 0.05):
 			func(current_char: float):
 				var char_index = int(current_char)
 				current_detail_bubble.rich_text_label.text = text.substr(0, char_index)
-				wwise_type.post(self),
+				if use_type_sound:
+					wwise_type.post(self),
 			0.0,  # Start with 0 characters
 			float(char_count),  # End with all characters
 			total_time  # Total animation time

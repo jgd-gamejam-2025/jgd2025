@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}",
     "Language": "SFX",
-    "Hash": "{5395F51C-E2B8-FC4C-084E-A56A46627ED3}",
+    "Hash": "{DCBF77C3-DDFA-19A5-0E8E-8583FEB13D32}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\soundbank",
     "ShortName": "soundbank",
     "Path": "soundbank.bnk",
@@ -62,14 +62,6 @@
       "Location": "Memory",
       "ShortName": "玩家键盘5.wav",
       "CachePath": "8A/{8A395D1F-7550-228F-FF55-D89A7DDDA5B3}.wem"
-     },
-     {
-      "Id": "71858515",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Mouldwood Depths 70bpm.wav",
-      "CachePath": "89/{89C4ED0D-90BF-9236-BFD2-C94B530966D2}.wem"
      },
      {
       "Id": "73482642",
@@ -344,6 +336,14 @@
       "CachePath": "1B/{1B8CCC74-715A-25C7-5DE0-9BF7A98686D7}.wem"
      },
      {
+      "Id": "897740158",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "迷宫loop 1.wav",
+      "CachePath": "39/{3940580B-3C21-A82B-C76D-EEAD977AAA1C}.wem"
+     },
+     {
       "Id": "916669482",
       "Language": "SFX",
       "Streaming": "false",
@@ -446,7 +446,7 @@
         },
         "MediaRefs": [
          {
-          "Id": "71858515"
+          "Id": "897740158"
          }
         ]
        }
@@ -879,6 +879,6 @@
     ]
    }
   ],
-  "FileHash": "{008FF422-FD08-65E9-B203-E7D805ACAD54}"
+  "FileHash": "{E43D36CC-166E-120D-1281-D524B993FB8F}"
  }
 }

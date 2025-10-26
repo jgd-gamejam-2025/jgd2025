@@ -25,8 +25,11 @@ namespace AK
         static const AkUniqueID PAUSE = 3092587493U;
         static const AkUniqueID PAUSE_BACK = 4234294329U;
         static const AkUniqueID SET_AMB_CHAT = 2230674935U;
+        static const AkUniqueID SFX_DOOR1 = 2148082694U;
+        static const AkUniqueID SFX_DOOR2 = 2148082693U;
         static const AkUniqueID SFX_LIGHTBULB_TURNDOWN = 296532388U;
         static const AkUniqueID SFX_LOADING = 3955623867U;
+        static const AkUniqueID SFX_MAZE_FOOTSTEP = 3077740929U;
         static const AkUniqueID SFX_MAZE_LANDING = 4187727620U;
         static const AkUniqueID SFX_MESSAGE_POPUP = 2868659721U;
         static const AkUniqueID SFX_PICKUP_NEWSPAPER = 3066694657U;

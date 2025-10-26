@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}",
     "Language": "SFX",
-    "Hash": "{4B164EA9-775D-A54F-5B56-49690734F5DE}",
+    "Hash": "{ACFC1621-80AA-B8A8-CBDE-83DAA637E065}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\soundbank",
     "ShortName": "soundbank",
     "Path": "soundbank.bnk",
@@ -46,6 +46,14 @@
       "Location": "Memory",
       "ShortName": "玩家键盘4.wav",
       "CachePath": "4E/{4E9F620E-AB92-99D7-010B-5F7470196FEB}.wem"
+     },
+     {
+      "Id": "56285626",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "大门2.wav",
+      "CachePath": "14/{14E7D94D-4752-D4B8-0C26-16710B3FA233}.wem"
      },
      {
       "Id": "57419463",
@@ -104,6 +112,14 @@
       "CachePath": "3D/{3D24D65D-32F7-5763-40ED-468DAF361D83}.wem"
      },
      {
+      "Id": "146562162",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "mazeft3.wav",
+      "CachePath": "AB/{ABE44AFB-6E06-541A-0D1A-0A85F2E6DA97}.wem"
+     },
+     {
       "Id": "156648797",
       "Language": "SFX",
       "Streaming": "false",
@@ -152,6 +168,14 @@
       "CachePath": "87/{87081449-A61F-0B2D-BC8C-934E718AD811}.wem"
      },
      {
+      "Id": "244808737",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "大门1.wav",
+      "CachePath": "52/{52BD6F45-3191-DBA0-053B-306D5012A575}.wem"
+     },
+     {
       "Id": "250617542",
       "Language": "SFX",
       "Streaming": "false",
@@ -174,6 +198,14 @@
       "Location": "Memory",
       "ShortName": "信息弹出.wav",
       "CachePath": "A0/{A0F58467-5EC7-9D39-4884-42FE558A4404}.wem"
+     },
+     {
+      "Id": "374242323",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "mazeft4.wav",
+      "CachePath": "23/{23677096-BEBF-E6F6-F89C-208BA85BDCF8}.wem"
      },
      {
       "Id": "380560644",
@@ -280,6 +312,30 @@
       "CachePath": "C0/{C02F3F3B-7D75-1A41-7E1B-1FF73CB07DFF}.wem"
      },
      {
+      "Id": "588794654",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "mazeft7.wav",
+      "CachePath": "B4/{B45C62E7-B5C0-54DB-1F42-9E59E2622E4B}.wem"
+     },
+     {
+      "Id": "598140188",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "mazeft6.wav",
+      "CachePath": "6A/{6AB85FE9-667C-7CC5-0FA1-ED78DF6BE39F}.wem"
+     },
+     {
+      "Id": "611873747",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "mazeft2.wav",
+      "CachePath": "C2/{C25BD4F4-E517-92EA-2558-25D81FC59378}.wem"
+     },
+     {
       "Id": "651673293",
       "Language": "SFX",
       "Streaming": "false",
@@ -318,6 +374,14 @@
       "Location": "Memory",
       "ShortName": "键盘故障6.wav",
       "CachePath": "CD/{CD3E2AB9-3D56-9506-F5CC-3CD0C3E68C22}.wem"
+     },
+     {
+      "Id": "768801681",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "mazeft8.wav",
+      "CachePath": "76/{76924E74-0C91-269D-F099-20F92FBB9F89}.wem"
      },
      {
       "Id": "772978375",
@@ -376,6 +440,14 @@
       "CachePath": "B7/{B7E299D3-98CE-DE93-53EE-90FB6B2686CE}.wem"
      },
      {
+      "Id": "842453171",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "mazeft5.wav",
+      "CachePath": "82/{8238518B-D1D6-59C0-B45D-046031FF533E}.wem"
+     },
+     {
       "Id": "846058329",
       "Language": "SFX",
       "Streaming": "false",
@@ -390,6 +462,14 @@
       "Location": "Memory",
       "ShortName": "AMB_Buzz.wav",
       "CachePath": "42/{42933771-2D2F-9B93-3E80-AB4C798FD59D}.wem"
+     },
+     {
+      "Id": "871092978",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "mazeft1.wav",
+      "CachePath": "24/{24093115-143F-F96D-AB4A-5B39CF89C022}.wem"
      },
      {
       "Id": "891554058",
@@ -460,7 +540,7 @@
      {
       "Id": "1069070997",
       "Name": "MX_Begin_to_none",
-      "ObjectPath": "\\Events\\Default Work Unit\\MX_Begin_to_none",
+      "ObjectPath": "\\Events\\Default Work Unit\\MX\\MX_Begin_to_none",
       "GUID": "{8933958D-ECCE-482E-805B-31EE01D162FD}",
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
@@ -479,7 +559,7 @@
      {
       "Id": "3573176569",
       "Name": "MX_Maze_to_Mazepretrans",
-      "ObjectPath": "\\Events\\Default Work Unit\\MX_Maze_to_Mazepretrans",
+      "ObjectPath": "\\Events\\Default Work Unit\\MX\\MX_Maze_to_Mazepretrans",
       "GUID": "{2995AF4A-4F57-4039-855F-1A877E9AF894}",
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
@@ -505,7 +585,7 @@
      {
       "Id": "3577866158",
       "Name": "MX_Mazepretans_to_chat",
-      "ObjectPath": "\\Events\\Default Work Unit\\MX_Mazepretans_to_chat",
+      "ObjectPath": "\\Events\\Default Work Unit\\MX\\MX_Mazepretans_to_chat",
       "GUID": "{BE004A1F-9617-47C3-99E6-92D0EC2ED583}",
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
@@ -531,7 +611,7 @@
      {
       "Id": "891883193",
       "Name": "MX_Play_begin",
-      "ObjectPath": "\\Events\\Default Work Unit\\MX_Play_begin",
+      "ObjectPath": "\\Events\\Default Work Unit\\MX\\MX_Play_begin",
       "GUID": "{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}",
       "DurationType": "Infinite",
       "MediaRefs": [
@@ -625,7 +705,7 @@
      {
       "Id": "2737105275",
       "Name": "MX_Play_Maze",
-      "ObjectPath": "\\Events\\Default Work Unit\\MX_Play_Maze",
+      "ObjectPath": "\\Events\\Default Work Unit\\MX\\MX_Play_Maze",
       "GUID": "{8F9E1686-BAB2-41CE-B068-78FB077CE2BF}",
       "DurationType": "Infinite",
       "MediaRefs": [
@@ -761,7 +841,7 @@
      {
       "Id": "783866132",
       "Name": "MX_Play_Mazepretrans",
-      "ObjectPath": "\\Events\\Default Work Unit\\MX_Play_Mazepretrans",
+      "ObjectPath": "\\Events\\Default Work Unit\\MX\\MX_Play_Mazepretrans",
       "GUID": "{DE7EFB44-2A7A-43D4-A282-9776253E8ED9}",
       "DurationType": "Infinite",
       "MediaRefs": [
@@ -904,7 +984,7 @@
      {
       "Id": "1804546783",
       "Name": "MX_Play_room",
-      "ObjectPath": "\\Events\\Default Work Unit\\MX_Play_room",
+      "ObjectPath": "\\Events\\Default Work Unit\\MX\\MX_Play_room",
       "GUID": "{82A92C60-1166-4E9C-9D95-75755B7606AE}",
       "DurationType": "Infinite",
       "MediaRefs": [
@@ -1004,7 +1084,7 @@
      {
       "Id": "2665577840",
       "Name": "MX_Play_Title",
-      "ObjectPath": "\\Events\\Default Work Unit\\MX_Play_Title",
+      "ObjectPath": "\\Events\\Default Work Unit\\MX\\MX_Play_Title",
       "GUID": "{362CD5C9-3566-4788-86FD-1AB4B73D6592}",
       "DurationType": "Infinite",
       "MediaRefs": [
@@ -1098,7 +1178,7 @@
      {
       "Id": "2331460791",
       "Name": "MX_Title_to_Maze",
-      "ObjectPath": "\\Events\\Default Work Unit\\MX_Title_to_Maze",
+      "ObjectPath": "\\Events\\Default Work Unit\\MX\\MX_Title_to_Maze",
       "GUID": "{01BD5A0E-3FDA-4CBF-BE09-EE1217BAA8D5}",
       "DurationType": "Infinite",
       "SwitchContainers": [
@@ -1206,9 +1286,37 @@
       ]
      },
      {
+      "Id": "2148082694",
+      "Name": "SFX_door1",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_door1",
+      "GUID": "{20906418-7970-46DB-A006-F25F4E2C8A4C}",
+      "DurationType": "OneShot",
+      "DurationMin": "5.9166665",
+      "DurationMax": "5.9166665",
+      "MediaRefs": [
+       {
+        "Id": "244808737"
+       }
+      ]
+     },
+     {
+      "Id": "2148082693",
+      "Name": "SFX_door2",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_door2",
+      "GUID": "{64F0321C-1399-47E9-86F1-C68D954A8F6A}",
+      "DurationType": "OneShot",
+      "DurationMin": "4.9375",
+      "DurationMax": "4.9375",
+      "MediaRefs": [
+       {
+        "Id": "56285626"
+       }
+      ]
+     },
+     {
       "Id": "296532388",
       "Name": "SFX_lightbulb_turndown",
-      "ObjectPath": "\\Events\\Default Work Unit\\SFX_lightbulb_turndown",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_lightbulb_turndown",
       "GUID": "{65B5CDF3-8FF3-4190-B747-D66D98A3E616}",
       "DurationType": "OneShot",
       "DurationMin": "2.125",
@@ -1234,9 +1342,44 @@
       ]
      },
      {
+      "Id": "3077740929",
+      "Name": "SFX_Maze_footstep",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_Maze_footstep",
+      "GUID": "{05668F02-F055-4B66-AC94-6B0B3496EF64}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.08645833",
+      "DurationMax": "0.2421875",
+      "MediaRefs": [
+       {
+        "Id": "146562162"
+       },
+       {
+        "Id": "374242323"
+       },
+       {
+        "Id": "588794654"
+       },
+       {
+        "Id": "598140188"
+       },
+       {
+        "Id": "611873747"
+       },
+       {
+        "Id": "768801681"
+       },
+       {
+        "Id": "842453171"
+       },
+       {
+        "Id": "871092978"
+       }
+      ]
+     },
+     {
       "Id": "4187727620",
       "Name": "SFX_Maze_Landing",
-      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Maze_Landing",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_Maze_Landing",
       "GUID": "{36B66DC0-988B-4EB1-B9AE-4A4534358803}",
       "DurationType": "OneShot",
       "DurationMin": "0.75",
@@ -1250,7 +1393,7 @@
      {
       "Id": "2868659721",
       "Name": "SFX_Message_popup",
-      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Message_popup",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_Message_popup",
       "GUID": "{41786BF5-4375-4A55-8762-18F43BE2A9E7}",
       "DurationType": "OneShot",
       "DurationMin": "3.1359375",
@@ -1264,7 +1407,7 @@
      {
       "Id": "3066694657",
       "Name": "SFX_pickup_newspaper",
-      "ObjectPath": "\\Events\\Default Work Unit\\SFX_pickup_newspaper",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_pickup_newspaper",
       "GUID": "{BC25D587-33DF-4863-A59F-463E698D111F}",
       "DurationType": "OneShot",
       "DurationMin": "0.875",
@@ -1278,7 +1421,7 @@
      {
       "Id": "3636131822",
       "Name": "SFX_Play_AI_Typing",
-      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Play_AI_Typing",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_Play_AI_Typing",
       "GUID": "{5F0595F7-FE1B-4D43-AD04-66CCA22E8660}",
       "DurationType": "OneShot",
       "DurationMin": "0.082479015",
@@ -1313,7 +1456,7 @@
      {
       "Id": "693053491",
       "Name": "SFX_Play_AI_Typing_Fault",
-      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Play_AI_Typing_Fault",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_Play_AI_Typing_Fault",
       "GUID": "{C6E972AC-BD49-4AFD-9E6C-8066C6F12647}",
       "DurationType": "OneShot",
       "DurationMin": "0.10989583",
@@ -1351,7 +1494,7 @@
      {
       "Id": "1307923593",
       "Name": "SFX_Play_pillarup",
-      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Play_pillarup",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_Play_pillarup",
       "GUID": "{B75E44DB-F107-4E91-B6CF-DE9E9FD9DF49}",
       "DurationType": "OneShot",
       "DurationMin": "7.625",
@@ -1365,7 +1508,7 @@
      {
       "Id": "1312151505",
       "Name": "SFX_Play_Player_Typing",
-      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Play_Player_Typing",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_Play_Player_Typing",
       "GUID": "{773C4242-BCF9-4C5A-A8B8-7ABBEB189DFB}",
       "DurationType": "OneShot",
       "DurationMin": "0.0728649",
@@ -1391,7 +1534,7 @@
      {
       "Id": "4078102291",
       "Name": "SFX_Play_Plr_Typing_Return",
-      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Play_Plr_Typing_Return",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_Play_Plr_Typing_Return",
       "GUID": "{3711CE7B-2BAA-4B8F-9C47-4F50C4EA13A4}",
       "DurationType": "OneShot",
       "DurationMin": "0.125",
@@ -1405,7 +1548,7 @@
      {
       "Id": "26301700",
       "Name": "SFX_Play_Putdown_ipad",
-      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Play_Putdown_ipad",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_Play_Putdown_ipad",
       "GUID": "{F4F6CDB0-C437-463C-A59C-DFBA053DB85E}",
       "DurationType": "OneShot",
       "DurationMin": "0.6041667",
@@ -1419,7 +1562,7 @@
      {
       "Id": "2251224647",
       "Name": "SFX_Play_Room_footsteps",
-      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Play_Room_footsteps",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_Play_Room_footsteps",
       "GUID": "{792BC129-6B13-4A2D-99B5-B4A9B00C0A43}",
       "DurationType": "OneShot",
       "DurationMin": "0.39166668",
@@ -1454,7 +1597,7 @@
      {
       "Id": "280769884",
       "Name": "SFX_Play_Takeout_ipad",
-      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Play_Takeout_ipad",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_Play_Takeout_ipad",
       "GUID": "{749CAEB4-BA26-41E3-8E27-93DA4CD7F39C}",
       "DurationType": "OneShot",
       "DurationMin": "1.125",
@@ -1468,7 +1611,7 @@
      {
       "Id": "4019675232",
       "Name": "SFX_putdown_newspaper",
-      "ObjectPath": "\\Events\\Default Work Unit\\SFX_putdown_newspaper",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_putdown_newspaper",
       "GUID": "{9A488581-9667-4D97-AA61-DD782F09924D}",
       "DurationType": "OneShot",
       "DurationMin": "0.9734375",
@@ -1482,7 +1625,7 @@
      {
       "Id": "1663926837",
       "Name": "SFX_room_flipped_landing",
-      "ObjectPath": "\\Events\\Default Work Unit\\SFX_room_flipped_landing",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_room_flipped_landing",
       "GUID": "{3D5614AB-042C-42D0-908C-160FCC39E064}",
       "DurationType": "OneShot",
       "DurationMin": "0.875",
@@ -1628,6 +1771,6 @@
     ]
    }
   ],
-  "FileHash": "{516763AF-CBD6-D1F0-3E2A-3AF6431C0E69}"
+  "FileHash": "{36C447E3-2066-56D8-D895-EDCE5F49F44E}"
  }
 }

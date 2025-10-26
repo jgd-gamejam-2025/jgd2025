@@ -596,6 +596,11 @@
 					<PropertyList>
 						<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
 						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-4</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -1285,6 +1290,50 @@
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="信息弹出" ID="{F6E909BD-C2DA-4E01-A465-FECE49EE0435}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="大门1" ID="{F6478F7E-FB8E-447E-8C3B-F7BB9D717776}" ShortID="461895588">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="大门1" ID="{1B61CCD6-3C34-49AA-B2CE-DA6023E3D96F}">
+							<Language>SFX</Language>
+							<AudioFile>大门1.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="244808737"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="大门1" ID="{1B61CCD6-3C34-49AA-B2CE-DA6023E3D96F}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="大门2" ID="{36222D67-CA56-4C5A-B4CE-DF50B59CC930}" ShortID="967022591">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="大门2" ID="{FAD263C0-4BAA-4A25-BF47-F1945FCF7439}">
+							<Language>SFX</Language>
+							<AudioFile>大门2.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="56285626"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="大门2" ID="{FAD263C0-4BAA-4A25-BF47-F1945FCF7439}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>

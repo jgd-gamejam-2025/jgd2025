@@ -28,18 +28,18 @@
 						<State Name="off" ID="{8F36B698-936A-4A12-8170-9A0FA923FE97}"/>
 					</ChildrenList>
 				</StateGroup>
-				<StateGroup Name="AMB" ID="{746459AE-473F-4C0B-B7B4-4936082F941D}">
+				<StateGroup Name="AMB_01" ID="{27D2CD97-0B51-4030-9A4B-032026D79DF3}">
 					<ChildrenList>
-						<State Name="None" ID="{0E691C1D-1058-4144-96CE-1D1309E4CA19}"/>
-						<State Name="Maze" ID="{1DC91425-399E-47C5-B730-75F6D8C92627}"/>
-						<State Name="Room" ID="{3A043E41-D37C-4426-800B-2F3403BBA86E}"/>
+						<State Name="None" ID="{D0127099-1E05-4E90-B64B-01772930E667}"/>
+						<State Name="Maze" ID="{0A0F93F7-125F-457F-B5AF-5C2C633DE7DD}"/>
+						<State Name="Room" ID="{D0CD8D2A-B272-4AE9-8C9E-904DAACA19E0}"/>
 					</ChildrenList>
 				</StateGroup>
-				<StateGroup Name="Pause" ID="{26327A09-9A23-4461-A318-6C467DEEBD64}">
+				<StateGroup Name="Pause_01" ID="{BB944CA8-DD07-4B8B-8F7D-BC828CE91DD6}">
 					<ChildrenList>
-						<State Name="None" ID="{A255A729-A9FC-41A2-9A5C-4F65414929B1}"/>
-						<State Name="on" ID="{C3C6E510-2E64-4114-A8E8-97DCFAB75068}"/>
-						<State Name="off" ID="{8F36B698-936A-4A12-8170-9A0FA923FE97}"/>
+						<State Name="None" ID="{A16D4CB4-3473-4BF5-A22B-4FDBE72E56A4}"/>
+						<State Name="on" ID="{BA0CE106-453C-413A-87FF-617E3609C5D1}"/>
+						<State Name="off" ID="{81D58CF5-50F7-4B8C-8D6D-8B1023CE9CAA}"/>
 					</ChildrenList>
 				</StateGroup>
 			</ChildrenList>

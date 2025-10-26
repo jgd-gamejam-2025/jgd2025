@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}",
     "Language": "SFX",
-    "Hash": "{1F90CA78-05EF-517B-13B1-24BC024BB5F6}",
+    "Hash": "{4B164EA9-775D-A54F-5B56-49690734F5DE}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\soundbank",
     "ShortName": "soundbank",
     "Path": "soundbank.bnk",
@@ -46,6 +46,14 @@
       "Location": "Memory",
       "ShortName": "玩家键盘4.wav",
       "CachePath": "4E/{4E9F620E-AB92-99D7-010B-5F7470196FEB}.wem"
+     },
+     {
+      "Id": "57419463",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "灯泡变暗.wav",
+      "CachePath": "CD/{CD8F0D37-98B7-E932-9AC4-5A0A961A5920}.wem"
      },
      {
       "Id": "58820668",
@@ -94,6 +102,14 @@
       "Location": "Memory",
       "ShortName": "键盘故障1.wav",
       "CachePath": "3D/{3D24D65D-32F7-5763-40ED-468DAF361D83}.wem"
+     },
+     {
+      "Id": "156648797",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_Prechoose.wav",
+      "CachePath": "AF/{AF542999-9AC6-0D8A-BABD-D9D1EB8A3086}.wem"
      },
      {
       "Id": "185534084",
@@ -152,6 +168,22 @@
       "CachePath": "80/{807386D7-E4A4-F989-C761-86460B279545}.wem"
      },
      {
+      "Id": "369494707",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "信息弹出.wav",
+      "CachePath": "A0/{A0F58467-5EC7-9D39-4884-42FE558A4404}.wem"
+     },
+     {
+      "Id": "380560644",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "SFX_loading.wav",
+      "CachePath": "2D/{2DD652B2-B9D0-8B83-A683-4D54FBBAE11A}.wem"
+     },
+     {
       "Id": "397510780",
       "Language": "SFX",
       "Streaming": "false",
@@ -198,6 +230,14 @@
       "Location": "Memory",
       "ShortName": "键盘故障4.wav",
       "CachePath": "2B/{2B78D895-FCE2-9E17-2924-7E453D9474FB}.wem"
+     },
+     {
+      "Id": "497249249",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "房间翻转落地.wav",
+      "CachePath": "43/{43FEC71A-BE4A-20C5-EC01-C1AC62B53F2C}.wem"
      },
      {
       "Id": "500883717",
@@ -382,6 +422,14 @@
       "Location": "Memory",
       "ShortName": "报纸放下.wav",
       "CachePath": "67/{673DB9A0-B2A2-DE21-612F-07885F07F113}.wem"
+     },
+     {
+      "Id": "968607521",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_choose.wav",
+      "CachePath": "2D/{2DBF636C-A51E-5613-EF38-5B66634BF9BF}.wem"
      },
      {
       "Id": "981433377",
@@ -1146,85 +1194,6 @@
       ]
      },
      {
-      "Id": "2190478052",
-      "Name": "Play_AMB_Maze",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_AMB_Maze",
-      "GUID": "{103188C3-BD03-4904-8B27-E2B40B30E101}",
-      "DurationType": "Infinite",
-      "SwitchContainers": [
-       {
-        "SwitchValue": {
-         "GroupType": "State",
-         "GroupId": "1117531639",
-         "Id": "2943799864",
-         "GUID": "{1DC91425-399E-47C5-B730-75F6D8C92627}"
-        },
-        "MediaRefs": [
-         {
-          "Id": "294503425"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "State",
-         "GroupId": "1117531639",
-         "Id": "2077253480",
-         "GUID": "{3A043E41-D37C-4426-800B-2F3403BBA86E}"
-        },
-        "MediaRefs": [
-         {
-          "Id": "73482642"
-         },
-         {
-          "Id": "853826000"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "State",
-         "GroupId": "1117531639",
-         "Id": "4050983346",
-         "GUID": "{2E6AA099-AA87-412E-9965-C9172F82E89C}"
-        },
-        "MediaRefs": [
-         {
-          "Id": "536318512"
-         }
-        ]
-       }
-      ],
-      "ActionSetState": [
-       {
-        "GroupId": "1117531639",
-        "Id": "2943799864",
-        "Name": "Maze",
-        "ObjectPath": "\\States\\Default Work Unit\\AMB\\Maze",
-        "GUID": "{1DC91425-399E-47C5-B730-75F6D8C92627}"
-       }
-      ]
-     },
-     {
-      "Id": "1075867404",
-      "Name": "Play_AMB_Room",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_AMB_Room",
-      "GUID": "{9720C59E-F760-45AD-A098-0544C9699211}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
-      "ActionSetState": [
-       {
-        "GroupId": "1117531639",
-        "Id": "2077253480",
-        "Name": "Room",
-        "ObjectPath": "\\States\\Default Work Unit\\AMB\\Room",
-        "GUID": "{3A043E41-D37C-4426-800B-2F3403BBA86E}"
-       }
-      ]
-     },
-     {
       "Id": "2230674935",
       "Name": "Set_AMB_chat",
       "ObjectPath": "\\Events\\Default Work Unit\\Set_AMB_chat",
@@ -1237,21 +1206,30 @@
       ]
      },
      {
-      "Id": "3481726148",
-      "Name": "Set_AMB_room",
-      "ObjectPath": "\\Events\\Default Work Unit\\Set_AMB_room",
-      "GUID": "{A14D41F9-2DEE-4482-A19A-D8478FA3925D}",
-      "MaxAttenuation": "0",
+      "Id": "296532388",
+      "Name": "SFX_lightbulb_turndown",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX_lightbulb_turndown",
+      "GUID": "{65B5CDF3-8FF3-4190-B747-D66D98A3E616}",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
-      "ActionSetState": [
+      "DurationMin": "2.125",
+      "DurationMax": "2.125",
+      "MediaRefs": [
        {
-        "GroupId": "1117531639",
-        "Id": "2077253480",
-        "Name": "Room",
-        "ObjectPath": "\\States\\Default Work Unit\\AMB\\Room",
-        "GUID": "{3A043E41-D37C-4426-800B-2F3403BBA86E}"
+        "Id": "57419463"
+       }
+      ]
+     },
+     {
+      "Id": "3955623867",
+      "Name": "SFX_Loading",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\SFX_Loading",
+      "GUID": "{7D313743-E29F-4FF9-9056-EA471F005FE0}",
+      "DurationType": "OneShot",
+      "DurationMin": "6.25",
+      "DurationMax": "6.25",
+      "MediaRefs": [
+       {
+        "Id": "380560644"
        }
       ]
      },
@@ -1266,6 +1244,20 @@
       "MediaRefs": [
        {
         "Id": "23533593"
+       }
+      ]
+     },
+     {
+      "Id": "2868659721",
+      "Name": "SFX_Message_popup",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Message_popup",
+      "GUID": "{41786BF5-4375-4A55-8762-18F43BE2A9E7}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.1359375",
+      "DurationMax": "3.1359375",
+      "MediaRefs": [
+       {
+        "Id": "369494707"
        }
       ]
      },
@@ -1486,6 +1478,48 @@
         "Id": "920076376"
        }
       ]
+     },
+     {
+      "Id": "1663926837",
+      "Name": "SFX_room_flipped_landing",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX_room_flipped_landing",
+      "GUID": "{3D5614AB-042C-42D0-908C-160FCC39E064}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.875",
+      "DurationMax": "0.875",
+      "MediaRefs": [
+       {
+        "Id": "497249249"
+       }
+      ]
+     },
+     {
+      "Id": "425086685",
+      "Name": "UI_Choose",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\UI_Choose",
+      "GUID": "{5DA293BD-42FC-43C0-B727-BFE61F7CE3FB}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.375",
+      "DurationMax": "0.375",
+      "MediaRefs": [
+       {
+        "Id": "968607521"
+       }
+      ]
+     },
+     {
+      "Id": "4189739510",
+      "Name": "UI_Prechoose",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\UI_Prechoose",
+      "GUID": "{4EC0DAD9-356F-4FFF-9FA2-F81C9C69C379}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.059375",
+      "DurationMax": "0.059375",
+      "MediaRefs": [
+       {
+        "Id": "156648797"
+       }
+      ]
      }
     ],
     "StateGroups": [
@@ -1594,6 +1628,6 @@
     ]
    }
   ],
-  "FileHash": "{E40ADFE1-EB46-71D8-5451-8959379855C3}"
+  "FileHash": "{63765253-133B-CF15-1982-54BAEDCCFA8C}"
  }
 }

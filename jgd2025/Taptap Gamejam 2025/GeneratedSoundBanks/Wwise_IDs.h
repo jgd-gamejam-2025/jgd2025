@@ -24,11 +24,11 @@ namespace AK
         static const AkUniqueID MX_TITLE_TO_MAZE = 2331460791U;
         static const AkUniqueID PAUSE = 3092587493U;
         static const AkUniqueID PAUSE_BACK = 4234294329U;
-        static const AkUniqueID PLAY_AMB_MAZE = 2190478052U;
-        static const AkUniqueID PLAY_AMB_ROOM = 1075867404U;
         static const AkUniqueID SET_AMB_CHAT = 2230674935U;
-        static const AkUniqueID SET_AMB_ROOM = 3481726148U;
+        static const AkUniqueID SFX_LIGHTBULB_TURNDOWN = 296532388U;
+        static const AkUniqueID SFX_LOADING = 3955623867U;
         static const AkUniqueID SFX_MAZE_LANDING = 4187727620U;
+        static const AkUniqueID SFX_MESSAGE_POPUP = 2868659721U;
         static const AkUniqueID SFX_PICKUP_NEWSPAPER = 3066694657U;
         static const AkUniqueID SFX_PLAY_AI_TYPING = 3636131822U;
         static const AkUniqueID SFX_PLAY_AI_TYPING_FAULT = 693053491U;
@@ -39,6 +39,9 @@ namespace AK
         static const AkUniqueID SFX_PLAY_ROOM_FOOTSTEPS = 2251224647U;
         static const AkUniqueID SFX_PLAY_TAKEOUT_IPAD = 280769884U;
         static const AkUniqueID SFX_PUTDOWN_NEWSPAPER = 4019675232U;
+        static const AkUniqueID SFX_ROOM_FLIPPED_LANDING = 1663926837U;
+        static const AkUniqueID UI_CHOOSE = 425086685U;
+        static const AkUniqueID UI_PRECHOOSE = 4189739510U;
     } // namespace EVENTS
 
     namespace STATES
@@ -55,6 +58,18 @@ namespace AK
                 static const AkUniqueID ROOM = 2077253480U;
             } // namespace STATE
         } // namespace AMB
+
+        namespace AMB_01
+        {
+            static const AkUniqueID GROUP = 2199192635U;
+
+            namespace STATE
+            {
+                static const AkUniqueID MAZE = 2943799864U;
+                static const AkUniqueID NONE = 748895195U;
+                static const AkUniqueID ROOM = 2077253480U;
+            } // namespace STATE
+        } // namespace AMB_01
 
         namespace MUSIC_SWITCH
         {
@@ -82,6 +97,18 @@ namespace AK
                 static const AkUniqueID ON = 1651971902U;
             } // namespace STATE
         } // namespace PAUSE
+
+        namespace PAUSE_01
+        {
+            static const AkUniqueID GROUP = 333257921U;
+
+            namespace STATE
+            {
+                static const AkUniqueID NONE = 748895195U;
+                static const AkUniqueID OFF = 930712164U;
+                static const AkUniqueID ON = 1651971902U;
+            } // namespace STATE
+        } // namespace PAUSE_01
 
     } // namespace STATES
 

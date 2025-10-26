@@ -5,6 +5,18 @@
 			<ChildrenList>
 				<Event Name="MX_Play_begin" ID="{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}">
 					<ChildrenList>
+						<Action Name="" ID="{ED243379-B9B0-44E0-8012-B28B36DC350C}" ShortID="761563098">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeOutCurve" Type="int16" Value="1"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_loading" ID="{3A92A4DF-8CC2-44AC-83CD-EAAA64B4526E}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 						<Action Name="" ID="{6F54028A-7510-48B9-B21C-4B60F3C8EB11}" ShortID="14966573">
 							<ReferenceList>
 								<Reference Name="Target">
@@ -40,7 +52,7 @@
 						<Action Name="" ID="{4A00ED99-F0AD-4561-B144-89ADD12159C4}" ShortID="811891990">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Tap_enter" ID="{33E0F6B1-3763-4B8E-B7C3-EE3F46B5EEAD}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+									<ObjectRef Name="玩家键盘确认" ID="{144EB278-D645-4B79-96C3-64739DBEE116}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -160,7 +172,7 @@
 						<Action Name="" ID="{600628A0-796B-4F9B-A996-4FE169C281BE}" ShortID="367138970">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Take out_ipad" ID="{D8A8E52B-BE7A-40DD-BBB0-0AE34E91D834}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+									<ObjectRef Name="掏出ipad" ID="{AD316203-EA2C-4883-B21B-EB821C49977A}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -174,7 +186,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Take out_ipad" ID="{D8A8E52B-BE7A-40DD-BBB0-0AE34E91D834}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+									<ObjectRef Name="掏出ipad" ID="{AD316203-EA2C-4883-B21B-EB821C49977A}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -192,42 +204,7 @@
 						<Action Name="" ID="{6FB96359-40F6-4D6C-8E40-5B6FC4AFB405}" ShortID="359567321">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Pillar up" ID="{259AF2F9-DE9C-4E56-AE87-5E9D9D3B9650}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Play_AMB_Maze" ID="{103188C3-BD03-4904-8B27-E2B40B30E101}">
-					<ChildrenList>
-						<Action Name="" ID="{1F229938-9EA0-4FC4-91BC-5D66A38DBA27}" ShortID="851377335">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="AMB_Switch" ID="{D63601BD-A1F1-4915-87D7-D827919DAF40}" WorkUnitID="{31113548-3ABA-48C5-839E-39FE3F1493C3}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{7EBF0AFF-9D7A-4D41-AECB-6A9CF29152DC}" ShortID="350560740">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="22"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Maze" ID="{1DC91425-399E-47C5-B730-75F6D8C92627}" WorkUnitID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Set_AMB_room" ID="{A14D41F9-2DEE-4482-A19A-D8478FA3925D}">
-					<ChildrenList>
-						<Action Name="" ID="{AAD4EEA5-DF58-46FA-9704-BAEEC00F72C5}" ShortID="877619878">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="22"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Room" ID="{3A043E41-D37C-4426-800B-2F3403BBA86E}" WorkUnitID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}"/>
+									<ObjectRef Name="pillar up" ID="{4BB45B38-DC28-436E-9158-40AC25B2EF05}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -239,20 +216,6 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Room_footsteps" ID="{CCE81E82-02A7-403E-8938-6B28D61F4DD1}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Play_AMB_Room" ID="{9720C59E-F760-45AD-A098-0544C9699211}">
-					<ChildrenList>
-						<Action Name="" ID="{768E9B40-E0C8-499E-B4A0-2A80F14713ED}" ShortID="683512200">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="22"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Room" ID="{3A043E41-D37C-4426-800B-2F3403BBA86E}" WorkUnitID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -320,6 +283,16 @@
 				</Event>
 				<Event Name="MX_Play_Maze" ID="{8F9E1686-BAB2-41CE-B068-78FB077CE2BF}">
 					<ChildrenList>
+						<Action Name="" ID="{40A41DEA-3C43-436B-BAB2-A2F5AAA11560}" ShortID="494403763">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_loading" ID="{3A92A4DF-8CC2-44AC-83CD-EAAA64B4526E}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 						<Action Name="" ID="{7A5970D5-792C-4EFE-AE27-68FD24C7E8AF}" ShortID="639870341">
 							<ReferenceList>
 								<Reference Name="Target">
@@ -392,6 +365,17 @@
 				</Event>
 				<Event Name="MX_Play_Mazepretrans" ID="{DE7EFB44-2A7A-43D4-A282-9776253E8ED9}">
 					<ChildrenList>
+						<Action Name="" ID="{BEFFDA19-65C4-445C-9309-BFC3A4BE6DB1}" ShortID="177472317">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_loading" ID="{3A92A4DF-8CC2-44AC-83CD-EAAA64B4526E}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 						<Action Name="" ID="{0A239257-4120-4BAA-B93A-D46C4B72E789}" ShortID="108078167">
 							<ReferenceList>
 								<Reference Name="Target">
@@ -464,7 +448,21 @@
 				</Event>
 				<Event Name="Set_AMB_chat" ID="{B2F89EB7-FB90-4D26-A9C6-DED17DE5D4D6}">
 					<ChildrenList>
+						<Action Name="" ID="{9DF25599-8E2B-499C-91AD-79822856913C}" ShortID="26283394">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_loading" ID="{3A92A4DF-8CC2-44AC-83CD-EAAA64B4526E}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 						<Action Name="" ID="{3439F697-E762-49E5-99F6-4175C30826BD}" ShortID="451499798">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="AMB_chatgpt" ID="{5F570753-1447-4C12-9966-B946C4FA1FCE}" WorkUnitID="{31113548-3ABA-48C5-839E-39FE3F1493C3}"/>
@@ -475,6 +473,17 @@
 				</Event>
 				<Event Name="MX_Play_room" ID="{82A92C60-1166-4E9C-9D95-75755B7606AE}">
 					<ChildrenList>
+						<Action Name="" ID="{B54C4A4E-CE12-4C33-9609-6582F3A7CEB7}" ShortID="104540345">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_loading" ID="{3A92A4DF-8CC2-44AC-83CD-EAAA64B4526E}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 						<Action Name="" ID="{1244F8C8-CBAF-4C8F-95B8-5877DD828B63}" ShortID="730567190">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
@@ -510,6 +519,76 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="AMB_ROOM" ID="{82E1DE84-540E-43E0-A72A-B2790BD24C72}" WorkUnitID="{31113548-3ABA-48C5-839E-39FE3F1493C3}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Folder Name="UI" ID="{BD4E7437-06D4-468B-B7DE-D9E2C6677D1E}" ShortID="478943966">
+					<ChildrenList>
+						<Event Name="UI_Prechoose" ID="{4EC0DAD9-356F-4FFF-9FA2-F81C9C69C379}">
+							<ChildrenList>
+								<Action Name="" ID="{E47129F1-0CB7-4705-8405-EC42128C1F02}" ShortID="1002477369">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="UI_Prechoose" ID="{AF2F9BFC-9FB1-4505-8C70-63F807BE1B7A}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="UI_Choose" ID="{5DA293BD-42FC-43C0-B727-BFE61F7CE3FB}">
+							<ChildrenList>
+								<Action Name="" ID="{814BB085-3040-4888-8A44-13F537BE9EDE}" ShortID="202630748">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="UI_choose" ID="{CC9ED3AE-9A05-40AA-B9B5-2F6CDE3CA5AA}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFX_Loading" ID="{7D313743-E29F-4FF9-9056-EA471F005FE0}">
+							<ChildrenList>
+								<Action Name="" ID="{51BED2E3-EDD7-4889-AEC1-27F913AADC3E}" ShortID="966503150">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SFX_loading" ID="{3A92A4DF-8CC2-44AC-83CD-EAAA64B4526E}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Event Name="SFX_lightbulb_turndown" ID="{65B5CDF3-8FF3-4190-B747-D66D98A3E616}">
+					<ChildrenList>
+						<Action Name="" ID="{4D8A5A06-FC9A-4DA3-863E-FC2FB0365615}" ShortID="493491267">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="灯泡变暗" ID="{C64C218C-BE8C-4200-BC7B-AAB04F2631E4}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="SFX_Message_popup" ID="{41786BF5-4375-4A55-8762-18F43BE2A9E7}">
+					<ChildrenList>
+						<Action Name="" ID="{EF221161-147A-41F2-8A8D-601367DDCA4E}" ShortID="290235660">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="信息弹出" ID="{357647A4-EC64-422B-A2A1-F1835CEA44F1}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="SFX_room_flipped_landing" ID="{3D5614AB-042C-42D0-908C-160FCC39E064}">
+					<ChildrenList>
+						<Action Name="" ID="{EDD29656-B26F-435A-BE8C-662ED57FC765}" ShortID="268696234">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="房间翻转落地" ID="{CFAC8E86-298D-4578-A6F7-E1B099099D88}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

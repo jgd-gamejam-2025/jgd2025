@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://7tn1dj0fu6cv"
+path="res://.godot/imported/信息弹出.wav-33755f061f836c1e5fcd87de9c5fc230.sample"
+
+[deps]
+
+source_file="res://Taptap Gamejam 2025/Originals/SFX/信息弹出.wav"
+dest_files=["res://.godot/imported/信息弹出.wav-33755f061f836c1e5fcd87de9c5fc230.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

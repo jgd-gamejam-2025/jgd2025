@@ -173,49 +173,6 @@
 						</ObjectList>
 					</ObjectLists>
 				</RandomSequenceContainer>
-				<BlendContainer Name="Tap_enter" ID="{33E0F6B1-3763-4B8E-B7C3-EE3F46B5EEAD}" ShortID="599839300">
-					<PropertyList>
-						<Property Name="Pitch" Type="int32">
-							<ModifierList>
-								<ModifierInfo>
-									<Modifier Name="" ID="{05DEE8BD-8ECD-4F81-99F5-4C4A3227B0B4}"/>
-								</ModifierInfo>
-							</ModifierList>
-						</Property>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<Sound Name="玩家键盘确认" ID="{144EB278-D645-4B79-96C3-64739DBEE116}" ShortID="599072758">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="玩家键盘确认" ID="{613FAB01-FCC2-424F-9A95-51931755D917}">
-									<Language>SFX</Language>
-									<AudioFile>玩家键盘确认.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="981433377"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="玩家键盘确认" ID="{613FAB01-FCC2-424F-9A95-51931755D917}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-					</ChildrenList>
-				</BlendContainer>
 				<RandomSequenceContainer Name="Typing_AI" ID="{2AD54B30-A23C-4FBA-A5A7-D0EAA7FE62AE}" ShortID="880775535">
 					<PropertyList>
 						<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
@@ -635,40 +592,6 @@
 						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
-				<BlendContainer Name="Take out_ipad" ID="{D8A8E52B-BE7A-40DD-BBB0-0AE34E91D834}" ShortID="577710957">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<Sound Name="掏出ipad" ID="{AD316203-EA2C-4883-B21B-EB821C49977A}" ShortID="848463345">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="掏出ipad" ID="{B38582D7-33A3-4B11-A7C3-9775BA4E5FBA}">
-									<Language>SFX</Language>
-									<AudioFile>掏出ipad.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="58820668"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="掏出ipad" ID="{B38582D7-33A3-4B11-A7C3-9775BA4E5FBA}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-					</ChildrenList>
-				</BlendContainer>
 				<RandomSequenceContainer Name="Maze_Footstep" ID="{D40EC522-DB69-4D27-AEDE-540DE031D556}" ShortID="207567547">
 					<PropertyList>
 						<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
@@ -861,47 +784,6 @@
 						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
-				<BlendContainer Name="Pillar up" ID="{259AF2F9-DE9C-4E56-AE87-5E9D9D3B9650}" ShortID="848948918">
-					<PropertyList>
-						<Property Name="Lowpass" Type="int16">
-							<ValueList>
-								<Value>16</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<Sound Name="pillar up" ID="{4BB45B38-DC28-436E-9158-40AC25B2EF05}" ShortID="883469919">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="pillar up" ID="{31E648DA-0FCA-4270-B1F5-519F92EE0C98}">
-									<Language>SFX</Language>
-									<AudioFile>pillar up.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="846058329"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="pillar up" ID="{31E648DA-0FCA-4270-B1F5-519F92EE0C98}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-					</ChildrenList>
-				</BlendContainer>
 				<Sound Name="Put down_ipad" ID="{A66DA517-4D83-4D66-B795-2143870B54D7}" ShortID="273266070">
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -925,6 +807,13 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="迷宫落地" ID="{1C44E3CE-2C0C-4164-AF29-2DB3755A3432}" ShortID="852644836">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-9</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
@@ -1231,6 +1120,171 @@
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="报纸拿起" ID="{B342CD98-FDD6-4273-9AD4-26BFF9AF575E}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Folder Name="UI" ID="{E78DDE5E-C2D8-44E8-8419-9CB8E50E96BB}" ShortID="182123150">
+					<ChildrenList>
+						<Sound Name="UI_Prechoose" ID="{AF2F9BFC-9FB1-4505-8C70-63F807BE1B7A}" ShortID="725260973">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="UI_Prechoose" ID="{2DDB9379-469D-4414-A1A6-E7FF6E102EE2}">
+									<Language>SFX</Language>
+									<AudioFile>UI_Prechoose.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="156648797"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="UI_Prechoose" ID="{2DDB9379-469D-4414-A1A6-E7FF6E102EE2}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="UI_choose" ID="{CC9ED3AE-9A05-40AA-B9B5-2F6CDE3CA5AA}" ShortID="915708499">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="UI_choose" ID="{4E969253-E8EC-45AB-A388-AFDF1383C4B9}">
+									<Language>SFX</Language>
+									<AudioFile>UI_choose.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="968607521"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="UI_choose" ID="{4E969253-E8EC-45AB-A388-AFDF1383C4B9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SFX_loading" ID="{3A92A4DF-8CC2-44AC-83CD-EAAA64B4526E}" ShortID="465408661">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_loading" ID="{332C2A04-F521-4428-9AFC-7B79692ACB48}">
+									<Language>SFX</Language>
+									<AudioFile>SFX_loading.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="380560644"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_loading" ID="{332C2A04-F521-4428-9AFC-7B79692ACB48}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Sound Name="玩家键盘确认" ID="{144EB278-D645-4B79-96C3-64739DBEE116}" ShortID="599072758">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="玩家键盘确认" ID="{613FAB01-FCC2-424F-9A95-51931755D917}">
+							<Language>SFX</Language>
+							<AudioFile>玩家键盘确认.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="981433377"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="玩家键盘确认" ID="{613FAB01-FCC2-424F-9A95-51931755D917}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="掏出ipad" ID="{AD316203-EA2C-4883-B21B-EB821C49977A}" ShortID="848463345">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="掏出ipad" ID="{B38582D7-33A3-4B11-A7C3-9775BA4E5FBA}">
+							<Language>SFX</Language>
+							<AudioFile>掏出ipad.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="58820668"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="掏出ipad" ID="{B38582D7-33A3-4B11-A7C3-9775BA4E5FBA}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="pillar up" ID="{4BB45B38-DC28-436E-9158-40AC25B2EF05}" ShortID="883469919">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="pillar up" ID="{31E648DA-0FCA-4270-B1F5-519F92EE0C98}">
+							<Language>SFX</Language>
+							<AudioFile>pillar up.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="846058329"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="pillar up" ID="{31E648DA-0FCA-4270-B1F5-519F92EE0C98}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="信息弹出" ID="{357647A4-EC64-422B-A2A1-F1835CEA44F1}" ShortID="424746635">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-3</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="信息弹出" ID="{F6E909BD-C2DA-4E01-A465-FECE49EE0435}">
+							<Language>SFX</Language>
+							<AudioFile>信息弹出.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="369494707"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="信息弹出" ID="{F6E909BD-C2DA-4E01-A465-FECE49EE0435}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>

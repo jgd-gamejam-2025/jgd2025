@@ -1,14 +1,25 @@
 State Group	ID	Name			Wwise Object Path	Notes
+	333257921	Pause_01			\Default Work Unit\Pause_01	
 	1117531639	AMB			\Default Work Unit\AMB	
+	2199192635	AMB_01			\Default Work Unit\AMB_01	
 	2724869341	Music_Switch			\Default Work Unit\Music_Switch	
 	3092587493	Pause			\Default Work Unit\Pause	
 
 State	ID	Name	State Group			Notes
+	748895195	None	Pause_01			
+	930712164	off	Pause_01			
+	1651971902	on	Pause_01			
 	748895195	None	AMB			
 	2077253480	Room	AMB			
 	2943799864	Maze	AMB			
+	4050983346	chatgpt	AMB			
+	748895195	None	AMB_01			
+	2077253480	Room	AMB_01			
+	2943799864	Maze	AMB_01			
 	349818688	Begin	Music_Switch			
 	748895195	None	Music_Switch			
+	1832156600	Maze_pretrans	Music_Switch			
+	2077253480	room	Music_Switch			
 	2943799864	Maze	Music_Switch			
 	3581653674	EVE_Title	Music_Switch			
 	748895195	None	Pause			

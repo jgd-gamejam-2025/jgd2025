@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{6E05FB6E-2174-4F75-6CD2-830BFB4B2B88}",
+    "Hash": "{488EAA4D-0A6C-BDCF-08F3-84649A94E41A}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -44,6 +44,32 @@
     ],
     "StateGroups": [
      {
+      "Id": "333257921",
+      "Name": "Pause_01",
+      "ObjectPath": "\\States\\Default Work Unit\\Pause_01",
+      "GUID": "{BB944CA8-DD07-4B8B-8F7D-BC828CE91DD6}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Pause_01\\None",
+        "GUID": "{A16D4CB4-3473-4BF5-A22B-4FDBE72E56A4}"
+       },
+       {
+        "Id": "930712164",
+        "Name": "off",
+        "ObjectPath": "\\States\\Default Work Unit\\Pause_01\\off",
+        "GUID": "{81D58CF5-50F7-4B8C-8D6D-8B1023CE9CAA}"
+       },
+       {
+        "Id": "1651971902",
+        "Name": "on",
+        "ObjectPath": "\\States\\Default Work Unit\\Pause_01\\on",
+        "GUID": "{BA0CE106-453C-413A-87FF-617E3609C5D1}"
+       }
+      ]
+     },
+     {
       "Id": "1117531639",
       "Name": "AMB",
       "ObjectPath": "\\States\\Default Work Unit\\AMB",
@@ -72,6 +98,32 @@
         "Name": "chatgpt",
         "ObjectPath": "\\States\\Default Work Unit\\AMB\\chatgpt",
         "GUID": "{2E6AA099-AA87-412E-9965-C9172F82E89C}"
+       }
+      ]
+     },
+     {
+      "Id": "2199192635",
+      "Name": "AMB_01",
+      "ObjectPath": "\\States\\Default Work Unit\\AMB_01",
+      "GUID": "{27D2CD97-0B51-4030-9A4B-032026D79DF3}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\AMB_01\\None",
+        "GUID": "{D0127099-1E05-4E90-B64B-01772930E667}"
+       },
+       {
+        "Id": "2077253480",
+        "Name": "Room",
+        "ObjectPath": "\\States\\Default Work Unit\\AMB_01\\Room",
+        "GUID": "{D0CD8D2A-B272-4AE9-8C9E-904DAACA19E0}"
+       },
+       {
+        "Id": "2943799864",
+        "Name": "Maze",
+        "ObjectPath": "\\States\\Default Work Unit\\AMB_01\\Maze",
+        "GUID": "{0A0F93F7-125F-457F-B5AF-5C2C633DE7DD}"
        }
       ]
      },
@@ -625,6 +677,6 @@
     ]
    }
   ],
-  "FileHash": "{E98005B2-B62C-B026-A3F3-03A1F006454D}"
+  "FileHash": "{29567502-87A6-D3AB-9ED4-446E051939E0}"
  }
 }

@@ -635,44 +635,6 @@
 						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
-				<BlendContainer Name="Maze_Landing" ID="{A2D48E2D-46B8-4325-BF71-B720B2716CB2}" ShortID="34431424">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<Sound Name="迷宫落地" ID="{1C44E3CE-2C0C-4164-AF29-2DB3755A3432}" ShortID="852644836">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="迷宫落地" ID="{54F4FC0C-6A76-449B-A7F0-C693C7456D38}">
-									<PropertyList>
-										<Property Name="LoopEnd" Type="Real64" Value="0.42890625"/>
-										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-									</PropertyList>
-									<Language>SFX</Language>
-									<AudioFile>迷宫落地.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="23533593"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="迷宫落地" ID="{54F4FC0C-6A76-449B-A7F0-C693C7456D38}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-					</ChildrenList>
-				</BlendContainer>
 				<BlendContainer Name="Take out_ipad" ID="{D8A8E52B-BE7A-40DD-BBB0-0AE34E91D834}" ShortID="577710957">
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -707,7 +669,11 @@
 						</Sound>
 					</ChildrenList>
 				</BlendContainer>
-				<BlendContainer Name="Put down_ipad" ID="{8E732A61-6F84-45AD-884E-4A1E7CFB8CFA}" ShortID="476496259">
+				<RandomSequenceContainer Name="Maze_Footstep" ID="{D40EC522-DB69-4D27-AEDE-540DE031D556}" ShortID="207567547">
+					<PropertyList>
+						<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
+						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
@@ -717,7 +683,7 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Sound Name="放下ipad" ID="{A66DA517-4D83-4D66-B795-2143870B54D7}" ShortID="273266070">
+						<Sound Name="mazeft1" ID="{785682C6-03CA-44CD-B418-A0F5A60B130D}" ShortID="985680716">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
@@ -727,20 +693,546 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="放下ipad" ID="{27C668C5-0521-40CC-903D-AAF726EF7333}">
+								<AudioFileSource Name="mazeft1" ID="{939957A7-CBC9-4083-AE91-4BB2A52A0C5C}">
 									<Language>SFX</Language>
-									<AudioFile>放下ipad.wav</AudioFile>
+									<AudioFile>mazeft1.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="459764901"/>
+										<MediaID ID="871092978"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="放下ipad" ID="{27C668C5-0521-40CC-903D-AAF726EF7333}" Platform="Linked"/>
+								<ActiveSource Name="mazeft1" ID="{939957A7-CBC9-4083-AE91-4BB2A52A0C5C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="mazeft2" ID="{40D3D48E-32E1-4D87-8259-89E3B29CE709}" ShortID="356145482">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="mazeft2" ID="{AEC56049-9789-4968-8DBF-E5E485229206}">
+									<Language>SFX</Language>
+									<AudioFile>mazeft2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="611873747"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="mazeft2" ID="{AEC56049-9789-4968-8DBF-E5E485229206}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="mazeft3" ID="{06F12668-3476-48E4-9F62-B33ADD5125A9}" ShortID="587614010">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="mazeft3" ID="{F882218D-B45B-417F-80C0-478934AEF9CF}">
+									<Language>SFX</Language>
+									<AudioFile>mazeft3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="146562162"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="mazeft3" ID="{F882218D-B45B-417F-80C0-478934AEF9CF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="mazeft4" ID="{E6B2B37B-0F37-496B-ACB8-ABCAD95EF2E7}" ShortID="115592765">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="mazeft4" ID="{FCD091D9-6D49-49EF-9480-11474AF8C6BC}">
+									<Language>SFX</Language>
+									<AudioFile>mazeft4.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="374242323"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="mazeft4" ID="{FCD091D9-6D49-49EF-9480-11474AF8C6BC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="mazeft5" ID="{5E266469-6B37-4379-8238-281C503B8D12}" ShortID="851614667">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="mazeft5" ID="{DA1DE036-BF15-4527-9A85-9BBB87D260DC}">
+									<Language>SFX</Language>
+									<AudioFile>mazeft5.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="842453171"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="mazeft5" ID="{DA1DE036-BF15-4527-9A85-9BBB87D260DC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="mazeft6" ID="{49EDFF73-0639-4A45-8DA8-FC7AD7D31816}" ShortID="522865574">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="mazeft6" ID="{C3A53871-48F0-4DE9-8F36-3265EC1180CD}">
+									<Language>SFX</Language>
+									<AudioFile>mazeft6.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="598140188"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="mazeft6" ID="{C3A53871-48F0-4DE9-8F36-3265EC1180CD}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="mazeft7" ID="{DC1BDAF0-38B5-46EC-90AB-08299C97A0E4}" ShortID="669877163">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="mazeft7" ID="{BE1C2A29-5953-4C5A-A6D4-D5CF6B8CFED5}">
+									<Language>SFX</Language>
+									<AudioFile>mazeft7.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="588794654"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="mazeft7" ID="{BE1C2A29-5953-4C5A-A6D4-D5CF6B8CFED5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="mazeft8" ID="{486CCB2C-04D4-4C20-BB33-3AAE2E5BCCF4}" ShortID="750370309">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="mazeft8" ID="{64576251-89A9-4C8F-BFF2-74CB7BDB4FB7}">
+									<Language>SFX</Language>
+									<AudioFile>mazeft8.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="768801681"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="mazeft8" ID="{64576251-89A9-4C8F-BFF2-74CB7BDB4FB7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<BlendContainer Name="Pillar up" ID="{259AF2F9-DE9C-4E56-AE87-5E9D9D3B9650}" ShortID="848948918">
+					<PropertyList>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>16</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="pillar up" ID="{4BB45B38-DC28-436E-9158-40AC25B2EF05}" ShortID="883469919">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pillar up" ID="{31E648DA-0FCA-4270-B1F5-519F92EE0C98}">
+									<Language>SFX</Language>
+									<AudioFile>pillar up.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="846058329"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pillar up" ID="{31E648DA-0FCA-4270-B1F5-519F92EE0C98}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
 				</BlendContainer>
+				<Sound Name="Put down_ipad" ID="{A66DA517-4D83-4D66-B795-2143870B54D7}" ShortID="273266070">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="放下ipad" ID="{27C668C5-0521-40CC-903D-AAF726EF7333}">
+							<Language>SFX</Language>
+							<AudioFile>放下ipad.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="459764901"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="放下ipad" ID="{27C668C5-0521-40CC-903D-AAF726EF7333}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="迷宫落地" ID="{1C44E3CE-2C0C-4164-AF29-2DB3755A3432}" ShortID="852644836">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="迷宫落地" ID="{54F4FC0C-6A76-449B-A7F0-C693C7456D38}">
+							<PropertyList>
+								<Property Name="LoopEnd" Type="Real64" Value="0.42890625"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>迷宫落地.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="23533593"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="迷宫落地" ID="{54F4FC0C-6A76-449B-A7F0-C693C7456D38}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="灯泡变暗" ID="{C64C218C-BE8C-4200-BC7B-AAB04F2631E4}" ShortID="643530028">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="灯泡变暗" ID="{CF75C0F0-2579-4D94-9A14-50EE0E8DDA85}">
+							<Language>SFX</Language>
+							<AudioFile>灯泡变暗.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="57419463"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="灯泡变暗" ID="{CF75C0F0-2579-4D94-9A14-50EE0E8DDA85}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<RandomSequenceContainer Name="Room_footsteps" ID="{CCE81E82-02A7-403E-8938-6B28D61F4DD1}" ShortID="785043269">
+					<PropertyList>
+						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="room footstep1" ID="{2EE89F68-01D0-4C1B-85CC-D6D3633BDBD7}" ShortID="837857150">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="room footstep1" ID="{F304A1B7-727D-4958-A767-8A8578AA8A4D}">
+									<PropertyList>
+										<Property Name="LoopEnd" Type="Real64" Value="0.318345942228336"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>room footstep1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="250617542"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="room footstep1" ID="{F304A1B7-727D-4958-A767-8A8578AA8A4D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="room footstep2" ID="{9B8AE8BB-BE8D-4EB7-B12B-9A013442D53D}" ShortID="648110390">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="room footstep2" ID="{C71BC23C-34AB-4673-9F19-5F33532A7A50}">
+									<Language>SFX</Language>
+									<AudioFile>room footstep2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="123271742"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="room footstep2" ID="{C71BC23C-34AB-4673-9F19-5F33532A7A50}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="room footstep3" ID="{7A14D104-5784-4A04-B988-F22F13A4C44E}" ShortID="429396428">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="room footstep3" ID="{4ED712FE-5C94-48A3-8C15-5A39F961934E}">
+									<Language>SFX</Language>
+									<AudioFile>room footstep3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="772978375"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="room footstep3" ID="{4ED712FE-5C94-48A3-8C15-5A39F961934E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="room footstep4" ID="{20C0B0AC-53E9-43AA-AD2A-065365F67F5B}" ShortID="259450417">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="room footstep4" ID="{A0B4E91C-8D86-49F9-BAEC-726091B3B690}">
+									<Language>SFX</Language>
+									<AudioFile>room footstep4.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="185534084"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="room footstep4" ID="{A0B4E91C-8D86-49F9-BAEC-726091B3B690}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="room footstep5" ID="{69052936-2E8D-48DC-B714-D614F78BCB9F}" ShortID="165484765">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="room footstep5" ID="{7536016E-9D4E-463F-A3AF-E27204AA8E51}">
+									<Language>SFX</Language>
+									<AudioFile>room footstep5.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="651673293"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="room footstep5" ID="{7536016E-9D4E-463F-A3AF-E27204AA8E51}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="room footstep6" ID="{4B616798-5156-411F-A232-09C332147EF8}" ShortID="1011714518">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="room footstep6" ID="{4C3D9671-FE1C-4118-95B8-F28EC5F3EC6F}">
+									<Language>SFX</Language>
+									<AudioFile>room footstep6.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="430669417"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="room footstep6" ID="{4C3D9671-FE1C-4118-95B8-F28EC5F3EC6F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="room footstep7" ID="{F3025A40-9881-4E71-81D1-8C4D9E1BF4BE}" ShortID="558477548">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="room footstep7" ID="{5E25101F-D4B5-4408-8FB6-935E82B0620A}">
+									<Language>SFX</Language>
+									<AudioFile>room footstep7.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="789229042"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="room footstep7" ID="{5E25101F-D4B5-4408-8FB6-935E82B0620A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="room footstep8" ID="{E00310EB-82E0-4B58-9F76-C97F749E19E5}" ShortID="639169904">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="room footstep8" ID="{AA266F75-EFAE-4EBD-9C5B-38EB932F0221}">
+									<Language>SFX</Language>
+									<AudioFile>room footstep8.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="397510780"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="room footstep8" ID="{AA266F75-EFAE-4EBD-9C5B-38EB932F0221}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<Sound Name="房间翻转落地" ID="{CFAC8E86-298D-4578-A6F7-E1B099099D88}" ShortID="717966763">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="房间翻转落地" ID="{6F29089F-794C-4BD1-91F0-53A529BF03E4}">
+							<Language>SFX</Language>
+							<AudioFile>房间翻转落地.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="497249249"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="房间翻转落地" ID="{6F29089F-794C-4BD1-91F0-53A529BF03E4}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="报纸放下" ID="{664EED1C-4505-47F8-943B-290C05A08B17}" ShortID="126694362">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="报纸放下" ID="{09796EAB-95DB-47DF-8FEC-9A6C16546BAF}">
+							<Language>SFX</Language>
+							<AudioFile>报纸放下.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="920076376"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="报纸放下" ID="{09796EAB-95DB-47DF-8FEC-9A6C16546BAF}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="报纸拿起" ID="{CB594B55-9AE0-417A-8B52-DA58E05F7AD0}" ShortID="711726411">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="报纸拿起" ID="{B342CD98-FDD6-4273-9AD4-26BFF9AF575E}">
+							<Language>SFX</Language>
+							<AudioFile>报纸拿起.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="22267547"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="报纸拿起" ID="{B342CD98-FDD6-4273-9AD4-26BFF9AF575E}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

@@ -41,8 +41,8 @@ HScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_2nkrx")
 VScrollBar/styles/scroll = SubResource("StyleBoxFlat_spcoe")
 
 [sub_resource type="Gradient" id="Gradient_tupck"]
-offsets = PackedFloat32Array(0.046403714, 1)
-colors = PackedColorArray(0.12941177, 0.12941177, 0.12941177, 1, 0.12941177, 0.12941177, 0.12941177, 0)
+offsets = PackedFloat32Array(0, 0.22669491, 0.5211864, 1)
+colors = PackedColorArray(0.12941177, 0.12941177, 0.12941177, 1, 0.12941177, 0.12941177, 0.12941177, 0.9618644, 0.12941177, 0.12941177, 0.12941177, 0.7057836, 0.12941177, 0.12941177, 0.12941177, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_kd50e"]
 gradient = SubResource("Gradient_tupck")
@@ -58,6 +58,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h4ouj")
+debug_mode = true
 qwen = false
 
 [node name="Panel" type="Panel" parent="."]
@@ -91,11 +92,13 @@ offset_bottom = -130.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(400, 0)
+theme_override_constants/margin_top = 15
 
 [node name="BubblesScroll" type="ScrollContainer" parent="Panel/MarginContainer"]
 custom_minimum_size = Vector2(815, 0)
 layout_mode = 2
 theme = SubResource("Theme_wk3ky")
+vertical_scroll_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/BubblesScroll"]
 custom_minimum_size = Vector2(800, 0)
@@ -121,7 +124,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.15100001
-offset_bottom = 3.9199982
+offset_bottom = 258.91998
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_kd50e")

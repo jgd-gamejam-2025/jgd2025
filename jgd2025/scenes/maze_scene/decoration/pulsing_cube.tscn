@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8k3m5n2p4r6t"]
+
+[ext_resource type="Script" path="res://scenes/maze_scene/decoration/pulsing_cube.gd" id="1_pulsing"]
+
+[node name="PulsingCube" type="MeshInstance3D"]
+script = ExtResource("1_pulsing")
+pulse_min_scale = 0.8
+pulse_max_scale = 1.2
+pulse_speed = 2.0
+random_offset = true
+float_enabled = true
+float_amplitude = 0.3
+float_speed = 0.5
+rotate_enabled = true
+rotation_speed = Vector3(15, 30, 15)
+base_size = 1.0
+emission_strength = 2.5

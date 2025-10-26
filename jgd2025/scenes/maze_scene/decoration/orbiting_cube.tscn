@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://d7h9k2m4n6p8q"]
+
+[ext_resource type="Script" path="res://scenes/maze_scene/decoration/orbiting_cube.gd" id="1_orbiting"]
+
+[node name="OrbitingCube" type="Node3D"]
+script = ExtResource("1_orbiting")
+orbit_radius = 2.0
+orbit_speed = 1.0
+orbit_axis = Vector3(0, 1, 0)
+random_start_angle = true
+cube_size = 0.8
+cube_rotation_speed = Vector3(0, 90, 0)
+emission_strength = 2.0

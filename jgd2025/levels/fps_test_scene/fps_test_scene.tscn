@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d1mhk3prnqywk"]
+[gd_scene load_steps=23 format=3 uid="uid://d1mhk3prnqywk"]
 
 [ext_resource type="Script" uid="uid://dqkok8p7jcl4x" path="res://levels/fps_test_scene/fps_test_scene.gd" id="1_rujvw"]
 [ext_resource type="PackedScene" uid="uid://d2jaf8rnldxpk" path="res://levels/chat_2/chat_2.tscn" id="2_7krs1"]
@@ -11,7 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://b1egk12hpx2th" path="res://assets/models/maze/wall.glb" id="9_f1mlq"]
 [ext_resource type="PackedScene" uid="uid://xa1ka8tgoahi" path="res://assets/models/maze/fence1.glb" id="10_u2x88"]
 [ext_resource type="PackedScene" uid="uid://jymctoo8bmvx" path="res://assets/models/maze/fence2.glb" id="11_63880"]
+[ext_resource type="PackedScene" uid="uid://bqm8vx7f3yw8r" path="res://scenes/maze_scene/decoration/floating_cube.tscn" id="13_63880"]
 [ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="13_u2x88"]
+[ext_resource type="PackedScene" uid="uid://bd4804qy5swb1" path="res://scenes/maze_scene/decoration/glitch_cube.tscn" id="14_63880"]
+[ext_resource type="PackedScene" uid="uid://c3ey0pu3yuhy" path="res://scenes/maze_scene/decoration/orbiting_cube.tscn" id="15_5p8sh"]
+[ext_resource type="PackedScene" uid="uid://c8k3m5n2p4r6t" path="res://scenes/maze_scene/decoration/pulsing_cube.tscn" id="16_bi053"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -112,5 +116,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.443544, -0.71424675, 21.4
 [node name="Buttons" parent="." instance=ExtResource("13_u2x88")]
 visible = false
 script = null
+
+[node name="FloatingCube" parent="." instance=ExtResource("13_63880")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6425, 4.0359416, 0.45772552)
+cube_size = 5.0
+
+[node name="GlitchCube" parent="." instance=ExtResource("14_63880")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8645515, 3.1251225, -3.192646)
+
+[node name="OrbitingCube" parent="." instance=ExtResource("15_5p8sh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2233887, 7.476315, -0.32264328)
+
+[node name="PulsingCube" parent="." instance=ExtResource("16_bi053")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2695913, 5.8643475, -4.3764915)
 
 [connection signal="body_entered" from="Obstacles/Area3D" to="." method="_on_area_3d_body_entered"]

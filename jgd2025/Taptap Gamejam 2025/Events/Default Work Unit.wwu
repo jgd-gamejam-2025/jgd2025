@@ -44,6 +44,13 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{AF659140-458B-4028-8AB7-CC9101C5BB2E}" ShortID="252546666">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
 						<Action Name="" ID="{3439F697-E762-49E5-99F6-4175C30826BD}" ShortID="451499798">
 							<PropertyList>
 								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
@@ -433,15 +440,12 @@
 						</Event>
 						<Event Name="MX_Play_Maze" ID="{8F9E1686-BAB2-41CE-B068-78FB077CE2BF}">
 							<ChildrenList>
-								<Action Name="" ID="{40A41DEA-3C43-436B-BAB2-A2F5AAA11560}" ShortID="494403763">
+								<Action Name="" ID="{C5386E10-E651-46A8-8AAE-B29235F770F5}" ShortID="718138300">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="ActionType" Type="int16" Value="3"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
 									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="SFX_loading" ID="{3A92A4DF-8CC2-44AC-83CD-EAAA64B4526E}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
-										</Reference>
-									</ReferenceList>
+									<ReferenceList/>
 								</Action>
 								<Action Name="" ID="{7A5970D5-792C-4EFE-AE27-68FD24C7E8AF}" ShortID="639870341">
 									<ReferenceList>
@@ -481,16 +485,12 @@
 						</Event>
 						<Event Name="MX_Play_Mazepretrans" ID="{DE7EFB44-2A7A-43D4-A282-9776253E8ED9}">
 							<ChildrenList>
-								<Action Name="" ID="{BEFFDA19-65C4-445C-9309-BFC3A4BE6DB1}" ShortID="177472317">
+								<Action Name="" ID="{AD66C94B-8E84-4E07-B07A-9E132D86BEC6}" ShortID="172683169">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
-										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+										<Property Name="ActionType" Type="int16" Value="3"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
 									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="SFX_loading" ID="{3A92A4DF-8CC2-44AC-83CD-EAAA64B4526E}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
-										</Reference>
-									</ReferenceList>
+									<ReferenceList/>
 								</Action>
 								<Action Name="" ID="{0A239257-4120-4BAA-B93A-D46C4B72E789}" ShortID="108078167">
 									<ReferenceList>
@@ -530,27 +530,12 @@
 						</Event>
 						<Event Name="MX_Play_room" ID="{82A92C60-1166-4E9C-9D95-75755B7606AE}">
 							<ChildrenList>
-								<Action Name="" ID="{B54C4A4E-CE12-4C33-9609-6582F3A7CEB7}" ShortID="104540345">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
-										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="SFX_loading" ID="{3A92A4DF-8CC2-44AC-83CD-EAAA64B4526E}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
 								<Action Name="" ID="{1244F8C8-CBAF-4C8F-95B8-5877DD828B63}" ShortID="730567190">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
-										<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+										<Property Name="ActionType" Type="int16" Value="3"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
 									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="AMB_chatgpt" ID="{5F570753-1447-4C12-9966-B946C4FA1FCE}" WorkUnitID="{31113548-3ABA-48C5-839E-39FE3F1493C3}"/>
-										</Reference>
-									</ReferenceList>
+									<ReferenceList/>
 								</Action>
 								<Action Name="" ID="{4B001F10-70C7-4B68-840A-98193A50D73D}" ShortID="489687177">
 									<ReferenceList>

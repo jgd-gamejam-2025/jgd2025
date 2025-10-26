@@ -39,6 +39,11 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -51,7 +56,11 @@
 							<ChildrenList>
 								<AudioFileSource Name="玩家键盘1" ID="{51F3FECA-B4D1-4351-8806-404077B2B4C2}">
 									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0.00906327618355441"/>
+										<Property Name="LoopEnd" Type="Real64" Value="0.0504681413832564"/>
 										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.0088724703691638"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.0520899908055767"/>
 									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>玩家键盘1.wav</AudioFile>
@@ -75,6 +84,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="玩家键盘2" ID="{E7B179DD-A5B2-4F86-9B91-7C01BE962311}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0.0211794453973587"/>
+										<Property Name="LoopEnd" Type="Real64" Value="0.0555244954646078"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.0204162221397962"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.0564785245365609"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>玩家键盘2.wav</AudioFile>
 									<MediaIDList>
@@ -97,6 +113,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="玩家键盘3" ID="{DC7CFADF-DB39-4E1A-A265-2562FEA0DE7B}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0.00774760414172793"/>
+										<Property Name="LoopEnd" Type="Real64" Value="0.0355431294225402"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.00702875427290781"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.0362619792913604"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>玩家键盘3.wav</AudioFile>
 									<MediaIDList>
@@ -119,6 +142,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="玩家键盘4" ID="{C51ABA1C-42B6-4FB3-8E87-C4D3413E7A75}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0.00670926544232109"/>
+										<Property Name="LoopEnd" Type="Real64" Value="0.0433706057719148"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.00623003219644102"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.0441693278483816"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>玩家键盘4.wav</AudioFile>
 									<MediaIDList>
@@ -141,6 +171,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="玩家键盘5" ID="{FED32322-8BB3-410F-889F-29AEC5A40681}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0.00961794462193823"/>
+										<Property Name="LoopEnd" Type="Real64" Value="0.0489383652822151"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.0094765042598509"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.051908612886049"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>玩家键盘5.wav</AudioFile>
 									<MediaIDList>

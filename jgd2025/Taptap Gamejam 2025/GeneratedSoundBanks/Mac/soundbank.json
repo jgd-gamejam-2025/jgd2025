@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}",
     "Language": "SFX",
-    "Hash": "{7B1D22C9-3D83-50A8-D6CC-54346EC8BFD4}",
+    "Hash": "{5395F51C-E2B8-FC4C-084E-A56A46627ED3}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\soundbank",
     "ShortName": "soundbank",
     "Path": "soundbank.bnk",
@@ -378,9 +378,9 @@
     ],
     "Events": [
      {
-      "Id": "3907958213",
-      "Name": "Begin_to_none",
-      "ObjectPath": "\\Events\\Default Work Unit\\Begin_to_none",
+      "Id": "1069070997",
+      "Name": "MX_Begin_to_none",
+      "ObjectPath": "\\Events\\Default Work Unit\\MX_Begin_to_none",
       "GUID": "{8933958D-ECCE-482E-805B-31EE01D162FD}",
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
@@ -397,23 +397,74 @@
       ]
      },
      {
-      "Id": "2598202372",
-      "Name": "Maze_Landing",
-      "ObjectPath": "\\Events\\Default Work Unit\\Maze_Landing",
-      "GUID": "{36B66DC0-988B-4EB1-B9AE-4A4534358803}",
-      "DurationType": "OneShot",
-      "DurationMin": "0.75",
-      "DurationMax": "0.75",
+      "Id": "891883193",
+      "Name": "MX_Play_begin",
+      "ObjectPath": "\\Events\\Default Work Unit\\MX_Play_begin",
+      "GUID": "{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}",
+      "DurationType": "Infinite",
       "MediaRefs": [
        {
-        "Id": "23533593"
+        "Id": "29920152"
+       },
+       {
+        "Id": "805998164"
+       }
+      ],
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "3581653674",
+         "GUID": "{AE380017-9A16-42B1-81C0-8A0C452AF087}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "728430949"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "349818688",
+         "GUID": "{9D31A35C-59F9-403D-B097-9890DC3921B9}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "811350998"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2724869341",
+         "Id": "2943799864",
+         "GUID": "{D3D7F946-B924-4665-A447-3054F0CED4C1}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "71858515"
+         }
+        ]
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "2724869341",
+        "Id": "349818688",
+        "Name": "Begin",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\Begin",
+        "GUID": "{9D31A35C-59F9-403D-B097-9890DC3921B9}"
        }
       ]
      },
      {
-      "Id": "4080990482",
-      "Name": "None_to_Title",
-      "ObjectPath": "\\Events\\Default Work Unit\\None_to_Title",
+      "Id": "2665577840",
+      "Name": "MX_Play_Title",
+      "ObjectPath": "\\Events\\Default Work Unit\\MX_Play_Title",
       "GUID": "{362CD5C9-3566-4788-86FD-1AB4B73D6592}",
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
@@ -430,75 +481,21 @@
       ]
      },
      {
-      "Id": "2435819095",
-      "Name": "Plau_AI_Typing_Fault",
-      "ObjectPath": "\\Events\\Default Work Unit\\Plau_AI_Typing_Fault",
-      "GUID": "{C6E972AC-BD49-4AFD-9E6C-8066C6F12647}",
+      "Id": "2331460791",
+      "Name": "MX_Title_to_Maze",
+      "ObjectPath": "\\Events\\Default Work Unit\\MX_Title_to_Maze",
+      "GUID": "{01BD5A0E-3FDA-4CBF-BE09-EE1217BAA8D5}",
+      "MaxAttenuation": "0",
       "DurationType": "OneShot",
-      "DurationMin": "0.10989583",
-      "DurationMax": "0.215625",
-      "MediaRefs": [
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
        {
-        "Id": "141075990"
-       },
-       {
-        "Id": "213070622"
-       },
-       {
-        "Id": "399440883"
-       },
-       {
-        "Id": "492376096"
-       },
-       {
-        "Id": "512691313"
-       },
-       {
-        "Id": "555395762"
-       },
-       {
-        "Id": "684943731"
-       },
-       {
-        "Id": "762829969"
-       },
-       {
-        "Id": "798867152"
-       }
-      ]
-     },
-     {
-      "Id": "3734422766",
-      "Name": "Play_AI_Typing",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_AI_Typing",
-      "GUID": "{5F0595F7-FE1B-4D43-AD04-66CCA22E8660}",
-      "DurationType": "OneShot",
-      "DurationMin": "0.082479015",
-      "DurationMax": "0.11097165",
-      "MediaRefs": [
-       {
-        "Id": "121547523"
-       },
-       {
-        "Id": "487841005"
-       },
-       {
-        "Id": "500883717"
-       },
-       {
-        "Id": "577889029"
-       },
-       {
-        "Id": "803442919"
-       },
-       {
-        "Id": "806688815"
-       },
-       {
-        "Id": "891554058"
-       },
-       {
-        "Id": "1015108056"
+        "GroupId": "2724869341",
+        "Id": "2943799864",
+        "Name": "Maze",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\Maze",
+        "GUID": "{D3D7F946-B924-4665-A447-3054F0CED4C1}"
        }
       ]
      },
@@ -569,74 +566,129 @@
       ]
      },
      {
-      "Id": "2375588297",
-      "Name": "Play_begin",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_begin",
-      "GUID": "{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}",
-      "DurationType": "Infinite",
-      "MediaRefs": [
-       {
-        "Id": "29920152"
-       },
-       {
-        "Id": "805998164"
-       }
-      ],
-      "SwitchContainers": [
-       {
-        "SwitchValue": {
-         "GroupType": "State",
-         "GroupId": "2724869341",
-         "Id": "3581653674",
-         "GUID": "{AE380017-9A16-42B1-81C0-8A0C452AF087}"
-        },
-        "MediaRefs": [
-         {
-          "Id": "728430949"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "State",
-         "GroupId": "2724869341",
-         "Id": "349818688",
-         "GUID": "{9D31A35C-59F9-403D-B097-9890DC3921B9}"
-        },
-        "MediaRefs": [
-         {
-          "Id": "811350998"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "State",
-         "GroupId": "2724869341",
-         "Id": "2943799864",
-         "GUID": "{D3D7F946-B924-4665-A447-3054F0CED4C1}"
-        },
-        "MediaRefs": [
-         {
-          "Id": "71858515"
-         }
-        ]
-       }
-      ],
+      "Id": "3481726148",
+      "Name": "Set_AMB_room",
+      "ObjectPath": "\\Events\\Default Work Unit\\Set_AMB_room",
+      "GUID": "{A14D41F9-2DEE-4482-A19A-D8478FA3925D}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
       "ActionSetState": [
        {
-        "GroupId": "2724869341",
-        "Id": "349818688",
-        "Name": "Begin",
-        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\Begin",
-        "GUID": "{9D31A35C-59F9-403D-B097-9890DC3921B9}"
+        "GroupId": "1117531639",
+        "Id": "2077253480",
+        "Name": "Room",
+        "ObjectPath": "\\States\\Default Work Unit\\AMB\\Room",
+        "GUID": "{3A043E41-D37C-4426-800B-2F3403BBA86E}"
        }
       ]
      },
      {
-      "Id": "679375753",
-      "Name": "Play_pillarup",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_pillarup",
+      "Id": "4187727620",
+      "Name": "SFX_Maze_Landing",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Maze_Landing",
+      "GUID": "{36B66DC0-988B-4EB1-B9AE-4A4534358803}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.75",
+      "DurationMax": "0.75",
+      "MediaRefs": [
+       {
+        "Id": "23533593"
+       }
+      ]
+     },
+     {
+      "Id": "3066694657",
+      "Name": "SFX_pickup_newspaper",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX_pickup_newspaper",
+      "GUID": "{BC25D587-33DF-4863-A59F-463E698D111F}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.875",
+      "DurationMax": "0.875",
+      "MediaRefs": [
+       {
+        "Id": "22267547"
+       }
+      ]
+     },
+     {
+      "Id": "3636131822",
+      "Name": "SFX_Play_AI_Typing",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Play_AI_Typing",
+      "GUID": "{5F0595F7-FE1B-4D43-AD04-66CCA22E8660}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.082479015",
+      "DurationMax": "0.11097165",
+      "MediaRefs": [
+       {
+        "Id": "121547523"
+       },
+       {
+        "Id": "487841005"
+       },
+       {
+        "Id": "500883717"
+       },
+       {
+        "Id": "577889029"
+       },
+       {
+        "Id": "803442919"
+       },
+       {
+        "Id": "806688815"
+       },
+       {
+        "Id": "891554058"
+       },
+       {
+        "Id": "1015108056"
+       }
+      ]
+     },
+     {
+      "Id": "693053491",
+      "Name": "SFX_Play_AI_Typing_Fault",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Play_AI_Typing_Fault",
+      "GUID": "{C6E972AC-BD49-4AFD-9E6C-8066C6F12647}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.10989583",
+      "DurationMax": "0.215625",
+      "MediaRefs": [
+       {
+        "Id": "141075990"
+       },
+       {
+        "Id": "213070622"
+       },
+       {
+        "Id": "399440883"
+       },
+       {
+        "Id": "492376096"
+       },
+       {
+        "Id": "512691313"
+       },
+       {
+        "Id": "555395762"
+       },
+       {
+        "Id": "684943731"
+       },
+       {
+        "Id": "762829969"
+       },
+       {
+        "Id": "798867152"
+       }
+      ]
+     },
+     {
+      "Id": "1307923593",
+      "Name": "SFX_Play_pillarup",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Play_pillarup",
       "GUID": "{B75E44DB-F107-4E91-B6CF-DE9E9FD9DF49}",
       "DurationType": "OneShot",
       "DurationMin": "7.625",
@@ -648,23 +700,9 @@
       ]
      },
      {
-      "Id": "2025015394",
-      "Name": "Play_Player_enter",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_Player_enter",
-      "GUID": "{3711CE7B-2BAA-4B8F-9C47-4F50C4EA13A4}",
-      "DurationType": "OneShot",
-      "DurationMin": "0.125",
-      "DurationMax": "0.125",
-      "MediaRefs": [
-       {
-        "Id": "981433377"
-       }
-      ]
-     },
-     {
-      "Id": "88175825",
-      "Name": "Play_Player_Typing",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_Player_Typing",
+      "Id": "1312151505",
+      "Name": "SFX_Play_Player_Typing",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Play_Player_Typing",
       "GUID": "{773C4242-BCF9-4C5A-A8B8-7ABBEB189DFB}",
       "DurationType": "OneShot",
       "DurationMin": "0.0728649",
@@ -688,9 +726,23 @@
       ]
      },
      {
-      "Id": "2538431492",
-      "Name": "Play_Putdown_ipad",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_Putdown_ipad",
+      "Id": "4078102291",
+      "Name": "SFX_Play_Plr_Typing_Return",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Play_Plr_Typing_Return",
+      "GUID": "{3711CE7B-2BAA-4B8F-9C47-4F50C4EA13A4}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.125",
+      "DurationMax": "0.125",
+      "MediaRefs": [
+       {
+        "Id": "981433377"
+       }
+      ]
+     },
+     {
+      "Id": "26301700",
+      "Name": "SFX_Play_Putdown_ipad",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Play_Putdown_ipad",
       "GUID": "{F4F6CDB0-C437-463C-A59C-DFBA053DB85E}",
       "DurationType": "OneShot",
       "DurationMin": "0.6041667",
@@ -702,9 +754,9 @@
       ]
      },
      {
-      "Id": "2910264647",
-      "Name": "Play_Room_footsteps",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_Room_footsteps",
+      "Id": "2251224647",
+      "Name": "SFX_Play_Room_footsteps",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Play_Room_footsteps",
       "GUID": "{792BC129-6B13-4A2D-99B5-B4A9B00C0A43}",
       "DurationType": "OneShot",
       "DurationMin": "0.39166668",
@@ -737,9 +789,9 @@
       ]
      },
      {
-      "Id": "2792899676",
-      "Name": "Play_Takeout_ipad",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_Takeout_ipad",
+      "Id": "280769884",
+      "Name": "SFX_Play_Takeout_ipad",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX_Play_Takeout_ipad",
       "GUID": "{749CAEB4-BA26-41E3-8E27-93DA4CD7F39C}",
       "DurationType": "OneShot",
       "DurationMin": "1.125",
@@ -747,39 +799,6 @@
       "MediaRefs": [
        {
         "Id": "58820668"
-       }
-      ]
-     },
-     {
-      "Id": "3481726148",
-      "Name": "Set_AMB_room",
-      "ObjectPath": "\\Events\\Default Work Unit\\Set_AMB_room",
-      "GUID": "{A14D41F9-2DEE-4482-A19A-D8478FA3925D}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
-      "ActionSetState": [
-       {
-        "GroupId": "1117531639",
-        "Id": "2077253480",
-        "Name": "Room",
-        "ObjectPath": "\\States\\Default Work Unit\\AMB\\Room",
-        "GUID": "{3A043E41-D37C-4426-800B-2F3403BBA86E}"
-       }
-      ]
-     },
-     {
-      "Id": "3066694657",
-      "Name": "SFX_pickup_newspaper",
-      "ObjectPath": "\\Events\\Default Work Unit\\SFX_pickup_newspaper",
-      "GUID": "{BC25D587-33DF-4863-A59F-463E698D111F}",
-      "DurationType": "OneShot",
-      "DurationMin": "0.875",
-      "DurationMax": "0.875",
-      "MediaRefs": [
-       {
-        "Id": "22267547"
        }
       ]
      },
@@ -794,25 +813,6 @@
       "MediaRefs": [
        {
         "Id": "920076376"
-       }
-      ]
-     },
-     {
-      "Id": "130021575",
-      "Name": "Title_to_Maze",
-      "ObjectPath": "\\Events\\Default Work Unit\\Title_to_Maze",
-      "GUID": "{01BD5A0E-3FDA-4CBF-BE09-EE1217BAA8D5}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
-      "ActionSetState": [
-       {
-        "GroupId": "2724869341",
-        "Id": "2943799864",
-        "Name": "Maze",
-        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\Maze",
-        "GUID": "{D3D7F946-B924-4665-A447-3054F0CED4C1}"
        }
       ]
      }
@@ -879,6 +879,6 @@
     ]
    }
   ],
-  "FileHash": "{600F24EC-9B41-D936-9043-6030E4C64DDE}"
+  "FileHash": "{008FF422-FD08-65E9-B203-E7D805ACAD54}"
  }
 }

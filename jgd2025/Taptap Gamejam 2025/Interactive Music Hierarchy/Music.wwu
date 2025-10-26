@@ -475,18 +475,6 @@
 											<PropertyList>
 												<Property Name="LoopCount" Type="int16" Value="0"/>
 											</PropertyList>
-											<ChildrenList>
-												<MusicPlaylistItem Name="" ID="{FBA21210-A7D0-4CA8-84E4-AE1B7FF260A2}" ShortID="789581028">
-													<PropertyList>
-														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Segment">
-															<ObjectRef Name="Mouldwood Depths 70bpm" ID="{8EEAD4A2-71EB-40EE-9640-0FD7518AD5BF}" WorkUnitID="{F5C2B02C-28FA-4C87-B714-B49391A9778B}"/>
-														</Reference>
-													</ReferenceList>
-												</MusicPlaylistItem>
-											</ChildrenList>
 										</MusicPlaylistItem>
 									</Custom>
 								</Reference>
@@ -507,9 +495,9 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<MusicSegment Name="Mouldwood Depths 70bpm" ID="{8EEAD4A2-71EB-40EE-9640-0FD7518AD5BF}" ShortID="687821264">
+								<MusicSegment Name="迷宫loop 1" ID="{4901AE8F-9F76-403D-AB23-A1EBB4840D84}" ShortID="636577707">
 									<PropertyList>
-										<Property Name="EndPosition" Type="Real64" Value="109714.291666667"/>
+										<Property Name="EndPosition" Type="Real64" Value="62000"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -520,14 +508,14 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<MusicTrack Name="Mouldwood Depths 70bpm" ID="{D5C1D330-FD29-4AFE-A6EF-0091DC637E39}" ShortID="496611908">
+										<MusicTrack Name="迷宫loop 1" ID="{6058C746-2666-410F-A391-34BCB8E7B346}" ShortID="273025544">
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
 												</Reference>
 												<Reference Name="TransitionRoot">
 													<Custom>
-														<MusicTransition Name="Root" ID="{11143E77-083F-44AC-9AAF-F7B593EACD09}">
+														<MusicTransition Name="Root" ID="{9E221815-F023-4C57-8DF2-EFB032D0E52B}">
 															<PropertyList>
 																<Property Name="IsFolder" Type="bool" Value="True"/>
 															</PropertyList>
@@ -537,11 +525,11 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Mouldwood Depths 70bpm" ID="{C6286A74-A3B1-4388-8F0D-7D0BC9F8C8BA}">
+												<AudioFileSource Name="迷宫loop 1" ID="{82C485A0-FDE2-458F-9D0E-A0D7B0F63F62}">
 													<Language>SFX</Language>
-													<AudioFile>Mouldwood Depths 70bpm.wav</AudioFile>
+													<AudioFile>迷宫loop 1.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="71858515"/>
+														<MediaID ID="897740158"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
@@ -549,18 +537,18 @@
 												<ObjectList Name="Sequences">
 													<Reference>
 														<Local>
-															<MusicTrackSequence Name="" ID="{CAF29609-AE8F-47B8-B721-899C7774528A}">
+															<MusicTrackSequence Name="" ID="{B4A11BFB-345F-43AD-BC77-7DCD4CD88259}">
 																<ObjectLists>
 																	<ObjectList Name="Clips">
 																		<Reference>
 																			<Local>
-																				<MusicClip Name="Mouldwood Depths 70bpm" ID="{E8BE7C60-21F9-407A-BE5F-B22E2FCE06F8}">
+																				<MusicClip Name="迷宫loop 1" ID="{626AD682-2719-4924-BBE6-D2E5FDBBDE9D}">
 																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="109714.291666667"/>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="62000"/>
 																						<Property Name="FadeInMode" Type="int16" Value="0"/>
 																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
 																					</PropertyList>
-																					<AudioSourceRef Name="Mouldwood Depths 70bpm" ID="{C6286A74-A3B1-4388-8F0D-7D0BC9F8C8BA}"/>
+																					<AudioSourceRef Name="迷宫loop 1" ID="{82C485A0-FDE2-458F-9D0E-A0D7B0F63F62}"/>
 																				</MusicClip>
 																			</Local>
 																		</Reference>
@@ -577,15 +565,15 @@
 										<ObjectList Name="Cues">
 											<Reference>
 												<Local>
-													<MusicCue Name="Entry Cue" ID="{93BC0AE5-D9EA-4951-84BC-83709D3174F4}"/>
+													<MusicCue Name="Entry Cue" ID="{2396B4E4-C30F-4ABC-AE9F-BB7992AA1430}"/>
 												</Local>
 											</Reference>
 											<Reference>
 												<Local>
-													<MusicCue Name="Exit Cue" ID="{F7485281-690A-4E6C-9572-7C21B4086E2D}">
+													<MusicCue Name="Exit Cue" ID="{625FA8B3-288E-4BB3-8829-D7E1C156324F}">
 														<PropertyList>
 															<Property Name="CueType" Type="int16" Value="1"/>
-															<Property Name="TimeMs" Type="Real64" Value="96000"/>
+															<Property Name="TimeMs" Type="Real64" Value="54857.1428571429"/>
 														</PropertyList>
 													</MusicCue>
 												</Local>

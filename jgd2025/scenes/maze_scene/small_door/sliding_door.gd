@@ -120,6 +120,7 @@ func _on_trigger_area_body_entered(body):
 # --- ( close_door 函数，大部分逻辑改回 Y 轴 scale ) ---
 func close_door():
 	is_closed = true
+	Wwise.post_event("SFX_door1", self)
 	if is_instance_valid(trigger_area):
 		trigger_area.monitoring = false
 
@@ -206,7 +207,7 @@ func open_door():
 	"""打开门，将所有门牙缩回到初始位置"""
 	if not is_closed:
 		return  # 门已经是开着的
-	
+	Wwise.post_event("SFX_door1", self)
 	is_closed = false
 	
 	# 禁用关闭碰撞体

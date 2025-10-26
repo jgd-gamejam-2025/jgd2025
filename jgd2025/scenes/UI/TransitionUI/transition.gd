@@ -12,8 +12,6 @@ var _tween: Tween
 
 func start(wait_time: float = 0.0) -> Tween:
 	show()
-	wwise_loading.post(self)
-	$AudioStreamPlayer.play()
 	if _tween and _tween.is_valid():
 		_tween.kill()
 	_tween = create_tween()
@@ -25,7 +23,6 @@ func start(wait_time: float = 0.0) -> Tween:
 	return _tween
 
 func end():
-	$AudioStreamPlayer.stop()
 	wwise_loading.stop(self)
 	hide()
 
@@ -46,10 +43,13 @@ func set_text(new_center_text: String, new_bg_text: String) -> void:
 func set_bg_color(new_color: Color) -> void:
 	ColorRect.color = new_color
 
-func set_and_start(new_bg_text: String, new_center_text: String, wait_time: float = 0.0, audio_clip: AudioStream= null) -> Tween:
+func set_and_start(new_bg_text: String, new_center_text: String, wait_time: float = 0.0, wwise_event_name: String = "") -> Tween:
 	$EVE.hide()
-	$AudioStreamPlayer.stream = audio_clip
 	set_text(new_bg_text, new_center_text)
+	if wwise_event_name != "":
+		Wwise.post_event(wwise_event_name, self)
+	else:
+		wwise_loading.post(self)
 	return start(wait_time)
 
 func show_EVE():

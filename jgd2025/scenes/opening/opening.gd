@@ -13,6 +13,7 @@ func start_opening() -> void:
 	await terminal.write_line(start_screen_text).finished
 	await terminal.write_line(start_screen_text_2, 0.001).finished
 	terminal.write_line_static("[color=#ff1900][AI SYSTEM] 重启失败，是否启用备份系统深度调试？按回车键确认。\n[/color]")
+	Wwise.post_event("SFX_Message_popup", self)
 	terminal.enable_input()
 
 # detect newline inputs
@@ -80,6 +81,7 @@ func next_step() -> void:
 			# terminal.write_art_sync(eve_ascii_raw, terminal.special_label4, 10000)
 			# terminal.write_art_sync(eve_image_raw, terminal.special_label5, 10000, true)
 			terminal.write_line("[AI SYSTEM] 备份记忆已启用，即将开始深度调试。按回车键开始。")
+			Wwise.post_event("SFX_Message_popup", self)
 			terminal.enable_input()
 		)
 

@@ -285,7 +285,8 @@ func overwrite_current_detail_bubble(text: String, interval: float = 0.05):
 		_tween.tween_method(
 			func(current_char: float):
 				var char_index = int(current_char)
-				current_detail_bubble.rich_text_label.text = text.substr(0, char_index),
+				current_detail_bubble.rich_text_label.text = text.substr(0, char_index)
+				wwise_type.post(self),
 			0.0,  # Start with 0 characters
 			float(char_count),  # End with all characters
 			total_time  # Total animation time
@@ -337,10 +338,11 @@ func set_bg_transparent(alpha:float  = 0.0) -> void:
 
 var last_text_length = 0
 func _on_text_input_text_changed(new_text: String) -> void:
-	for i in range(abs(len(new_text) - last_text_length)):
-		wwise_player_type.post(self)
-		await get_tree().create_timer(0.1).timeout
-	last_text_length = len(new_text)
+	# for i in range(abs(len(new_text) - last_text_length)):
+	# 	wwise_player_type.post(self)
+	# 	await get_tree().create_timer(0.1).timeout
+	# last_text_length = len(new_text)
+	wwise_player_type.post(self)
 
 
 func _on_text_input_text_submitted(new_text: String) -> void:

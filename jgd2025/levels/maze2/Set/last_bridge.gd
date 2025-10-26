@@ -29,8 +29,9 @@ func _on_ocean_end_body_exited(body: Node3D) -> void:
 	if body.name == "Player" and not ocean_ended:
 		ocean_ended = true
 		# player.look_at_target($Marker3D)
+		Wwise.post_event("MX_Mazepretrans_to_chat", self)
 		await get_tree().create_timer(3.0).timeout
-		Transition.set_and_start("坍塌", "")
+		Transition.set_and_start("坍塌", "")	
 		await get_tree().create_timer(0.5).timeout
 		LevelManager.to_chat_cut_scene()
 

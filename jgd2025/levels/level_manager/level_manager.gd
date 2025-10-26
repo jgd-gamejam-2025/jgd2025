@@ -59,8 +59,10 @@ func load_game() -> Dictionary:
 		"maze2":
 			if scene_data.get("set_index", -1) != -1:
 				set_index = scene_data["set_index"]
+			Wwise.post_event("MX_Play_Mazepretrans", self)
 			to_maze2()
 		"chat_cut":
+			Wwise.post_event("Set_AMB_chat", self)
 			to_chat_cut_scene()
 		"room":
 			to_room()

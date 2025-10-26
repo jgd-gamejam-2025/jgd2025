@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 func _ready() -> void:
+	Wwise.post_event("MX_Play_begin", LevelManager)
 	var tween = create_tween()
 	tween.tween_interval(1.5)
 	tween.tween_property($ColorRect/Image, "modulate:a", 1, 1.0)

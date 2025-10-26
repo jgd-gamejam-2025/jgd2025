@@ -68,6 +68,6 @@ func _on_text_input_text_submitted(new_text: String) -> void:
 		# get_tree().root.set_input_as_handled()
 	await get_tree().create_timer(1.5).timeout
 	# proceed to next scene
-	Transition.set_and_start("", "")
+	Transition.set_and_start("", "",0, "N/A")
 	await get_tree().create_timer(0.5).timeout
 	LevelManager.to_room()

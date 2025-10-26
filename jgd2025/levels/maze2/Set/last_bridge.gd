@@ -23,13 +23,14 @@ func _on_ocean_start_body_entered(body: Node3D) -> void:
 		triggered_ocean = true
 		ocean_started.emit()
 		$OceanScene._start_pattern()
+		Wwise.post_event("SFX_Play_pillarup2", self)
 
 
 func _on_ocean_end_body_exited(body: Node3D) -> void:
 	if body.name == "Player" and not ocean_ended:
 		ocean_ended = true
 		# player.look_at_target($Marker3D)
-		Wwise.post_event("MX_Mazepretrans_to_chat", self)
+		Wwise.post_event("MX_Mazepretrans_to_chat", LevelManager)
 		await get_tree().create_timer(3.0).timeout
 		Transition.set_and_start("坍塌", "")	
 		await get_tree().create_timer(0.5).timeout

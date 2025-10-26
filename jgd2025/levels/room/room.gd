@@ -524,6 +524,6 @@ func _on_eve_area_3d_body_entered(body: Node3D) -> void:
 
 func _on_room_opening_ended() -> void:
 	Transition.end()
-	Wwise.post_event("MX_Play_room", self)
+	Wwise.post_event("MX_Play_room", LevelManager)
 	await get_tree().create_timer(0.5).timeout
 	player.can_move_camera = true

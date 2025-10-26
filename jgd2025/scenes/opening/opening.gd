@@ -2,8 +2,14 @@ extends Node
 @onready var terminal = $Terminal
 signal opening_end
 
+@export var wwise_title :WwiseEvent
+@export var wwise_title_to_maze :WwiseEvent
+
+
 func _ready():
 	terminal.block_input()
+
+func start_opening() -> void:
 	await terminal.write_line(start_screen_text).finished
 	await terminal.write_line(start_screen_text_2, 0.001).finished
 	terminal.write_line_static("[color=#ff1900][AI SYSTEM] 重启失败，是否启用备份系统深度调试？按回车键确认。\n[/color]")
@@ -33,12 +39,13 @@ func next_step() -> void:
 		for i in range(45):
 			await terminal.write_line(" ").finished
 			# increase the text size gradually to 100
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.2).timeout
+		wwise_title.post(self)
+		await get_tree().create_timer(0.3).timeout
 
 		# var eve_ascii = terminal.expand_ascii_art(eve_ascii_raw, 3)
 		terminal.write_art_sync(eve_ascii_raw, terminal.special_label, 10000)
 		terminal.write_art_sync(eve_fall, terminal.special_label2, 10000, true)
-
 		var total_time = 5  # Total time for the animation
 		# use a tween to gradually reduce the text size back to original
 		var tween = terminal.create_tween()
@@ -77,6 +84,7 @@ func next_step() -> void:
 		)
 
 	if input_received == 2:
+		wwise_title_to_maze.post(self)
 		terminal.output_area.text = ""
 		terminal.special_label.hide()
 		terminal.special_label2.show()

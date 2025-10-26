@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://cw06igvpo1gat"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "MX_Maze_to_Mazepretrans"
+id = 3573176569
+guid = "{2995AF4A-4F57-4039-855F-1A877E9AF894}"
+dummy = true

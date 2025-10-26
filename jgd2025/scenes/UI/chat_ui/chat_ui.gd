@@ -7,6 +7,10 @@ var current_aiChat: NobodyWhoChat
 @onready var name_label = $Panel/Name
 @export var debug_mode = false
 @export var qwen = true
+@export var wwise_type_fault:WwiseEvent
+@export var wwise_type:WwiseEvent
+@export var wwise_player_type:WwiseEvent
+@export var wwise_player_type_return:WwiseEvent
 const auto_new_bubble_limit = 10
 var key_aiChat_dict: Dictionary = {}
 
@@ -143,10 +147,11 @@ func _on_nobody_who_chat_response_updated(new_token: String) -> void:
 						current_detail_bubble.rich_text_label.text += remainder
 					return
 			# if no marker found, just add the token
-		
+	
 		current_detail_bubble.rich_text_label.text += new_token
 	else:
 		chatLog.text += new_token
+	wwise_type.post(self)
 		
 func _on_nobody_who_chat_response_finished(response: String) -> void:
 	if block_text_generation:
@@ -288,7 +293,7 @@ func overwrite_current_detail_bubble(text: String, interval: float = 0.05):
 		current_detail_bubble.rich_text_label.text = text
 
 
-func add_to_current_detail_bubble(text: String, interval: float = 0.05):
+func add_fault_to_current_detail_bubble(text: String, interval: float = 0.05):
 	if current_detail_bubble:
 		if _tween:
 			_tween.kill()
@@ -302,7 +307,8 @@ func add_to_current_detail_bubble(text: String, interval: float = 0.05):
 		_tween.tween_method(
 			func(current_char: float):
 				var char_index = int(current_char)
-				current_detail_bubble.rich_text_label.text = pre_text + text.substr(0, char_index),
+				current_detail_bubble.rich_text_label.text = pre_text + text.substr(0, char_index)
+				wwise_type_fault.post(self),
 			0.0,  # Start with 0 characters
 			float(char_count),  # End with all characters
 			total_time  # Total animation time
@@ -327,3 +333,16 @@ func set_bg_transparent(alpha:float  = 0.0) -> void:
 	$Panel/Background.color.a = alpha
 	$Panel/Shadow.hide()
 	bubble_scroll.get_v_scroll_bar().visible = false
+
+
+var last_text_length = 0
+func _on_text_input_text_changed(new_text: String) -> void:
+	for i in range(abs(len(new_text) - last_text_length)):
+		wwise_player_type.post(self)
+		await get_tree().create_timer(0.1).timeout
+	last_text_length = len(new_text)
+
+
+func _on_text_input_text_submitted(new_text: String) -> void:
+	last_text_length = 0
+	wwise_player_type_return.post(self)

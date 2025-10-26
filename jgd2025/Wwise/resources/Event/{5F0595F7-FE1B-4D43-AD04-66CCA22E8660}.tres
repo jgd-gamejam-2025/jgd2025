@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://b2it8sw51j1ee"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "SFX_Play_AI_Typing"
+id = 3636131822
+guid = "{5F0595F7-FE1B-4D43-AD04-66CCA22E8660}"
+dummy = true

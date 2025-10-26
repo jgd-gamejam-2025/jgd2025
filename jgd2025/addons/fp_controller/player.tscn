@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=24 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" uid="uid://bpxl08ies4o8i" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" uid="uid://djb7vvinol8a4" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://ijhwolwk0a4k" path="res://addons/fp_controller/scripts/player_move_state/fall.gd" id="7_dv6ye"]
 [ext_resource type="Script" uid="uid://pikjo5be4xuw" path="res://addons/fp_controller/scripts/player_move_state/crouch.gd" id="9_yxb0u"]
 [ext_resource type="Script" uid="uid://wnc7cntkeqxq" path="res://addons/fp_controller/scripts/player_move_state/climb.gd" id="10_o7gmx"]
+[ext_resource type="WwiseEvent" uid="uid://6f57u2iukpba" path="res://Wwise/resources/Event/{36B66DC0-988B-4EB1-B9AE-4A4534358803}.tres" id="10_ttf0e"]
 [ext_resource type="Script" uid="uid://clgw30scqghds" path="res://addons/fp_controller/scripts/player_move_state/grab.gd" id="11_gkc45"]
 [ext_resource type="Script" uid="uid://c0vew2v5g1j3g" path="res://addons/fp_controller/scripts/player_move_state/slide.gd" id="12_bqyfq"]
 [ext_resource type="Script" uid="uid://c8rkifjyuvmq8" path="res://addons/fp_controller/scripts/player_ui.gd" id="12_d7xi0"]
@@ -384,6 +385,7 @@ script = ExtResource("6_b4xrx")
 
 [node name="Fall" type="Node" parent="StateMachine"]
 script = ExtResource("7_dv6ye")
+wwise_maze_landing = ExtResource("10_ttf0e")
 
 [node name="Crouch" type="Node" parent="StateMachine"]
 script = ExtResource("9_yxb0u")

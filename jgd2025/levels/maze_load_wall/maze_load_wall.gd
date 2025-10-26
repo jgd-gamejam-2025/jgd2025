@@ -26,6 +26,8 @@ func _ready():
 	chat_ui.connect("command_received", receive_chat_command)	
 	if skip_opening or not LevelManager.show_opening:
 		end_opening()
+	else:
+		Wwise.post_event("MX_Play_Title", self)
 
 func end_opening() -> void:
 	$StartBlock/CollisionShape3D.disabled = true

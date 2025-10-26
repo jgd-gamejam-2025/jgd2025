@@ -125,6 +125,7 @@ func activate_bug_mode() -> void:
 	sequence.tween_interval(0.5)
 	sequence.tween_callback(func():
 		chat_ui.block_text_generation = true
+		Wwise.post_event("MX_Begin_to_none", self)
 		if not chat_ui.debug_mode:
 			chat_ui.select_ai_chat("bug")
 		chat_ui.add_to_current_detail_bubble("我救h̷̠̚ē̴̤͝l̵͎̈́̐p̸̹̎ ̴͚̅m̷̬̓ę̶̶̦̩̦͈̩͕̺̠̟̮̩̝̈́̎̄̈́͑͋̒̀̿̀̾̓̽̄̐̑͘l̵̢̩̤̤͓̤͉̘̮͍͍̜̹̟̫͔̱̩͗̐̎̀́̄͋̾͆͑̏̚̚̚͘͘͝ơ̸̟͉̰̱̹̳̬͙̟̱̳̗̩͔̝̓̓̄͆͐̓͂͌̒͌̅̅̔̅͌̈́͘ͅͅo̷͊̿͆̿̈́", 0.1)

@@ -1,12 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bytjnt7nwkrxw"]
+[gd_scene load_steps=8 format=3 uid="uid://bytjnt7nwkrxw"]
 
 [ext_resource type="Script" uid="uid://jdp2hkrg2vm5" path="res://levels/chat_bug/chat_bug.gd" id="1_5iuj2"]
 [ext_resource type="PackedScene" uid="uid://byhcpq4t56qc3" path="res://scenes/UI/chat_ui/chat_ui.tscn" id="3_edd6c"]
 [ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="4_1crpx"]
 [ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="4_gnwe6"]
-[ext_resource type="WwiseBank" uid="uid://dh2vrgwg0v63s" path="res://Wwise/resources/SoundBank/{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}.tres" id="8_5iuj2"]
 [ext_resource type="FontFile" uid="uid://dche8c1u6rmg" path="res://scenes/UI/fonts/OPlusSans3-Bold.ttf" id="8_s6dx3"]
-[ext_resource type="WwiseEvent" uid="uid://csut6xamoko42" path="res://Wwise/resources/Event/{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}.tres" id="9_8coro"]
 [ext_resource type="FontFile" uid="uid://b8muwa7k4021" path="res://scenes/UI/fonts/OPlusSans3-Regular.ttf" id="9_ostp8"]
 [ext_resource type="Theme" uid="uid://csjhowu7j47ua" path="res://scenes/UI/TransitionUI/transition.tres" id="10_8coro"]
 
@@ -124,16 +122,6 @@ theme = ExtResource("10_8coro")
 theme_override_colors/font_color = Color(0.06469653, 0.06469653, 0.06469653, 1)
 theme_override_font_sizes/font_size = 30
 text = "输入命令\"idontwannarestart\"中断复原"
-
-[node name="AkBank" type="AkBank" parent="."]
-bank = ExtResource("8_5iuj2")
-load_on = 1
-
-[node name="AkEvent3D" type="AkEvent3D" parent="AkBank"]
-event = ExtResource("9_8coro")
-trigger_on = 2
-
-[node name="AkListener3D" type="AkListener3D" parent="."]
 
 [connection signal="command_received" from="ChatUI" to="." method="_on_chat_ui_command_received"]
 [connection signal="line_edit_focus" from="ChatUI" to="." method="_on_chat_ui_line_edit_focus"]

@@ -135,49 +135,40 @@ id = 125608783
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_5n8hf"]
 max_duration = 0.0
 min_duration = 0.0
-path = "\\Events\\Default Work Unit\\Begin_to_none"
+path = "\\Events\\Default Work Unit\\MX_Begin_to_none"
 type = 3
-name = "Begin_to_none"
+name = "MX_Begin_to_none"
 guid = "{8933958D-ECCE-482E-805B-31EE01D162FD}"
-id = 3907958213
+id = 1069070997
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_tnib1"]
-max_duration = 0.75
-min_duration = 0.75
-path = "\\Events\\Default Work Unit\\Maze_Landing"
+max_duration = 0.0
+min_duration = 0.0
+path = "\\Events\\Default Work Unit\\MX_Play_Title"
 type = 3
-name = "Maze_Landing"
-guid = "{36B66DC0-988B-4EB1-B9AE-4A4534358803}"
-id = 2598202372
+name = "MX_Play_Title"
+guid = "{362CD5C9-3566-4788-86FD-1AB4B73D6592}"
+id = 2665577840
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_o7sea"]
 max_duration = 0.0
 min_duration = 0.0
-path = "\\Events\\Default Work Unit\\None_to_Title"
+path = "\\Events\\Default Work Unit\\MX_Play_begin"
 type = 3
-name = "None_to_Title"
-guid = "{362CD5C9-3566-4788-86FD-1AB4B73D6592}"
-id = 4080990482
+name = "MX_Play_begin"
+guid = "{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}"
+id = 891883193
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_lrto0"]
-max_duration = 0.215625
-min_duration = 0.10989583
-path = "\\Events\\Default Work Unit\\Plau_AI_Typing_Fault"
+max_duration = 0.0
+min_duration = 0.0
+path = "\\Events\\Default Work Unit\\MX_Title_to_Maze"
 type = 3
-name = "Plau_AI_Typing_Fault"
-guid = "{C6E972AC-BD49-4AFD-9E6C-8066C6F12647}"
-id = 2435819095
+name = "MX_Title_to_Maze"
+guid = "{01BD5A0E-3FDA-4CBF-BE09-EE1217BAA8D5}"
+id = 2331460791
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_i5cxa"]
-max_duration = 0.11097165
-min_duration = 0.082479015
-path = "\\Events\\Default Work Unit\\Play_AI_Typing"
-type = 3
-name = "Play_AI_Typing"
-guid = "{5F0595F7-FE1B-4D43-AD04-66CCA22E8660}"
-id = 3734422766
-
-[sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_ptp8y"]
 max_duration = 0.0
 min_duration = 0.0
 path = "\\Events\\Default Work Unit\\Play_AMB_Maze"
@@ -186,7 +177,7 @@ name = "Play_AMB_Maze"
 guid = "{103188C3-BD03-4904-8B27-E2B40B30E101}"
 id = 2190478052
 
-[sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_26l8v"]
+[sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_ptp8y"]
 max_duration = 0.0
 min_duration = 0.0
 path = "\\Events\\Default Work Unit\\Play_AMB_Room"
@@ -195,70 +186,88 @@ name = "Play_AMB_Room"
 guid = "{9720C59E-F760-45AD-A098-0544C9699211}"
 id = 1075867404
 
-[sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_hir8t"]
-max_duration = 0.14070995
-min_duration = 0.0728649
-path = "\\Events\\Default Work Unit\\Play_Player_Typing"
+[sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_26l8v"]
+max_duration = 0.75
+min_duration = 0.75
+path = "\\Events\\Default Work Unit\\SFX_Maze_Landing"
 type = 3
-name = "Play_Player_Typing"
-guid = "{773C4242-BCF9-4C5A-A8B8-7ABBEB189DFB}"
-id = 88175825
+name = "SFX_Maze_Landing"
+guid = "{36B66DC0-988B-4EB1-B9AE-4A4534358803}"
+id = 4187727620
+
+[sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_hir8t"]
+max_duration = 0.11097165
+min_duration = 0.082479015
+path = "\\Events\\Default Work Unit\\SFX_Play_AI_Typing"
+type = 3
+name = "SFX_Play_AI_Typing"
+guid = "{5F0595F7-FE1B-4D43-AD04-66CCA22E8660}"
+id = 3636131822
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_viedb"]
-max_duration = 0.125
-min_duration = 0.125
-path = "\\Events\\Default Work Unit\\Play_Player_enter"
+max_duration = 0.215625
+min_duration = 0.10989583
+path = "\\Events\\Default Work Unit\\SFX_Play_AI_Typing_Fault"
 type = 3
-name = "Play_Player_enter"
-guid = "{3711CE7B-2BAA-4B8F-9C47-4F50C4EA13A4}"
-id = 2025015394
+name = "SFX_Play_AI_Typing_Fault"
+guid = "{C6E972AC-BD49-4AFD-9E6C-8066C6F12647}"
+id = 693053491
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_bq6kk"]
-max_duration = 0.6041667
-min_duration = 0.6041667
-path = "\\Events\\Default Work Unit\\Play_Putdown_ipad"
+max_duration = 0.14070995
+min_duration = 0.0728649
+path = "\\Events\\Default Work Unit\\SFX_Play_Player_Typing"
 type = 3
-name = "Play_Putdown_ipad"
-guid = "{F4F6CDB0-C437-463C-A59C-DFBA053DB85E}"
-id = 2538431492
+name = "SFX_Play_Player_Typing"
+guid = "{773C4242-BCF9-4C5A-A8B8-7ABBEB189DFB}"
+id = 1312151505
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_hssb3"]
-max_duration = 0.5875
-min_duration = 0.39166668
-path = "\\Events\\Default Work Unit\\Play_Room_footsteps"
+max_duration = 0.125
+min_duration = 0.125
+path = "\\Events\\Default Work Unit\\SFX_Play_Plr_Typing_Return"
 type = 3
-name = "Play_Room_footsteps"
-guid = "{792BC129-6B13-4A2D-99B5-B4A9B00C0A43}"
-id = 2910264647
+name = "SFX_Play_Plr_Typing_Return"
+guid = "{3711CE7B-2BAA-4B8F-9C47-4F50C4EA13A4}"
+id = 4078102291
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_0g3k4"]
-max_duration = 1.125
-min_duration = 1.125
-path = "\\Events\\Default Work Unit\\Play_Takeout_ipad"
+max_duration = 0.6041667
+min_duration = 0.6041667
+path = "\\Events\\Default Work Unit\\SFX_Play_Putdown_ipad"
 type = 3
-name = "Play_Takeout_ipad"
-guid = "{749CAEB4-BA26-41E3-8E27-93DA4CD7F39C}"
-id = 2792899676
+name = "SFX_Play_Putdown_ipad"
+guid = "{F4F6CDB0-C437-463C-A59C-DFBA053DB85E}"
+id = 26301700
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_5ppdk"]
-max_duration = 0.0
-min_duration = 0.0
-path = "\\Events\\Default Work Unit\\Play_begin"
+max_duration = 0.5875
+min_duration = 0.39166668
+path = "\\Events\\Default Work Unit\\SFX_Play_Room_footsteps"
 type = 3
-name = "Play_begin"
-guid = "{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}"
-id = 2375588297
+name = "SFX_Play_Room_footsteps"
+guid = "{792BC129-6B13-4A2D-99B5-B4A9B00C0A43}"
+id = 2251224647
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_l65hi"]
-max_duration = 7.625
-min_duration = 7.625
-path = "\\Events\\Default Work Unit\\Play_pillarup"
+max_duration = 1.125
+min_duration = 1.125
+path = "\\Events\\Default Work Unit\\SFX_Play_Takeout_ipad"
 type = 3
-name = "Play_pillarup"
-guid = "{B75E44DB-F107-4E91-B6CF-DE9E9FD9DF49}"
-id = 679375753
+name = "SFX_Play_Takeout_ipad"
+guid = "{749CAEB4-BA26-41E3-8E27-93DA4CD7F39C}"
+id = 280769884
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_63ewg"]
+max_duration = 7.625
+min_duration = 7.625
+path = "\\Events\\Default Work Unit\\SFX_Play_pillarup"
+type = 3
+name = "SFX_Play_pillarup"
+guid = "{B75E44DB-F107-4E91-B6CF-DE9E9FD9DF49}"
+id = 1307923593
+
+[sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_myib7"]
 max_duration = 0.875
 min_duration = 0.875
 path = "\\Events\\Default Work Unit\\SFX_pickup_newspaper"
@@ -267,7 +276,7 @@ name = "SFX_pickup_newspaper"
 guid = "{BC25D587-33DF-4863-A59F-463E698D111F}"
 id = 3066694657
 
-[sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_myib7"]
+[sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_gv40o"]
 max_duration = 0.9734375
 min_duration = 0.9734375
 path = "\\Events\\Default Work Unit\\SFX_putdown_newspaper"
@@ -276,7 +285,7 @@ name = "SFX_putdown_newspaper"
 guid = "{9A488581-9667-4D97-AA61-DD782F09924D}"
 id = 4019675232
 
-[sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_gv40o"]
+[sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_0hqp2"]
 max_duration = 0.0
 min_duration = 0.0
 path = "\\Events\\Default Work Unit\\Set_AMB_room"
@@ -284,15 +293,6 @@ type = 3
 name = "Set_AMB_room"
 guid = "{A14D41F9-2DEE-4482-A19A-D8478FA3925D}"
 id = 3481726148
-
-[sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_0hqp2"]
-max_duration = 0.0
-min_duration = 0.0
-path = "\\Events\\Default Work Unit\\Title_to_Maze"
-type = 3
-name = "Title_to_Maze"
-guid = "{01BD5A0E-3FDA-4CBF-BE09-EE1217BAA8D5}"
-id = 130021575
 
 [sub_resource type="WwiseTreeObject" id="WwiseTreeObject_h61g6"]
 children = [SubResource("WwiseTreeObjectEvent_5n8hf"), SubResource("WwiseTreeObjectEvent_tnib1"), SubResource("WwiseTreeObjectEvent_o7sea"), SubResource("WwiseTreeObjectEvent_lrto0"), SubResource("WwiseTreeObjectEvent_i5cxa"), SubResource("WwiseTreeObjectEvent_ptp8y"), SubResource("WwiseTreeObjectEvent_26l8v"), SubResource("WwiseTreeObjectEvent_hir8t"), SubResource("WwiseTreeObjectEvent_viedb"), SubResource("WwiseTreeObjectEvent_bq6kk"), SubResource("WwiseTreeObjectEvent_hssb3"), SubResource("WwiseTreeObjectEvent_0g3k4"), SubResource("WwiseTreeObjectEvent_5ppdk"), SubResource("WwiseTreeObjectEvent_l65hi"), SubResource("WwiseTreeObjectEvent_63ewg"), SubResource("WwiseTreeObjectEvent_myib7"), SubResource("WwiseTreeObjectEvent_gv40o"), SubResource("WwiseTreeObjectEvent_0hqp2")]

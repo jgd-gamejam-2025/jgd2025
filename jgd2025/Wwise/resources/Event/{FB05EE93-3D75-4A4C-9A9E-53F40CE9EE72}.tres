@@ -2,7 +2,7 @@
 
 [resource]
 is_in_user_defined_sound_bank = true
-name = "Play_begin"
-id = 2375588297
+name = "MX_Play_begin"
+id = 891883193
 guid = "{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}"
 dummy = true

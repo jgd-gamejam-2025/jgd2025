@@ -21,6 +21,11 @@ gguf/
 
 [Qwen3-0.6B-Q4_K_S-GGUF](https://huggingface.co/AnHoang200901/Qwen3-0.6B-Q4_K_S-GGUF/blob/main/qwen3-0.6b-q4_k_s.gguf) (471MB, 这个笨得没法用，但是体积小，可以用来测试游戏流程。)
 
+## Wwise Soundbank:
+由于Wwise soundbank超过100MB了（从某个版本后），所以Soundbank要手动下载之后放到\jgd2025\jgd2025\Taptap Gamejam 2025\GeneratedSoundBanks\Mac或者Windows目录下：
+https://drive.google.com/drive/folders/1vkVRwcnIh8iUeOh7wYxWTO5DedC81Ih0?usp=sharing
+
+如果不替换soundbank，main上是老的soundbanks，应该会缺少声音，但是不知道会不会崩溃？（待发现）
 
 ## 目录结构：
 Scene 和 gdscript 放在 `scenes` 的对应子目录下，其余srcipts在`other_scripts`下：

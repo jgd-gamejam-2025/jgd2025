@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}",
     "Language": "SFX",
-    "Hash": "{A9E254DE-22DB-E6F7-62FD-073AF3C1DFCB}",
+    "Hash": "{70D10D11-D11B-E5F3-16DC-045845533321}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\soundbank",
     "ShortName": "soundbank",
     "Path": "soundbank.bnk",
@@ -45,7 +45,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "玩家键盘4.wav",
-      "CachePath": "3E/{3EA0A154-2DD6-DA11-B0C9-8CF4D6C6A68A}.wem"
+      "CachePath": "CC/{CC7AD917-A2EF-BBC3-F0D0-012EC432E367}.wem"
      },
      {
       "Id": "56285626",
@@ -77,7 +77,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "玩家键盘5.wav",
-      "CachePath": "1A/{1A07AF9A-F2CC-59B2-8C80-C8296FB50841}.wem"
+      "CachePath": "00/{007C776F-3EB6-79FE-A9DE-5F64050626AA}.wem"
      },
      {
       "Id": "73482642",
@@ -141,7 +141,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "玩家键盘3.wav",
-      "CachePath": "B7/{B755EF74-E685-167F-D879-6D1A155ACE8C}.wem"
+      "CachePath": "76/{761B5D99-5D14-7273-D510-8E23B5E90EF3}.wem"
      },
      {
       "Id": "204817462",
@@ -165,7 +165,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "玩家键盘2.wav",
-      "CachePath": "72/{72CC4C64-189B-4606-5B3C-F683FEFFE70E}.wem"
+      "CachePath": "66/{669BC35A-F3C6-408A-C8DB-BDB359E50727}.wem"
      },
      {
       "Id": "244808737",
@@ -360,14 +360,6 @@
       "CachePath": "9B/{9B1F6CDA-C9FA-3B79-6AF7-D4544F663314}.wem"
      },
      {
-      "Id": "739824745",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Mouldwood Depths 70bpm.wav",
-      "CachePath": "89/{89C4ED0D-90BF-9236-BFD2-C94B530966D2}.wem"
-     },
-     {
       "Id": "762829969",
       "Language": "SFX",
       "Streaming": "false",
@@ -480,6 +472,14 @@
       "CachePath": "1B/{1B8CCC74-715A-25C7-5DE0-9BF7A98686D7}.wem"
      },
      {
+      "Id": "896854163",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "房间loop.wav",
+      "CachePath": "71/{7138DE8B-0105-78E3-375C-B67B2EBB56CB}.wem"
+     },
+     {
       "Id": "897740158",
       "Language": "SFX",
       "Streaming": "false",
@@ -493,7 +493,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "玩家键盘1.wav",
-      "CachePath": "AF/{AFA45076-1ABB-86A0-994D-E5F4CB4DFD56}.wem"
+      "CachePath": "62/{62AD3E82-5489-1DB1-E371-763E0260BBB0}.wem"
      },
      {
       "Id": "920076376",
@@ -510,6 +510,14 @@
       "Location": "Memory",
       "ShortName": "UI_choose.wav",
       "CachePath": "2D/{2DBF636C-A51E-5613-EF38-5B66634BF9BF}.wem"
+     },
+     {
+      "Id": "973310934",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "柱子升起1.wav",
+      "CachePath": "F2/{F2317F73-6618-5111-A9F7-C951299D0378}.wem"
      },
      {
       "Id": "981433377",
@@ -687,7 +695,7 @@
         },
         "MediaRefs": [
          {
-          "Id": "739824745"
+          "Id": "896854163"
          }
         ]
        }
@@ -781,7 +789,7 @@
         },
         "MediaRefs": [
          {
-          "Id": "739824745"
+          "Id": "896854163"
          }
         ]
        },
@@ -917,7 +925,7 @@
         },
         "MediaRefs": [
          {
-          "Id": "739824745"
+          "Id": "896854163"
          }
         ]
        },
@@ -1066,7 +1074,7 @@
         },
         "MediaRefs": [
          {
-          "Id": "739824745"
+          "Id": "896854163"
          }
         ]
        }
@@ -1160,7 +1168,7 @@
         },
         "MediaRefs": [
          {
-          "Id": "739824745"
+          "Id": "896854163"
          }
         ]
        }
@@ -1506,6 +1514,20 @@
       ]
      },
      {
+      "Id": "1110709145",
+      "Name": "SFX_Play_pillarup2",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_Play_pillarup2",
+      "GUID": "{B5532132-C5E1-4214-A11E-046B66ADC583}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.25",
+      "DurationMax": "3.25",
+      "MediaRefs": [
+       {
+        "Id": "973310934"
+       }
+      ]
+     },
+     {
       "Id": "1312151505",
       "Name": "SFX_Play_Player_Typing",
       "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_Play_Player_Typing",
@@ -1771,6 +1793,6 @@
     ]
    }
   ],
-  "FileHash": "{A8F0B241-E497-2503-427A-7F0B31380E63}"
+  "FileHash": "{C24EEEAD-22E5-E59E-58F1-80C2D9AD6FAB}"
  }
 }

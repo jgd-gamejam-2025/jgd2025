@@ -319,6 +319,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="SFX_Play_pillarup2" ID="{B5532132-C5E1-4214-A11E-046B66ADC583}">
+							<ChildrenList>
+								<Action Name="" ID="{4B6F837D-BB9A-4901-B7AD-0BBF8C33A41F}" ShortID="9609957">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="柱子升起1" ID="{59E80671-50BD-4B26-800D-7D7E767323EF}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="MX" ID="{0CDC3913-664C-4418-9E9C-B58B517ACF91}" ShortID="759027858">

@@ -3,7 +3,7 @@ extends Node3D
 
 @export_group("动画设置")
 # 门牙完全伸出到位所需的“大概”时间 (现在这个参数将被实际使用)
-@export var close_duration: float = 2.0 # 关门的总时长
+@export var close_duration: float = 1.9 # 关门的总时长
 # 门牙完全缩回到位所需的“大概”时间 (新参数，用于开门的总时长)
 @export var open_duration: float = 1.0 # 开门的总时长
 # 每个门牙伸出速度的随机范围 (比例/秒)

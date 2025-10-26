@@ -83,7 +83,7 @@ size = Vector3(5.3410034, 0.4794922, 9.360291)
 size = Vector3(1.2813721, 1, 4.4546814)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0d1uc"]
-size = Vector3(2.1825867, 1, 2.3031235)
+size = Vector3(2.1825867, 1, 2.849804)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vsxmj"]
 size = Vector3(1.9876633, 1, 2.3031235)
@@ -978,7 +978,6 @@ shape = SubResource("BoxShape3D_psi4i")
 
 [node name="SlidingDoor" parent="." instance=ExtResource("7_htxp8")]
 transform = Transform3D(-1.9495282e-07, 0, -4.4600005, 0, 15.21969, 0, 4.4600005, 0, -1.9495282e-07, 21.93361, -15.659921, -32.32081)
-close_duration = 1.0
 
 [node name="Area3D" type="Area3D" parent="SlidingDoor"]
 
@@ -988,18 +987,16 @@ shape = SubResource("BoxShape3D_wtirf")
 
 [node name="SlidingDoor2" parent="." instance=ExtResource("7_htxp8")]
 transform = Transform3D(-1.1670941e-07, 0, -4.46, 0, 15.22, 0, 2.67, 0, -1.9495279e-07, -10.928722, -15.659921, -68.89224)
-close_duration = 0.5
 random_speed_max = 0.75
 
 [node name="Area3D" type="Area3D" parent="SlidingDoor2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SlidingDoor2/Area3D"]
-transform = Transform3D(0.9999999, 0, 0, 0, 1.0000005, 0, -3.5527137e-15, 0, 1, 0.16254807, 0, 0.65156054)
+transform = Transform3D(0.9999999, 0, 0, 0, 1.0000005, 0, -3.5527137e-15, 0, 1, 0.16254807, 0, 0.92490077)
 shape = SubResource("BoxShape3D_0d1uc")
 
 [node name="SlidingDoor3" parent="." instance=ExtResource("7_htxp8")]
 transform = Transform3D(-4.1510594e-07, -7.6033764, 0, 9.496516, -3.3235415e-07, 0, 0, 0, 4.6032734, -16.156195, -6.00998, -80.1193)
-close_duration = 5.0
 random_speed_max = 1.8
 will_open = true
 

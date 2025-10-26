@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://doikdctb1iar3" path="res://levels/maze_load_wall/wall_visual.tscn" id="8_ucvxd"]
 [ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="10_2r1ki"]
 [ext_resource type="PackedScene" uid="uid://6k8k6xhr47r5" path="res://scenes/opening/Opening.tscn" id="10_vudfa"]
-[ext_resource type="WwiseEvent" uid="uid://6c7kajpukh7i" path="res://Wwise/resources/Event/{B75E44DB-F107-4E91-B6CF-DE9E9FD9DF49}.tres" id="11_5ggcw"]
+[ext_resource type="WwiseEvent" uid="uid://8yylphhdekm6" path="res://Wwise/resources/Event/{B5532132-C5E1-4214-A11E-046B66ADC583}.tres" id="11_5ggcw"]
 [ext_resource type="PackedScene" uid="uid://b7l5sv4fjhjwm" path="res://scenes/UI/notification/Notification.tscn" id="11_ucvxd"]
 [ext_resource type="PackedScene" uid="uid://78exdosy10ho" path="res://scenes/NotificationArea/notification_area.tscn" id="14_gstnd"]
 

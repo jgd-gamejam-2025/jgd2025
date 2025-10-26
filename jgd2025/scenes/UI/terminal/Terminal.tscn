@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://5ltrsa0ifrxn"]
+[gd_scene load_steps=9 format=3 uid="uid://5ltrsa0ifrxn"]
 
 [ext_resource type="Script" uid="uid://duryk5im3p3wg" path="res://scenes/UI/terminal/terminal.gd" id="1_a8pav"]
 [ext_resource type="Theme" uid="uid://dcttt1jp1y43p" path="res://scenes/UI/terminal/Terminal.tres" id="2_3x43x"]
+[ext_resource type="WwiseEvent" uid="uid://b2it8sw51j1ee" path="res://Wwise/resources/Event/{5F0595F7-FE1B-4D43-AD04-66CCA22E8660}.tres" id="2_mgpjt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3x43x"]
 bg_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
@@ -18,6 +19,7 @@ viewport_path = NodePath("SubViewportContainer/SubViewport")
 
 [node name="Terminal" type="CanvasLayer"]
 script = ExtResource("1_a8pav")
+wwise_type = ExtResource("2_mgpjt")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 offset_left = 20.0

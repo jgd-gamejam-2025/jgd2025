@@ -4,6 +4,7 @@ extends CanvasLayer
 @export var host_name: String = "terminal"
 @export var default_type_speed: float = 0.03  # Seconds per character
 @export var type_speed_variance: float = 0.02  # Random variance in typing speed
+@export var wwise_type :WwiseEvent
 
 @onready var output_area: RichTextLabel = $MarginContainer/Panel/VBoxContainer/OutputArea
 @onready var input_field: LineEdit = $MarginContainer/Panel/VBoxContainer/InputArea/LineEdit
@@ -88,28 +89,34 @@ func expand_ascii_art(ascii_text: String, scale: int = 2) -> String:
 	return result_text
 
 func update_prompt() -> void:
-	prompt_label.text = "%s@%s>" % [user_name, host_name]
+	prompt_label.text = "%s@%s>" % [get_system_user_name(), host_name]
+	# prompt_label.text = "%s@%s>" % [user_name, host_name]
+	
 
 func write_line_static(text: String) -> void:
 	output_area.text += text
+	wwise_type.post(self)
 	# output_area.scroll_to_line(output_area.get_line_count() - 1)
 
 func write_line(text: String, type_speed: float = default_type_speed) -> Tween:
 	if _is_typing:
 		if _tween:
 			_tween.kill()
-	
 	_is_typing = true
 	var start_pos = output_area.text.length()
 	_current_text = output_area.text + text + "\n"
 	
 	_tween = create_tween()
 	var total_chars = text.length() + 1  # +1 for newline
-	
+	var type_sound_interval = 3
+	if type_speed < 0.03:
+		type_sound_interval = 9
 	for i in range(total_chars):
 		var char_delay = type_speed + randf_range(-type_speed_variance, type_speed_variance)
 		_tween.tween_callback(func():
 			output_area.text = _current_text.substr(0, start_pos + i + 1)
+			if (i % type_sound_interval) == 0:  # Post based on type speed
+				wwise_type.post(self)
 		).set_delay(char_delay)
 	
 	_tween.tween_callback(func(): _is_typing = false)
@@ -259,3 +266,9 @@ func write_art_sync(text: String, output_area: RichTextLabel = output_area, keep
 		output_area.text = final_text
 	)
 	return write_art_tween
+
+func get_system_user_name() -> String:
+	var name := OS.get_environment("USERNAME") # Windows
+	if name.is_empty():
+		name = OS.get_environment("USER") # macOS / Linux
+	return name

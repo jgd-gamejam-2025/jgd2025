@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://bdwh5lar26qxu"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "MX_Title_to_Maze"
+id = 2331460791
+guid = "{01BD5A0E-3FDA-4CBF-BE09-EE1217BAA8D5}"
+dummy = true

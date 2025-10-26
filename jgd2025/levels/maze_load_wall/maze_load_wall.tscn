@@ -1,7 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://1m82bdnhye7k"]
+[gd_scene load_steps=38 format=3 uid="uid://1m82bdnhye7k"]
 
 [ext_resource type="Script" uid="uid://cr4hyuccgxpea" path="res://levels/maze_load_wall/maze_load_wall.gd" id="1_wt3j4"]
+[ext_resource type="WwiseEvent" uid="uid://dwhiif8lona3t" path="res://Wwise/resources/Event/{8F9E1686-BAB2-41CE-B068-78FB077CE2BF}.tres" id="2_ov85a"]
 [ext_resource type="FontFile" uid="uid://dtn0bes4llts8" path="res://scenes/UI/fonts/SourceHanSansCN-Bold.otf" id="3_2r1ki"]
+[ext_resource type="WwiseEvent" uid="uid://6f57u2iukpba" path="res://Wwise/resources/Event/{36B66DC0-988B-4EB1-B9AE-4A4534358803}.tres" id="3_5ggcw"]
 [ext_resource type="MeshLibrary" uid="uid://b402l3ni4b5qk" path="res://levels/maze_load_wall/kenny_natural_kit.tres" id="3_k2rf3"]
 [ext_resource type="Script" uid="uid://co3ukivelgk2u" path="res://levels/maze_load_wall/maze_manager.gd" id="3_lulup"]
 [ext_resource type="PackedScene" uid="uid://dfepyejg6c541" path="res://scenes/maze_scene/big_door.tscn" id="3_ucvxd"]
@@ -98,7 +100,10 @@ size = Vector3(12.601791, 25.191689, 14.801802)
 
 [node name="MazeLoadWall" type="Node3D"]
 script = ExtResource("1_wt3j4")
+skip_opening = true
 start_velocity = Vector3(0, -100, 0)
+wwise_maze = ExtResource("2_ov85a")
+wwise_maze_landing = ExtResource("3_5ggcw")
 
 [node name="SubSceneLoader" type="Node" parent="."]
 
@@ -112,6 +117,7 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("4_j3jbl")]
 transform = Transform3D(1.0606601, 0, -1.0606601, 0, 1.5, 0, 1.0606601, 0, 1.0606601, -7.9227524, 249.56992, 9.300619)
 walk_speed = 5.0
+sprint_speed = 6.0
 
 [node name="StartBlock" type="StaticBody3D" parent="."]
 transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -7.9227524, 249.12144, 9.300619)

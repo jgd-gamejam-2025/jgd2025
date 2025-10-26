@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://6k8k6xhr47r5"]
+[gd_scene load_steps=5 format=3 uid="uid://6k8k6xhr47r5"]
 
 [ext_resource type="Script" uid="uid://co2vlvvig0yyt" path="res://scenes/opening/opening.gd" id="1_i82em"]
+[ext_resource type="WwiseEvent" uid="uid://byef2mnoufnxg" path="res://Wwise/resources/Event/{362CD5C9-3566-4788-86FD-1AB4B73D6592}.tres" id="2_gboi7"]
 [ext_resource type="PackedScene" uid="uid://5ltrsa0ifrxn" path="res://scenes/UI/terminal/Terminal.tscn" id="2_kpdrq"]
+[ext_resource type="WwiseEvent" uid="uid://bdwh5lar26qxu" path="res://Wwise/resources/Event/{01BD5A0E-3FDA-4CBF-BE09-EE1217BAA8D5}.tres" id="3_b04sh"]
 
 [node name="Opening" type="CanvasLayer"]
 script = ExtResource("1_i82em")
+wwise_title = ExtResource("2_gboi7")
+wwise_title_to_maze = ExtResource("3_b04sh")
 
 [node name="Terminal" parent="." instance=ExtResource("2_kpdrq")]

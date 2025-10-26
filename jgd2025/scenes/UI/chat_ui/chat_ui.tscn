@@ -1,12 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://byhcpq4t56qc3"]
+[gd_scene load_steps=23 format=3 uid="uid://byhcpq4t56qc3"]
 
 [ext_resource type="Script" uid="uid://c8tlo7ig0ena6" path="res://scenes/UI/chat_ui/chat_ui.gd" id="1_h4ouj"]
 [ext_resource type="PackedScene" uid="uid://s0tf56xdbeog" path="res://scenes/UI/bubble_ui/detail_bubble.tscn" id="2_8ats8"]
+[ext_resource type="WwiseEvent" uid="uid://dei8x7w5kjtmy" path="res://Wwise/resources/Event/{C6E972AC-BD49-4AFD-9E6C-8066C6F12647}.tres" id="2_qn37w"]
 [ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="3_hksxt"]
 [ext_resource type="PackedScene" uid="uid://immlbpyxbb8m" path="res://scenes/UI/bubble_ui/flat_bubble.tscn" id="3_spcoe"]
 [ext_resource type="FontFile" uid="uid://dche8c1u6rmg" path="res://scenes/UI/fonts/OPlusSans3-Bold.ttf" id="3_vgd05"]
+[ext_resource type="WwiseEvent" uid="uid://b2it8sw51j1ee" path="res://Wwise/resources/Event/{5F0595F7-FE1B-4D43-AD04-66CCA22E8660}.tres" id="3_wk3ky"]
 [ext_resource type="PackedScene" uid="uid://c4qyp5qpeg8jg" path="res://scenes/UI/bubble_ui/image_bubble.tscn" id="4_ftjdt"]
+[ext_resource type="WwiseEvent" uid="uid://l1kmshbg2s0p" path="res://Wwise/resources/Event/{773C4242-BCF9-4C5A-A8B8-7ABBEB189DFB}.tres" id="4_mmueg"]
 [ext_resource type="PackedScene" uid="uid://db7chujuf7je8" path="res://scenes/UI/ProfilePic/profile_pic.tscn" id="5_8ats8"]
+[ext_resource type="WwiseEvent" uid="uid://bv6fbhrbm050s" path="res://Wwise/resources/Event/{3711CE7B-2BAA-4B8F-9C47-4F50C4EA13A4}.tres" id="5_wk3ky"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_td1kd"]
 
@@ -60,6 +64,10 @@ grow_vertical = 2
 script = ExtResource("1_h4ouj")
 debug_mode = true
 qwen = false
+wwise_type_fault = ExtResource("2_qn37w")
+wwise_type = ExtResource("3_wk3ky")
+wwise_player_type = ExtResource("4_mmueg")
+wwise_player_type_return = ExtResource("5_wk3ky")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -222,5 +230,7 @@ sampler = SubResource("NobodyWhoSampler_vgd05")
 system_prompt = "only return hello. /no_think"
 
 [connection signal="focus_entered" from="Panel/InputHBox/TextInput" to="." method="_on_text_input_focus_entered"]
+[connection signal="text_changed" from="Panel/InputHBox/TextInput" to="." method="_on_text_input_text_changed"]
+[connection signal="text_submitted" from="Panel/InputHBox/TextInput" to="." method="_on_text_input_text_submitted"]
 [connection signal="response_finished" from="NobodyWhoChat" to="." method="_on_nobody_who_chat_response_finished"]
 [connection signal="response_updated" from="NobodyWhoChat" to="." method="_on_nobody_who_chat_response_updated"]

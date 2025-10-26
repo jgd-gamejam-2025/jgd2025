@@ -5,18 +5,20 @@ extends Node3D
 @onready var chat_ui = pad.chat_ui
 @export var skip_opening = false
 @export var start_velocity := Vector3(0, -0.1, 0)
-@export var landing_time := 2.45
+@export var landing_time := 2.15
 @onready var notification_box = $Notification
+@export var wwise_maze :WwiseEvent
+@export var wwise_maze_landing :WwiseEvent
 
 signal end_opening_sig
 
 var curr_level = 1
 
 @export var next_scene : PackedScene
+
 func _ready():
 	player.can_move = false
 	player.camera_pivot.rotation.x = deg_to_rad(-88.5)
-	Transition.end()
 	chat_ui.set_ai_name("Eve")
 	chat_ui.init_system_prompt({"ai":ai_prompt})
 	chat_ui.select_ai_chat("ai")
@@ -26,8 +28,10 @@ func _ready():
 	chat_ui.connect("command_received", receive_chat_command)	
 	if skip_opening or not LevelManager.show_opening:
 		end_opening()
+		wwise_maze.post(self)
 	else:
-		Wwise.post_event("MX_Play_Title", self)
+		$Opening.start_opening()
+	Transition.end()
 
 func end_opening() -> void:
 	$StartBlock/CollisionShape3D.disabled = true
@@ -37,6 +41,7 @@ func end_opening() -> void:
 	$Opening.terminal.hide()
 	player.shake_camera(0.03, 3)
 	await get_tree().create_timer(landing_time).timeout
+	wwise_maze_landing.post(self)
 	player.shake_camera(0.5, 0.3)
 	await get_tree().create_timer(1).timeout
 	if LevelManager.show_opening:

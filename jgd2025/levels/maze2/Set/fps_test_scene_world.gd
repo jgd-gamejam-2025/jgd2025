@@ -71,7 +71,6 @@ func set_current_level():
 	match set_index:
 		0:
 			curr_set.set_question("", "流体恋人", "流体怪人", "立体恋人")
-			$BigDoor.open_gate2()
 			await get_tree().create_timer(4).timeout
 			get_notification("看起来我们正在深入……我的记忆？")
 			await get_tree().create_timer(12).timeout

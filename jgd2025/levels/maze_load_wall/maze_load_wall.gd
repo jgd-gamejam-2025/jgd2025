@@ -125,12 +125,6 @@ func _on_notification_area_2_area_text(message: String) -> void:
 	await get_tree().create_timer(2).timeout
 	get_notification("也许重新开始就能有些新的灵感……")
 
-
-func _on_open_gate_body_entered(body: Node3D) -> void:
-	if body.name == "Player":
-		$MazeTarget/Door.open_gate1()
-
-
 func _on_enter_gate_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
 		get_notification("我有种奇怪的感觉……")

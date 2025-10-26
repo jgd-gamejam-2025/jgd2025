@@ -228,6 +228,9 @@ model_node = NodePath("../NobodyWhoModel")
 sampler = SubResource("NobodyWhoSampler_vgd05")
 system_prompt = "only return hello. /no_think"
 
+[node name="LoadingTimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="focus_entered" from="Panel/InputHBox/TextInput" to="." method="_on_text_input_focus_entered"]
 [connection signal="text_changed" from="Panel/InputHBox/TextInput" to="." method="_on_text_input_text_changed"]
 [connection signal="text_submitted" from="Panel/InputHBox/TextInput" to="." method="_on_text_input_text_submitted"]

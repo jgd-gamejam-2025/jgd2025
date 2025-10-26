@@ -40,12 +40,19 @@ signal command_received(command: String)
 var line_edit_focus_sent = false
 var first_time_sent_text = true
 
+# --- Loading LLM 点点点 ---
+@onready var loading_timer: Timer = $LoadingTimer # 获取 Timer 节点
+var loading_bubble = null # 存储正在显示 "..." 的 bubble
+var loading_dots_count = 1
+var ai_is_thinking = false # AI 是否正在处理
+
 func _ready() -> void:
 	margin_container.hide()
 	detail_bubble.hide()
 	flat_bubble.hide()
 	image_bubble.hide()
 	bubble_scroll_bar.connect("changed", self._handle_scrollbar_changed)
+	loading_timer.timeout.connect(_update_loading_dots)
 	if debug_mode:
 		print("Debug mode activated")
 
@@ -53,8 +60,18 @@ func send_text_to_ai():
 	var my_message = textInput.text
 	textInput.text = ""
 	add_flat_bubble(my_message)
-	make_new_bubble_on_next_token = true
+	# --- 修改：启动 Loading 效果 ---
+	make_new_bubble_on_next_token = false # 下一个 token 不再创建新 bubble
 	textInput.editable = false
+	ai_is_thinking = true # 标记 AI 开始思考
+
+	# 1. 创建一个 bubble 用于显示 loading
+	add_detail_bubble() # add_detail_bubble 会自动更新 current_detail_bubble
+	loading_bubble = current_detail_bubble # 记住这个 bubble
+	loading_dots_count = 1
+	loading_bubble.rich_text_label.text = "." # 初始显示一个点
+	loading_timer.start() # 启动动画 timer
+	# --- 结束修改 ---
 	if not debug_mode:
 		if not block_text_generation:
 			current_aiChat.say(my_message)
@@ -68,6 +85,14 @@ func send_text_to_ai():
 				await get_tree().create_timer(0.1).timeout
 		_on_nobody_who_chat_response_finished("Debugging Again")
 	sent_text.emit()
+func _update_loading_dots():
+
+# --- 更新 Loading 点的函数 ---
+	# 只有在 AI 思考中且 loading_bubble 有效时才更新
+	if ai_is_thinking and is_instance_valid(loading_bubble):
+		loading_dots_count = (loading_dots_count % 4) + 1
+		loading_bubble.rich_text_label.text = String(".").repeat(loading_dots_count)
+# --- 结束新增 ---
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
@@ -94,6 +119,12 @@ var thinking_mode: bool = false
 func _on_nobody_who_chat_response_updated(new_token: String) -> void:
 	if block_text_generation:
 		return
+
+	# --- 停止 Loading 动画 ---
+	if ai_is_thinking and is_instance_valid(loading_bubble):
+		loading_timer.stop() # 停止点点点动画
+		current_detail_bubble = loading_bubble	
+	# --- 结束新增 ---
 
 	# If qwen is true, skip the <think> blocks (everything between <think> and </think>)
 	if qwen:
@@ -122,7 +153,7 @@ func _on_nobody_who_chat_response_updated(new_token: String) -> void:
 		return
 
 	if in_chat_mode:
-		if make_new_bubble_on_next_token:
+		if make_new_bubble_on_next_token and not is_instance_valid(loading_bubble):
 			make_new_bubble_on_next_token = false
 			add_detail_bubble()
 		if auto_new_bubble_limit > 0 and current_detail_bubble.rich_text_label.text.length() > auto_new_bubble_limit:
@@ -156,6 +187,16 @@ func _on_nobody_who_chat_response_updated(new_token: String) -> void:
 func _on_nobody_who_chat_response_finished(response: String) -> void:
 	if block_text_generation:
 		return
+	
+	# --- 新增：确保 Loading 状态结束 ---
+	ai_is_thinking = false # 标记 AI 思考结束
+	loading_timer.stop() # 再次确保 timer 停止
+	# 如果 AI 很快结束且没有发送任何 token (loading_bubble 还在)
+	if is_instance_valid(loading_bubble):
+		loading_bubble.queue_free() # 直接删除 loading bubble
+		loading_bubble = null
+	# --- 结束新增 ---
+		
 	if current_detail_bubble != null:
 		received_text.emit(current_detail_bubble.rich_text_label.text)
 	textInput.editable = true

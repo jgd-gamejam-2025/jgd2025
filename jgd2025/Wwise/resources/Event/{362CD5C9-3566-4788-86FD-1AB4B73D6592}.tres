@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://byef2mnoufnxg"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "MX_Play_Title"
+id = 2665577840
+guid = "{362CD5C9-3566-4788-86FD-1AB4B73D6592}"
+dummy = true

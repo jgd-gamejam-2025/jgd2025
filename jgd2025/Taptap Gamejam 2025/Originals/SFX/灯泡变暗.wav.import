@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://x2cu0ce4ca5f"
+path="res://.godot/imported/灯泡变暗.wav-a51ac22f25c9bd7bbf37401c8033b149.sample"
+
+[deps]
+
+source_file="res://Taptap Gamejam 2025/Originals/SFX/灯泡变暗.wav"
+dest_files=["res://.godot/imported/灯泡变暗.wav-a51ac22f25c9bd7bbf37401c8033b149.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

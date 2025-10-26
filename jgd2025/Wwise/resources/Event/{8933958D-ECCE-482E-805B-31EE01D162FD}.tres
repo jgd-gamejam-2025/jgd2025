@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://ci04cqqjhakwf"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "MX_Begin_to_none"
+id = 1069070997
+guid = "{8933958D-ECCE-482E-805B-31EE01D162FD}"
+dummy = true

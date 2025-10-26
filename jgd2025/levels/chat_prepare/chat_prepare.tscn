@@ -21,6 +21,7 @@ load_on = 1
 
 [node name="AkEvent3D" type="AkEvent3D" parent="ChatUI/AkBank"]
 event = ExtResource("3_bxhim")
+trigger_on = 2
 
 [node name="AkListener3D" type="AkListener3D" parent="ChatUI"]
 

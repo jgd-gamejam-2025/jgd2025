@@ -113,6 +113,7 @@ func check_controls() -> void:
 	if !InputMap.has_action(CROUCH):
 		push_error("No control mapped for 'crouch', using default...")
 		_add_input_map_event(CROUCH, KEY_C)
+		_add_input_map_event(CROUCH, KEY_CTRL)
 	if !InputMap.has_action(SPRINT):
 		push_error("No control mapped for 'sprint', using default...")
 		_add_input_map_event(SPRINT, KEY_SHIFT)

@@ -12,7 +12,8 @@ const far_away_position = Vector3(0, -1000, 0)
 @onready var room2 = $RoomSet2
 @onready var room3 = $RoomSet3
 @onready var room4 = $RoomSet4
-
+@export var wwise_earthquake: WwiseEvent
+@export var wwise_rtpc: WwiseRTPC
 var curr_room = 1
 var curr_pass = false
 var unknown_name: String = "%"
@@ -358,6 +359,8 @@ func handle_chat_command(command: String) -> void:
 		
 
 func play_ending():
+	wwise_earthquake.post(LevelManager)
+	wwise_rtpc.set_value(LevelManager, 100)
 	Wwise.post_event("MX_Play_End", LevelManager)
 	player.shake_camera(0.3, 1)
 	await get_tree().create_timer(1).timeout
@@ -520,6 +523,7 @@ var log4 = "
 
 func _on_eve_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
+		wwise_earthquake.stop(LevelManager)
 		Transition.show_EVE()
 		await get_tree().create_timer(0.5).timeout
 		LevelManager.to_credit()

@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxg57iry0rwpn"]
+[gd_scene load_steps=11 format=3 uid="uid://dxg57iry0rwpn"]
 
 [ext_resource type="PackedScene" uid="uid://o006o6vprn6c" path="res://levels/parkour/ParkourBridge.tscn" id="1_606x2"]
 [ext_resource type="Script" uid="uid://c7yypgho8hypy" path="res://levels/maze2/Set/last_bridge.gd" id="1_xj7tt"]
+[ext_resource type="WwiseEvent" uid="uid://dsjwud0hxjvbn" path="res://Wwise/resources/Event/{DFD7DA4C-5775-4CED-AEC7-8059457DAC9A}.tres" id="2_3kjwc"]
+[ext_resource type="WwiseRTPC" uid="uid://bk3yjupt30fwg" path="res://Wwise/resources/Game Parameter/{B244C2B3-1F5C-42A8-AB71-30FF7BBDB802}.tres" id="3_vxxld"]
 [ext_resource type="PackedScene" uid="uid://daxrvykcey2yk" path="res://levels/BlockOcean/ocean_scene.tscn" id="3_xj7tt"]
+[ext_resource type="WwiseEvent" uid="uid://dbc2wtawi4vcc" path="res://Wwise/resources/Event/{BE004A1F-9617-47C3-99E6-92D0EC2ED583}.tres" id="4_gldua"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_606x2"]
 size = Vector3(5.5740967, 1, 6.115967)
@@ -20,6 +23,9 @@ radius = 13.928223
 
 [node name="LastBridge" type="Node3D"]
 script = ExtResource("1_xj7tt")
+wwise_earthquake = ExtResource("2_3kjwc")
+wwise_rtpc = ExtResource("3_vxxld")
+wwise_mazetrans_to_chat = ExtResource("4_gldua")
 
 [node name="OceanScene" parent="." instance=ExtResource("3_xj7tt")]
 transform = Transform3D(0.5694517, 0, -0.8220248, 0, 1, 0, 0.8220248, 0, 0.5694517, 0, -49.90796, -340.0597)
@@ -48,7 +54,7 @@ shape = SubResource("CylinderShape3D_3kjwc")
 [node name="OceanEnd" type="Area3D" parent="."]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="OceanEnd"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06918335, -61.42845, -339.8727)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06918335, -53.43772, -339.8727)
 shape = SubResource("CylinderShape3D_xj7tt")
 
 [node name="Marker3D" type="Marker3D" parent="."]
@@ -57,4 +63,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -340.6017)
 [connection signal="body_entered" from="ParkourStart" to="." method="_on_parkour_start_body_entered"]
 [connection signal="body_entered" from="ParkourHell" to="." method="_on_parkour_hell_body_entered"]
 [connection signal="body_entered" from="OceanStart" to="." method="_on_ocean_start_body_entered"]
-[connection signal="body_exited" from="OceanEnd" to="." method="_on_ocean_end_body_exited"]
+[connection signal="body_entered" from="OceanEnd" to="." method="_on_ocean_end_body_exited"]

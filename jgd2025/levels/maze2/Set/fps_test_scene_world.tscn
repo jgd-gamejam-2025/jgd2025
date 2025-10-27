@@ -1,10 +1,12 @@
-[gd_scene load_steps=40 format=3 uid="uid://ofyuav8psja7"]
+[gd_scene load_steps=42 format=3 uid="uid://ofyuav8psja7"]
 
 [ext_resource type="Script" uid="uid://c8j73486nr6o8" path="res://levels/maze2/Set/fps_test_scene_world.gd" id="1_868cf"]
 [ext_resource type="PackedScene" uid="uid://dxg57iry0rwpn" path="res://levels/maze2/Set/last_bridge.tscn" id="2_15gwa"]
+[ext_resource type="WwiseEvent" uid="uid://dsjwud0hxjvbn" path="res://Wwise/resources/Event/{DFD7DA4C-5775-4CED-AEC7-8059457DAC9A}.tres" id="3_0d1uc"]
 [ext_resource type="PackedScene" uid="uid://78exdosy10ho" path="res://scenes/NotificationArea/notification_area.tscn" id="3_15gwa"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_nx4w8"]
 [ext_resource type="PackedScene" uid="uid://bysluvlg528e6" path="res://levels/maze2/Set/set2.tscn" id="4_868cf"]
+[ext_resource type="WwiseRTPC" uid="uid://bk3yjupt30fwg" path="res://Wwise/resources/Game Parameter/{B244C2B3-1F5C-42A8-AB71-30FF7BBDB802}.tres" id="4_vsxmj"]
 [ext_resource type="PackedScene" uid="uid://dfepyejg6c541" path="res://scenes/maze_scene/big_door.tscn" id="5_8luys"]
 [ext_resource type="PackedScene" uid="uid://b7h4788xh1nu3" path="res://levels/tps_test_scene/model/line/013.glb" id="5_htxp8"]
 [ext_resource type="PackedScene" uid="uid://clm5h2ceura81" path="res://levels/tps_test_scene/model/line/022.glb" id="6_wtirf"]
@@ -871,6 +873,8 @@ size = Vector3(13.433193, 18.566132, 15.8352585)
 [node name="FpsTestScene" type="Node3D"]
 script = ExtResource("1_868cf")
 last_bridge_scene = ExtResource("2_15gwa")
+wwise_earthquake = ExtResource("3_0d1uc")
+wwise_rtpc = ExtResource("4_vsxmj")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_aaj73")

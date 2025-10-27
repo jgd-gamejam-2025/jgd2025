@@ -1,14 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtmh7l6bn23wb"]
+[gd_scene load_steps=5 format=3 uid="uid://dtmh7l6bn23wb"]
 
-[ext_resource type="WwiseBank" uid="uid://cqkoeh1yxx7s1" path="res://Wwise/resources/SoundBank/{C698E988-E820-4CEA-B8D7-C3C3717E179D}.tres" id="1_jwujp"]
-[ext_resource type="WwiseEvent" uid="uid://ckqfn6lkriq3k" path="res://Wwise/resources/Event/{D862B3DF-5DDF-47F9-8AE7-E47FC53F13D5}.tres" id="2_ss345"]
+[ext_resource type="WwiseBank" uid="uid://dh2vrgwg0v63s" path="res://Wwise/resources/SoundBank/{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}.tres" id="1_jwujp"]
+[ext_resource type="WwiseEvent" uid="uid://dsjwud0hxjvbn" path="res://Wwise/resources/Event/{DFD7DA4C-5775-4CED-AEC7-8059457DAC9A}.tres" id="2_jwujp"]
+[ext_resource type="Script" uid="uid://dql0qhb2it31o" path="res://scenes/Wwise/wwise_sample.gd" id="2_ss345"]
+[ext_resource type="WwiseRTPC" uid="uid://bk3yjupt30fwg" path="res://Wwise/resources/Game Parameter/{B244C2B3-1F5C-42A8-AB71-30FF7BBDB802}.tres" id="4_0y7x4"]
 
 [node name="AkBank" type="AkBank"]
 bank = ExtResource("1_jwujp")
 load_on = 1
+script = ExtResource("2_ss345")
+wwise_event = ExtResource("2_jwujp")
+wwise_rtpc = ExtResource("4_0y7x4")
 
 [node name="AkEvent3D" type="AkEvent3D" parent="."]
-event = ExtResource("2_ss345")
-trigger_on = 1
+event = ExtResource("2_jwujp")
+trigger_on = 2
 
 [node name="AkListener3D" type="AkListener3D" parent="."]

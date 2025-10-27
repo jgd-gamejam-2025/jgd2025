@@ -8,7 +8,7 @@
 bg_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgpjt"]
-bg_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3x43x"]
 
@@ -110,7 +110,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.099469066, 0.099469066, 0.099469066, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15

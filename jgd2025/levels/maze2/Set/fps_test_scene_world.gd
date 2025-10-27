@@ -6,6 +6,8 @@ extends Node3D
 @onready var player = $Player
 @onready var set_template = $Set
 @export var last_bridge_scene: PackedScene
+@export var wwise_earthquake: WwiseEvent
+@export var wwise_rtpc: WwiseRTPC
 
 var set_index = 0
 var correct_choices = [1, 3, 2, 2]
@@ -85,6 +87,8 @@ func set_current_level():
 
 func play_ending():
 	Wwise.post_event("MX_Maze_to_Mazepretrans", LevelManager)
+	wwise_rtpc.set_value(LevelManager, 40)
+	wwise_earthquake.post(LevelManager)
 	Transition.set_and_start("崩溃","",0.75)
 	await get_tree().create_timer(1).timeout
 	get_notification("这地方……要崩溃了？！")
@@ -145,7 +149,7 @@ func _on_parkour_started() -> void:
 	get_notification("快跑！这里要塌了！")
 	var tween = create_tween()
 	tween.parallel().tween_property($Robot/Model, "rotation", Vector3(-PI/1.2, 0, 0), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	tween.parallel().tween_property($Robot, "position", $Robot.position + Vector3(0, -250, 50), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.parallel().tween_property($Robot, "position", $Robot.position + Vector3(0, -175, 50), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 
 func _on_ocean_started() -> void:
 	# Generally dim the light

@@ -85,9 +85,9 @@ func _on_use_e_pressed() -> void:
 	print("USE_E detected in room.gd")
 	
 func _on_use_f_pressed() -> void:
-	# next_step()
-	# if curr_room == 4:
-	# 	play_ending()
+	next_step()
+	if curr_room == 4:
+		play_ending()
 	pass
 
 func _on_pad_pad_activated() -> void:

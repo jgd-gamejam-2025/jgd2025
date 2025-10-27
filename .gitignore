@@ -34,3 +34,4 @@ build/*.dll
 build/*.console.exe
 build/*.zip
 build*/
+build*.zip

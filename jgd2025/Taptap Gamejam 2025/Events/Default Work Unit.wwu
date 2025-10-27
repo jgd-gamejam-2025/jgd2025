@@ -629,6 +629,20 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="MX_Play_End" ID="{40FB47F1-CAC9-4837-B2E5-3AA5E39F5268}">
+							<ChildrenList>
+								<Action Name="" ID="{F591183E-8BC1-452B-BF3C-42F5783DD7D5}" ShortID="363774759">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{27A55FCC-9D31-41B8-8961-C09DF32C0E13}" WorkUnitID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

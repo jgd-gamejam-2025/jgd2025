@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://drlbpaw18ru2l"
+path="res://.godot/imported/k9失控.wav-6a459f31f3f4a0a87722138229b1d8ef.sample"
+
+[deps]
+
+source_file="res://Taptap Gamejam 2025/Originals/SFX/k9失控.wav"
+dest_files=["res://.godot/imported/k9失控.wav-6a459f31f3f4a0a87722138229b1d8ef.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

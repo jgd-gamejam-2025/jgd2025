@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://de50xb1ceanab"
+path="res://.godot/imported/柱子loop2.wav-1f023d226369d5e0aee05da0a29efbd6.sample"
+
+[deps]
+
+source_file="res://Taptap Gamejam 2025/Originals/SFX/柱子loop2.wav"
+dest_files=["res://.godot/imported/柱子loop2.wav-1f023d226369d5e0aee05da0a29efbd6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

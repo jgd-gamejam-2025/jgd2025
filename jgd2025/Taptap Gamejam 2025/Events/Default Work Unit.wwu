@@ -33,17 +33,6 @@
 				</Event>
 				<Event Name="Set_AMB_chat" ID="{B2F89EB7-FB90-4D26-A9C6-DED17DE5D4D6}">
 					<ChildrenList>
-						<Action Name="" ID="{9DF25599-8E2B-499C-91AD-79822856913C}" ShortID="26283394">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="SFX_loading" ID="{3A92A4DF-8CC2-44AC-83CD-EAAA64B4526E}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
 						<Action Name="" ID="{AF659140-458B-4028-8AB7-CC9101C5BB2E}" ShortID="252546666">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="3"/>
@@ -92,7 +81,7 @@
 								<Action Name="" ID="{51BED2E3-EDD7-4889-AEC1-27F913AADC3E}" ShortID="966503150">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="SFX_loading" ID="{3A92A4DF-8CC2-44AC-83CD-EAAA64B4526E}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+											<ObjectRef Name="加载加长" ID="{20F98CE7-66F2-4578-B364-16276915B98D}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -352,6 +341,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="SFX_pillar_loop" ID="{15EFC514-CF5C-4885-BD46-56A17202E686}">
+							<ChildrenList>
+								<Action Name="" ID="{A9377ABA-B70B-4882-AC1B-0A48FCAEE509}" ShortID="325053294">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="柱子loop" ID="{14571075-C3B5-4305-AF6F-862E72A276AE}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="MX" ID="{0CDC3913-664C-4418-9E9C-B58B517ACF91}" ShortID="759027858">
@@ -436,22 +436,22 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{567F0643-614A-484C-894D-CB581B72714D}" ShortID="903121610">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeOutCurve" Type="int16" Value="0"/>
+										<Property Name="FadeTime" Type="Real64" Value="7"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="柱子loop" ID="{14571075-C3B5-4305-AF6F-862E72A276AE}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="MX_Play_begin" ID="{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}">
 							<ChildrenList>
-								<Action Name="" ID="{ED243379-B9B0-44E0-8012-B28B36DC350C}" ShortID="761563098">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
-										<Property Name="FadeOutCurve" Type="int16" Value="1"/>
-										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="SFX_loading" ID="{3A92A4DF-8CC2-44AC-83CD-EAAA64B4526E}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
 								<Action Name="" ID="{6F54028A-7510-48B9-B21C-4B60F3C8EB11}" ShortID="14966573">
 									<ReferenceList>
 										<Reference Name="Target">
@@ -678,6 +678,32 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="地震" ID="{94670E8C-3484-4835-997B-EA1DBF3AAE0A}" WorkUnitID="{31113548-3ABA-48C5-839E-39FE3F1493C3}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="VO" ID="{E2D1142C-FB37-41C5-B37F-691057957485}" ShortID="609311215">
+					<ChildrenList>
+						<Event Name="VO_Play_Radio" ID="{3754FA04-481C-4A45-BBED-31C227B62CF5}">
+							<ChildrenList>
+								<Action Name="" ID="{C6BC4E44-BC4C-45CB-BF8E-AFA3812E32C2}" ShortID="1012699268">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="结尾录音" ID="{5D6D5EC6-D53E-42EC-AE4C-82BF37FC371F}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="VO_Play_K9" ID="{686D5FA4-30D0-4BD5-B963-F01240A9A6B0}">
+							<ChildrenList>
+								<Action Name="" ID="{E1BE146D-B9B8-41F8-8CA7-7BC5D07CAC85}" ShortID="278387924">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="k9失控" ID="{5B9A9109-341B-4BC7-9BEE-A207D28EE91C}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

@@ -17,6 +17,7 @@ script = ExtResource("1_5iuj2")
 wait_time = 2.0
 
 [node name="Buttons" parent="." instance=ExtResource("4_gnwe6")]
+visible = false
 
 [node name="Reload" type="CanvasLayer" parent="."]
 visible = false
@@ -29,10 +30,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="Reload"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
 offset_left = 135.0
-offset_top = 417.0
+offset_top = -123.0
 offset_right = 635.0
-offset_bottom = 562.0
+offset_bottom = 22.0
+grow_vertical = 2
+size_flags_horizontal = 0
 theme = ExtResource("4_1crpx")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("8_s6dx3")
@@ -41,10 +47,15 @@ text = ":(
 我遇到了一些问题。"
 
 [node name="Label2" type="Label" parent="Reload"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
 offset_left = 135.0
-offset_top = 481.0
+offset_top = -59.0
 offset_right = 635.0
-offset_bottom = 626.0
+offset_bottom = 86.0
+grow_vertical = 2
+size_flags_horizontal = 0
 theme = ExtResource("4_1crpx")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("9_ostp8")

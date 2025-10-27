@@ -28,7 +28,7 @@ func _ready():
 	chat_ui.connect("command_received", receive_chat_command)	
 	if skip_opening or not LevelManager.show_opening:
 		end_opening()
-		wwise_maze.post(self)
+		wwise_maze.post(LevelManager)
 	else:
 		$Opening.start_opening()
 	Transition.end()

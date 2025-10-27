@@ -358,6 +358,7 @@ func handle_chat_command(command: String) -> void:
 		
 
 func play_ending():
+	Wwise.post_event("MX_Play_End", LevelManager)
 	player.shake_camera(0.3, 1)
 	await get_tree().create_timer(1).timeout
 	await chat_ui.remove_bubbles(0.02).finished

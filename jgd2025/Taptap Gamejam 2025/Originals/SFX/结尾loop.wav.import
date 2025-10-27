@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://mgcyy5vnp48s"
+path="res://.godot/imported/结尾loop.wav-e13e3d9dee486979cca11e9bb401ef7b.sample"
+
+[deps]
+
+source_file="res://Taptap Gamejam 2025/Originals/SFX/结尾loop.wav"
+dest_files=["res://.godot/imported/结尾loop.wav-e13e3d9dee486979cca11e9bb401ef7b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

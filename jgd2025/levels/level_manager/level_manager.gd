@@ -26,7 +26,7 @@ var use_low_ai: bool = false
 # === Save/Load Functions ===
 
 func _ready() -> void:
-	LevelManager.load_use_low_ai()
+	LevelManager.get_save_data()
 
 func save_game(scene_name: String, scene_data: Dictionary) -> void:
 	Loading.display()
@@ -107,6 +107,27 @@ func save_use_low_ai(value: bool) -> void:
 		print("use_low_ai saved: ", use_low_ai)
 	else:
 		push_error("Failed to save use_low_ai. Error code: ", error)
+
+func get_save_data() -> Dictionary:
+	"""Read curr_scene, use_low_ai and scene_data from save file"""
+	var error = config.load(SAVE_FILE_PATH)
+	if error != OK:
+		print("No save file found, returning empty data")
+		return {
+			"curr_scene": "",
+			"use_low_ai": false,
+			"scene_data": {}
+		}
+	
+	var save_data = {
+		"curr_scene": config.get_value("save", "scene_name", ""),
+		"use_low_ai": config.get_value("save", "use_low_ai", false),
+		"scene_data": config.get_value("save", "scene_data", {})
+	}
+	curr_scene = save_data["curr_scene"]
+	use_low_ai = save_data["use_low_ai"]
+	print("Save data retrieved: ", save_data)
+	return save_data["scene_data"]
 
 func delete_save() -> void:
 	var dir = DirAccess.open("user://")

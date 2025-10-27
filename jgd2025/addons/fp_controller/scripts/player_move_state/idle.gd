@@ -8,7 +8,8 @@ func enter(_msg := {}) -> void:
 
 func handle_input(event: InputEvent) -> void:
 	if player.can_jump:
-		if event.is_action_pressed(player.JUMP) && player.is_on_floor() && player.allow_jump:
+		# 禁用在使用 pad 时的跳跃
+		if event.is_action_pressed(player.JUMP) && player.is_on_floor() && player.allow_jump && not player.pad.is_playing:
 			state_machine.transition_to(
 				state_machine.movement_state[state_machine.JUMP], 
 				{ 

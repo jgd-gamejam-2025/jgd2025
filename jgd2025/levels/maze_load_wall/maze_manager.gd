@@ -24,6 +24,7 @@ var opening_ended = false
 var main_maze_aabb: AABB
 
 var wall_height: float = 1.0 # 一个内部变量，将在 _ready() 中被自动设置
+@export var wwise_wall_rise :WwiseEvent
 
 
 func _ready():
@@ -65,6 +66,9 @@ func _process(_delta):
 
 func _on_rise_timer_timeout():
 	print("计时结束，迷宫升起！")
+	# 播放墙体升起音效
+	if wwise_wall_rise:
+		wwise_wall_rise.post(self)
 	raise_maze()
 
 

@@ -5,7 +5,6 @@
 [node name="WwiseBGM" type="Node"]
 
 [node name="AkListener3D" type="AkListener3D" parent="."]
-is_spatial = false
 
 [node name="AkBank" type="AkBank" parent="."]
 bank = ExtResource("1_08yc8")

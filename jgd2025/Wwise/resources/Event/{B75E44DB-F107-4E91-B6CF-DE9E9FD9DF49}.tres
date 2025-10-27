@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://6c7kajpukh7i"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "SFX_Play_pillarup"
+id = 1307923593
+guid = "{B75E44DB-F107-4E91-B6CF-DE9E9FD9DF49}"
+dummy = true

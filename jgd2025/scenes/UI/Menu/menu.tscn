@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bco451gkhafpk"]
+[gd_scene load_steps=5 format=3 uid="uid://bco451gkhafpk"]
 
 [ext_resource type="Script" uid="uid://doietcndwdsr4" path="res://scenes/UI/Menu/menu.gd" id="1_877lm"]
 [ext_resource type="Texture2D" uid="uid://2vaixlrl7qah" path="res://assets/Eve/title.png" id="3_877lm"]
 [ext_resource type="Texture2D" uid="uid://btpygk6sp4sf3" path="res://assets/Eve/poster - 副本.png" id="3_d2hwh"]
-[ext_resource type="Theme" uid="uid://byj5ikantfwqn" path="res://scenes/UI/Menu/menu.tres" id="4_877lm"]
-[ext_resource type="WwiseEvent" uid="uid://csut6xamoko42" path="res://Wwise/resources/Event/{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}.tres" id="5_yv4w8"]
+[ext_resource type="Theme" uid="uid://oddpfcoobolo" path="res://scenes/UI/options_settings/options_settings.tres" id="4_877lm"]
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_877lm")
@@ -53,10 +52,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -304.0
+offset_left = -316.0
 offset_top = 14.0
 offset_right = -89.0
-offset_bottom = 173.0
+offset_bottom = 248.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/margin_right = 95
@@ -79,6 +78,13 @@ layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("4_877lm")
 text = "新游戏"
+alignment = 2
+
+[node name="Options" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("4_877lm")
+text = "选项"
 alignment = 2
 
 [node name="Exit" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
@@ -105,13 +111,11 @@ theme = ExtResource("4_877lm")
 theme_override_font_sizes/font_size = 24
 text = "AI角色的言论由语言模型生成，不代表制作组立场，内容可能存在偏差或错误，请玩家自行判断。"
 
-[node name="AkEvent3D" type="AkEvent3D" parent="."]
-event = ExtResource("5_yv4w8")
-trigger_on = 2
-
 [connection signal="mouse_entered" from="ColorRect/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="mouse_entered" from="ColorRect/MarginContainer/VBoxContainer/NewGame" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="mouse_entered" from="ColorRect/MarginContainer/VBoxContainer/Options" to="." method="_on_options_mouse_entered"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="mouse_entered" from="ColorRect/MarginContainer/VBoxContainer/Exit" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

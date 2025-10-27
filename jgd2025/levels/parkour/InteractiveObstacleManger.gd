@@ -93,6 +93,11 @@ func _on_trigger_area_body_entered(body: Node3D):
 
 
 func _execute_actions():
+	if obstacle_action.move_type == ObstacleAction.MoveType.MOVE_UP:
+		Wwise.post_event("SFX_Play_pillarup2", self)
+	else:
+		Wwise.post_event("SFX_pillar_disassembly1", self)
+		
 	for obstacle in managed_obstacles:
 		_perform_action(obstacle, obstacle_action)
 

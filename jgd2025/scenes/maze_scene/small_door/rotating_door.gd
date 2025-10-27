@@ -114,6 +114,7 @@ func _on_trigger_area_body_entered(body):
 
 func close_door():
 	is_closed = true
+	Wwise.post_event("SFX_door2", self)
 	# (可选) 禁用触发器
 	if is_instance_valid(trigger_area):
 		trigger_area.monitoring = false
@@ -162,6 +163,7 @@ func open_door():
 	if not is_closed:
 		return  # 门已经是开着的
 	
+	Wwise.post_event("SFX_door2", self)
 	is_closed = false
 	
 	# 禁用关闭碰撞体

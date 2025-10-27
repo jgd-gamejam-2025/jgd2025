@@ -146,11 +146,11 @@ transform = Transform3D(-4.3711378e-08, 0, 0.03364738, 8.526513e-14, 0.999999, 2
 
 [node name="ClearArea4" type="Area3D" parent="."]
 transform = Transform3D(0.24999997, 0, -4.371138e-08, 0, 0.25, 0, 4.371138e-08, 0, 0.24999997, 0.8604998, 0, -2.5643523)
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClearArea4"]
-transform = Transform3D(0.9999955, 0, 1.21787025e-11, 0, 1, 0, -1.21787025e-11, 0, 0.9999955, 9.0897255, -2.1858897, -2.0948238)
+transform = Transform3D(0.9999955, 0, 1.39408485e-11, 0, 1, 0, -1.39408485e-11, 0, 0.9999955, 7.7785625, -2.1858897, 0.39361)
 shape = SubResource("BoxShape3D_8t5sh")
+debug_color = Color(0.7637117, 0.034981813, 0.7025987, 0.41960785)
 
 [node name="RoomSet4" parent="." instance=ExtResource("5_y43wp")]
 transform = Transform3D(-0.5, 0, 4.3711385e-08, 0, 0.49999994, 0, -4.371139e-08, 0, -0.49999994, 1.6350253, -0.95367837, -5.1067038)

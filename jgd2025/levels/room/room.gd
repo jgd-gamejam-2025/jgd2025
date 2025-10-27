@@ -12,7 +12,8 @@ const far_away_position = Vector3(0, -1000, 0)
 @onready var room2 = $RoomSet2
 @onready var room3 = $RoomSet3
 @onready var room4 = $RoomSet4
-
+@export var wwise_earthquake: WwiseEvent
+@export var wwise_rtpc: WwiseRTPC
 var curr_room = 1
 var curr_pass = false
 var unknown_name: String = "%"
@@ -100,8 +101,10 @@ var newspaper_on: bool = false
 func _on_player_interact_obj(target: Node) -> void:
 	if target.name == "Newspaper":
 		if newspaper_on:
+			Wwise.post_event("SFX_pickup_newspaper", target)
 			$Props.hide()
 		else:
+			Wwise.post_event("SFX_putdown_newspaper", target)
 			$Props.show()
 		newspaper_on = not newspaper_on
 		return
@@ -183,6 +186,7 @@ func next_step() -> void:
 				room2.light_off()
 				room3.light_on()
 			else:
+				Wwise.post_event("SFX_room_flipped_landing", player)
 				var temp_tween = create_tween()
 				temp_tween.set_parallel()
 				temp_tween.tween_property($TrueDoor21, "rotation_degrees:y", 180, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
@@ -355,7 +359,12 @@ func handle_chat_command(command: String) -> void:
 		
 
 func play_ending():
+	wwise_earthquake.post(LevelManager)
+	wwise_rtpc.set_value(LevelManager, 100)
+	Wwise.post_event("MX_Play_End", LevelManager)
 	player.shake_camera(0.3, 1)
+	await get_tree().create_timer(1).timeout
+	await chat_ui.remove_bubbles(0.02).finished
 	await get_tree().create_timer(0.5).timeout
 	var wobble_level = 99
 	var tween = create_tween()
@@ -514,6 +523,7 @@ var log4 = "
 
 func _on_eve_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
+		wwise_earthquake.stop(LevelManager)
 		Transition.show_EVE()
 		await get_tree().create_timer(0.5).timeout
 		LevelManager.to_credit()
@@ -521,5 +531,6 @@ func _on_eve_area_3d_body_entered(body: Node3D) -> void:
 
 func _on_room_opening_ended() -> void:
 	Transition.end()
+	Wwise.post_event("MX_Play_room", LevelManager)
 	await get_tree().create_timer(0.5).timeout
 	player.can_move_camera = true

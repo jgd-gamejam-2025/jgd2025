@@ -26,6 +26,7 @@ WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
 LevelManager="*res://levels/level_manager/LevelManager.tscn"
 Loading="*res://scenes/UI/TransitionUI/loading.tscn"
 WwiseBGM="*res://scenes/Wwise/wwise.tscn"
+OptionsSettings="*res://scenes/UI/options_settings/options_settings.tscn"
 
 [display]
 

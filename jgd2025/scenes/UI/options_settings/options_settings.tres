@@ -1,0 +1,58 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://oddpfcoobolo"]
+
+[ext_resource type="FontFile" uid="uid://dpx5atk0qm3yy" path="res://scenes/UI/fonts/SourceHanSansCN-Regular.otf" id="1_hner2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_877lm"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yv4w8"]
+bg_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hner2"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qmw3"]
+bg_color = Color(0.043039158, 0.04303915, 0.04303915, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_3edyd"]
+color = Color(1, 1, 1, 1)
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3edyd"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fcqs"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r01br"]
+bg_color = Color(0, 0, 0, 1)
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 44
+Button/fonts/font = ExtResource("1_hner2")
+Button/styles/focus = SubResource("StyleBoxEmpty_877lm")
+Button/styles/hover = SubResource("StyleBoxFlat_yv4w8")
+Button/styles/normal = SubResource("StyleBoxFlat_hner2")
+Button/styles/pressed = SubResource("StyleBoxFlat_1qmw3")
+HSeparator/styles/separator = SubResource("StyleBoxLine_3edyd")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/fonts/font = ExtResource("1_hner2")
+OptionButton/colors/font_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_hover_color = Color(1, 1, 1, 1)
+OptionButton/fonts/font = ExtResource("1_hner2")
+OptionButton/styles/hover = SubResource("StyleBoxFlat_3edyd")
+PopupMenu/colors/font_color = Color(1, 1, 1, 1)
+PopupMenu/colors/font_hover_color = Color(0, 0, 0, 1)
+PopupMenu/constants/indent = 20
+PopupMenu/constants/item_end_padding = 4
+PopupMenu/font_sizes/font_separator_size = 24
+PopupMenu/font_sizes/font_size = 24
+PopupMenu/fonts/font = ExtResource("1_hner2")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_8fcqs")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_r01br")

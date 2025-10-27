@@ -18,14 +18,19 @@ func _ready():
 
 func light_on():
 	# light generally light up the set up energy
+	# Wwise.post_event("SFX_lightbulb_turndown", self)
+	
 	var tween = create_tween()
+	tween.set_parallel()
 	tween.tween_property(lamb_light, "light_energy", lamb_light_energy, 1.0)
 	tween.tween_property(back_light, "light_energy", back_light_energy, 1.0)
 	tween.tween_property(poster_light, "light_energy", poster_light_energy, 1.0)
 	tween.tween_property(ambient_light, "light_energy", ambient_light_energy, 1.0)
 
 func light_off():
+	Wwise.post_event("SFX_lightbulb_turndown", self)
 	var tween = create_tween()
+	tween.set_parallel()
 	tween.tween_property(lamb_light, "light_energy", 0, 1.0)
 	tween.tween_property(back_light, "light_energy", 0, 1.0)
 	tween.tween_property(poster_light, "light_energy", 0, 1.0)

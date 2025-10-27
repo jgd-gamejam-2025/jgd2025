@@ -18,7 +18,7 @@ func _ready() -> void:
 	label5.modulate.a = 0
 	texture_rect.modulate.a = 0
 	vbox_container.hide()
-	Transition.set_and_start("还记得吗？", "《流体恋人》", 4.0)
+	Transition.set_and_start("还记得吗？", "《流体恋人》", 4.0, "N/A")
 
 	var tween = create_tween()
 	tween.tween_interval(7)
@@ -52,19 +52,25 @@ func end():
 
 
 func _on_button_pressed() -> void:
+	Wwise.post_event("UI_Cchoose", self)
 	end()
 
 func _on_button_2_pressed() -> void:
+	Wwise.post_event("UI_Cchoose", self)
 	end()
 
 func _on_button_3_pressed() -> void:
+	Wwise.post_event("UI_Cchoose", self)
 	end()
 
 func _on_button_3_mouse_entered() -> void:
+	Wwise.post_event("UI_Prechoose", self)
 	button3.text = "我不在乎"
 
 func _on_button_2_mouse_entered() -> void:
+	Wwise.post_event("UI_Prechoose", self)
 	button2.text = "我不在乎"
 
 func _on_button_mouse_entered() -> void:
+	Wwise.post_event("UI_Prechoose", self)
 	button.text = "我不在乎"

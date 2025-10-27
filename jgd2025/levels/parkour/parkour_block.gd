@@ -19,7 +19,7 @@ func _ready():
 func drop():
 	if current_tween:
 		current_tween.kill()
-		
+	#Wwise.post_event("SFX_pillar_disassembly1", self)
 	collision_shape.set_disabled(true) 
 	current_tween = create_tween().set_parallel(true)
 	

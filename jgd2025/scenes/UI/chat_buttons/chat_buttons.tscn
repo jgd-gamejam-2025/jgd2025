@@ -2,31 +2,37 @@
 
 [ext_resource type="Script" uid="uid://bk4cyulfllecl" path="res://scenes/UI/chat_buttons/chat_buttons.gd" id="1_cki5a"]
 [ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="1_ltdvs"]
-[ext_resource type="Texture2D" uid="uid://deoqpv5sf2343" path="res://assets/ui/Gear-1.png" id="2_l2dk5"]
-[ext_resource type="Texture2D" uid="uid://1q6sfcykos8y" path="res://assets/ui/X.png" id="3_fedcw"]
+[ext_resource type="Theme" uid="uid://oddpfcoobolo" path="res://scenes/UI/options_settings/options_settings.tres" id="2_tiknx"]
 [ext_resource type="Texture2D" uid="uid://dlrbue5kaerin" path="res://assets/ui/信息.png" id="4_j1hct"]
 
 [sub_resource type="Gradient" id="Gradient_tupck"]
-colors = PackedColorArray(0.12941177, 0.12941177, 0.12941177, 0.5529412, 0.12941177, 0.12941177, 0.12941177, 0)
+colors = PackedColorArray(0, 0, 0, 0.5529412, 0.12941177, 0.12941177, 0.12941177, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8d25m"]
 gradient = SubResource("Gradient_tupck")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_noujk"]
-bg_color = Color(0.53, 0.2491, 0.2818717, 1)
-corner_radius_top_left = 150
-corner_radius_top_right = 150
-corner_radius_bottom_right = 150
-corner_radius_bottom_left = 150
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cki5a"]
+bg_color = Color(0, 0, 0, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4v0dd"]
-bg_color = Color(0.65, 0.24049999, 0.28827506, 1)
-corner_radius_top_left = 150
-corner_radius_top_right = 150
-corner_radius_bottom_right = 150
-corner_radius_bottom_left = 150
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8d25m"]
+bg_color = Color(0.39748234, 5.5350364e-07, 1.6845763e-07, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjtio"]
+bg_color = Color(0.50074106, 1.2153015e-06, 1.4439226e-07, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
 [node name="Buttons" type="CanvasLayer"]
 script = ExtResource("1_cki5a")
@@ -51,46 +57,47 @@ grow_vertical = 0
 texture = SubResource("GradientTexture2D_8d25m")
 
 [node name="OptionButton" type="Button" parent="."]
-visible = false
-custom_minimum_size = Vector2(0, 55)
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -252.0
-offset_top = -91.0
-offset_right = -192.0
-offset_bottom = -31.0
+offset_left = -298.0
+offset_top = -102.0
+offset_right = -210.0
+offset_bottom = -42.0
 grow_horizontal = 0
 grow_vertical = 0
 pivot_offset = Vector2(28, 30)
-theme = ExtResource("1_ltdvs")
-icon = ExtResource("2_l2dk5")
+theme = ExtResource("2_tiknx")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.8346143, 0.8346143, 0.8346143, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_cki5a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8d25m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cjtio")
+text = "选项"
 icon_alignment = 1
 
 [node name="ExitButton" type="Button" parent="."]
-custom_minimum_size = Vector2(0, 55)
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -87.0
-offset_top = -91.0
-offset_right = -27.0
-offset_bottom = -31.0
+offset_left = -139.0
+offset_top = -102.0
+offset_right = -52.0
+offset_bottom = -42.0
 grow_horizontal = 0
 grow_vertical = 0
 pivot_offset = Vector2(28, 30)
-theme = ExtResource("1_ltdvs")
-theme_override_constants/icon_max_width = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_noujk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_4v0dd")
-theme_override_styles/hover = SubResource("StyleBoxFlat_4v0dd")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_4v0dd")
-theme_override_styles/focus = SubResource("StyleBoxFlat_4v0dd")
-icon = ExtResource("3_fedcw")
+theme = ExtResource("2_tiknx")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.8346143, 0.8346143, 0.8346143, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_cki5a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8d25m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cjtio")
+text = "退出"
 icon_alignment = 1
 
 [node name="InfoButton" type="Button" parent="."]
@@ -112,4 +119,7 @@ theme = ExtResource("1_ltdvs")
 icon = ExtResource("4_j1hct")
 icon_alignment = 1
 
+[connection signal="mouse_entered" from="OptionButton" to="." method="_on_hover_play_audio"]
+[connection signal="pressed" from="OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="mouse_entered" from="ExitButton" to="." method="_on_hover_play_audio"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

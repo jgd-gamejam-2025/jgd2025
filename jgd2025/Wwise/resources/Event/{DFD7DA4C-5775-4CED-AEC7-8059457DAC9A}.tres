@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://dsjwud0hxjvbn"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "Play_AMB_earthquake"
+id = 1151096154
+guid = "{DFD7DA4C-5775-4CED-AEC7-8059457DAC9A}"
+dummy = true

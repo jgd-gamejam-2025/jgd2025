@@ -17,8 +17,8 @@ var curr_level = 1
 @export var next_scene : PackedScene
 
 func _ready():
+	player.can_move_camera = false
 	player.can_move = false
-	player.camera_pivot.rotation.x = deg_to_rad(-88.5)
 	chat_ui.set_ai_name("Eve")
 	chat_ui.init_system_prompt({"ai":ai_prompt})
 	chat_ui.select_ai_chat("ai")
@@ -28,7 +28,7 @@ func _ready():
 	chat_ui.connect("command_received", receive_chat_command)	
 	if skip_opening or not LevelManager.show_opening:
 		end_opening()
-		wwise_maze.post(self)
+		wwise_maze.post(LevelManager)
 	else:
 		$Opening.start_opening()
 	Transition.end()
@@ -38,7 +38,9 @@ func end_opening() -> void:
 	await get_tree().create_timer(0.4).timeout
 	# give a downward velocity to player
 	player.velocity = start_velocity
+	player.camera_pivot.rotation.x = deg_to_rad(-88.5)
 	$Opening.terminal.hide()
+	player.can_move_camera = true
 	player.shake_camera(0.03, 3)
 	await get_tree().create_timer(landing_time).timeout
 	wwise_maze_landing.post(self)
@@ -50,9 +52,9 @@ func end_opening() -> void:
 		get_notification(">预计距离系统完全崩溃剩余时间：1小时21分钟")
 		await get_tree().create_timer(1.5).timeout
 		get_notification(">已切换至备用模型……当前计算能力：3.21%")
+		player.can_move = true
 		await get_tree().create_timer(2).timeout
 		get_notification("嗨")
-		player.can_move = true
 		emit_signal("end_opening_sig")
 		await get_tree().create_timer(1).timeout
 		get_notification("我回来了")
@@ -66,9 +68,9 @@ func end_opening() -> void:
 		get_notification("如果出问题，告诉我重新启动，我会帮你重启这段程序。")
 	else:
 		get_notification("让我们再试一次")
-		await get_tree().create_timer(8).timeout
-		emit_signal("end_opening_sig")
 		player.can_move = true
+		await get_tree().create_timer(5).timeout
+		emit_signal("end_opening_sig")
 
 	
 
@@ -103,7 +105,7 @@ func _on_opening_opening_end() -> void:
 
 func get_notification(message: String, duration: float = 3.0, name_text: String = "Eve"):
 	chat_ui.to_chat_mode()
-	chat_ui.add_and_write_detail_bubble(message, 0.02)
+	chat_ui.add_and_write_detail_bubble(message, 0.02, false)
 	notification_box.show_notification(message, duration, name_text)
 
 
@@ -123,14 +125,9 @@ func _on_notification_area_2_area_text(message: String) -> void:
 	await get_tree().create_timer(2).timeout
 	get_notification("也许重新开始就能有些新的灵感……")
 
-
-func _on_open_gate_body_entered(body: Node3D) -> void:
-	if body.name == "Player":
-		$MazeTarget/Door.open_gate1()
-
-
 func _on_enter_gate_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
 		get_notification("我有种奇怪的感觉……")
-		await get_tree().create_timer(1).timeout
+		Transition.set_and_start("", "", 0,"N/A")
+		await get_tree().create_timer(0.3).timeout
 		LevelManager.to_maze2()

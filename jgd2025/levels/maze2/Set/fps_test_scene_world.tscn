@@ -1,10 +1,12 @@
-[gd_scene load_steps=40 format=3 uid="uid://ofyuav8psja7"]
+[gd_scene load_steps=42 format=3 uid="uid://ofyuav8psja7"]
 
 [ext_resource type="Script" uid="uid://c8j73486nr6o8" path="res://levels/maze2/Set/fps_test_scene_world.gd" id="1_868cf"]
 [ext_resource type="PackedScene" uid="uid://dxg57iry0rwpn" path="res://levels/maze2/Set/last_bridge.tscn" id="2_15gwa"]
+[ext_resource type="WwiseEvent" uid="uid://dsjwud0hxjvbn" path="res://Wwise/resources/Event/{DFD7DA4C-5775-4CED-AEC7-8059457DAC9A}.tres" id="3_0d1uc"]
 [ext_resource type="PackedScene" uid="uid://78exdosy10ho" path="res://scenes/NotificationArea/notification_area.tscn" id="3_15gwa"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_nx4w8"]
 [ext_resource type="PackedScene" uid="uid://bysluvlg528e6" path="res://levels/maze2/Set/set2.tscn" id="4_868cf"]
+[ext_resource type="WwiseRTPC" uid="uid://bk3yjupt30fwg" path="res://Wwise/resources/Game Parameter/{B244C2B3-1F5C-42A8-AB71-30FF7BBDB802}.tres" id="4_vsxmj"]
 [ext_resource type="PackedScene" uid="uid://dfepyejg6c541" path="res://scenes/maze_scene/big_door.tscn" id="5_8luys"]
 [ext_resource type="PackedScene" uid="uid://b7h4788xh1nu3" path="res://levels/tps_test_scene/model/line/013.glb" id="5_htxp8"]
 [ext_resource type="PackedScene" uid="uid://clm5h2ceura81" path="res://levels/tps_test_scene/model/line/022.glb" id="6_wtirf"]
@@ -83,7 +85,7 @@ size = Vector3(5.3410034, 0.4794922, 9.360291)
 size = Vector3(1.2813721, 1, 4.4546814)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0d1uc"]
-size = Vector3(2.1825867, 1, 2.3031235)
+size = Vector3(2.1825867, 1, 2.849804)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vsxmj"]
 size = Vector3(1.9876633, 1, 2.3031235)
@@ -871,6 +873,8 @@ size = Vector3(13.433193, 18.566132, 15.8352585)
 [node name="FpsTestScene" type="Node3D"]
 script = ExtResource("1_868cf")
 last_bridge_scene = ExtResource("2_15gwa")
+wwise_earthquake = ExtResource("3_0d1uc")
+wwise_rtpc = ExtResource("4_vsxmj")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_aaj73")
@@ -978,7 +982,6 @@ shape = SubResource("BoxShape3D_psi4i")
 
 [node name="SlidingDoor" parent="." instance=ExtResource("7_htxp8")]
 transform = Transform3D(-1.9495282e-07, 0, -4.4600005, 0, 15.21969, 0, 4.4600005, 0, -1.9495282e-07, 21.93361, -15.659921, -32.32081)
-close_duration = 1.0
 
 [node name="Area3D" type="Area3D" parent="SlidingDoor"]
 
@@ -988,22 +991,17 @@ shape = SubResource("BoxShape3D_wtirf")
 
 [node name="SlidingDoor2" parent="." instance=ExtResource("7_htxp8")]
 transform = Transform3D(-1.1670941e-07, 0, -4.46, 0, 15.22, 0, 2.67, 0, -1.9495279e-07, -10.928722, -15.659921, -68.89224)
-close_duration = 0.5
 random_speed_max = 0.75
 
 [node name="Area3D" type="Area3D" parent="SlidingDoor2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SlidingDoor2/Area3D"]
-transform = Transform3D(0.9999999, 0, 0, 0, 1.0000005, 0, -3.5527137e-15, 0, 1, 0.16254807, 0, 0.65156054)
+transform = Transform3D(0.9999999, 0, 0, 0, 1.0000005, 0, -3.5527137e-15, 0, 1, 0.16254807, 0, 0.92490077)
 shape = SubResource("BoxShape3D_0d1uc")
 
 [node name="SlidingDoor3" parent="." instance=ExtResource("7_htxp8")]
 transform = Transform3D(-4.1510594e-07, -7.6033764, 0, 9.496516, -3.3235415e-07, 0, 0, 0, 4.6032734, -16.156195, -6.00998, -80.1193)
-close_duration = 5.0
-random_speed_min = 0.07
-random_speed_max = 0.07
-hesitation_count_min = 8
-hesitation_count_max = 8
+random_speed_max = 1.8
 will_open = true
 
 [node name="Area3D" type="Area3D" parent="SlidingDoor3"]

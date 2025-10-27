@@ -221,7 +221,7 @@ layout_mode = 2
 text = "Send"
 
 [node name="NobodyWhoModel" type="NobodyWhoModel" parent="."]
-model_path = "res://gguf/Llama3-8B-Chinese-Chat-q4_0-v2_1.gguf"
+model_path = "gguf/Llama3-8B-Chinese-Chat-q4_0-v2_1.gguf"
 
 [node name="NobodyWhoChat" type="NobodyWhoChat" parent="." node_paths=PackedStringArray("model_node")]
 model_node = NodePath("../NobodyWhoModel")

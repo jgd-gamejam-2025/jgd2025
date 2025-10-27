@@ -59,10 +59,15 @@ func load_game() -> Dictionary:
 		"maze2":
 			if scene_data.get("set_index", -1) != -1:
 				set_index = scene_data["set_index"]
+				if scene_name != curr_scene:
+					Wwise.post_event("MX_Play_Maze", self)
 			to_maze2()
 		"chat_cut":
+			if scene_name != curr_scene:
+				Wwise.post_event("Set_AMB_chat", self)
 			to_chat_cut_scene()
 		"room":
+			Wwise.stop_all()
 			to_room()
 		_:
 			push_error("Unknown scene name: ", scene_name)

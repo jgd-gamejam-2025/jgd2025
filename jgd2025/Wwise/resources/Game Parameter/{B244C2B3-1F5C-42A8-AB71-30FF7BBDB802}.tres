@@ -1,0 +1,7 @@
+[gd_resource type="WwiseRTPC" format=3 uid="uid://bk3yjupt30fwg"]
+
+[resource]
+name = "earthquake"
+id = 1245902094
+guid = "{B244C2B3-1F5C-42A8-AB71-30FF7BBDB802}"
+dummy = true

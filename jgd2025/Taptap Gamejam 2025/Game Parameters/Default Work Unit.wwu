@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{84A17F8A-199B-4800-9978-9D2CBB61323F}" SchemaVersion="123">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{84A17F8A-199B-4800-9978-9D2CBB61323F}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{84A17F8A-199B-4800-9978-9D2CBB61323F}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="earthquake" ID="{B244C2B3-1F5C-42A8-AB71-30FF7BBDB802}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>

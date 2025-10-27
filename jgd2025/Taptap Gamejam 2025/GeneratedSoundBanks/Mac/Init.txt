@@ -17,6 +17,7 @@ State	ID	Name	State Group			Notes
 	2077253480	Room	AMB_01			
 	2943799864	Maze	AMB_01			
 	349818688	Begin	Music_Switch			
+	529726532	End	Music_Switch			
 	748895195	None	Music_Switch			
 	1832156600	Maze_pretrans	Music_Switch			
 	2077253480	room	Music_Switch			

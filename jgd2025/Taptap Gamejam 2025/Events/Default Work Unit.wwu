@@ -330,6 +330,28 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="SFX_pillar_disassembly1" ID="{F6E596FE-07FF-4666-A293-E06EDF1F5DF0}">
+							<ChildrenList>
+								<Action Name="" ID="{D43D19D2-2428-48B4-8570-D1321912C42E}" ShortID="804962679">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="柱子解体1" ID="{B980D387-97AA-4011-AAC3-2E5585E7A356}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFX_pillar_disassembly2" ID="{4D958020-E6BE-4B1D-B96C-E9D77E5BAAE6}">
+							<ChildrenList>
+								<Action Name="" ID="{5040D6A1-D395-4DA0-AF43-B229B3AF6EA1}" ShortID="824757221">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="柱子解体2" ID="{BD4DC896-F791-4074-A335-59330552D3F5}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="MX" ID="{0CDC3913-664C-4418-9E9C-B58B517ACF91}" ShortID="759027858">
@@ -638,6 +660,24 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="End" ID="{27A55FCC-9D31-41B8-8961-C09DF32C0E13}" WorkUnitID="{DFA0E0AE-E27D-421B-ABD3-02ECC4CB297F}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="AMB" ID="{DDB1A0F7-7F98-4A9C-8D29-6958BCC4FCEF}" ShortID="993570109">
+					<ChildrenList>
+						<Event Name="Play_AMB_earthquake" ID="{DFD7DA4C-5775-4CED-AEC7-8059457DAC9A}">
+							<ChildrenList>
+								<Action Name="" ID="{551C827C-0369-41EC-B24A-EF9CAA91E149}" ShortID="42981572">
+									<PropertyList>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="地震" ID="{94670E8C-3484-4835-997B-EA1DBF3AAE0A}" WorkUnitID="{31113548-3ABA-48C5-839E-39FE3F1493C3}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

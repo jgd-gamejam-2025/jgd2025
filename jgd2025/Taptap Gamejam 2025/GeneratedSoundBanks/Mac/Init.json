@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{488EAA4D-0A6C-BDCF-08F3-84649A94E41A}",
+    "Hash": "{EA72337E-BA98-02CE-46EB-C4620EBD43B4}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -40,6 +40,14 @@
       "Name": "Master Audio Bus",
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
       "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "1245902094",
+      "Name": "earthquake",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\earthquake",
+      "GUID": "{B244C2B3-1F5C-42A8-AB71-30FF7BBDB802}"
      }
     ],
     "StateGroups": [
@@ -683,6 +691,6 @@
     ]
    }
   ],
-  "FileHash": "{50CFF062-AF7B-A485-2A7E-41896BE5A03B}"
+  "FileHash": "{B7BBB4F6-7757-AD37-A779-EFE7CA8E85AB}"
  }
 }

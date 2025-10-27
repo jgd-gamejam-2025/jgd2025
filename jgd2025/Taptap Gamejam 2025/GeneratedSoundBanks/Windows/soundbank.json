@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}",
     "Language": "SFX",
-    "Hash": "{43F2149A-AA49-420A-D439-AC5FD6FEE35E}",
+    "Hash": "{656B08AD-FF09-2CB9-7DC0-5AC9C192A451}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\soundbank",
     "ShortName": "soundbank",
     "Path": "soundbank.bnk",
@@ -320,6 +320,14 @@
       "CachePath": "C0/{C02F3F3B-7D75-1A41-7E1B-1FF73CB07DFF}.wem"
      },
      {
+      "Id": "582426703",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "柱子解体2.wav",
+      "CachePath": "03/{039FA792-ED78-5A4A-912B-E878F6C06BC4}.wem"
+     },
+     {
       "Id": "588794654",
       "Language": "SFX",
       "Streaming": "false",
@@ -382,6 +390,14 @@
       "Location": "Memory",
       "ShortName": "键盘故障6.wav",
       "CachePath": "CD/{CD3E2AB9-3D56-9506-F5CC-3CD0C3E68C22}.wem"
+     },
+     {
+      "Id": "763320817",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "柱子解体1.wav",
+      "CachePath": "34/{341C1417-2A0F-EBFE-7721-9087AA80C080}.wem"
      },
      {
       "Id": "768801681",
@@ -502,6 +518,14 @@
       "Location": "Memory",
       "ShortName": "迷宫loop 1.wav",
       "CachePath": "39/{3940580B-3C21-A82B-C76D-EEAD977AAA1C}.wem"
+     },
+     {
+      "Id": "899724649",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "地震.wav",
+      "CachePath": "4D/{4DC38E8B-7D0A-2411-F9A9-4F58F2EF3C2F}.wem"
      },
      {
       "Id": "916669482",
@@ -1397,6 +1421,18 @@
       ]
      },
      {
+      "Id": "1151096154",
+      "Name": "Play_AMB_earthquake",
+      "ObjectPath": "\\Events\\Default Work Unit\\AMB\\Play_AMB_earthquake",
+      "GUID": "{DFD7DA4C-5775-4CED-AEC7-8059457DAC9A}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "899724649"
+       }
+      ]
+     },
+     {
       "Id": "2230674935",
       "Name": "Set_AMB_chat",
       "ObjectPath": "\\Events\\Default Work Unit\\Set_AMB_chat",
@@ -1538,6 +1574,34 @@
       "MediaRefs": [
        {
         "Id": "22267547"
+       }
+      ]
+     },
+     {
+      "Id": "3046594233",
+      "Name": "SFX_pillar_disassembly1",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_pillar_disassembly1",
+      "GUID": "{F6E596FE-07FF-4666-A293-E06EDF1F5DF0}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.375",
+      "DurationMax": "2.375",
+      "MediaRefs": [
+       {
+        "Id": "763320817"
+       }
+      ]
+     },
+     {
+      "Id": "3046594234",
+      "Name": "SFX_pillar_disassembly2",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_pillar_disassembly2",
+      "GUID": "{4D958020-E6BE-4B1D-B96C-E9D77E5BAAE6}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.125",
+      "DurationMax": "2.125",
+      "MediaRefs": [
+       {
+        "Id": "582426703"
        }
       ]
      },
@@ -1802,6 +1866,14 @@
       ]
      }
     ],
+    "GameParameters": [
+     {
+      "Id": "1245902094",
+      "Name": "earthquake",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\earthquake",
+      "GUID": "{B244C2B3-1F5C-42A8-AB71-30FF7BBDB802}"
+     }
+    ],
     "StateGroups": [
      {
       "Id": "1117531639",
@@ -1914,6 +1986,6 @@
     ]
    }
   ],
-  "FileHash": "{20BE4F15-6134-D519-B8AF-AFEC2BAFE68D}"
+  "FileHash": "{4D0E5FA9-61CE-D2C6-3A1A-1F4AA6528799}"
  }
 }

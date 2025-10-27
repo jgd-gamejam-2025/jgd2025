@@ -3,6 +3,7 @@
 	<UserProjectSettingsInfo>
 		<UserProjectSettings Name="" ID="{F859D82A-CEBD-4E26-832F-1515F8ADA358}">
 			<PropertyList>
+				<Property Name="AudioDeviceMeterView\LastObject1" Type="string" Value="{1E6E5BAF-2AF2-4046-AACC-CE15D7270897}"/>
 				<Property Name="Event Action List\{01BD5A0E-3FDA-4CBF-BE09-EE1217BAA8D5}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{05668F02-F055-4B66-AC94-6B0B3496EF64}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{103188C3-BD03-4904-8B27-E2B40B30E101}\x64_Expand States" Type="string" Value=""/>
@@ -14,6 +15,7 @@
 				<Property Name="Event Action List\{3D5614AB-042C-42D0-908C-160FCC39E064}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{40FB47F1-CAC9-4837-B2E5-3AA5E39F5268}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{41786BF5-4375-4A55-8762-18F43BE2A9E7}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{4D958020-E6BE-4B1D-B96C-E9D77E5BAAE6}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{4EC0DAD9-356F-4FFF-9FA2-F81C9C69C379}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{5DA293BD-42FC-43C0-B727-BFE61F7CE3FB}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{5F0595F7-FE1B-4D43-AD04-66CCA22E8660}\x64_Expand States" Type="string" Value=""/>
@@ -39,7 +41,9 @@
 				<Property Name="Event Action List\{C6E972AC-BD49-4AFD-9E6C-8066C6F12647}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{DE7EFB44-2A7A-43D4-A282-9776253E8ED9}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{DF30402E-C76E-4109-8AF4-477D1AFCD1AD}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{DFD7DA4C-5775-4CED-AEC7-8059457DAC9A}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{F4F6CDB0-C437-463C-A59C-DFBA053DB85E}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{F6E596FE-07FF-4666-A293-E06EDF1F5DF0}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="EventView\FilterMode1" Type="int32" Value="2"/>
 				<Property Name="EventView\FilterMode2" Type="int32" Value="2"/>
@@ -80,8 +84,8 @@
 				<Property Name="MeterView\LastObject1" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
 				<Property Name="MeterView\MeterMode1" Type="int32" Value="1"/>
 				<Property Name="Mixing Desk\CurrentStates\{26327A09-9A23-4461-A318-6C467DEEBD64}" Type="string" Value="{8F36B698-936A-4A12-8170-9A0FA923FE97}"/>
-				<Property Name="Mixing Desk\CurrentStates\{746459AE-473F-4C0B-B7B4-4936082F941D}" Type="string" Value="{1DC91425-399E-47C5-B730-75F6D8C92627}"/>
-				<Property Name="Mixing Desk\CurrentStates\{82CD0991-C986-4FFA-91F5-E444A6537528}" Type="string" Value="{27A55FCC-9D31-41B8-8961-C09DF32C0E13}"/>
+				<Property Name="Mixing Desk\CurrentStates\{746459AE-473F-4C0B-B7B4-4936082F941D}" Type="string" Value="{2E6AA099-AA87-412E-9965-C9172F82E89C}"/>
+				<Property Name="Mixing Desk\CurrentStates\{82CD0991-C986-4FFA-91F5-E444A6537528}" Type="string" Value="{2F007002-5601-4B2B-A35F-140428F1A126}"/>
 				<Property Name="Mixing Desk\LastSession" Type="string" Value="{00000000-0000-0000-0000-000000000000}"/>
 				<Property Name="MonitoringManager\GameObjectFilter\GameObjectFilterVersion" Type="int32" Value="1"/>
 				<Property Name="MonitoringManager\GameObjectFilter\GameObjectFiltersEnable" Type="bool" Value="True"/>

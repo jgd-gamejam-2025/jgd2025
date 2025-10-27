@@ -227,6 +227,85 @@
 						</GroupingList>
 					</GroupingInfo>
 				</SwitchContainer>
+				<Sound Name="地震" ID="{94670E8C-3484-4835-997B-EA1DBF3AAE0A}" ShortID="687806527">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-14</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="地震" ID="{568A2113-C817-42BE-B3B0-3D064F1B434B}">
+							<Language>SFX</Language>
+							<AudioFile>地震.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="899724649"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="RTPC">
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{496FE80A-0CEF-47D9-88CE-FFEAADD3BB4C}" ShortID="808398518">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="Volume"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="earthquake" ID="{B244C2B3-1F5C-42A8-AB71-30FF7BBDB802}" WorkUnitID="{84A17F8A-199B-4800-9978-9D2CBB61323F}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{8C659AB5-B0FE-46EB-8B7C-3657065AD942}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-12.67815</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>39.79058</XPos>
+																<YPos>-12.42292</YPos>
+																<Flags>0</Flags>
+															</Point>
+															<Point>
+																<XPos>69.89529</XPos>
+																<YPos>-0.01747</YPos>
+																<Flags>0</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+					<ActiveSourceList>
+						<ActiveSource Name="地震" ID="{568A2113-C817-42BE-B3B0-3D064F1B434B}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

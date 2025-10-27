@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 func _ready() -> void:
+	Wwise.stop_all()
 	Wwise.post_event("MX_Play_begin", LevelManager)
 	var tween = create_tween()
 	tween.tween_interval(1.5)

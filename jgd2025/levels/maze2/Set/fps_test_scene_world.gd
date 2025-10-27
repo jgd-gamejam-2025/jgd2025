@@ -89,7 +89,7 @@ func play_ending():
 	Wwise.post_event("MX_Maze_to_Mazepretrans", LevelManager)
 	wwise_rtpc.set_value(LevelManager, 40)
 	wwise_earthquake.post(LevelManager)
-	Transition.set_and_start("崩溃","",0.75)
+	Transition.set_and_start("崩溃","",0.75,"N/A")
 	await get_tree().create_timer(1).timeout
 	get_notification("这地方……要崩溃了？！")
 	player.shake_camera(0.3, 1.5)

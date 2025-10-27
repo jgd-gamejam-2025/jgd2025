@@ -1,8 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://c2hgmqr4djchj"]
+[gd_scene load_steps=29 format=3 uid="uid://c2hgmqr4djchj"]
 
 [ext_resource type="Script" uid="uid://djhym7xyj1hvl" path="res://levels/room/room.gd" id="1_266tv"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="2_j1o6v"]
+[ext_resource type="WwiseEvent" uid="uid://dsjwud0hxjvbn" path="res://Wwise/resources/Event/{DFD7DA4C-5775-4CED-AEC7-8059457DAC9A}.tres" id="2_smjbj"]
 [ext_resource type="Environment" uid="uid://c7f6xnduoc86t" path="res://scenes/room_props/burning_sky.tres" id="2_y8hd4"]
+[ext_resource type="WwiseRTPC" uid="uid://bk3yjupt30fwg" path="res://Wwise/resources/Game Parameter/{B244C2B3-1F5C-42A8-AB71-30FF7BBDB802}.tres" id="3_r4e2g"]
 [ext_resource type="PackedScene" uid="uid://bq1b1f8xlttga" path="res://scenes/room_props/door.tscn" id="4_2akcw"]
 [ext_resource type="PackedScene" uid="uid://db0b5cr4g7osi" path="res://scenes/room_props/lc_door.tscn" id="5_e15db"]
 [ext_resource type="PackedScene" uid="uid://hvjmwcffrk1r" path="res://levels/room/room_set/room_set.tscn" id="5_y43wp"]
@@ -44,6 +46,8 @@ size = Vector2(600, 392)
 
 [node name="Room" type="Node3D"]
 script = ExtResource("1_266tv")
+wwise_earthquake = ExtResource("2_smjbj")
+wwise_rtpc = ExtResource("3_r4e2g")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_y8hd4")

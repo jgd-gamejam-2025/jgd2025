@@ -34,10 +34,10 @@ func next_step() -> void:
 			await get_tree().create_timer(0.5).timeout
 			terminal.write_line_static(".\n")
 
-		for i in range(15):
+		for i in range(5):
 			await terminal.write_line(".").finished
 			
-		for i in range(45):
+		for i in range(55):
 			await terminal.write_line(" ").finished
 			# increase the text size gradually to 100
 		await get_tree().create_timer(0.2).timeout

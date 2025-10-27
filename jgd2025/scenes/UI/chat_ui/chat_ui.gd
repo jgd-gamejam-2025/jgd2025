@@ -6,7 +6,7 @@ extends Control
 var current_aiChat: NobodyWhoChat
 @onready var name_label = $Panel/Name
 @export var debug_mode = false
-@export var qwen = true
+@export var qwen = false
 @export var wwise_type_fault:WwiseEvent
 @export var wwise_type:WwiseEvent
 @export var wwise_player_type:WwiseEvent
@@ -40,8 +40,15 @@ signal command_received(command: String)
 
 var line_edit_focus_sent = false
 var first_time_sent_text = true
-
+#--------------
+@export var low_ai_path = "gguf/Qwen3-0.6B-Q4_K_S.gguf"
+@export var default_ai_path = "gguf/Llama3-8B-Chinese-Chat-q4_0-v2_1.gguf"
 func _ready() -> void:
+	qwen = qwen or LevelManager.use_low_ai
+	if qwen:
+		$NobodyWhoModel.model_path = low_ai_path
+	else:
+		$NobodyWhoModel.model_path = default_ai_path
 	margin_container.hide()
 	detail_bubble.hide()
 	flat_bubble.hide()
@@ -193,7 +200,7 @@ func init_system_prompt(key_prompt_dict: Dictionary) -> void:
 		var new_chat = aiChat.duplicate()
 		add_child(new_chat)
 		if qwen:
-			new_chat.system_prompt = "\\no_think " + key_prompt_dict[key]
+			new_chat.system_prompt = "/no_think " + key_prompt_dict[key]
 		else:
 			new_chat.system_prompt = key_prompt_dict[key]
 		key_aiChat_dict[key] = new_chat

@@ -23,7 +23,7 @@ func start(wait_time: float = 0.0) -> Tween:
 	return _tween
 
 func end():
-	wwise_loading.stop(self)
+	wwise_loading.stop(LevelManager)
 	hide()
 
 func _ready() -> void:

@@ -22,12 +22,17 @@ var play_recording = true
 const SAVE_FILE_PATH = "user://save_data.cfg"
 var config = ConfigFile.new()
 var curr_scene = null
+var use_low_ai: bool = false
 # === Save/Load Functions ===
+
+func _ready() -> void:
+	LevelManager.load_use_low_ai()
 
 func save_game(scene_name: String, scene_data: Dictionary) -> void:
 	Loading.display()
 	config.set_value("save", "scene_name", scene_name)
 	config.set_value("save", "scene_data", scene_data)
+	config.set_value("save", "use_low_ai", use_low_ai)
 	var error = config.save(SAVE_FILE_PATH)
 	if error == OK:
 		print("Game saved: ", scene_name, " with data: ", scene_data)
@@ -44,8 +49,9 @@ func load_game() -> Dictionary:
 	
 	var scene_name = config.get_value("save", "scene_name", "")
 	var scene_data = config.get_value("save", "scene_data", {})
+	use_low_ai = config.get_value("save", "use_low_ai", false)
 	
-	print("Game loaded: ", scene_name, " with data: ", scene_data)
+	print("Game loaded: ", scene_name, " with data: ", scene_data, " use_low_ai: ", use_low_ai)
 	
 	# Call the corresponding scene transition function
 	match scene_name:
@@ -76,6 +82,31 @@ func load_game() -> Dictionary:
 
 func has_save() -> bool:
 	return config.load(SAVE_FILE_PATH) == OK
+
+func load_use_low_ai() -> bool:
+	"""Load only the use_low_ai setting from save file"""
+	var error = config.load(SAVE_FILE_PATH)
+	if error != OK:
+		print("No save file found, using default use_low_ai = false")
+		return false
+	
+	use_low_ai = config.get_value("save", "use_low_ai", false)
+	print("Loaded use_low_ai: ", use_low_ai)
+	return use_low_ai
+
+func save_use_low_ai(value: bool) -> void:
+	"""Save only the use_low_ai setting to save file"""
+	use_low_ai = value
+	
+	# Load existing config if it exists to preserve other data
+	config.load(SAVE_FILE_PATH)
+	
+	config.set_value("save", "use_low_ai", use_low_ai)
+	var error = config.save(SAVE_FILE_PATH)
+	if error == OK:
+		print("use_low_ai saved: ", use_low_ai)
+	else:
+		push_error("Failed to save use_low_ai. Error code: ", error)
 
 func delete_save() -> void:
 	var dir = DirAccess.open("user://")

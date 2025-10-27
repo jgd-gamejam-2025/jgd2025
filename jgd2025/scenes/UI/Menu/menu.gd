@@ -1,6 +1,9 @@
 extends CanvasLayer
 
+@onready var curr_ai_level_label = $ColorRect/MarginContainer2/VBoxContainer/Label2
+
 func _ready() -> void:
+	set_ai_level_label()
 	Wwise.stop_all()
 	Wwise.post_event("MX_Play_begin", LevelManager)
 	var tween = create_tween()
@@ -47,3 +50,17 @@ func _on_options_pressed() -> void:
 
 func _on_options_mouse_entered() -> void:
 	Wwise.post_event("UI_Prechoose", self)
+
+
+func _on_ai_switch_pressed() -> void:
+	Wwise.post_event("UI_Choose", self)
+	LevelManager.use_low_ai = not LevelManager.use_low_ai
+	LevelManager.save_use_low_ai(LevelManager.use_low_ai)
+	set_ai_level_label()
+
+func set_ai_level_label() -> void:
+	if LevelManager.use_low_ai:
+		curr_ai_level_label.text = "当前AI智力：有限"
+	else:
+		curr_ai_level_label.text = "当前AI智力：标准"
+		

@@ -110,6 +110,7 @@ func _on_player_interact_obj(target: Node) -> void:
 		return
 
 	if target.name == "Monitor" and terminal.visible == false and not used_terminal:
+		pad.can_activate = false
 		terminal.output_area.text = ""
 		terminal.show()
 		if curr_room == 1:
@@ -139,6 +140,7 @@ func _on_terminal_input_submitted(command: String) -> void:
 			terminal.block_input()
 			terminal.write_line("选择已记录: " + command.strip_edges(), 0.01)
 			await get_tree().create_timer(2).timeout
+			pad.can_activate = true
 			terminal.hide()
 			match curr_room:
 				1:

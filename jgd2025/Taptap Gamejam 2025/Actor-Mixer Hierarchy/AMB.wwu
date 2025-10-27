@@ -257,7 +257,7 @@
 						<ObjectList Name="RTPC">
 							<Reference>
 								<Local>
-									<RTPC Name="" ID="{496FE80A-0CEF-47D9-88CE-FFEAADD3BB4C}" ShortID="808398518">
+									<RTPC Name="" ID="{989519BE-9759-4B89-AA5A-5B88DCAA1911}" ShortID="768172342">
 										<PropertyList>
 											<Property Name="PropertyName" Type="string" Value="Volume"/>
 										</PropertyList>
@@ -267,25 +267,15 @@
 											</Reference>
 											<Reference Name="Curve">
 												<Custom>
-													<Curve Name="" ID="{8C659AB5-B0FE-46EB-8B7C-3657065AD942}">
+													<Curve Name="" ID="{BE59051B-7DC2-4B39-A5D9-F38B15A6206C}">
 														<PropertyList>
 															<Property Name="Flags" Type="int32" Value="3"/>
 														</PropertyList>
 														<PointList>
 															<Point>
 																<XPos>0</XPos>
-																<YPos>-12.67815</YPos>
+																<YPos>-200</YPos>
 																<Flags>5</Flags>
-															</Point>
-															<Point>
-																<XPos>39.79058</XPos>
-																<YPos>-12.42292</YPos>
-																<Flags>0</Flags>
-															</Point>
-															<Point>
-																<XPos>69.89529</XPos>
-																<YPos>-0.01747</YPos>
-																<Flags>0</Flags>
 															</Point>
 															<Point>
 																<XPos>100</XPos>

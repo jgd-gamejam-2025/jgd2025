@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}",
     "Language": "SFX",
-    "Hash": "{656B08AD-FF09-2CB9-7DC0-5AC9C192A451}",
+    "Hash": "{40C635D6-B27B-DA56-BAF0-22BAF0AD00FD}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\soundbank",
     "ShortName": "soundbank",
     "Path": "soundbank.bnk",
@@ -86,6 +86,14 @@
       "Location": "Memory",
       "ShortName": "AMB_Room_1.wav",
       "CachePath": "63/{63CA249C-8D2D-DD7A-8C1B-324047EE3D06}.wem"
+     },
+     {
+      "Id": "118968680",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "柱子loop2.wav",
+      "CachePath": "4F/{4F39243D-9FC4-28F7-8CF9-14E59AA1F229}.wem"
      },
      {
       "Id": "121547523",
@@ -192,6 +200,14 @@
       "CachePath": "80/{807386D7-E4A4-F989-C761-86460B279545}.wem"
      },
      {
+      "Id": "317320664",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "柱子loop.wav",
+      "CachePath": "F4/{F48D1BD2-1E31-A016-1B28-EE5B0009E144}.wem"
+     },
+     {
       "Id": "369494707",
       "Language": "SFX",
       "Streaming": "false",
@@ -200,20 +216,20 @@
       "CachePath": "A0/{A0F58467-5EC7-9D39-4884-42FE558A4404}.wem"
      },
      {
+      "Id": "372806985",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "加载加长.wav",
+      "CachePath": "B9/{B92548CB-DFF2-3EC7-7B26-66E26FED41B5}.wem"
+     },
+     {
       "Id": "374242323",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "mazeft4.wav",
       "CachePath": "23/{23677096-BEBF-E6F6-F89C-208BA85BDCF8}.wem"
-     },
-     {
-      "Id": "380560644",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "SFX_loading.wav",
-      "CachePath": "2D/{2DD652B2-B9D0-8B83-A683-4D54FBBAE11A}.wem"
      },
      {
       "Id": "397510780",
@@ -262,6 +278,14 @@
       "Location": "Memory",
       "ShortName": "ai键盘3.wav",
       "CachePath": "80/{80C5CB1E-9791-4137-114A-168A674A4F37}.wem"
+     },
+     {
+      "Id": "492220292",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "k9失控.wav",
+      "CachePath": "FD/{FDFDAA8D-EB59-D42E-1467-AFDB45130E6D}.wem"
      },
      {
       "Id": "492376096",
@@ -382,6 +406,14 @@
       "Location": "Memory",
       "ShortName": "EVE标题 loop state.wav",
       "CachePath": "9B/{9B1F6CDA-C9FA-3B79-6AF7-D4544F663314}.wem"
+     },
+     {
+      "Id": "729513789",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "结尾录音.wav",
+      "CachePath": "E2/{E2BF4AA6-0548-60C9-CBB7-4EB7AD2F9738}.wem"
      },
      {
       "Id": "762829969",
@@ -1492,11 +1524,11 @@
       "ObjectPath": "\\Events\\Default Work Unit\\UI\\SFX_Loading",
       "GUID": "{7D313743-E29F-4FF9-9056-EA471F005FE0}",
       "DurationType": "OneShot",
-      "DurationMin": "6.25",
-      "DurationMax": "6.25",
+      "DurationMin": "12",
+      "DurationMax": "12",
       "MediaRefs": [
        {
-        "Id": "380560644"
+        "Id": "372806985"
        }
       ]
      },
@@ -1602,6 +1634,21 @@
       "MediaRefs": [
        {
         "Id": "582426703"
+       }
+      ]
+     },
+     {
+      "Id": "2215682802",
+      "Name": "SFX_pillar_loop",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_pillar_loop",
+      "GUID": "{15EFC514-CF5C-4885-BD46-56A17202E686}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "118968680"
+       },
+       {
+        "Id": "317320664"
        }
       ]
      },
@@ -1864,6 +1911,34 @@
         "Id": "156648797"
        }
       ]
+     },
+     {
+      "Id": "2990064136",
+      "Name": "VO_Play_K9",
+      "ObjectPath": "\\Events\\Default Work Unit\\VO\\VO_Play_K9",
+      "GUID": "{686D5FA4-30D0-4BD5-B963-F01240A9A6B0}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.2085834",
+      "DurationMax": "3.2085834",
+      "MediaRefs": [
+       {
+        "Id": "492220292"
+       }
+      ]
+     },
+     {
+      "Id": "2540307825",
+      "Name": "VO_Play_Radio",
+      "ObjectPath": "\\Events\\Default Work Unit\\VO\\VO_Play_Radio",
+      "GUID": "{3754FA04-481C-4A45-BBED-31C227B62CF5}",
+      "DurationType": "OneShot",
+      "DurationMin": "44.5",
+      "DurationMax": "44.5",
+      "MediaRefs": [
+       {
+        "Id": "729513789"
+       }
+      ]
      }
     ],
     "GameParameters": [
@@ -1986,6 +2061,6 @@
     ]
    }
   ],
-  "FileHash": "{4D0E5FA9-61CE-D2C6-3A1A-1F4AA6528799}"
+  "FileHash": "{7584D8B3-977D-3CC8-2DF9-474E2C28FAE6}"
  }
 }

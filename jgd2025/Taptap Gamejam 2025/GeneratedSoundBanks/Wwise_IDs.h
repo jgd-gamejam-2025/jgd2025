@@ -37,6 +37,7 @@ namespace AK
         static const AkUniqueID SFX_PICKUP_NEWSPAPER = 3066694657U;
         static const AkUniqueID SFX_PILLAR_DISASSEMBLY1 = 3046594233U;
         static const AkUniqueID SFX_PILLAR_DISASSEMBLY2 = 3046594234U;
+        static const AkUniqueID SFX_PILLAR_LOOP = 2215682802U;
         static const AkUniqueID SFX_PLAY_AI_TYPING = 3636131822U;
         static const AkUniqueID SFX_PLAY_AI_TYPING_FAULT = 693053491U;
         static const AkUniqueID SFX_PLAY_PILLARUP = 1307923593U;
@@ -50,6 +51,8 @@ namespace AK
         static const AkUniqueID SFX_ROOM_FLIPPED_LANDING = 1663926837U;
         static const AkUniqueID UI_CHOOSE = 425086685U;
         static const AkUniqueID UI_PRECHOOSE = 4189739510U;
+        static const AkUniqueID VO_PLAY_K9 = 2990064136U;
+        static const AkUniqueID VO_PLAY_RADIO = 2540307825U;
     } // namespace EVENTS
 
     namespace STATES

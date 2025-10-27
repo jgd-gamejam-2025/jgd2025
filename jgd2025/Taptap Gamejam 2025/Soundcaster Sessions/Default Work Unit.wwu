@@ -97,6 +97,10 @@
 							<ObjectRef Name="SFX_putdown_newspaper" ID="{9A488581-9667-4D97-AA61-DD782F09924D}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
 							<Position X="4" Y="3"/>
 						</Module>
+						<Module>
+							<ObjectRef Name="MX_Play_End" ID="{40FB47F1-CAC9-4837-B2E5-3AA5E39F5268}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
+							<Position X="4" Y="4"/>
+						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true"/>

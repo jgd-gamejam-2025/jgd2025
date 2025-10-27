@@ -11,6 +11,7 @@
 						<State Name="Maze" ID="{D3D7F946-B924-4665-A447-3054F0CED4C1}"/>
 						<State Name="Maze_pretrans" ID="{9C624977-AADC-489D-BA5C-7F779D105F70}"/>
 						<State Name="room" ID="{2BFCFE8A-93AC-4C39-BB69-46DFDA56957A}"/>
+						<State Name="End" ID="{27A55FCC-9D31-41B8-8961-C09DF32C0E13}"/>
 					</ChildrenList>
 				</StateGroup>
 				<StateGroup Name="AMB" ID="{746459AE-473F-4C0B-B7B4-4936082F941D}">

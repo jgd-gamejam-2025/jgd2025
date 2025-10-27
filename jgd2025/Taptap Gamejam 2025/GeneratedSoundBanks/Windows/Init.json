@@ -140,6 +140,12 @@
         "GUID": "{9D31A35C-59F9-403D-B097-9890DC3921B9}"
        },
        {
+        "Id": "529726532",
+        "Name": "End",
+        "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\End",
+        "GUID": "{27A55FCC-9D31-41B8-8961-C09DF32C0E13}"
+       },
+       {
         "Id": "748895195",
         "Name": "None",
         "ObjectPath": "\\States\\Default Work Unit\\Music_Switch\\None",
@@ -677,6 +683,6 @@
     ]
    }
   ],
-  "FileHash": "{8B352637-A67C-9365-D406-A0553DB932DD}"
+  "FileHash": "{920562AD-5C11-2173-58E5-BFA72699E005}"
  }
 }

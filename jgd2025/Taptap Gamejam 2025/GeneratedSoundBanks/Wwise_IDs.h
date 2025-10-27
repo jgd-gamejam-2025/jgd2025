@@ -17,6 +17,7 @@ namespace AK
         static const AkUniqueID MX_MAZE_TO_MAZEPRETRANS = 3573176569U;
         static const AkUniqueID MX_MAZEPRETANS_TO_CHAT = 3577866158U;
         static const AkUniqueID MX_PLAY_BEGIN = 891883193U;
+        static const AkUniqueID MX_PLAY_END = 3900185169U;
         static const AkUniqueID MX_PLAY_MAZE = 2737105275U;
         static const AkUniqueID MX_PLAY_MAZEPRETRANS = 783866132U;
         static const AkUniqueID MX_PLAY_ROOM = 1804546783U;
@@ -82,6 +83,7 @@ namespace AK
             namespace STATE
             {
                 static const AkUniqueID BEGIN = 349818688U;
+                static const AkUniqueID END = 529726532U;
                 static const AkUniqueID EVE_TITLE = 3581653674U;
                 static const AkUniqueID MAZE = 2943799864U;
                 static const AkUniqueID MAZE_PRETRANS = 1832156600U;

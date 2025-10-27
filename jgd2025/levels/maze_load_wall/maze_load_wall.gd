@@ -128,5 +128,6 @@ func _on_notification_area_2_area_text(message: String) -> void:
 func _on_enter_gate_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
 		get_notification("我有种奇怪的感觉……")
-		Transition.set_and_start("", "", 0,"MX_Maze_to_Mazepretrans")
+		Transition.set_and_start("", "", 0,"N/A")
+		await get_tree().create_timer(0.3).timeout
 		LevelManager.to_maze2()

@@ -84,6 +84,7 @@ func set_current_level():
 			pass
 
 func play_ending():
+	Wwise.post_event("MX_Maze_to_Mazepretrans", LevelManager)
 	Transition.set_and_start("崩溃","",0.75)
 	await get_tree().create_timer(1).timeout
 	get_notification("这地方……要崩溃了？！")
@@ -101,6 +102,7 @@ func play_ending():
 	add_child(last_bridge)
 	last_bridge.connect("parkour_started", _on_parkour_started)
 	last_bridge.connect("ocean_started", _on_ocean_started)
+	last_bridge.connect("ocean_exit", _on_ocean_exit)
 
 
 func get_notification(message: String, duration: float = 3.0, name_text: String = "Eve"):
@@ -149,7 +151,7 @@ func _on_ocean_started() -> void:
 	# Generally dim the light
 	var tween = create_tween()
 	var env := get_viewport().get_world_3d().environment
-	tween.parallel().tween_property($DirectionalLight3D, "light_energy", 0.05, 5)
+	tween.parallel().tween_property($DirectionalLight3D, "light_energy", 0.075, 5)
 	# tween.parallel().tween_property($DirectionalLight3D, "shadow_opacity", 0.3, 5)
 	tween.parallel().tween_property(env, "fog_density", 0.0, 5)
 	await get_tree().create_timer(2).timeout
@@ -157,6 +159,10 @@ func _on_ocean_started() -> void:
 	for i in range(25):
 		await get_tree().create_timer(0.5).timeout
 		get_notification("[AI SYSTEM] 严重错误")
+
+func _on_ocean_exit() -> void:
+	var tween = create_tween()
+	tween.tween_property($DirectionalLight3D, "light_energy", 0.001, 1.5)
 
 func _on_notification_area_area_text(message: String) -> void:
 	get_notification(message)

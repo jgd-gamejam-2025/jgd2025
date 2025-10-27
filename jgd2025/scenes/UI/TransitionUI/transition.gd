@@ -34,7 +34,7 @@ func set_text(new_center_text: String, new_bg_text: String) -> void:
 	bg_text = new_bg_text
 	center_label.text = new_center_text
 	var tmp = ""
-	for j in range(16):
+	for j in range(46):
 		tmp += bg_text
 	for i in bg.get_children():
 		if i is Label:
@@ -46,10 +46,12 @@ func set_bg_color(new_color: Color) -> void:
 func set_and_start(new_bg_text: String, new_center_text: String, wait_time: float = 0.0, wwise_event_name: String = "") -> Tween:
 	$EVE.hide()
 	set_text(new_bg_text, new_center_text)
-	if wwise_event_name != "":
-		Wwise.post_event(wwise_event_name, self)
+	if wwise_event_name == "N/A":
+		pass
+	elif wwise_event_name != "":
+		Wwise.post_event(wwise_event_name, LevelManager)
 	else:
-		wwise_loading.post(self)
+		wwise_loading.post(LevelManager)
 	return start(wait_time)
 
 func show_EVE():

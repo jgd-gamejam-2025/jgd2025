@@ -25,14 +25,15 @@ func _on_ocean_start_body_entered(body: Node3D) -> void:
 		$OceanScene._start_pattern()
 		Wwise.post_event("SFX_Play_pillarup2", self)
 
-
+signal ocean_exit
 func _on_ocean_end_body_exited(body: Node3D) -> void:
 	if body.name == "Player" and not ocean_ended:
 		ocean_ended = true
+		ocean_exit.emit()
 		# player.look_at_target($Marker3D)
 		Wwise.post_event("MX_Mazepretrans_to_chat", LevelManager)
 		await get_tree().create_timer(3.0).timeout
-		Transition.set_and_start("坍塌", "")	
+		Transition.set_and_start("坍塌", "", 0, "N/A")	
 		await get_tree().create_timer(0.5).timeout
 		LevelManager.to_chat_cut_scene()
 
@@ -40,4 +41,6 @@ func _on_ocean_end_body_exited(body: Node3D) -> void:
 func _on_parkour_hell_body_entered(body: Node3D) -> void:
 	if not ocean_ended and not parkour_ended and body.name == "Player":
 		parkour_ended = true
+		Transition.set_and_start("", "", 0, "N/A")	
+		await get_tree().create_timer(0.2).timeout
 		LevelManager.load_game()

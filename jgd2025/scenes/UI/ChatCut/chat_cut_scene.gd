@@ -70,4 +70,5 @@ func _on_text_input_text_submitted(new_text: String) -> void:
 	# proceed to next scene
 	Transition.set_and_start("", "",0, "N/A")
 	await get_tree().create_timer(0.5).timeout
+	Wwise.stop_all(LevelManager)
 	LevelManager.to_room()

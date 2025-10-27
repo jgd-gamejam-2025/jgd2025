@@ -4,8 +4,8 @@ var input_dir: Vector2
 var move_speed: float
 var footstep_timer: float = 0.0  # 脚步声计时器
 var footstep_interval: float = 0.5  # 当前脚步声间隔
-var footstep_interval_forward: float = 0.5  # 前进行走时的脚步声间隔
-var footstep_interval_backward: float = 0.6  # 后退时的脚步声间隔
+var footstep_interval_forward: float = 0.35  # 前进行走时的脚步声间隔
+var footstep_interval_backward: float = 0.45  # 后退时的脚步声间隔
 
 
 func enter(_msg := {}) -> void:

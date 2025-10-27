@@ -25,6 +25,7 @@ namespace AK
         static const AkUniqueID MX_TITLE_TO_MAZE = 2331460791U;
         static const AkUniqueID PAUSE = 3092587493U;
         static const AkUniqueID PAUSE_BACK = 4234294329U;
+        static const AkUniqueID PLAY_AMB_EARTHQUAKE = 1151096154U;
         static const AkUniqueID SET_AMB_CHAT = 2230674935U;
         static const AkUniqueID SFX_DOOR1 = 2148082694U;
         static const AkUniqueID SFX_DOOR2 = 2148082693U;
@@ -34,6 +35,8 @@ namespace AK
         static const AkUniqueID SFX_MAZE_LANDING = 4187727620U;
         static const AkUniqueID SFX_MESSAGE_POPUP = 2868659721U;
         static const AkUniqueID SFX_PICKUP_NEWSPAPER = 3066694657U;
+        static const AkUniqueID SFX_PILLAR_DISASSEMBLY1 = 3046594233U;
+        static const AkUniqueID SFX_PILLAR_DISASSEMBLY2 = 3046594234U;
         static const AkUniqueID SFX_PLAY_AI_TYPING = 3636131822U;
         static const AkUniqueID SFX_PLAY_AI_TYPING_FAULT = 693053491U;
         static const AkUniqueID SFX_PLAY_PILLARUP = 1307923593U;
@@ -117,6 +120,11 @@ namespace AK
         } // namespace PAUSE_01
 
     } // namespace STATES
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID EARTHQUAKE = 1245902094U;
+    } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {

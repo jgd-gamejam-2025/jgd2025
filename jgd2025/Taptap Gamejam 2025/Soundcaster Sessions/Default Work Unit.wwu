@@ -10,12 +10,8 @@
 							<Position X="0" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="SFX_door1" ID="{20906418-7970-46DB-A006-F25F4E2C8A4C}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
+							<ObjectRef Name="MX_Play_Maze" ID="{8F9E1686-BAB2-41CE-B068-78FB077CE2BF}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
 							<Position X="0" Y="1"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Pause" ID="{AE801F0F-2996-421C-8064-4DDD6BD7F825}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
-							<Position X="0" Y="2"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="SFX_Message_popup" ID="{41786BF5-4375-4A55-8762-18F43BE2A9E7}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
@@ -30,12 +26,8 @@
 							<Position X="1" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="SFX_door2" ID="{64F0321C-1399-47E9-86F1-C68D954A8F6A}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
-							<Position X="1" Y="1"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="SFX_pickup_newspaper" ID="{BC25D587-33DF-4863-A59F-463E698D111F}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
-							<Position X="1" Y="3"/>
+							<ObjectRef Name="MX_Maze_to_Mazepretrans" ID="{2995AF4A-4F57-4039-855F-1A877E9AF894}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
+							<Position X="1" Y="2"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="SFX_Play_AI_Typing_Fault" ID="{C6E972AC-BD49-4AFD-9E6C-8066C6F12647}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
@@ -64,10 +56,6 @@
 						<Module>
 							<ObjectRef Name="MX_Play_begin" ID="{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
 							<Position X="3" Y="0"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="UI_Prechoose" ID="{4EC0DAD9-356F-4FFF-9FA2-F81C9C69C379}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>
-							<Position X="3" Y="1"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="MX_Play_Mazepretrans" ID="{DE7EFB44-2A7A-43D4-A282-9776253E8ED9}" WorkUnitID="{45C4D24A-F049-4491-B749-BA8FCC3D51D6}"/>

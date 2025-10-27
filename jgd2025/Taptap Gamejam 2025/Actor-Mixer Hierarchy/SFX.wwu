@@ -1421,6 +1421,50 @@
 						<ActiveSource Name="柱子升起1" ID="{F59ACD14-D814-407A-8713-C576AFFEF723}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
+				<Sound Name="柱子解体1" ID="{B980D387-97AA-4011-AAC3-2E5585E7A356}" ShortID="715618706">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="柱子解体1" ID="{FB8CE73F-E2F1-4611-B016-FAE7CB3607D1}">
+							<Language>SFX</Language>
+							<AudioFile>柱子解体1.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="763320817"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="柱子解体1" ID="{FB8CE73F-E2F1-4611-B016-FAE7CB3607D1}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="柱子解体2" ID="{BD4DC896-F791-4074-A335-59330552D3F5}" ShortID="805774123">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="柱子解体2" ID="{E77A2DE0-A379-4983-BF66-84282DA10A11}">
+							<Language>SFX</Language>
+							<AudioFile>柱子解体2.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="582426703"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="柱子解体2" ID="{E77A2DE0-A379-4983-BF66-84282DA10A11}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

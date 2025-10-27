@@ -21,6 +21,7 @@ var unknown_name: String = "%"
 func _ready():
 	# Start
 	player.can_move_camera = false
+	player.can_move = false
 	$RoomOpening.show()
 	# Prepare chat
 	chat_ui.set_bg_transparent()
@@ -536,3 +537,4 @@ func _on_room_opening_ended() -> void:
 	Wwise.post_event("MX_Play_room", LevelManager)
 	await get_tree().create_timer(0.5).timeout
 	player.can_move_camera = true
+	player.can_move = true

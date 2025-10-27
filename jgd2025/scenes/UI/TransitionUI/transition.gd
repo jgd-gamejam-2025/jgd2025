@@ -34,7 +34,7 @@ func set_text(new_center_text: String, new_bg_text: String) -> void:
 	bg_text = new_bg_text
 	center_label.text = new_center_text
 	var tmp = ""
-	for j in range(46):
+	for j in range(15):
 		tmp += bg_text
 	for i in bg.get_children():
 		if i is Label:

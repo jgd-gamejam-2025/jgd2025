@@ -175,6 +175,141 @@ theme = ExtResource("2_5lax8")
 theme_override_font_sizes/font_size = 120
 text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
 
+[node name="Label11" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 66.31446
+offset_top = 1120.9543
+offset_right = 66.31445
+offset_bottom = 1155.9543
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5lax8")
+theme_override_font_sizes/font_size = 120
+text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
+
+[node name="Label12" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.31446
+offset_top = 1248.4543
+offset_right = 268.31445
+offset_bottom = 1283.4543
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5lax8")
+theme_override_font_sizes/font_size = 120
+text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
+
+[node name="Label13" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 66.31446
+offset_top = 1372.4543
+offset_right = 66.31445
+offset_bottom = 1407.4543
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5lax8")
+theme_override_font_sizes/font_size = 120
+text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
+
+[node name="Label14" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.31446
+offset_top = 1499.9543
+offset_right = 268.31445
+offset_bottom = 1534.9543
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5lax8")
+theme_override_font_sizes/font_size = 120
+text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
+
+[node name="Label15" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 66.31446
+offset_top = 1626.4543
+offset_right = 66.31445
+offset_bottom = 1661.4543
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5lax8")
+theme_override_font_sizes/font_size = 120
+text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
+
+[node name="Label16" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.31446
+offset_top = 1753.9543
+offset_right = 268.31445
+offset_bottom = 1788.9543
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5lax8")
+theme_override_font_sizes/font_size = 120
+text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
+
+[node name="Label17" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 66.31446
+offset_top = 1872.4543
+offset_right = 66.31445
+offset_bottom = 1907.4543
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5lax8")
+theme_override_font_sizes/font_size = 120
+text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
+
+[node name="Label18" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.31446
+offset_top = 1999.9543
+offset_right = 268.31445
+offset_bottom = 2034.9543
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5lax8")
+theme_override_font_sizes/font_size = 120
+text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
+
+[node name="Label19" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 66.31446
+offset_top = 2126.4543
+offset_right = 66.31445
+offset_bottom = 2161.4543
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5lax8")
+theme_override_font_sizes/font_size = 120
+text = "雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨雨"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="EVE" type="ColorRect" parent="."]

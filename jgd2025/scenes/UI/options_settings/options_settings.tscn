@@ -1,0 +1,237 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7iak2m4n6p8r"]
+
+[ext_resource type="Script" uid="uid://o5wkkj4d21dn" path="res://scenes/UI/options_settings/options_settings.gd" id="1_options"]
+[ext_resource type="Theme" uid="uid://oddpfcoobolo" path="res://scenes/UI/options_settings/options_settings.tres" id="2_ro3pg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(0, 0, 0, 0.9019608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ro3pg"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sf45y"]
+
+[node name="OptionsSettings" type="CanvasLayer"]
+layer = 3
+script = ExtResource("1_options")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ro3pg")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("2_ro3pg")
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_ro3pg")
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="Panel/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ro3pg")
+theme_override_font_sizes/font_size = 32
+text = "游戏设置"
+horizontal_alignment = 1
+
+[node name="AudioLabel" type="Label" parent="Panel/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_ro3pg")
+theme_override_font_sizes/font_size = 24
+text = "🔊 音频设置"
+
+[node name="MasterVolumeContainer" type="VBoxContainer" parent="Panel/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_ro3pg")
+theme_override_constants/separation = 10
+
+[node name="MasterLabel" type="Label" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/MasterVolumeContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "主音量"
+
+[node name="MasterHBox" type="HBoxContainer" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/MasterVolumeContainer"]
+layout_mode = 2
+
+[node name="MasterSlider" type="HSlider" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/MasterVolumeContainer/MasterHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+value = 80.0
+
+[node name="MasterValueLabel" type="Label" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/MasterVolumeContainer/MasterHBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "80%"
+horizontal_alignment = 2
+
+[node name="BGMVolumeContainer" type="VBoxContainer" parent="Panel/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_ro3pg")
+theme_override_constants/separation = 10
+
+[node name="BGMLabel" type="Label" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/BGMVolumeContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "背景音乐"
+
+[node name="BGMHBox" type="HBoxContainer" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/BGMVolumeContainer"]
+layout_mode = 2
+
+[node name="BGMSlider" type="HSlider" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/BGMVolumeContainer/BGMHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+value = 70.0
+
+[node name="BGMValueLabel" type="Label" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/BGMVolumeContainer/BGMHBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "70%"
+horizontal_alignment = 2
+
+[node name="SFXVolumeContainer" type="VBoxContainer" parent="Panel/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_ro3pg")
+theme_override_constants/separation = 10
+
+[node name="SFXLabel" type="Label" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/SFXVolumeContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "音效"
+
+[node name="SFXHBox" type="HBoxContainer" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/SFXVolumeContainer"]
+layout_mode = 2
+
+[node name="SFXSlider" type="HSlider" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/SFXVolumeContainer/SFXHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+value = 80.0
+
+[node name="SFXValueLabel" type="Label" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/SFXVolumeContainer/SFXHBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "80%"
+horizontal_alignment = 2
+
+[node name="DisplayLabel" type="Label" parent="Panel/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ro3pg")
+theme_override_font_sizes/font_size = 24
+text = "显示设置"
+
+[node name="FullscreenContainer" type="HBoxContainer" parent="Panel/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ro3pg")
+
+[node name="FullscreenLabel" type="Label" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/FullscreenContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ro3pg")
+theme_override_font_sizes/font_size = 20
+text = "全屏模式"
+
+[node name="FullscreenCheckBox" type="CheckBox" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/FullscreenContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_ro3pg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ro3pg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sf45y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ro3pg")
+
+[node name="ResolutionContainer" type="HBoxContainer" parent="Panel/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ro3pg")
+
+[node name="ResolutionLabel" type="Label" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/ResolutionContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ro3pg")
+theme_override_font_sizes/font_size = 20
+text = "分辨率"
+
+[node name="ResolutionOption" type="OptionButton" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/ResolutionContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 28)
+layout_mode = 2
+theme = ExtResource("2_ro3pg")
+theme_override_font_sizes/font_size = 16
+
+[node name="HSeparator3" type="HSeparator" parent="Panel/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_ro3pg")
+
+[node name="ButtonContainer" type="HBoxContainer" parent="Panel/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ro3pg")
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ResetButton" type="Button" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/ButtonContainer"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme = ExtResource("2_ro3pg")
+theme_override_font_sizes/font_size = 20
+text = "重置默认"
+
+[node name="CloseButton" type="Button" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/ButtonContainer"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme = ExtResource("2_ro3pg")
+theme_override_font_sizes/font_size = 20
+text = "关闭"
+
+[connection signal="mouse_entered" from="Panel/PanelContainer/MarginContainer/VBoxContainer/FullscreenContainer/FullscreenCheckBox" to="." method="_on_select"]
+[connection signal="pressed" from="Panel/PanelContainer/MarginContainer/VBoxContainer/FullscreenContainer/FullscreenCheckBox" to="." method="_on_pressed"]
+[connection signal="item_focused" from="Panel/PanelContainer/MarginContainer/VBoxContainer/ResolutionContainer/ResolutionOption" to="." method="_on_resolution_option_item_focused"]
+[connection signal="item_selected" from="Panel/PanelContainer/MarginContainer/VBoxContainer/ResolutionContainer/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
+[connection signal="mouse_entered" from="Panel/PanelContainer/MarginContainer/VBoxContainer/ResolutionContainer/ResolutionOption" to="." method="_on_select"]
+[connection signal="pressed" from="Panel/PanelContainer/MarginContainer/VBoxContainer/ResolutionContainer/ResolutionOption" to="." method="_on_pressed"]
+[connection signal="mouse_entered" from="Panel/PanelContainer/MarginContainer/VBoxContainer/ButtonContainer/ResetButton" to="." method="_on_select"]
+[connection signal="pressed" from="Panel/PanelContainer/MarginContainer/VBoxContainer/ButtonContainer/ResetButton" to="." method="_on_pressed"]
+[connection signal="mouse_entered" from="Panel/PanelContainer/MarginContainer/VBoxContainer/ButtonContainer/CloseButton" to="." method="_on_select"]
+[connection signal="pressed" from="Panel/PanelContainer/MarginContainer/VBoxContainer/ButtonContainer/CloseButton" to="." method="_on_close_button_pressed"]

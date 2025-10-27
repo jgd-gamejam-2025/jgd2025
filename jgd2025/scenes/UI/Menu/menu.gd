@@ -37,3 +37,12 @@ func _on_exit_pressed() -> void:
 
 func _on_continue_mouse_entered() -> void:
 	Wwise.post_event("UI_Prechoose", self)
+
+
+func _on_options_pressed() -> void:
+	Wwise.post_event("UI_Choose", self)
+	OptionsSettings.show()
+
+
+func _on_options_mouse_entered() -> void:
+	Wwise.post_event("UI_Prechoose", self)

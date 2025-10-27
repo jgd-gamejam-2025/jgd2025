@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://doietcndwdsr4" path="res://scenes/UI/Menu/menu.gd" id="1_877lm"]
 [ext_resource type="Texture2D" uid="uid://2vaixlrl7qah" path="res://assets/Eve/title.png" id="3_877lm"]
 [ext_resource type="Texture2D" uid="uid://btpygk6sp4sf3" path="res://assets/Eve/poster - 副本.png" id="3_d2hwh"]
-[ext_resource type="Theme" uid="uid://byj5ikantfwqn" path="res://scenes/UI/Menu/menu.tres" id="4_877lm"]
+[ext_resource type="Theme" uid="uid://oddpfcoobolo" path="res://scenes/UI/options_settings/options_settings.tres" id="4_877lm"]
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_877lm")
@@ -52,10 +52,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -304.0
+offset_left = -316.0
 offset_top = 14.0
 offset_right = -89.0
-offset_bottom = 173.0
+offset_bottom = 248.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/margin_right = 95
@@ -78,6 +78,13 @@ layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("4_877lm")
 text = "新游戏"
+alignment = 2
+
+[node name="Options" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("4_877lm")
+text = "选项"
 alignment = 2
 
 [node name="Exit" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
@@ -108,5 +115,7 @@ text = "AI角色的言论由语言模型生成，不代表制作组立场，内�
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="mouse_entered" from="ColorRect/MarginContainer/VBoxContainer/NewGame" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="mouse_entered" from="ColorRect/MarginContainer/VBoxContainer/Options" to="." method="_on_options_mouse_entered"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="mouse_entered" from="ColorRect/MarginContainer/VBoxContainer/Exit" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

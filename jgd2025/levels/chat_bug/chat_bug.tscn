@@ -1,12 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bytjnt7nwkrxw"]
+[gd_scene load_steps=8 format=3 uid="uid://bytjnt7nwkrxw"]
 
 [ext_resource type="Script" uid="uid://jdp2hkrg2vm5" path="res://levels/chat_bug/chat_bug.gd" id="1_5iuj2"]
-[ext_resource type="WwiseEvent" uid="uid://dei8x7w5kjtmy" path="res://Wwise/resources/Event/{C6E972AC-BD49-4AFD-9E6C-8066C6F12647}.tres" id="3_5iuj2"]
 [ext_resource type="PackedScene" uid="uid://byhcpq4t56qc3" path="res://scenes/UI/chat_ui/chat_ui.tscn" id="3_edd6c"]
 [ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="4_1crpx"]
-[ext_resource type="WwiseEvent" uid="uid://b2it8sw51j1ee" path="res://Wwise/resources/Event/{5F0595F7-FE1B-4D43-AD04-66CCA22E8660}.tres" id="4_8coro"]
 [ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="4_gnwe6"]
-[ext_resource type="WwiseEvent" uid="uid://l1kmshbg2s0p" path="res://Wwise/resources/Event/{773C4242-BCF9-4C5A-A8B8-7ABBEB189DFB}.tres" id="5_8coro"]
 [ext_resource type="FontFile" uid="uid://dche8c1u6rmg" path="res://scenes/UI/fonts/OPlusSans3-Bold.ttf" id="8_s6dx3"]
 [ext_resource type="FontFile" uid="uid://b8muwa7k4021" path="res://scenes/UI/fonts/OPlusSans3-Regular.ttf" id="9_ostp8"]
 [ext_resource type="Theme" uid="uid://csjhowu7j47ua" path="res://scenes/UI/TransitionUI/transition.tres" id="10_8coro"]
@@ -15,10 +12,6 @@
 script = ExtResource("1_5iuj2")
 
 [node name="ChatUI" parent="." instance=ExtResource("3_edd6c")]
-debug_mode = false
-wwise_type_fault = ExtResource("3_5iuj2")
-wwise_type = ExtResource("4_8coro")
-wwise_player_type = ExtResource("5_8coro")
 
 [node name="SmallTalkTimer" type="Timer" parent="."]
 wait_time = 2.0

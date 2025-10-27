@@ -229,6 +229,7 @@
 				</SwitchContainer>
 				<Sound Name="地震" ID="{94670E8C-3484-4835-997B-EA1DBF3AAE0A}" ShortID="687806527">
 					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-14</Value>

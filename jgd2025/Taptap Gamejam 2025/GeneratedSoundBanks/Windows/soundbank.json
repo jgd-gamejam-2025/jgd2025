@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}",
     "Language": "SFX",
-    "Hash": "{CC6C818B-EE52-A630-F24A-A5C467C7E2F3}",
+    "Hash": "{656B08AD-FF09-2CB9-7DC0-5AC9C192A451}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\soundbank",
     "ShortName": "soundbank",
     "Path": "soundbank.bnk",
@@ -525,7 +525,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "地震.wav",
-      "CachePath": "FF/{FF73A416-B865-0E0D-015B-9B3D85CDB260}.wem"
+      "CachePath": "4D/{4DC38E8B-7D0A-2411-F9A9-4F58F2EF3C2F}.wem"
      },
      {
       "Id": "916669482",
@@ -1425,9 +1425,7 @@
       "Name": "Play_AMB_earthquake",
       "ObjectPath": "\\Events\\Default Work Unit\\AMB\\Play_AMB_earthquake",
       "GUID": "{DFD7DA4C-5775-4CED-AEC7-8059457DAC9A}",
-      "DurationType": "OneShot",
-      "DurationMin": "38",
-      "DurationMax": "38",
+      "DurationType": "Infinite",
       "MediaRefs": [
        {
         "Id": "899724649"
@@ -1988,6 +1986,6 @@
     ]
    }
   ],
-  "FileHash": "{FA77FD00-83D0-47EB-0903-FB2ABC8E2FBE}"
+  "FileHash": "{4D0E5FA9-61CE-D2C6-3A1A-1F4AA6528799}"
  }
 }

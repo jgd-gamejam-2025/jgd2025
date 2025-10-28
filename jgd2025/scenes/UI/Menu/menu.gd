@@ -5,6 +5,8 @@ extends CanvasLayer
 
 func _ready() -> void:
 	set_ai_level_label()
+	if LevelManager.end_of_game:
+		$ColorRect/MarginContainer/VBoxContainer/EndingChat.show()
 	Wwise.stop_all()
 	Wwise.post_event("MX_Play_begin", LevelManager)
 	var tween = create_tween()
@@ -73,3 +75,8 @@ func _on_ai_switch_mouse_entered() -> void:
 
 func _on_ai_switch_mouse_exited() -> void:
 	ai_description.hide()
+
+func _on_ending_chat_pressed() -> void:
+	Wwise.post_event("UI_Choose", self)
+	Wwise.stop_all()
+	LevelManager.to_end_chat()

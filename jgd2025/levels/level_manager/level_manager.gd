@@ -22,7 +22,7 @@ var play_recording = true
 const SAVE_FILE_PATH = "user://save_data.cfg"
 var config = ConfigFile.new()
 var curr_scene = null
-var use_low_ai: bool = false
+var use_low_ai: bool = true
 var end_of_game: bool = false
 var in_menu = true
 # === Save/Load Functions ===
@@ -51,7 +51,7 @@ func load_game() -> Dictionary:
 	
 	var scene_name = config.get_value("save", "scene_name", "")
 	var scene_data = config.get_value("save", "scene_data", {})
-	use_low_ai = config.get_value("save", "use_low_ai", false)
+	use_low_ai = config.get_value("save", "use_low_ai", true)
 	
 	print("Game loaded: ", scene_name, " with data: ", scene_data, " use_low_ai: ", use_low_ai)
 	
@@ -92,7 +92,7 @@ func load_use_low_ai() -> bool:
 		print("No save file found, using default use_low_ai = false")
 		return false
 	
-	use_low_ai = config.get_value("save", "use_low_ai", false)
+	use_low_ai = config.get_value("save", "use_low_ai", true)
 	print("Loaded use_low_ai: ", use_low_ai)
 	return use_low_ai
 
@@ -123,7 +123,7 @@ func get_save_data() -> Dictionary:
 	
 	var save_data = {
 		"curr_scene": config.get_value("save", "scene_name", ""),
-		"use_low_ai": config.get_value("save", "use_low_ai", false),
+		"use_low_ai": config.get_value("save", "use_low_ai", true),
 		"end_of_game": config.get_value("save", "end_of_game", false),
 		"scene_data": config.get_value("save", "scene_data", {})
 	}

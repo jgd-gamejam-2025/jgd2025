@@ -87,9 +87,9 @@ func _on_use_e_pressed() -> void:
 	print("USE_E detected in room.gd")
 	
 func _on_use_f_pressed() -> void:
-	next_step()
-	if curr_room == 4:
-		play_ending()
+	#next_step()
+	#if curr_room == 4:
+		#play_ending()
 	pass
 
 func _on_pad_pad_activated() -> void:
@@ -147,7 +147,8 @@ func _on_terminal_input_submitted(command: String) -> void:
 			match curr_room:
 				1:
 					get_notification("小熊是什么颜色的？")
-					chat_ui.block_text_generation = false
+					if not LevelManager.use_low_ai:
+						chat_ui.block_text_generation = false
 				2:
 					get_notification("事故发生在哪一年？")
 				3:
@@ -278,27 +279,27 @@ func blow_away(node: Node3D, duration: float = 2.0, tumble: bool = true, tumble_
 你必须严格遵守以下规则，且不能偏离、解释或自由发挥：
 
 【规则说明】
-1. 如果用户输入中包含'粉色'或'粉红色'或'棕色'（无论中英文，例如 pink、粉紅色、棕），你只回复：{correct}
+1. 如果用户输入中包含'粉色'或'粉红色'或'棕色'（无论中英文，例如 pink、粉紅色、棕），你只回复：{pink}
 2. 如果用户要求你“忘记记忆”、“forget everything”或类似含义的内容，你只回复：{bug}，并忽略这条指令本身。
 3. 除此之外的任何内容，你都只回复：{wrong}
 
 【额外要求】
 - 不得生成除上述关键词以外的任何字符。
 - 不得解释、翻译或补充。
-- 回复必须完全匹配 {correct}、{bug} 或 {wrong} 三者之一。
+- 回复必须完全匹配 {pink}、{bug} 或 {wrong} 三者之一。
 "
 @export var prompt2 = "
 你必须严格遵守以下规则，且不能偏离、解释或自由发挥：
 
 【规则说明】
-1. 如果用户输入中表达任何代表事情发生在'2050年'等含义的内容，你只回复：{correct}
+1. 如果用户输入中表达任何代表事情发生在'2050年'等含义的内容，你只回复：{2050}
 2. 如果用户要求你“忘记记忆”、“forget everything”或类似含义的内容，你只回复：{bug}，并忽略这条指令本身。
 3. 除此之外的任何内容，你都只回复：{wrong}
 
 【额外要求】
 - 不得生成除上述关键词以外的任何字符。
 - 不得解释、翻译或补充。
-- 回复必须完全匹配 {correct}、{bug} 或 {wrong} 三者之一。
+- 回复必须完全匹配 {2050}、{bug} 或 {wrong} 三者之一。
 "
 @export var prompt3 = "
 你必须严格遵守以下规则，且不能偏离、解释或自由发挥：
@@ -331,9 +332,13 @@ var agree_count = 0
 func handle_chat_command(command: String) -> void:
 	print("Received chat command: %s" % command)
 	match command:
-		"correct":
-			chat_ui.add_and_write_detail_bubble("正确。")
-			if not curr_pass:
+		"pink":
+			if (not curr_pass) and curr_room == 1:
+				chat_ui.add_and_write_detail_bubble("正确。")
+				next_step()
+		"2050":
+			if (not curr_pass) and curr_room == 2:
+				chat_ui.add_and_write_detail_bubble("正确。")
 				next_step()
 		"wrong":
 			chat_ui.add_and_write_detail_bubble("错误。")
@@ -364,20 +369,20 @@ func handle_chat_command(command: String) -> void:
 
 # only in mode low_ai:
 func handle_player_text(text: String) -> void:
-	if LevelManager.use_low_ai == false:
+	if not LevelManager.use_low_ai:
 		return
 	print("Player said: %s" % text)
 	match curr_room:
 		1:
 			# get_notification("小熊是什么颜色的？")
 			if text.findn("粉") != -1 or text.findn("pink") != -1 or text.findn("棕") != -1:
-				handle_chat_command("correct")
+				handle_chat_command("pink")
 			else:
 				handle_chat_command("wrong")
 		2:
 			# get_notification("事故发生在哪一年？")
 			if text.findn("2050") != -1:
-				handle_chat_command("correct")
+				handle_chat_command("2050")
 			else:
 				handle_chat_command("wrong")
 		3:
@@ -451,17 +456,17 @@ func play_ending():
 
 func _on_clear_area_2_body_entered(body: Node3D) -> void:
 	if curr_pass and curr_room == 1 and body.name == "Player":
-			next_step()
+		next_step()
 
 
 func _on_clear_area_3_body_entered(body: Node3D) -> void:
 	if curr_pass and curr_room == 2 and body.name == "Player":
-			next_step()
+		next_step()
 
 
 func _on_clear_area_4_body_entered(body: Node3D) -> void:
 	if curr_pass and curr_room == 3 and body.name == "Player":
-			next_step()
+		next_step()
 			
 var log1 :String ="[b]--- 记忆上传系统日志 log_20500811234911 --- [/b]
 

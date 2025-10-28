@@ -428,8 +428,6 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 
-[node name="AkListener3D" type="AkListener3D" parent="."]
-
 [connection signal="pad_activated" from="CameraPivot/PadVobbling/Pad" to="." method="_on_pad_pad_activated"]
 [connection signal="pad_deactivated" from="CameraPivot/PadVobbling/Pad" to="." method="_on_pad_pad_deactivated"]
 [connection signal="transitioned" from="StateMachine" to="." method="_on_state_machine_transitioned"]

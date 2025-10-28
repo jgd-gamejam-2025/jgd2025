@@ -17,7 +17,8 @@ func handle_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed(player.SPRINT) && player.allow_sprint:
 		state_machine.transition_to(state_machine.movement_state[state_machine.SPRINT])
 	
-	if event.is_action_pressed(player.JUMP) && player.is_on_floor() && player.allow_jump:
+	# 禁用在使用 pad 时的跳跃
+	if event.is_action_pressed(player.JUMP) && player.is_on_floor() && player.allow_jump && not player.pad.is_playing:
 		state_machine.transition_to(
 			state_machine.movement_state[state_machine.JUMP], 
 			{ 

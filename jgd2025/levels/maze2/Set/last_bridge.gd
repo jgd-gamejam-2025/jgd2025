@@ -26,9 +26,9 @@ func _on_ocean_start_body_entered(body: Node3D) -> void:
 	if body.name == "Player" and not triggered_ocean:
 		triggered_ocean = true
 		ocean_started.emit()
-		wwise_rtpc.set_value(LevelManager, 70)
+		wwise_rtpc.set_value(LevelManager, 100)
 		$OceanScene._start_pattern()
-		Wwise.post_event("SFX_Play_pillarup2", self)
+		Wwise.post_event("SFX_pillar_loop", LevelManager)
 
 signal ocean_exit
 @export var wwise_mazetrans_to_chat :WwiseEvent
@@ -38,11 +38,11 @@ func _on_ocean_end_body_exited(body: Node3D) -> void:
 		ocean_exit.emit()
 		# player.look_at_target($Marker3D)
 		wwise_mazetrans_to_chat.post(LevelManager)
-		wwise_rtpc.set_value(LevelManager, 100)
-		await get_tree().create_timer(8.0).timeout
+		# wwise_rtpc.set_value(LevelManager, 100)
+		await get_tree().create_timer(6.85).timeout
 		Transition.set_and_start("坍塌", "", 0, "N/A")	
-		await get_tree().create_timer(0.2).timeout
 		wwise_earthquake.stop(LevelManager)
+		await get_tree().create_timer(3).timeout
 		LevelManager.to_chat_cut_scene()
 
 

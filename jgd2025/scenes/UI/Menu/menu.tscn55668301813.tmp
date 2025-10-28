@@ -1,22 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bco451gkhafpk"]
+[gd_scene load_steps=6 format=3 uid="uid://bco451gkhafpk"]
 
 [ext_resource type="Script" uid="uid://doietcndwdsr4" path="res://scenes/UI/Menu/menu.gd" id="1_877lm"]
 [ext_resource type="Texture2D" uid="uid://2vaixlrl7qah" path="res://assets/Eve/title.png" id="3_877lm"]
 [ext_resource type="Texture2D" uid="uid://btpygk6sp4sf3" path="res://assets/Eve/poster - 副本.png" id="3_d2hwh"]
 [ext_resource type="Theme" uid="uid://oddpfcoobolo" path="res://scenes/UI/options_settings/options_settings.tres" id="4_877lm"]
 [ext_resource type="Theme" uid="uid://byj5ikantfwqn" path="res://scenes/UI/Menu/menu.tres" id="4_yv4w8"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yv4w8"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 15
-border_width_top = 15
-border_width_right = 15
-border_width_bottom = 15
-border_color = Color(0, 0, 0, 1)
-expand_margin_left = 15.0
-expand_margin_top = 15.0
-expand_margin_right = 15.0
-expand_margin_bottom = 15.0
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_877lm")
@@ -57,6 +45,48 @@ grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_877lm")
+
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -698.0
+offset_top = -265.0
+offset_right = -189.0
+offset_bottom = -118.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 2
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_yv4w8")
+theme_override_colors/font_color = Color(0.31431624, 0.3143161, 0.31431603, 1)
+theme_override_font_sizes/font_size = 32
+text = "若出现性能问题，请尝试切换AI智力"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="ColorRect/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_yv4w8")
+theme_override_colors/font_color = Color(0.31431624, 0.3143161, 0.31431603, 1)
+theme_override_font_sizes/font_size = 32
+text = "当前AI智力：默认"
+horizontal_alignment = 2
+
+[node name="AiSwitch" type="Button" parent="ColorRect/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("4_877lm")
+text = "切换AI智力"
+alignment = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
 layout_mode = 1
@@ -100,85 +130,12 @@ theme = ExtResource("4_877lm")
 text = "选项"
 alignment = 2
 
-[node name="EndingChat" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-theme = ExtResource("4_877lm")
-text = "尾声：对话制作组AI"
-alignment = 2
-
 [node name="Exit" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("4_877lm")
 text = "退出"
 alignment = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -698.0
-offset_top = -265.0
-offset_right = -189.0
-offset_bottom = -118.0
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 18
-alignment = 2
-
-[node name="Label" type="Label" parent="ColorRect/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("4_yv4w8")
-theme_override_colors/font_color = Color(0.31431624, 0.3143161, 0.31431603, 1)
-theme_override_font_sizes/font_size = 32
-horizontal_alignment = 2
-
-[node name="Label2" type="Label" parent="ColorRect/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("4_yv4w8")
-theme_override_colors/font_color = Color(0.31431624, 0.3143161, 0.31431603, 1)
-theme_override_font_sizes/font_size = 32
-text = "当前AI智力：标准"
-horizontal_alignment = 2
-
-[node name="AiSwitch" type="Button" parent="ColorRect/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-theme = ExtResource("4_877lm")
-text = "切换AI智力"
-alignment = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/MarginContainer2/VBoxContainer/AiSwitch"]
-visible = false
-custom_minimum_size = Vector2(680, 0)
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -680.0
-offset_top = 54.0
-offset_bottom = 385.0
-grow_horizontal = 0
-theme = ExtResource("4_yv4w8")
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_yv4w8")
-bbcode_enabled = true
-text = "[b]标准：[/b]对配置要求较低，能够进行游戏流程。
-可能会出现重复对话，理解不到位的问题
-
-[b]增强：[/b]对配置有一定要求，会延长加载时间。
-可能造成游戏卡顿。增强AI对玩家理解更好。
-
-首次游玩推荐使用标准AI，出问题概率更低。"
-fit_content = true
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 1
@@ -196,20 +153,15 @@ grow_vertical = 0
 theme = ExtResource("4_877lm")
 theme_override_colors/font_color = Color(0.1428582, 0.14285824, 0.1428582, 1)
 theme_override_font_sizes/font_size = 24
-text = "若Eve说的话不合逻辑，请多谅解！ 毕竟Eve是一个出现系统错误的AI……
-AI角色的言论由语言模型生成，不代表制作组立场，内容可能存在偏差或错误，请玩家自行判断。"
-horizontal_alignment = 1
+text = "AI角色的言论由语言模型生成，不代表制作组立场，内容可能存在偏差或错误，请玩家自行判断。"
 
+[connection signal="mouse_entered" from="ColorRect/MarginContainer2/VBoxContainer/AiSwitch" to="." method="_on_options_mouse_entered"]
+[connection signal="pressed" from="ColorRect/MarginContainer2/VBoxContainer/AiSwitch" to="." method="_on_ai_switch_pressed"]
 [connection signal="mouse_entered" from="ColorRect/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="mouse_entered" from="ColorRect/MarginContainer/VBoxContainer/NewGame" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="mouse_entered" from="ColorRect/MarginContainer/VBoxContainer/Options" to="." method="_on_options_mouse_entered"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="mouse_entered" from="ColorRect/MarginContainer/VBoxContainer/EndingChat" to="." method="_on_options_mouse_entered"]
-[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/EndingChat" to="." method="_on_ending_chat_pressed"]
 [connection signal="mouse_entered" from="ColorRect/MarginContainer/VBoxContainer/Exit" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
-[connection signal="mouse_entered" from="ColorRect/MarginContainer2/VBoxContainer/AiSwitch" to="." method="_on_ai_switch_mouse_entered"]
-[connection signal="mouse_exited" from="ColorRect/MarginContainer2/VBoxContainer/AiSwitch" to="." method="_on_ai_switch_mouse_exited"]
-[connection signal="pressed" from="ColorRect/MarginContainer2/VBoxContainer/AiSwitch" to="." method="_on_ai_switch_pressed"]

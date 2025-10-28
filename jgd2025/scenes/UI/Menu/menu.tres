@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://byj5ikantfwqn"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://byj5ikantfwqn"]
 
 [ext_resource type="FontFile" uid="uid://dpx5atk0qm3yy" path="res://scenes/UI/fonts/SourceHanSansCN-Regular.otf" id="1_tyh3g"]
+[ext_resource type="FontFile" uid="uid://bgivy0rnvhhw4" path="res://scenes/UI/fonts/SourceHanSansCN-Heavy.otf" id="2_n17kc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_877lm"]
 content_margin_left = 0.0
@@ -32,3 +33,9 @@ Button/styles/normal = SubResource("StyleBoxEmpty_mlhdq")
 Button/styles/pressed = SubResource("StyleBoxFlat_877lm")
 Label/colors/font_color = Color(0.36659443, 0.36659467, 0.36659455, 1)
 Label/fonts/font = ExtResource("1_tyh3g")
+RichTextLabel/constants/line_separation = 10
+RichTextLabel/constants/paragraph_separation = 10
+RichTextLabel/font_sizes/bold_font_size = 32
+RichTextLabel/font_sizes/normal_font_size = 32
+RichTextLabel/fonts/bold_font = ExtResource("2_n17kc")
+RichTextLabel/fonts/normal_font = ExtResource("1_tyh3g")

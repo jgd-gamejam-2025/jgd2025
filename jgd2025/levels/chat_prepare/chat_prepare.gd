@@ -48,9 +48,7 @@ func _ready():
 	small_talking = true
 	Transition.end()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	play_recording = LevelManager.play_recording
-	if play_recording:
-		print("Playing recording audio")
+	# ending_subtitle controls subtitle
 
 
 func _on_small_talk_timer_timeout() -> void:

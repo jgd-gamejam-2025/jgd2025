@@ -22,6 +22,7 @@ func _input(event):
 
 func _on_exit_button_pressed() -> void:
 	Wwise.post_event("UI_Choose", self)
+	Wwise.post_event("Pause_back", self)
 	LevelManager.to_menu()
 
 func _on_option_button_pressed() -> void:

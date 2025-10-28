@@ -6,7 +6,7 @@ extends Control
 var current_aiChat: NobodyWhoChat
 @onready var name_label = $Panel/Name
 @export var debug_mode = false
-@export var qwen = true
+@export var qwen = false
 @export var wwise_type_fault:WwiseEvent
 @export var wwise_type:WwiseEvent
 @export var wwise_player_type:WwiseEvent
@@ -33,15 +33,22 @@ var llama_debug_command = "sudo debug /llama --backup"
 var _tween: Tween 
 var block_text_generation = false
 
-signal sent_text
+signal sent_text(text: String)
 signal received_text(text: String)
 signal line_edit_focus
 signal command_received(command: String)
 
 var line_edit_focus_sent = false
 var first_time_sent_text = true
-
+#--------------
+@export var low_ai_path = "gguf/Qwen3-0.6B-Q4_K_S.gguf"
+@export var default_ai_path = "gguf/Llama3-8B-Chinese-Chat-q4_0-v2_1.gguf"
 func _ready() -> void:
+	qwen = qwen or LevelManager.use_low_ai
+	if qwen:
+		$NobodyWhoModel.model_path = low_ai_path
+	else:
+		$NobodyWhoModel.model_path = default_ai_path
 	margin_container.hide()
 	detail_bubble.hide()
 	flat_bubble.hide()
@@ -68,7 +75,7 @@ func send_text_to_ai():
 				_on_nobody_who_chat_response_updated("我")
 				await get_tree().create_timer(0.1).timeout
 		_on_nobody_who_chat_response_finished("Debugging Again")
-	sent_text.emit()
+	sent_text.emit(my_message)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
@@ -159,9 +166,23 @@ func _on_nobody_who_chat_response_finished(response: String) -> void:
 		return
 	if current_detail_bubble != null:
 		received_text.emit(current_detail_bubble.rich_text_label.text)
+	accept_next_message()
+
+func is_in_3d_world() -> bool:
+	match LevelManager.curr_scene:
+		"eve_debug":
+			return true
+		"maze2":
+			return true
+		"room":
+			return true
+	return false
+
+func accept_next_message():
+	# shouldn't call this unless block_text_generation == true
 	textInput.editable = true
-	# focus the text input for next message
-	textInput.grab_focus()
+	if not is_in_3d_world():
+		textInput.grab_focus()
 
 func _handle_scrollbar_changed():
 	bubble_scroll.scroll_vertical = bubble_scroll_bar.max_value
@@ -193,7 +214,7 @@ func init_system_prompt(key_prompt_dict: Dictionary) -> void:
 		var new_chat = aiChat.duplicate()
 		add_child(new_chat)
 		if qwen:
-			new_chat.system_prompt = "\\no_think " + key_prompt_dict[key]
+			new_chat.system_prompt = "/no_think " + key_prompt_dict[key]
 		else:
 			new_chat.system_prompt = key_prompt_dict[key]
 		key_aiChat_dict[key] = new_chat

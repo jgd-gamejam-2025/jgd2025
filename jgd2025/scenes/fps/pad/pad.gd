@@ -33,6 +33,8 @@ var follow_player := true
 
 var _was_above_threshold := false  # 记录上一帧是否超过阈值
 
+var can_activate := true
+
 func _process(delta: float) -> void:
 	if not follow_player or not camera_pivot or not player: # 确保 player 也被正确获取
 		return
@@ -40,7 +42,7 @@ func _process(delta: float) -> void:
 	var t: float # 先声明 t
 
 	# --- 这是主要的修改 ---
-	if player.is_on_floor():
+	if can_activate and player.is_on_floor():
 		# 玩家在地上：正常根据视角计算 t
 		var pitch := camera_pivot.rotation_degrees.x
 		t = (pitch - move_when_angle) / (move_until_angle - move_when_angle)

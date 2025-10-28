@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://btf2mmkgrs3xc"]
+[gd_scene load_steps=11 format=3 uid="uid://btf2mmkgrs3xc"]
 
 [ext_resource type="Script" uid="uid://bk4cyulfllecl" path="res://scenes/UI/chat_buttons/chat_buttons.gd" id="1_cki5a"]
 [ext_resource type="Theme" uid="uid://b4ekpllfloej0" path="res://scenes/UI/chat_ui/chat_ui_theme.tres" id="1_ltdvs"]
+[ext_resource type="Texture2D" uid="uid://2vaixlrl7qah" path="res://assets/Eve/title.png" id="2_cki5a"]
 [ext_resource type="Theme" uid="uid://oddpfcoobolo" path="res://scenes/UI/options_settings/options_settings.tres" id="2_tiknx"]
 [ext_resource type="Texture2D" uid="uid://dlrbue5kaerin" path="res://assets/ui/信息.png" id="4_j1hct"]
 
 [sub_resource type="Gradient" id="Gradient_tupck"]
-colors = PackedColorArray(0, 0, 0, 0.5529412, 0.12941177, 0.12941177, 0.12941177, 0)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8d25m"]
 gradient = SubResource("Gradient_tupck")
@@ -47,14 +48,29 @@ grow_vertical = 2
 
 [node name="Shadow2" type="TextureRect" parent="Background"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -598.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 texture = SubResource("GradientTexture2D_8d25m")
+
+[node name="Title" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -549.5
+offset_top = -182.0
+offset_right = 549.5
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.32, 0.32)
+pivot_offset = Vector2(549.5, 182)
+texture = ExtResource("2_cki5a")
 
 [node name="OptionButton" type="Button" parent="."]
 anchors_preset = 3

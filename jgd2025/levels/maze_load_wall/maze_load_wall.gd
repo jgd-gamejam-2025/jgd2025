@@ -18,7 +18,7 @@ var curr_level = 1
 
 func _ready():
 	player.can_move_camera = false
-	player.can_move = false
+	#player.can_move = false
 	chat_ui.set_ai_name("Eve")
 	chat_ui.init_system_prompt({"ai":ai_prompt})
 	chat_ui.select_ai_chat("ai")
@@ -52,7 +52,7 @@ func end_opening() -> void:
 		get_notification(">预计距离系统完全崩溃剩余时间：1小时21分钟")
 		await get_tree().create_timer(1.5).timeout
 		get_notification(">已切换至备用模型……当前计算能力：3.21%")
-		player.can_move = true
+		player.can_move = true # extra but keep it for now
 		await get_tree().create_timer(2).timeout
 		get_notification("嗨")
 		emit_signal("end_opening_sig")
@@ -68,7 +68,7 @@ func end_opening() -> void:
 		get_notification("如果出问题，告诉我重新启动，我会帮你重启这段程序。")
 	else:
 		get_notification("让我们再试一次")
-		player.can_move = true
+		player.can_move = true # extra but keep it for now
 		await get_tree().create_timer(5).timeout
 		emit_signal("end_opening_sig")
 
@@ -111,7 +111,9 @@ func get_notification(message: String, duration: float = 3.0, name_text: String 
 
 func _on_hit_timer_timeout() -> void:
 	if curr_level == 1:
-		get_notification("这些墙壁……如果能上到顶上的话……")
+		get_notification("如果我们重新加载，趁墙没升起，站到墙壁顶端")
+		await get_tree().create_timer(1.5).timeout
+		get_notification("是不是可以沿着墙顶端走到门那里？")
 
 
 func _on_notification_area_area_text(text: String) -> void:

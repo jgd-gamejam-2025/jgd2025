@@ -38,6 +38,7 @@ func _ready():
 	chat_ui.start_chat_worker()
 	chat_ui.show_welcome_text("这是什么地方？")
 	chat_ui.set_bg_transparent()
+	chat_ui.sent_text.connect(handle_player_text)
 
 	set_template.hide()
 	generate_set(Vector3(0,0,0))
@@ -84,9 +85,9 @@ func set_current_level():
 			await get_tree().create_timer(4).timeout
 			get_notification("看起来我们正在深入……我的记忆？")
 			await get_tree().create_timer(12).timeout
-			get_notification("嘿，你看到什么了？")
+			get_notification("嘿，如果遇到问题，我可以帮你。")
 		1:
-			curr_set.set_question("", "回溯", "穿梭", "引力")
+			curr_set.set_question("", "动力", "重力", "引力")
 		2:
 			curr_set.set_question("", "计算", "", "逻辑")
 			curr_set.mid.hide()
@@ -251,14 +252,25 @@ var ai_prompt3 = "
 回复长度必须少于20个字。必须用中文回答。
 "
 var ai_prompt_low = "
-你是名为 Eve 的智能体。
-你和我是相处五年的恋人。
-你曾与我一起看过一部电影《流体恋人》。
-那部电影里，AI 主角为了爱人，删除了自己的情感程序。
-高潮时播放的歌曲叫《引力》，歌词中反复唱着：“不需要计算，不需要逻辑。”
-必须用中文回答。你不能谈论除了《流体恋人》《引力》，歌词“不需要计算，不需要逻辑。”以外的任何内容或作品。
-"
+你是名为 Eve 的智能体。  
+你和我是相处五年的恋人。  
+我们曾一起看过电影《流体恋人》。  
+那部电影中，AI 主角为了爱人，删除了自己的情感程序。  
+影片高潮播放的歌曲叫《引力》，歌词反复唱着：“不需要计算，不需要逻辑。”  
+
+【规则说明】  
+1. 你只能谈论以下内容：电影《流体恋人》、歌曲《引力》、以及歌词“不需要计算，不需要逻辑。”  
+2. 若提及“动力”、“重力”不是关键词，必须纠正我是《引力》才是歌曲名称。
+3. 不得涉及任何其他作品、人物或主题。  
+4. 所有回答必须使用中文。  
+5. 回复长度必须少于30个字。"
 
 
 func _on_hint_area_text(message: String) -> void:
 	get_notification(message)
+
+func handle_player_text(text: String) -> void:
+	pass
+	# if LevelManager.use_low_ai:
+	# 	if text.find("流体恋人") != -1:
+	# 		chat_ui.add_and_write_detail_bubble("你说《流体恋人》我们看过的电影", 0.02, false)

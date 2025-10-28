@@ -46,7 +46,7 @@ var welcome_index = 0
 语气温和口语化，可轻微调侃。  
 现在傍晚六点，我们准备吃晚饭，还没决定去哪。  
 请问我想去哪家店。  
-不要使用引号，必须用中文。"
+回复长度最好少于30个字，必须用中文。"
 
 
 # Helper method to create sequential timed events using tweens

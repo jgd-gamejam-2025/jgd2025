@@ -10,6 +10,7 @@ func _ready():
 	terminal.block_input()
 
 func start_opening() -> void:
+	Wwise.stop_all()
 	await terminal.write_line(start_screen_text).finished
 	await terminal.write_line(start_screen_text_2, 0.001).finished
 	terminal.write_line_static("[color=#ff1900][AI SYSTEM] 重启失败，是否启用备份系统深度调试？按回车键确认。\n[/color]")
@@ -41,7 +42,7 @@ func next_step() -> void:
 			await terminal.write_line(" ").finished
 			# increase the text size gradually to 100
 		await get_tree().create_timer(0.2).timeout
-		wwise_title.post(self)
+		wwise_title.post(LevelManager)
 		await get_tree().create_timer(0.3).timeout
 
 		# var eve_ascii = terminal.expand_ascii_art(eve_ascii_raw, 3)
@@ -86,7 +87,7 @@ func next_step() -> void:
 		)
 
 	if input_received == 2:
-		wwise_title_to_maze.post(self)
+		wwise_title_to_maze.post(LevelManager)
 		terminal.output_area.text = ""
 		terminal.special_label.hide()
 		terminal.special_label2.show()

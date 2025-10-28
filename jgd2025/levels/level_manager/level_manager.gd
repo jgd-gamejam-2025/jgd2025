@@ -60,10 +60,10 @@ func load_game() -> Dictionary:
 		"chat_1":
 			to_chat_1()
 		"eve_debug":
-			if scene_data.get("show_opening", true):
-				to_eve_debug()
-			else:
-				restart_eve_debug()
+			# if scene_data.get("show_opening", true):
+			# 	to_eve_debug()
+			# else:
+			restart_eve_debug()
 		"maze2":
 			if in_menu:
 				Wwise.post_event("MX_Play_Maze", self)

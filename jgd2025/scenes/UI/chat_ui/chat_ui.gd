@@ -41,7 +41,7 @@ signal command_received(command: String)
 var line_edit_focus_sent = false
 var first_time_sent_text = true
 #--------------
-@export var low_ai_path = "gguf/Qwen3-0.6B-Q4_K_S.gguf"
+@export var low_ai_path = "gguf/Qwen3-4B-Q4_K_M.gguf"
 @export var default_ai_path = "gguf/Llama3-8B-Chinese-Chat-q4_0-v2_1.gguf"
 func _ready() -> void:
 	qwen = qwen or LevelManager.use_low_ai

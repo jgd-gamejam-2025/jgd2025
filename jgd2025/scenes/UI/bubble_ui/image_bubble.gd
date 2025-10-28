@@ -13,3 +13,7 @@ func set_texture(texture: Texture):
 	texture.texture = texture
 	texture.show()
 	anim_player.hide()
+
+func show_maze_texture():
+	texture.show()
+	anim_player.hide()

@@ -117,7 +117,7 @@ func get_save_data() -> Dictionary:
 		print("No save file found, returning empty data")
 		return {
 			"curr_scene": "",
-			"use_low_ai": false,
+			"use_low_ai": true,
 			"scene_data": {}
 		}
 	

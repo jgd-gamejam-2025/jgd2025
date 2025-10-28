@@ -111,9 +111,10 @@ func get_notification(message: String, duration: float = 3.0, name_text: String 
 
 func _on_hit_timer_timeout() -> void:
 	if curr_level == 1:
-		get_notification("如果我们重新加载，趁墙没升起，站到墙壁顶端")
+		get_notification("有办法了：我们重新加载，站在黑线上，就可以上到墙壁顶端")
 		await get_tree().create_timer(1.5).timeout
-		get_notification("是不是可以沿着墙顶端走到门那里？")
+		get_notification("接着沿着墙顶端走到门那里,就像这样：")
+		chat_ui.add_maze_image_bubble()
 
 
 func _on_notification_area_area_text(text: String) -> void:

@@ -346,6 +346,13 @@ func add_sticker_bubble(anim_name: String):
 	new_bubble.show()
 	await get_tree().process_frame
 
+func add_maze_image_bubble():
+	var new_bubble = image_bubble.duplicate()
+	vbox_container.add_child(new_bubble)
+	new_bubble.show_maze_texture()
+	new_bubble.show()
+	await get_tree().process_frame
+
 func add_image_bubble(texture: Texture):
 	var new_bubble = image_bubble.duplicate()
 	vbox_container.add_child(new_bubble)

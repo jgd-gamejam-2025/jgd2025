@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var curr_ai_level_label = $ColorRect/MarginContainer2/VBoxContainer/Label2
+@onready var ai_description = $ColorRect/MarginContainer2/VBoxContainer/AiSwitch/RichTextLabel
 
 func _ready() -> void:
 	set_ai_level_label()
@@ -60,7 +61,13 @@ func _on_ai_switch_pressed() -> void:
 
 func set_ai_level_label() -> void:
 	if LevelManager.use_low_ai:
-		curr_ai_level_label.text = "当前AI智力：有限"
-	else:
 		curr_ai_level_label.text = "当前AI智力：标准"
+	else:
+		curr_ai_level_label.text = "当前AI智力：增强"
 		
+func _on_ai_switch_mouse_entered() -> void:
+	Wwise.post_event("UI_Prechoose", self)
+	ai_description.show()
+
+func _on_ai_switch_mouse_exited() -> void:
+	ai_description.hide()

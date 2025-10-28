@@ -22,6 +22,7 @@ func _on_continue_pressed() -> void:
 	clicked_button = true
 	await get_tree().create_timer(0.2).timeout
 	Transition.set_and_start("正在连接……", "", 2)
+	LevelManager.in_menu = true
 	LevelManager.load_game()
 
 
@@ -32,6 +33,7 @@ func _on_new_game_pressed() -> void:
 	clicked_button = true
 	await get_tree().create_timer(0.2).timeout
 	Transition.set_and_start("正在连接……", "", 2)
+	LevelManager.in_menu = true
 	LevelManager.to_chat_1()
 
 

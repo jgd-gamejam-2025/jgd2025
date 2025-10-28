@@ -23,6 +23,8 @@ const SAVE_FILE_PATH = "user://save_data.cfg"
 var config = ConfigFile.new()
 var curr_scene = null
 var use_low_ai: bool = false
+var end_of_game: bool = false
+var in_menu = true
 # === Save/Load Functions ===
 
 func _ready() -> void:
@@ -63,13 +65,13 @@ func load_game() -> Dictionary:
 			else:
 				restart_eve_debug()
 		"maze2":
+			if in_menu:
+				Wwise.post_event("MX_Play_Maze", self)
 			if scene_data.get("set_index", -1) != -1:
 				set_index = scene_data["set_index"]
-				if scene_name != curr_scene:
-					Wwise.post_event("MX_Play_Maze", self)
 			to_maze2()
 		"chat_cut":
-			if scene_name != curr_scene:
+			if in_menu:
 				Wwise.post_event("Set_AMB_chat", self)
 			to_chat_cut_scene()
 		"room":
@@ -77,7 +79,7 @@ func load_game() -> Dictionary:
 			to_room()
 		_:
 			push_error("Unknown scene name: ", scene_name)
-	
+	in_menu = false
 	return scene_data
 
 func has_save() -> bool:
@@ -122,10 +124,12 @@ func get_save_data() -> Dictionary:
 	var save_data = {
 		"curr_scene": config.get_value("save", "scene_name", ""),
 		"use_low_ai": config.get_value("save", "use_low_ai", false),
+		"end_of_game": config.get_value("save", "end_of_game", false),
 		"scene_data": config.get_value("save", "scene_data", {})
 	}
 	curr_scene = save_data["curr_scene"]
 	use_low_ai = save_data["use_low_ai"]
+	end_of_game = save_data["end_of_game"]
 	print("Save data retrieved: ", save_data)
 	return save_data["scene_data"]
 
@@ -178,6 +182,15 @@ func to_room():
 	save_game(curr_scene, {})
 
 func to_credit():
+	end_of_game = true
+	config.load(SAVE_FILE_PATH)
+	config.set_value("save", "end_of_game", end_of_game)
+	var error = config.save(SAVE_FILE_PATH)
+	if error == OK:
+		print("end_of_game saved: ", end_of_game)
+	else:
+		push_error("Failed to save end_of_game. Error code: ", error)
+
 	get_tree().change_scene_to_packed(credit_scene)
 
 func to_menu():

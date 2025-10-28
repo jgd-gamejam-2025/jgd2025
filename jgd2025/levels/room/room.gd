@@ -559,6 +559,7 @@ func _on_eve_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
 		wwise_earthquake.stop(LevelManager)
 		Transition.show_EVE()
+		Wwise.post_event("VO_Play_K9", LevelManager)
 		await get_tree().create_timer(0.5).timeout
 		LevelManager.to_credit()
 

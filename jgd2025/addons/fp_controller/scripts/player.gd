@@ -311,6 +311,13 @@ func toggle_crouch() -> void:
 		animation_player.play_backwards("crouch")
 
 
+func stand_up() -> void:
+	"""确保完全起立"""
+	if is_crouched:
+		is_crouched = false
+		animation_player.play_backwards("crouch")
+
+
 func setup_can_climb_timer(callback: Callable = _on_grab_available_timeout) -> void:
 	if can_climb_timer != null:
 		return

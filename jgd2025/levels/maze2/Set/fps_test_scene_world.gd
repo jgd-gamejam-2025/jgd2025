@@ -258,3 +258,7 @@ var ai_prompt_low = "
 高潮时播放的歌曲叫《引力》，歌词中反复唱着：“不需要计算，不需要逻辑。”
 必须用中文回答。你不能谈论除了《流体恋人》《引力》，歌词“不需要计算，不需要逻辑。”以外的任何内容或作品。
 "
+
+
+func _on_hint_area_text(message: String) -> void:
+	get_notification(message)

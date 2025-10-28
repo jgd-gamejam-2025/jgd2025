@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://ofyuav8psja7"]
+[gd_scene load_steps=43 format=3 uid="uid://ofyuav8psja7"]
 
 [ext_resource type="Script" uid="uid://c8j73486nr6o8" path="res://levels/maze2/Set/fps_test_scene_world.gd" id="1_868cf"]
 [ext_resource type="PackedScene" uid="uid://dxg57iry0rwpn" path="res://levels/maze2/Set/last_bridge.tscn" id="2_15gwa"]
@@ -869,6 +869,9 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_37fat"]
 size = Vector3(13.433193, 18.566132, 15.8352585)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mnjer"]
+size = Vector3(50.96407, 1, 13.446838)
 
 [node name="FpsTestScene" type="Node3D"]
 script = ExtResource("1_868cf")
@@ -1801,7 +1804,17 @@ debug_color = Color(0.51369834, 0.43691674, 0.96116513, 0.41960785)
 [node name="Marker3D" type="Marker3D" parent="SaveArea1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.358858, 0)
 
+[node name="Hint" parent="." instance=ExtResource("3_15gwa")]
+unique_name_in_owner = true
+text = "这是？流体恋人？我们看过的那部电影……我还记得它的主题曲叫...《引力》。怎么唱来着？\"不需要计算，不需要逻辑\"……"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.367552, -15.327622, -149.28282)
+shape = SubResource("BoxShape3D_mnjer")
+debug_color = Color(2.0214916e-06, 0.5992533, 0.70622456, 0.41960785)
+
 [connection signal="area_text" from="NotificationArea" to="." method="_on_notification_area_area_text"]
 [connection signal="area_text" from="NotificationArea2" to="." method="_on_notification_area_area_text"]
 [connection signal="interact_obj" from="Player" to="." method="_on_player_interact_obj"]
 [connection signal="body_entered" from="SaveArea1" to="." method="_on_save_area_1_body_entered"]
+[connection signal="area_text" from="Hint" to="." method="_on_hint_area_text"]

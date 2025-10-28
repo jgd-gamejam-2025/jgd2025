@@ -13,7 +13,7 @@ var _tween : Tween
 
 func _ready() -> void:
 	show_pos = box.position  # Store original position first
-	hide_pos = Vector2(box.position.x, box.position.y + 200)
+	hide_pos = Vector2(box.position.x, box.position.y + 1000)
 	box.position = hide_pos
 
 func show_notification(message: String, duration: float = 3.0, name_text: String = name_label.text) -> void:

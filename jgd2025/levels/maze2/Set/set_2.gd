@@ -3,6 +3,7 @@ extends Node3D
 var has_made_choice = false
 var choice_idx = 0
 @onready var mid = %Mid
+@onready var mid2 = %Mid2
 
 signal choice_made(idx: int)
 

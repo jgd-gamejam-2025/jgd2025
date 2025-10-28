@@ -88,6 +88,13 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.85
 use_collision = true
 size = Vector3(48.482937, 1.7900467, 7.0641785)
 
+[node name="Mid2" type="CSGBox3D" parent="bridge"]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.851001, -16.85, -161.68085)
+visible = false
+use_collision = true
+size = Vector3(10.2346325, 1.7900467, 7.0641785)
+
 [node name="CSGBox3D20" type="CSGBox3D" parent="bridge"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -17.075127, -16.855831, -180.9845)
 use_collision = true

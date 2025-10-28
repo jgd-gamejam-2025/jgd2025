@@ -192,6 +192,14 @@ text = "→"
 font = ExtResource("3_2r1ki")
 font_size = 800
 
+[node name="Label3D4" type="Label3D" parent="Floor/CSGBox3D"]
+transform = Transform3D(0.5386826, -0.8425089, -3.6827235e-08, 2.2958108e-15, -4.3711395e-08, 1, -0.8425089, -0.5386826, -2.3546566e-08, 64.55814, 1.6229241, -56.337185)
+modulate = Color(0.056291588, 0.056291603, 0.056291595, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "→"
+font = ExtResource("3_2r1ki")
+font_size = 800
+
 [node name="Label3D3" type="Label3D" parent="Floor/CSGBox3D"]
 transform = Transform3D(-0.6666106, 0.7454062, 3.2582744e-08, 2.2958108e-15, -4.3711395e-08, 1, 0.7454062, 0.6666106, 2.9138482e-08, 0.22420788, 1.6229241, 1.0006456)
 modulate = Color(0.056291588, 0.056291603, 0.056291595, 1)

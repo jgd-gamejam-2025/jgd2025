@@ -90,6 +90,7 @@ func set_current_level():
 		2:
 			curr_set.set_question("", "计算", "", "逻辑")
 			curr_set.mid.hide()
+			curr_set.mid2.show()
 		_:
 			pass
 

@@ -15,6 +15,7 @@ var choice = 0
 var curr_set
 
 func _ready():
+	player.set_player_scale(1.5)
 	if LevelManager.set_index >= 0:
 		if LevelManager.set_index == 0.5:
 			set_index = 0
@@ -41,7 +42,7 @@ func _ready():
 	chat_ui.sent_text.connect(handle_player_text)
 
 	set_template.hide()
-	generate_set(Vector3(0,0,0))
+	generate_set(set_template.position)
 	set_current_level()
 	if set_index == 3:
 		player.global_position = curr_set.get_node("SaveStart2").global_position
@@ -75,7 +76,7 @@ func load_next_set():
 		play_ending()
 		return
 	generate_set(next_position)
-	$Robot.position = next_position
+	$Robot.position = next_position# - Vector3(0, 0, 53)
 	set_current_level()
 
 func set_current_level():
@@ -112,7 +113,7 @@ func play_ending():
 	# load last bridge scene
 	# await get_tree().create_timer(2).timeout
 	var last_bridge = last_bridge_scene.instantiate()
-	last_bridge.position = curr_set.get_next_set_global_position()
+	last_bridge.global_position = curr_set.get_next_set_global_position() # - Vector3(0, 0, 53)
 	add_child(last_bridge)
 	last_bridge.connect("parkour_started", _on_parkour_started)
 	last_bridge.connect("ocean_started", _on_ocean_started)
@@ -159,7 +160,7 @@ func _on_parkour_started() -> void:
 	get_notification("快跑！这里要塌了！")
 	var tween = create_tween()
 	tween.parallel().tween_property($Robot/Model, "rotation", Vector3(-PI/1.2, 0, 0), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	tween.parallel().tween_property($Robot, "position", $Robot.position + Vector3(0, -175, 50), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.parallel().tween_property($Robot, "position", $Robot.position + Vector3(0, -155, 0), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 
 func _on_ocean_started() -> void:
 	# Generally dim the light

@@ -85,9 +85,25 @@ var can_crouch: bool = true
 var can_sprint: bool = true
 var can_pause: bool = true
 
+# 缩放相关
+var current_scale: float = 1.0
+var base_walk_speed: float
+var base_sprint_speed: float
+var base_jump_height: float
+var base_crouch_speed: float
+var base_walk_back_speed: float
+
 
 func _ready() -> void:
 	default_view_bobbing_amount = view_bobbing_amount
+	
+	# 保存基础速度值
+	base_walk_speed = walk_speed
+	base_sprint_speed = sprint_speed
+	base_jump_height = jump_height
+	base_crouch_speed = crouch_speed
+	base_walk_back_speed = walk_back_speed
+	
 	check_controls()
 	if can_pause:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -316,6 +332,44 @@ func stand_up() -> void:
 	if is_crouched:
 		is_crouched = false
 		animation_player.play_backwards("crouch")
+
+
+func set_player_scale(scale_factor: float) -> void:
+	"""
+	设置玩家缩放，同时调整所有相关参数
+	scale_factor: 缩放倍数，1.0 为正常大小，2.0 为两倍大小
+	"""
+	if scale_factor <= 0:
+		push_warning("scale_factor must be greater than 0")
+		return
+	
+	current_scale = scale_factor
+	
+	# 设置玩家模型缩放
+	scale = Vector3(scale_factor, scale_factor, scale_factor)
+	
+	# 调整移动速度（与缩放成正比）
+	walk_speed = base_walk_speed * scale_factor
+	sprint_speed = base_sprint_speed * scale_factor
+	crouch_speed = base_crouch_speed * scale_factor
+	walk_back_speed = base_walk_back_speed * scale_factor
+	
+	# 调整跳跃高度（与缩放成正比）
+	jump_height = base_jump_height * scale_factor
+	
+	# 注意：重力不需要调整，因为 Godot 的物理引擎会自动处理缩放后的重力效果
+	# 但如果你想要更真实的物理效果（大物体下落更快），可以调整：
+	# gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * scale_factor
+	
+	print("Player scale set to: ", scale_factor)
+	print("Walk speed: ", walk_speed)
+	print("Sprint speed: ", sprint_speed)
+	print("Jump height: ", jump_height)
+
+
+func reset_player_scale() -> void:
+	"""重置玩家缩放到正常大小"""
+	set_player_scale(1.0)
 
 
 func setup_can_climb_timer(callback: Callable = _on_grab_available_timeout) -> void:

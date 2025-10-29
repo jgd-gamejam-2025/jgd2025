@@ -28,37 +28,41 @@ wwise_rtpc = ExtResource("3_vxxld")
 wwise_mazetrans_to_chat = ExtResource("4_gldua")
 
 [node name="OceanScene" parent="." instance=ExtResource("3_xj7tt")]
-transform = Transform3D(0.5694517, 0, -0.8220248, 0, 1, 0, 0.8220248, 0, 0.5694517, 0, -49.90796, -340.0597)
+transform = Transform3D(0.5694517, 0, -0.8220248, 0, 1, 0, 0.8220248, 0, 0.5694517, 0, -49.90796, -307.63818)
 
 [node name="Runway" parent="." instance=ExtResource("1_606x2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19.860016, -165.42914)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19.860016, -133.00763)
 
 [node name="ParkourStart" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32.42151)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ParkourStart"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5475464, -15.62045, -174.75633)
 shape = SubResource("BoxShape3D_606x2")
 
 [node name="ParkourHell" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32.42151)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ParkourHell"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 892.26483, -77.10601, -340.44952)
 shape = SubResource("BoxShape3D_xj7tt")
 
 [node name="OceanStart" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32.42151)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="OceanStart"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48150873, -41.934395, -347.1648)
 shape = SubResource("CylinderShape3D_3kjwc")
 
 [node name="OceanEnd" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32.42151)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="OceanEnd"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06918335, -53.43772, -339.8727)
 shape = SubResource("CylinderShape3D_xj7tt")
 
 [node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -340.6017)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -308.18018)
 
 [connection signal="body_entered" from="ParkourStart" to="." method="_on_parkour_start_body_entered"]
 [connection signal="body_entered" from="ParkourHell" to="." method="_on_parkour_hell_body_entered"]

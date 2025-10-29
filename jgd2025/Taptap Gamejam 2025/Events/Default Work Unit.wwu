@@ -452,6 +452,16 @@
 						</Event>
 						<Event Name="MX_Play_begin" ID="{FB05EE93-3D75-4A4C-9A9E-53F40CE9EE72}">
 							<ChildrenList>
+								<Action Name="" ID="{53638902-227B-4B23-A030-E4B08E2F3C8B}" ShortID="695474148">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="加载加长" ID="{20F98CE7-66F2-4578-B364-16276915B98D}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 								<Action Name="" ID="{6F54028A-7510-48B9-B21C-4B60F3C8EB11}" ShortID="14966573">
 									<ReferenceList>
 										<Reference Name="Target">

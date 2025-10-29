@@ -98,7 +98,6 @@ size = Vector3(12.601791, 25.191689, 14.801802)
 
 [node name="MazeLoadWall" type="Node3D"]
 script = ExtResource("1_wt3j4")
-skip_opening = true
 start_velocity = Vector3(0, -100, 0)
 wwise_maze = ExtResource("2_ov85a")
 wwise_maze_landing = ExtResource("3_5ggcw")

@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{F9AD79F7-24CE-4D52-4E67-7AA728B71470}",
+    "Hash": "{34811E9A-5629-3F66-EB50-4A844C141DD9}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -36,13 +36,31 @@
     },
     "Busses": [
      {
+      "Id": "393239870",
+      "Name": "SFX",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX",
+      "GUID": "{049E2DA9-B8B7-4390-B4B9-B094CEA40551}"
+     },
+     {
       "Id": "3803692087",
       "Name": "Master Audio Bus",
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
       "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
+     },
+     {
+      "Id": "3991942870",
+      "Name": "Music",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\Music",
+      "GUID": "{2AF01894-A600-4A20-B3CB-8C00E8D48ED3}"
      }
     ],
     "GameParameters": [
+     {
+      "Id": "1006694123",
+      "Name": "Music_volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Music_volume",
+      "GUID": "{41A3F5EE-FE01-4925-B955-69A615B04C45}"
+     },
      {
       "Id": "1245902094",
       "Name": "earthquake",
@@ -691,6 +709,6 @@
     ]
    }
   ],
-  "FileHash": "{E56F1CFC-3646-AA98-B73D-42925E336EB1}"
+  "FileHash": "{C94857E5-453C-444B-8EBF-167E75642BFE}"
  }
 }

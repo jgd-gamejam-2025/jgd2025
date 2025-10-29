@@ -127,6 +127,7 @@ namespace AK
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID EARTHQUAKE = 1245902094U;
+        static const AkUniqueID MUSIC_VOLUME = 1006694123U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS
@@ -138,6 +139,8 @@ namespace AK
     namespace BUSSES
     {
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
+        static const AkUniqueID MUSIC = 3991942870U;
+        static const AkUniqueID SFX = 393239870U;
     } // namespace BUSSES
 
     namespace AUDIO_DEVICES

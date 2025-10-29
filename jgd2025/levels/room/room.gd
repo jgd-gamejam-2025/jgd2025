@@ -147,7 +147,7 @@ func _on_terminal_input_submitted(command: String) -> void:
 			match curr_room:
 				1:
 					get_notification("小熊是什么颜色的？")
-					if not LevelManager.use_low_ai:
+					if LevelManager.ai_level >= 2:
 						chat_ui.block_text_generation = false
 				2:
 					get_notification("事故发生在哪一年？")
@@ -369,7 +369,7 @@ func handle_chat_command(command: String) -> void:
 
 # only in mode low_ai:
 func handle_player_text(text: String) -> void:
-	if not LevelManager.use_low_ai:
+	if LevelManager.ai_level >= 2:
 		return
 	print("Player said: %s" % text)
 	match curr_room:

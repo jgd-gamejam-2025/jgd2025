@@ -59,15 +59,18 @@ func _on_options_mouse_entered() -> void:
 
 func _on_ai_switch_pressed() -> void:
 	Wwise.post_event("UI_Choose", self)
-	LevelManager.use_low_ai = not LevelManager.use_low_ai
-	LevelManager.save_use_low_ai(LevelManager.use_low_ai)
+	if LevelManager.ai_level == 0:
+		LevelManager.ai_level = 1
+	else:
+		LevelManager.ai_level = 0
+	LevelManager.save_use_low_ai(LevelManager.ai_level)
 	set_ai_level_label()
 
 func set_ai_level_label() -> void:
-	if LevelManager.use_low_ai:
-		curr_ai_level_label.text = "当前AI智力：标准"
+	if LevelManager.ai_level == 0:
+		curr_ai_level_label.text = "当前AI智力：有限"
 	else:
-		curr_ai_level_label.text = "当前AI智力：增强"
+		curr_ai_level_label.text = "当前AI智力：标准"
 		
 func _on_ai_switch_mouse_entered() -> void:
 	Wwise.post_event("UI_Prechoose", self)

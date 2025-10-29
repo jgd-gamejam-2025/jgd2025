@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://ofyuav8psja7"]
+[gd_scene load_steps=41 format=3 uid="uid://ofyuav8psja7"]
 
 [ext_resource type="Script" uid="uid://c8j73486nr6o8" path="res://levels/maze2/Set/fps_test_scene_world.gd" id="1_868cf"]
 [ext_resource type="PackedScene" uid="uid://dxg57iry0rwpn" path="res://levels/maze2/Set/last_bridge.tscn" id="2_15gwa"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://clm5h2ceura81" path="res://levels/tps_test_scene/model/line/022.glb" id="6_wtirf"]
 [ext_resource type="PackedScene" uid="uid://b7l5sv4fjhjwm" path="res://scenes/UI/notification/Notification.tscn" id="7_4ypbk"]
 [ext_resource type="PackedScene" uid="uid://gj0eukmhijlk" path="res://scenes/maze_scene/small_door/sliding_door.tscn" id="7_htxp8"]
+[ext_resource type="PackedScene" uid="uid://daff3mjw10ia4" path="res://scenes/maze_scene/small_door/rotating_door.tscn" id="8_0d1uc"]
 [ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="8_psi4i"]
 [ext_resource type="PackedScene" uid="uid://b2m6ywvc2648y" path="res://levels/tps_test_scene/model/机器人.glb" id="9_0d1uc"]
 [ext_resource type="PackedScene" uid="uid://djs0b34qda0px" path="res://scenes/UI/label_3d_typed/description.tscn" id="12_psi4i"]
@@ -52,8 +53,14 @@ volumetric_fog_detail_spread = 1.3195077
 volumetric_fog_ambient_inject = 1.52
 volumetric_fog_sky_affect = 0.028
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_mnjer"]
+size = Vector3(10.521657, 1, 13.446838)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_htxp8"]
-size = Vector3(50.96407, 1, 13.446838)
+size = Vector3(60.774097, 1, 13.446838)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0d1uc"]
+size = Vector3(60.123455, 1, 13.446838)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ypbk"]
 size = Vector3(17.614847, 1, 13.446838)
@@ -71,9 +78,6 @@ size = Vector3(3.2202148, 50, 20.722168)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wtirf"]
 size = Vector3(1.2813721, 1, 4.4546814)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_0d1uc"]
-size = Vector3(2.1825867, 1, 2.849804)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vsxmj"]
 size = Vector3(1.9876633, 2.243164, 2.3031235)
@@ -813,9 +817,6 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_37fat"]
 size = Vector3(13.433193, 18.566132, 15.8352585)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mnjer"]
-size = Vector3(10.521657, 1, 13.446838)
-
 [node name="FpsTestScene" type="Node3D"]
 script = ExtResource("1_868cf")
 last_bridge_scene = ExtResource("2_15gwa")
@@ -835,16 +836,33 @@ directional_shadow_split_2 = 0.428
 directional_shadow_split_3 = 0.797
 directional_shadow_fade_start = 0.331
 
+[node name="Hint" parent="." instance=ExtResource("3_15gwa")]
+unique_name_in_owner = true
+text = "逻辑..计算..！这是《引力》歌词……那部电影的主题曲"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9845853, -15.327622, -51.711082)
+shape = SubResource("BoxShape3D_mnjer")
+debug_color = Color(2.0214916e-06, 0.5992533, 0.70622456, 0.41960785)
+
 [node name="NotificationArea" parent="." instance=ExtResource("3_15gwa")]
-text = "地上...写了什么？"
+text = "看来我对《流体恋人》印象很深……"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NotificationArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.367552, -15.44394, -132.69322)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.680457, -15.44394, -73.022125)
 shape = SubResource("BoxShape3D_htxp8")
 debug_color = Color(2.0214916e-06, 0.5992533, 0.70622456, 0.41960785)
 
+[node name="NotificationArea3" parent="." instance=ExtResource("3_15gwa")]
+text = "这是在考验我的记忆吗……"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NotificationArea3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.035081, -15.44394, -132.98859)
+shape = SubResource("BoxShape3D_0d1uc")
+debug_color = Color(2.0214916e-06, 0.5992533, 0.70622456, 0.41960785)
+
 [node name="NotificationArea2" parent="." instance=ExtResource("3_15gwa")]
-text = "这地方好熟悉……像是在电影里见过"
+text = "想起来了...《流体恋人》"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NotificationArea2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.832016, -15.443948, -62.62031)
@@ -906,6 +924,7 @@ omni_attenuation = 1.496
 
 [node name="SlidingDoor" parent="." instance=ExtResource("7_htxp8")]
 transform = Transform3D(-1.9495282e-07, 0, -4.4600005, 0, 15.21969, 0, 4.4600005, 0, -1.9495282e-07, 21.93361, -15.659921, -32.32081)
+close_duration = 1.2
 
 [node name="Area3D" type="Area3D" parent="SlidingDoor"]
 
@@ -923,25 +942,28 @@ will_open = true
 transform = Transform3D(1, 0, 3.5527137e-15, 0, 1.0000005, 0, -3.5527137e-15, 0, 1, 0.1406846, 0, 1.7273395)
 shape = SubResource("BoxShape3D_wtirf")
 
-[node name="SlidingDoor2" parent="." instance=ExtResource("7_htxp8")]
-transform = Transform3D(1.7146026, 0, 0, 0, 7.6733956, 0, 0, 0, 4.4599996, -4.926408, -15.049411, -75.82135)
-close_duration = 0.5
+[node name="RotatingDoor" parent="." instance=ExtResource("8_0d1uc")]
+transform = Transform3D(2.6547654, 6.696926e-07, -2.4884008e-07, 2.3208696e-07, -7.660391, 0, -2.3208696e-07, -5.854639e-14, -2.8463988, -19.470655, -6.86928, -77.37778)
+close_duration = 0.2
+delay_per_row = 0.05
 
-[node name="Area3D" type="Area3D" parent="SlidingDoor2"]
+[node name="Area3D" type="Area3D" parent="RotatingDoor"]
+transform = Transform3D(5.4009902e-08, -1.2356024, -1.5158815e-07, -1.0000001, -4.3711392e-08, -4.5926677e-15, 1.6164778e-14, 1.00747386e-07, -1.6172272, 0.8959379, 1.111767, 3.1034832)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SlidingDoor2/Area3D"]
-transform = Transform3D(0.9999999, 0, 0, 0, 1.0000005, 0, -3.5527137e-15, 0, 1, 0.16254807, 0, 0.92490077)
-shape = SubResource("BoxShape3D_0d1uc")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RotatingDoor/Area3D"]
+transform = Transform3D(0.9999999, 8.881784e-15, 0, -2.842171e-14, 1.0000007, 0, -3.5527137e-15, 0, 1, -0.5950854, 0.9925971, 2.3625069)
+shape = SubResource("BoxShape3D_vsxmj")
 
-[node name="SlidingDoor3" parent="." instance=ExtResource("7_htxp8")]
-transform = Transform3D(-3.2802348, 6.696927e-07, 0, -2.8676723e-07, -7.6603913, 0, 0, 0, 4.6032734, -20.579386, -6.869279, -76.893166)
-close_duration = 0.5
+[node name="RotatingDoor2" parent="." instance=ExtResource("8_0d1uc")]
+transform = Transform3D(2.6547654, 6.696926e-07, -2.4884008e-07, 2.3208696e-07, -7.660391, 0, -2.3208696e-07, -5.854639e-14, -2.8463988, -6.641448, -6.86928, -77.755295)
+close_duration = 0.2
+delay_per_row = 0.05
 
-[node name="Area3D" type="Area3D" parent="SlidingDoor3"]
-transform = Transform3D(-4.3711395e-08, 1, 0, -1.0000001, -4.371139e-08, 0, 0, 0, 1, -1.0631046, 1.1117668, -0.7008343)
+[node name="Area3D" type="Area3D" parent="RotatingDoor2"]
+transform = Transform3D(5.4009902e-08, -1.2356024, -1.5158815e-07, -1.0000001, -4.3711392e-08, -4.5926677e-15, 1.6164778e-14, 1.00747386e-07, -1.6172272, 0.8959379, 1.111767, 3.1034832)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SlidingDoor3/Area3D"]
-transform = Transform3D(0.9999998, 8.881784e-15, 0, 0, 1.0000007, 0, -3.5527137e-15, 0, 1, -0.5950854, 0.9925971, 1.6469011)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RotatingDoor2/Area3D"]
+transform = Transform3D(0.9999999, 8.881784e-15, 0, -2.842171e-14, 1.0000007, 0, -3.5527137e-15, 0, 1, -0.5950854, 0.9925971, 2.3625069)
 shape = SubResource("BoxShape3D_vsxmj")
 
 [node name="wall-1" type="Node3D" parent="."]
@@ -1517,7 +1539,7 @@ size = Vector3(35.87433, 4.811783, 2.9002686)
 material = SubResource("StandardMaterial3D_4ypbk")
 
 [node name="CSGBox3D52" type="CSGBox3D" parent="wall-6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2042065, -15.5499, -85.45561)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2042065, -15.724571, -85.45561)
 use_collision = true
 size = Vector3(4.4728165, 3.219059, 2.9002686)
 material = SubResource("StandardMaterial3D_4ypbk")
@@ -1699,13 +1721,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4938126, -32.143425, -92.1
 visible = false
 
 [node name="CSGBox3D32" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.24591, -15.777147, -82.219955)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.24591, -15.777147, -86.104706)
 use_collision = true
 size = Vector3(2, 1.8398438, 2)
 material = SubResource("StandardMaterial3D_4ypbk")
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.22784, -14.486881, -82.21259)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.22784, -14.486881, -86.09734)
 material = SubResource("StandardMaterial3D_kp8pu")
 
 [node name="LightBox" type="StaticBody3D" parent="CSGBox3D17" groups=["Description", "interactable"]]
@@ -1721,13 +1743,13 @@ transform = Transform3D(-0.5, -4.371139e-08, 0, -1.9106855e-15, 2.1855694e-08, 0
 text = "E> 读取"
 
 [node name="CSGBox3D33" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0966167, -15.777147, -82.07551)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0966167, -15.777147, -86.17119)
 use_collision = true
 size = Vector3(2, 1.8398438, 2)
 material = SubResource("StandardMaterial3D_4ypbk")
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0785465, -14.486881, -82.068146)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0785465, -14.486881, -86.163826)
 material = SubResource("StandardMaterial3D_kp8pu")
 
 [node name="LightBox" type="StaticBody3D" parent="CSGBox3D18" groups=["Description", "interactable"]]
@@ -1804,10 +1826,10 @@ material = SubResource("StandardMaterial3D_4ypbk")
 is_3d_scene = true
 
 [node name="Robot" type="Node3D" parent="."]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 86)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Model" parent="Robot" instance=ExtResource("9_0d1uc")]
-transform = Transform3D(0.90535396, 0, -0.42465767, -0.116338894, 0.96174127, -0.24803008, 0.40841085, 0.27395922, 0.87071633, 0.39586258, -100.536316, -415.0822)
+transform = Transform3D(0.90535396, 0, -0.42465767, -0.116338894, 0.96174127, -0.24803008, 0.40841085, 0.27395922, 0.87071633, 0.396, -99.4345, -314.56076)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1825,15 +1847,6 @@ debug_color = Color(0.51369834, 0.43691674, 0.96116513, 0.41960785)
 
 [node name="Marker3D" type="Marker3D" parent="SaveArea1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.358858, 0)
-
-[node name="Hint" parent="." instance=ExtResource("3_15gwa")]
-unique_name_in_owner = true
-text = "这是？流体恋人？我们看过的那部电影……我还记得它的主题曲叫...《引力》。怎么唱来着？\"不需要计算，不需要逻辑\"……"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hint"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9845853, -15.327622, -51.711082)
-shape = SubResource("BoxShape3D_mnjer")
-debug_color = Color(2.0214916e-06, 0.5992533, 0.70622456, 0.41960785)
 
 [node name="logic" type="Label3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, -0.008517101, 0.99996376, -3.7229464e-10, -0.99996376, -0.008517101, -4.3709804e-08, -4.9206815, -10.309683, -41.052242)
@@ -2092,8 +2105,9 @@ font = ExtResource("17_0d1uc")
 font_size = 180
 outline_size = 127
 
+[connection signal="area_text" from="Hint" to="." method="_on_hint_area_text"]
 [connection signal="area_text" from="NotificationArea" to="." method="_on_notification_area_area_text"]
+[connection signal="area_text" from="NotificationArea3" to="." method="_on_notification_area_area_text"]
 [connection signal="area_text" from="NotificationArea2" to="." method="_on_notification_area_area_text"]
 [connection signal="interact_obj" from="Player" to="." method="_on_player_interact_obj"]
 [connection signal="body_entered" from="SaveArea1" to="." method="_on_save_area_1_body_entered"]
-[connection signal="area_text" from="Hint" to="." method="_on_hint_area_text"]

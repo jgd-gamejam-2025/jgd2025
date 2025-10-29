@@ -153,13 +153,12 @@ horizontal_alignment = 2
 layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("4_877lm")
-disabled = true
 text = "切换AI智力"
 alignment = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/MarginContainer2/VBoxContainer/AiSwitch"]
 visible = false
-custom_minimum_size = Vector2(680, 0)
+custom_minimum_size = Vector2(800, 0)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -172,12 +171,15 @@ theme = ExtResource("4_yv4w8")
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_yv4w8")
 bbcode_enabled = true
-text = "[b]标准：[/b]对配置要求适中，能够进行游戏流程。
+text = "[b]有限：[/b]配置要求较低，可体验游戏剧情。
 
-[b]增强：[/b]对配置有一定要求，会延长加载时间。
-可能造成游戏卡顿。增强AI对玩家理解更好。
+[b]标准：[/b]配置要求适中，对玩家理解更好。
 
-由于增强AI引起广泛卡顿，目前暂不开放该选项，待后续优化。"
+[b]增强：[/b]配置要求较高，容易造成卡顿。（未开放）
+
+首次游戏推荐标准AI，若遇性能问题可尝试有限AI。
+
+若遇到AI不回复，请尝试退出游戏后再降低AI智力。"
 fit_content = true
 
 [node name="Label" type="Label" parent="ColorRect"]

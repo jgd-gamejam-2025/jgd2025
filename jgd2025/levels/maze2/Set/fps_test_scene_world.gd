@@ -27,7 +27,7 @@ func _ready():
 	pad.connect("pad_deactivated", _on_pad_pad_deactivated)
 	chat_ui.set_ai_name("Eve")
 
-	if LevelManager.use_low_ai:
+	if LevelManager.ai_level < 2:
 		chat_ui.init_system_prompt({"ai1":ai_prompt_low})
 	else:
 		chat_ui.init_system_prompt({
@@ -46,9 +46,11 @@ func _ready():
 	set_current_level()
 	if set_index == 3:
 		player.global_position = curr_set.get_node("SaveStart2").global_position
+		$Robot.global_position = curr_set.position  # 同步 Robot 位置
 		play_ending()
 	if set_index == 2 or set_index ==1:
 		player.global_position = curr_set.get_node("SaveStart1").global_position
+		$Robot.global_position = curr_set.position  # 同步 Robot 位置
 	Transition.end()
 
 func generate_set(target_position: Vector3) -> void:
@@ -60,6 +62,9 @@ func generate_set(target_position: Vector3) -> void:
 	curr_set.connect("hell", _on_hell_body_entered)
 	curr_set.connect("load_next", _on_load_next_body_entered)
 	curr_set.connect("walk_on_mid", _on_walk_on_mid_body_entered)
+	
+	# 同步 Robot 到新的 set 位置
+	$Robot.global_position = target_position
 
 func choice_made_handler(idx: int) -> void:
 	print("Choice made: %d" % idx)
@@ -76,17 +81,15 @@ func load_next_set():
 		play_ending()
 		return
 	generate_set(next_position)
-	$Robot.position = next_position# - Vector3(0, 0, 53)
+	# Robot 位置已经在 generate_set() 中设置，这里不需要重复设置
 	set_current_level()
 
 func set_current_level():
 	match set_index:
 		0:
 			curr_set.set_question("", "流体恋人", "流体怪人", "立体恋人")
-			await get_tree().create_timer(4).timeout
-			get_notification("看起来我们正在深入……我的记忆？")
-			await get_tree().create_timer(12).timeout
-			get_notification("嘿，如果遇到问题，我可以帮你。")
+			await get_tree().create_timer(2).timeout
+			get_notification("我们正在深入……记忆？")
 		1:
 			curr_set.set_question("", "动力", "重力", "引力")
 		2:
@@ -143,8 +146,6 @@ func _on_walk_on_mid_body_entered() -> void:
 		get_notification("隐形桥……？是没加载出来吗？")
 		await get_tree().create_timer(2).timeout
 		get_notification("这一切都太奇怪了")
-		await get_tree().create_timer(2).timeout
-		get_notification("这次会通向哪儿呢？")
 
 func _on_load_next_body_entered() -> void:
 	load_next_set()
@@ -160,7 +161,9 @@ func _on_parkour_started() -> void:
 	get_notification("快跑！这里要塌了！")
 	var tween = create_tween()
 	tween.parallel().tween_property($Robot/Model, "rotation", Vector3(-PI/1.2, 0, 0), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	tween.parallel().tween_property($Robot, "position", $Robot.position + Vector3(0, -155, 0), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.parallel().tween_property($Robot, "position", $Robot.position + Vector3(0, -125, -40), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.tween_property($Robot/Model, "rotation", Vector3(-PI/2, 0, 0), 2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.tween_property($Robot, "position", $Robot.position + Vector3(0, -330, 70), 2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 
 func _on_ocean_started() -> void:
 	# Generally dim the light

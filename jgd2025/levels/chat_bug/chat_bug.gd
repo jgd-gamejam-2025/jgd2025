@@ -60,7 +60,7 @@ func _ready():
 	welcome_messages_fix.shuffle()
 	chat_ui.set_ai_name("Eve")
 	chat_ui.show_welcome_text("嘿！")
-	if LevelManager.use_low_ai:
+	if LevelManager.ai_level < 2:
 		chat_ui.init_system_prompt({
 			"bug": bug_prompt_low_ai,
 			"dinner": dinner_prompt_low_ai,

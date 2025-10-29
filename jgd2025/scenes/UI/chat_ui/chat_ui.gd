@@ -6,7 +6,7 @@ extends Control
 var current_aiChat: NobodyWhoChat
 @onready var name_label = $Panel/Name
 @export var debug_mode = false
-@export var qwen = false
+@export var qwen = true
 @export var wwise_type_fault:WwiseEvent
 @export var wwise_type:WwiseEvent
 @export var wwise_player_type:WwiseEvent
@@ -41,13 +41,13 @@ signal command_received(command: String)
 var line_edit_focus_sent = false
 var first_time_sent_text = true
 #--------------
-@export var low_ai_path = "gguf/Qwen3-4B-Q4_K_M.gguf"
-@export var default_ai_path = "gguf/Llama3-8B-Chinese-Chat-q4_0-v2_1.gguf"
+@export var default_ai_path = "gguf/Qwen3-4B-Q4_K_M.gguf"
+@export var low_ai_path = "gguf/Qwen3-0.6B-Q4_K_S.gguf"
 func _ready() -> void:
-	qwen = qwen or LevelManager.use_low_ai
-	if qwen:
+	#qwen = qwen or LevelManager.ai_level
+	if LevelManager.ai_level == 0:
 		$NobodyWhoModel.model_path = low_ai_path
-	else:
+	elif LevelManager.ai_level == 1:
 		$NobodyWhoModel.model_path = default_ai_path
 	margin_container.hide()
 	detail_bubble.hide()

@@ -136,3 +136,10 @@ func handle_player_text(text: String) -> void:
 		Transition.set_and_start("重新启动中", "")
 		await get_tree().create_timer(0.5).timeout
 		LevelManager.restart_eve_debug()
+
+
+func _on_restart_area_body_entered(body: Node3D) -> void:
+	if body.name == "Player":
+		Transition.set_and_start("重新启动中", "", 0,"N/A")
+		await get_tree().create_timer(0.3).timeout
+		LevelManager.restart_eve_debug()

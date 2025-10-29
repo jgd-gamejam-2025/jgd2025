@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://1m82bdnhye7k"]
+[gd_scene load_steps=39 format=3 uid="uid://1m82bdnhye7k"]
 
 [ext_resource type="Script" uid="uid://cr4hyuccgxpea" path="res://levels/maze_load_wall/maze_load_wall.gd" id="1_wt3j4"]
 [ext_resource type="WwiseEvent" uid="uid://dwhiif8lona3t" path="res://Wwise/resources/Event/{8F9E1686-BAB2-41CE-B068-78FB077CE2BF}.tres" id="2_ov85a"]
@@ -95,6 +95,9 @@ size = Vector3(32.69996, 22.714264, 30.567348)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kkmtq"]
 size = Vector3(12.601791, 25.191689, 14.801802)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eyaib"]
+size = Vector3(5000, 147.53503, 5000)
 
 [node name="MazeLoadWall" type="Node3D"]
 script = ExtResource("1_wt3j4")
@@ -276,6 +279,12 @@ shape = SubResource("BoxShape3D_kkmtq")
 wait_time = 120.0
 autostart = true
 
+[node name="RestartArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RestartArea"]
+transform = Transform3D(0.7086354, 0, 0.70557475, 0, 1, 0, -0.70557475, 0, 0.7086354, 28.856663, -128.21355, -35.220448)
+shape = SubResource("BoxShape3D_eyaib")
+
 [connection signal="end_opening_sig" from="." to="MazeManager" method="_on_maze_load_wall_end_opening_sig"]
 [connection signal="timeout" from="MazeManager/RiseTimer" to="MazeManager" method="_on_rise_timer_timeout"]
 [connection signal="opening_end" from="Opening" to="." method="_on_opening_opening_end"]
@@ -284,3 +293,4 @@ autostart = true
 [connection signal="body_entered" from="OpenGate" to="." method="_on_open_gate_body_entered"]
 [connection signal="body_entered" from="EnterGate" to="." method="_on_enter_gate_body_entered"]
 [connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
+[connection signal="body_entered" from="RestartArea" to="." method="_on_restart_area_body_entered"]

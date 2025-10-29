@@ -101,17 +101,18 @@ func _on_pad_pad_deactivated() -> void:
 var used_terminal: bool = false
 var newspaper_on: bool = false
 func _on_player_interact_obj(target: Node) -> void:
-	if target.name == "Newspaper":
+	if target.name == "Newspaper" or target.name == "Contract":
 		if newspaper_on:
 			Wwise.post_event("SFX_pickup_newspaper", target)
 			$Props.hide()
 		else:
 			Wwise.post_event("SFX_putdown_newspaper", target)
+			$Props.set_prop(target.name)
 			$Props.show()
 		newspaper_on = not newspaper_on
 		return
 
-	if target.name == "Monitor" and terminal.visible == false and not used_terminal:
+	if target.name == "Monitor" and terminal.visible == false:
 		pad.can_activate = false
 		terminal.output_area.text = ""
 		terminal.show()

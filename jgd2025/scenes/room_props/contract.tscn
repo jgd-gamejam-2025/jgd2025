@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dalwdyfbiy06u"]
+
+[ext_resource type="PackedScene" uid="uid://djs0b34qda0px" path="res://scenes/UI/label_3d_typed/description.tscn" id="1_5refu"]
+[ext_resource type="PackedScene" uid="uid://cmbss067n8pop" path="res://scenes/UI/label_3d_typed/label_3d.tscn" id="2_lvhhu"]
+[ext_resource type="PackedScene" uid="uid://b76d1eyv013pu" path="res://assets/models/room/props/sm_contract.fbx" id="3_lvhhu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t340w"]
+size = Vector3(0.40345764, 0.073970795, 0.29493713)
+
+[node name="Contract" type="StaticBody3D" groups=["blow", "interactable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0028955936, 0.011045456, -0.0043499917)
+shape = SubResource("BoxShape3D_t340w")
+
+[node name="Description" parent="." instance=ExtResource("1_5refu")]
+
+[node name="Label3D" parent="Description" groups=["blow"] instance=ExtResource("2_lvhhu")]
+transform = Transform3D(-0.0036215684, 0.4999869, -2.185512e-08, -1.9106855e-15, 2.1855694e-08, 0.5, 0.4999869, 0.0036215684, -1.5830187e-10, 0.33962923, 0.03413582, -0.13984093)
+text = "E> 阅读"
+
+[node name="sm_contract" parent="." instance=ExtResource("3_lvhhu")]
+transform = Transform3D(0.66216344, 0, 0, 0, 1, 0, 0, 0, 0.6403946, 0, 0, 0)

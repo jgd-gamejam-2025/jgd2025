@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c2hgmqr4djchj"]
+[gd_scene load_steps=30 format=3 uid="uid://c2hgmqr4djchj"]
 
 [ext_resource type="Script" uid="uid://djhym7xyj1hvl" path="res://levels/room/room.gd" id="1_266tv"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="2_j1o6v"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dqw6g3i12knmo" path="res://scenes/room_props/bear.tscn" id="8_axngq"]
 [ext_resource type="PackedScene" uid="uid://djs0b34qda0px" path="res://scenes/UI/label_3d_typed/description.tscn" id="10_s5tn8"]
 [ext_resource type="PackedScene" uid="uid://cmbss067n8pop" path="res://scenes/UI/label_3d_typed/label_3d.tscn" id="11_nijk1"]
+[ext_resource type="PackedScene" uid="uid://dalwdyfbiy06u" path="res://scenes/room_props/contract.tscn" id="11_r4e2g"]
 [ext_resource type="PackedScene" uid="uid://fn682jbuv6dh" path="res://scenes/UI/props/props.tscn" id="12_kseuc"]
 [ext_resource type="PackedScene" uid="uid://bud1w7th4nk2" path="res://assets/models/eve/eve01.glb" id="12_pf8v0"]
 [ext_resource type="PackedScene" uid="uid://5ltrsa0ifrxn" path="res://scenes/UI/terminal/Terminal.tscn" id="13_axngq"]
@@ -26,7 +27,7 @@ flip_faces = true
 size = Vector3(21.04, 15.18, 21.28)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pf8v0"]
-size = Vector3(7.9678345, 2.8485107, 8.03418)
+size = Vector3(7.9678345, 1.8684692, 8.03418)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_326eg"]
 size = Vector3(0.18041992, 2.8959656, 2.2134094)
@@ -101,14 +102,16 @@ visible = false
 
 [node name="ClearArea2" type="Area3D" parent="."]
 transform = Transform3D(-0.49999997, 0, 4.3711385e-08, 0, 0.5, 0, -4.3711385e-08, 0, -0.49999997, 1.721, 0, -5.128704)
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClearArea2"]
-transform = Transform3D(0.9999955, 0, 5.968559e-13, 0, 1, 0, -5.968559e-13, 0, 0.9999955, -2.82654, 0.9242554, -3.5170846)
+transform = Transform3D(0.999991, 0, 7.3896445e-13, 0, 1, 0, -7.3896445e-13, 0, 0.999991, -2.82654, 0.43423462, -3.5170836)
 shape = SubResource("BoxShape3D_pf8v0")
 
 [node name="RoomSet2" parent="." instance=ExtResource("5_y43wp")]
 transform = Transform3D(-0.49999997, 0, 4.3711385e-08, 0, 0.5, 0, -4.3711385e-08, 0, -0.49999997, 1.721, 0, -5.128704)
+
+[node name="Contract" parent="RoomSet2" instance=ExtResource("11_r4e2g")]
+transform = Transform3D(-1.2088356, 0, -1.5933332, 0, 2, 0, 1.5933332, 0, -1.2088356, -2.940228, 1.4569235, -1.9254599)
 
 [node name="Newspaper" parent="RoomSet2" instance=ExtResource("15_kseuc")]
 transform = Transform3D(0.89501876, 0, -1.7885585, 0, 2, 0, 1.7885585, 0, 0.89501876, -5.514605, 2.0101907, -9.423201)

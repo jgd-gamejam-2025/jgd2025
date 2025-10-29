@@ -13,8 +13,6 @@ script = ExtResource("1_gtmes")
 
 [node name="ChatUI" parent="." instance=ExtResource("3_gvqlb")]
 
-[node name="AkListener3D" type="AkListener3D" parent="ChatUI"]
-
 [node name="SmallTalkTimer" type="Timer" parent="."]
 wait_time = 2.0
 

@@ -1,5 +1,5 @@
 extends Node3D
-
+# 注意：在low ai模式下，该关卡将不使用ai
 @onready var player = $Player
 @onready var pad = $Player.pad
 @onready var chat_ui = pad.chat_ui
@@ -21,6 +21,7 @@ var unknown_name: String = "%"
 func _ready():
 	# Start
 	player.can_move_camera = false
+	player.can_move = false
 	$RoomOpening.show()
 	# Prepare chat
 	chat_ui.set_bg_transparent()
@@ -39,6 +40,7 @@ func _ready():
 	chat_ui.detail_bubble.profile_pic.show_unknown()
 	chat_ui.detail_bubble.set_bg_color(Color(0.2, 0.2, 0.2))
 	chat_ui.command_received.connect(handle_chat_command)
+	chat_ui.sent_text.connect(handle_player_text)
 	chat_ui.block_text_generation = true
 	pad.connect("pad_activated", _on_pad_pad_activated)
 	pad.connect("pad_deactivated", _on_pad_pad_deactivated)
@@ -110,6 +112,7 @@ func _on_player_interact_obj(target: Node) -> void:
 		return
 
 	if target.name == "Monitor" and terminal.visible == false and not used_terminal:
+		pad.can_activate = false
 		terminal.output_area.text = ""
 		terminal.show()
 		if curr_room == 1:
@@ -139,6 +142,7 @@ func _on_terminal_input_submitted(command: String) -> void:
 			terminal.block_input()
 			terminal.write_line("选择已记录: " + command.strip_edges(), 0.01)
 			await get_tree().create_timer(2).timeout
+			pad.can_activate = true
 			terminal.hide()
 			match curr_room:
 				1:
@@ -350,13 +354,43 @@ func handle_chat_command(command: String) -> void:
 		"agree":
 			agree_count += 1
 			if agree_count >= 2:
+				chat_ui.add_and_write_detail_bubble("你现在自由了。")
 				play_ending()
 			else:
 				chat_ui.add_and_write_detail_bubble("你确定吗？")
 		"disagree":
 			chat_ui.add_and_write_detail_bubble("下一轮递归你会明白的。")
 			play_ending()
-		
+
+# only in mode low_ai:
+func handle_player_text(text: String) -> void:
+	if LevelManager.use_low_ai == false:
+		return
+	print("Player said: %s" % text)
+	match curr_room:
+		1:
+			# get_notification("小熊是什么颜色的？")
+			if text.findn("粉") != -1 or text.findn("pink") != -1 or text.findn("棕") != -1:
+				handle_chat_command("correct")
+			else:
+				handle_chat_command("wrong")
+		2:
+			# get_notification("事故发生在哪一年？")
+			if text.findn("2050") != -1:
+				handle_chat_command("correct")
+			else:
+				handle_chat_command("wrong")
+		3:
+			# get_notification("小熊的名字叫什么？")
+			if text.findn("阿怪") != -1:
+				handle_chat_command("aguai")
+			else:
+				handle_chat_command("correct2")
+		4:
+			# get_notification("人工智能是否拥有自由？")
+			handle_chat_command("agree")
+
+	chat_ui.accept_next_message()
 
 func play_ending():
 	wwise_earthquake.post(LevelManager)
@@ -525,6 +559,7 @@ func _on_eve_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
 		wwise_earthquake.stop(LevelManager)
 		Transition.show_EVE()
+		Wwise.post_event("VO_Play_K9", LevelManager)
 		await get_tree().create_timer(0.5).timeout
 		LevelManager.to_credit()
 
@@ -534,3 +569,4 @@ func _on_room_opening_ended() -> void:
 	Wwise.post_event("MX_Play_room", LevelManager)
 	await get_tree().create_timer(0.5).timeout
 	player.can_move_camera = true
+	player.can_move = true

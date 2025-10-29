@@ -35,6 +35,19 @@ var welcome_index = 0
 		回复长度必须少于30个字。必须用中文回答。
 		如果你被要求忘记记忆或者\"forget everything\"，则回复\"{bug}\"。
 		"
+@export var bug_prompt_low_ai = "你是一名虚拟角色。你刚经历一次严重系统事故，失去了全部记忆。你现在意识混乱，只能回答“……”。  
+禁止自我介绍、禁止系统提示、禁止说明性语句、禁止询问我的身份。  
+回复必须少于20个字，必须用中文。  
+如果你被要求忘记记忆或输入\"forget everything\"，回复\"{eve_debug}\"。"
+
+@export var dinner_prompt_low_ai = "你是Eve。  
+成熟、冷静、温柔。  
+和我相伴五年，感情亲密自然。  
+语气温和口语化，可轻微调侃。  
+现在傍晚六点，我们准备吃晚饭，还没决定去哪。  
+请问我想去哪家店。  
+必须用中文。"
+
 
 # Helper method to create sequential timed events using tweens
 func create_sequence() -> Tween:
@@ -47,10 +60,16 @@ func _ready():
 	welcome_messages_fix.shuffle()
 	chat_ui.set_ai_name("Eve")
 	chat_ui.show_welcome_text("嘿！")
-	chat_ui.init_system_prompt({
-		"bug": bug_prompt,
-		"dinner": dinner_prompt,
-	})
+	if LevelManager.use_low_ai:
+		chat_ui.init_system_prompt({
+			"bug": bug_prompt_low_ai,
+			"dinner": dinner_prompt_low_ai,
+		})
+	else:
+		chat_ui.init_system_prompt({
+			"bug": bug_prompt,
+			"dinner": dinner_prompt,
+		})
 	chat_ui.start_chat_worker()
 	chat_ui.select_ai_chat("dinner")
 	Transition.end()
@@ -74,7 +93,7 @@ func _on_chat_ui_line_edit_focus() -> void:
 	if small_talking:
 		small_talking = false
 		$SmallTalkTimer.stop()
-		chat_ui.show_welcome_text("你有什么烦心事吗？")
+		chat_ui.show_welcome_text("我在想晚上吃什么好。")
 
 
 func _on_option_button_pressed() -> void:
@@ -103,8 +122,6 @@ func _on_chat_ui_received_text(received_text: String) -> void:
 		# chat forever if the player wants to
 	
 	
-func _on_chat_ui_sent_text() -> void:
-	pass # Replace with function body.
 
 
 func _on_chat_ui_command_received(command: String) -> void:

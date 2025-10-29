@@ -137,5 +137,4 @@ text = "输入命令\"idontwannarestart\"中断复原"
 [connection signal="command_received" from="ChatUI" to="." method="_on_chat_ui_command_received"]
 [connection signal="line_edit_focus" from="ChatUI" to="." method="_on_chat_ui_line_edit_focus"]
 [connection signal="received_text" from="ChatUI" to="." method="_on_chat_ui_received_text"]
-[connection signal="sent_text" from="ChatUI" to="." method="_on_chat_ui_sent_text"]
 [connection signal="timeout" from="SmallTalkTimer" to="." method="_on_small_talk_timer_timeout"]

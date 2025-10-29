@@ -1,0 +1,7 @@
+[gd_resource type="WwiseRTPC" format=3 uid="uid://dliutnwvcbt8o"]
+
+[resource]
+name = "Music_volume"
+id = 1006694123
+guid = "{41A3F5EE-FE01-4925-B955-69A615B04C45}"
+dummy = true

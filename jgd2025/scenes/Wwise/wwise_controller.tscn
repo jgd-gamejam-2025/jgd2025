@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://03ixiqune4hi"]
+
+[ext_resource type="Script" uid="uid://cs0oc7xl56lun" path="res://scenes/Wwise/wwise_controller.gd" id="1_tq31p"]
+[ext_resource type="WwiseBank" uid="uid://dh2vrgwg0v63s" path="res://Wwise/resources/SoundBank/{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}.tres" id="2_0rbom"]
+
+[node name="WwiseController" type="Node"]
+script = ExtResource("1_tq31p")
+
+[node name="AkBank" type="AkBank" parent="."]
+bank = ExtResource("2_0rbom")
+load_on = 1
+
+[node name="AkListener3D" type="AkListener3D" parent="."]
+is_default_listener = false

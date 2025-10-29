@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7iak2m4n6p8r"]
+[gd_scene load_steps=6 format=3 uid="uid://c7iak2m4n6p8r"]
 
 [ext_resource type="Script" uid="uid://o5wkkj4d21dn" path="res://scenes/UI/options_settings/options_settings.gd" id="1_options"]
-[ext_resource type="WwiseRTPC" uid="uid://dliutnwvcbt8o" path="res://Wwise/resources/Game Parameter/{41A3F5EE-FE01-4925-B955-69A615B04C45}.tres" id="2_h5633"]
 [ext_resource type="Theme" uid="uid://oddpfcoobolo" path="res://scenes/UI/options_settings/options_settings.tres" id="2_ro3pg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
@@ -26,7 +25,9 @@ expand_margin_right = 2.0
 [node name="OptionsSettings" type="CanvasLayer"]
 layer = 3
 script = ExtResource("1_options")
-wwise_rtpc = ExtResource("2_h5633")
+wwise_bgm_rtpc = null
+wwise_sfx_rtpc = null
+wwise_master_rtpc = null
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 8
@@ -104,6 +105,7 @@ text = "80%"
 horizontal_alignment = 2
 
 [node name="BGMVolumeContainer" type="VBoxContainer" parent="Panel/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_ro3pg")
 theme_override_constants/separation = 10
@@ -131,6 +133,7 @@ text = "70%"
 horizontal_alignment = 2
 
 [node name="SFXVolumeContainer" type="VBoxContainer" parent="Panel/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_ro3pg")
 theme_override_constants/separation = 10

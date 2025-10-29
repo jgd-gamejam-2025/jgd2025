@@ -21,13 +21,13 @@ func _input(event):
 			show()
 
 func _on_exit_button_pressed() -> void:
-	Wwise.post_event("UI_Choose", self)
+	Wwise.post_event("UI_Choose", LevelManager)
 	Wwise.post_event("Pause_back", self)
 	LevelManager.to_menu()
 
 func _on_option_button_pressed() -> void:
-	Wwise.post_event("UI_Choose", self)
+	Wwise.post_event("UI_Choose", LevelManager)
 	OptionsSettings.show()
 	
 func _on_hover_play_audio() -> void:
-	Wwise.post_event("UI_Prechoose", self)
+	Wwise.post_event("UI_Prechoose", LevelManager)

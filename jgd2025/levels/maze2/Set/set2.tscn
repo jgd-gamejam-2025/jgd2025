@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://bysluvlg528e6"]
+[gd_scene load_steps=26 format=3 uid="uid://bysluvlg528e6"]
 
 [ext_resource type="Material" uid="uid://d27oxwekg1hsx" path="res://levels/tps_test_scene/material/white wall.tres" id="1_ubpq8"]
 [ext_resource type="Script" uid="uid://m0dgfvbn5ht7" path="res://levels/maze2/Set/set_2.gd" id="1_xhb0a"]
 [ext_resource type="FontFile" uid="uid://dlefqu74x4m18" path="res://scenes/UI/fonts/sarasa-mono-sc-bold.ttf" id="2_xhb0a"]
 [ext_resource type="Script" uid="uid://cn5243ahistp4" path="res://other_scripts/float_node3d.gd" id="3_7h38i"]
 [ext_resource type="PackedScene" uid="uid://gj0eukmhijlk" path="res://scenes/maze_scene/small_door/sliding_door.tscn" id="5_7h38i"]
+[ext_resource type="PackedScene" uid="uid://c8k3m5n2p4r6t" path="res://scenes/maze_scene/decoration/pulsing_cube.tscn" id="6_hmj0l"]
 [ext_resource type="PackedScene" uid="uid://bqm8vx7f3yw8r" path="res://scenes/maze_scene/decoration/floating_cube.tscn" id="6_uy7mv"]
 [ext_resource type="PackedScene" uid="uid://bd4804qy5swb1" path="res://scenes/maze_scene/decoration/glitch_cube.tscn" id="7_hmj0l"]
 
@@ -404,11 +405,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2769356, -46.724247, -38.05
 shape = SubResource("BoxShape3D_xhb0a")
 debug_color = Color(0.9663064, 0, 0.48431534, 0.41960785)
 
+[node name="PulsingCube" parent="Hell" instance=ExtResource("6_hmj0l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -34.790886, -50.515915)
+
 [node name="FloatingCube" parent="Hell" instance=ExtResource("6_uy7mv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.964739, 0.12776375, -20.65947)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.964739, 9.432427, -49.81064)
+cube_size = 2.5
+
+[node name="FloatingCube2" parent="Hell" instance=ExtResource("6_uy7mv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.981607, 12.015985, -51.715332)
 
 [node name="GlitchCube" parent="Hell" instance=ExtResource("7_hmj0l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.618375, -2.5755577, -42.0925)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.488506, 6.844578, -54.378677)
 
 [node name="SaveStart1" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3416653, -14.616577, -117.06201)

@@ -14,14 +14,14 @@ extends CanvasLayer
 @onready var resolution_option: OptionButton = %ResolutionOption
 
 # Wwise RTPC 名称（如果使用 Wwise）
-@export var wwise_bgm_rtpc: String = "BGM_Volume"
-@export var wwise_sfx_rtpc: String = "SFX_Volume"
-@export var wwise_master_rtpc: String = "Master_Volume"
+@export var wwise_bgm_rtpc: String = "Music_volume"
+@export var wwise_sfx_rtpc: String = "SFX"
+# @export var wwise_master_rtpc: String = "Master_Volume"
 
 # 音频总线名称（如果使用 Godot 原生音频）
-const BUS_MASTER = "Master"
-const BUS_BGM = "BGM"
-const BUS_SFX = "SFX"
+# const BUS_MASTER = "Master"
+# const BUS_BGM = "BGM"
+# const BUS_SFX = "SFX"
 
 # 预设分辨率
 const RESOLUTIONS = [
@@ -205,22 +205,23 @@ func _on_sfx_slider_changed(value: float) -> void:
 
 func _apply_master_volume(value: float) -> void:
 	"""应用主音量设置"""
-	# 转换 0-100 的值到 -80 到 0 dB（Godot 音频总线）
-	var db_value = linear_to_db(value / 100.0)
-	var bus_idx = AudioServer.get_bus_index(BUS_MASTER)
-	if bus_idx >= 0:
-		AudioServer.set_bus_volume_db(bus_idx, db_value)
-	
-	# 如果使用 Wwise，设置 RTPC
-	_set_wwise_rtpc(wwise_master_rtpc, value)
+	pass
+	## 转换 0-100 的值到 -80 到 0 dB（Godot 音频总线）
+	#var db_value = linear_to_db(value / 100.0)
+	#var bus_idx = AudioServer.get_bus_index(BUS_MASTER)
+	#if bus_idx >= 0:
+		#AudioServer.set_bus_volume_db(bus_idx, db_value)
+	#
+	## 如果使用 Wwise，设置 RTPC
+	#_set_wwise_rtpc(wwise_master_rtpc, value)
 
 
 func _apply_bgm_volume(value: float) -> void:
 	"""应用 BGM 音量设置"""
-	var db_value = linear_to_db(value / 100.0)
-	var bus_idx = AudioServer.get_bus_index(BUS_BGM)
-	if bus_idx >= 0:
-		AudioServer.set_bus_volume_db(bus_idx, db_value)
+	# var db_value = linear_to_db(value / 100.0)
+	# var bus_idx = AudioServer.get_bus_index(BUS_BGM)
+	# if bus_idx >= 0:
+	# 	AudioServer.set_bus_volume_db(bus_idx, db_value)
 	
 	# 如果使用 Wwise，设置 RTPC
 	_set_wwise_rtpc(wwise_bgm_rtpc, value)
@@ -228,19 +229,18 @@ func _apply_bgm_volume(value: float) -> void:
 
 func _apply_sfx_volume(value: float) -> void:
 	"""应用音效音量设置"""
-	var db_value = linear_to_db(value / 100.0)
-	var bus_idx = AudioServer.get_bus_index(BUS_SFX)
-	if bus_idx >= 0:
-		AudioServer.set_bus_volume_db(bus_idx, db_value)
+	# var db_value = linear_to_db(value / 100.0)
+	# var bus_idx = AudioServer.get_bus_index(BUS_SFX)
+	# if bus_idx >= 0:
+	# 	AudioServer.set_bus_volume_db(bus_idx, db_value)
 	
 	# 如果使用 Wwise，设置 RTPC
 	_set_wwise_rtpc(wwise_sfx_rtpc, value)
 
-
 func _set_wwise_rtpc(rtpc_name: String, value: float) -> void:
 	"""设置 Wwise RTPC（如果 Wwise 可用）"""
 	# 这里需要根据你的 Wwise 集成实现
-	# 示例：AkSoundEngine.SetRTPCValue(rtpc_name, value)
+	Wwise.set_rtpc_value(rtpc_name, value, LevelManager)
 	pass
 
 
@@ -254,8 +254,8 @@ func linear_to_db(linear: float) -> float:
 func reset_to_default() -> void:
 	"""重置为默认设置"""
 	# 重置音量
-	if master_slider:
-		master_slider.value = 80.0
+	# if master_slider:
+	# 	master_slider.value = 80.0
 	if bgm_slider:
 		bgm_slider.value = 70.0
 	if sfx_slider:
@@ -269,19 +269,19 @@ func reset_to_default() -> void:
 
 
 func _on_close_button_pressed() -> void:
-	Wwise.post_event("UI_Choose", self)
+	Wwise.post_event("UI_Choose", LevelManager)
 	hide()
 
 func _on_select() -> void:
-	Wwise.post_event("UI_Prechoose", self)
+	Wwise.post_event("UI_Prechoose", LevelManager)
 	
 func _on_pressed() -> void:
-	Wwise.post_event("UI_Choose", self)
+	Wwise.post_event("UI_Choose", LevelManager)
 
 
 func _on_resolution_option_item_focused(index: int) -> void:
-	Wwise.post_event("UI_Prechoose", self)
+	Wwise.post_event("UI_Prechoose", LevelManager)
 
 
 func _on_resolution_option_item_selected(index: int) -> void:
-	Wwise.post_event("UI_Choose", self)
+	Wwise.post_event("UI_Choose", LevelManager)

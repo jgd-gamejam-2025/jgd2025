@@ -39,7 +39,7 @@ func _on_ocean_end_body_exited(body: Node3D) -> void:
 		# player.look_at_target($Marker3D)
 		wwise_mazetrans_to_chat.post(LevelManager)
 		# wwise_rtpc.set_value(LevelManager, 100)
-		await get_tree().create_timer(6.85).timeout
+		await get_tree().create_timer(6.5).timeout
 		Transition.set_and_start("坍塌", "", 0, "N/A")	
 		wwise_earthquake.stop(LevelManager)
 		await get_tree().create_timer(3).timeout

@@ -26,6 +26,7 @@ func _ready():
 	chat_ui.show_welcome_text("这是什么地方？")
 	chat_ui.set_bg_transparent()
 	chat_ui.connect("command_received", receive_chat_command)	
+	chat_ui.sent_text.connect(handle_player_text)
 	if skip_opening or not LevelManager.show_opening:
 		end_opening()
 		wwise_maze.post(LevelManager)
@@ -130,3 +131,12 @@ func _on_enter_gate_body_entered(body: Node3D) -> void:
 		Transition.set_and_start("", "", 0,"N/A")
 		await get_tree().create_timer(0.3).timeout
 		LevelManager.to_maze2()
+
+func handle_player_text(text: String) -> void:
+	if LevelManager.ai_level >= 1:
+		return
+	if text.find("重新") != -1 or text.find("重开") != -1 or text.find("重启") != -1 or text.find("restart") != -1:
+		# reload this scene
+		Transition.set_and_start("重新启动中", "")
+		await get_tree().create_timer(0.5).timeout
+		LevelManager.restart_eve_debug()

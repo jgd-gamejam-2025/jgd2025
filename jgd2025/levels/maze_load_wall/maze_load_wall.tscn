@@ -101,6 +101,7 @@ size = Vector3(12.601791, 25.191689, 14.801802)
 
 [node name="MazeLoadWall" type="Node3D"]
 script = ExtResource("1_wt3j4")
+skip_opening = true
 start_velocity = Vector3(0, -100, 0)
 wwise_maze = ExtResource("2_ov85a")
 wwise_maze_landing = ExtResource("3_5ggcw")
@@ -115,7 +116,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("4_j3jbl")]
-transform = Transform3D(1.0606601, 0, -1.0606601, 0, 1.5, 0, 1.0606601, 0, 1.0606601, -7.9227524, 249.56992, 9.300619)
+transform = Transform3D(1.4142135, 0, -1.4142135, 0, 2, 0, 1.4142135, 0, 1.4142135, -7.9227524, 249.56992, 9.300619)
 walk_speed = 5.0
 sprint_speed = 6.0
 

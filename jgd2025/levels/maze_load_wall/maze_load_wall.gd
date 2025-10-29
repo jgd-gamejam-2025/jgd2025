@@ -57,9 +57,7 @@ func end_opening() -> void:
 		get_notification("嗨")
 		emit_signal("end_opening_sig")
 		await get_tree().create_timer(1).timeout
-		get_notification("我回来了")
-		await get_tree().create_timer(1).timeout
-		get_notification("看来情况不妙")
+		get_notification("我回来了,看来情况不妙")
 		await get_tree().create_timer(1.5).timeout
 		get_notification("我的系统有些混乱。但没事，我会一直在。")
 		await get_tree().create_timer(2.5).timeout
@@ -125,8 +123,6 @@ func _on_notification_area_2_area_text(message: String) -> void:
 	get_notification(message)
 	await get_tree().create_timer(2).timeout
 	get_notification("如果你想重新启动这段程序的话，告诉我。")
-	await get_tree().create_timer(2).timeout
-	get_notification("也许重新开始就能有些新的灵感……")
 
 func _on_enter_gate_body_entered(body: Node3D) -> void:
 	if body.name == "Player":

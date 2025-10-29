@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://1m82bdnhye7k"]
+[gd_scene load_steps=38 format=3 uid="uid://1m82bdnhye7k"]
 
 [ext_resource type="Script" uid="uid://cr4hyuccgxpea" path="res://levels/maze_load_wall/maze_load_wall.gd" id="1_wt3j4"]
 [ext_resource type="WwiseEvent" uid="uid://dwhiif8lona3t" path="res://Wwise/resources/Event/{8F9E1686-BAB2-41CE-B068-78FB077CE2BF}.tres" id="2_ov85a"]
@@ -84,9 +84,6 @@ points = PackedVector3Array(-50, 0, -50, -50, 0, 50, 50, 0, -50, 50, 0, 50)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2r1ki"]
 size = Vector3(80, 30, 80)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gstnd"]
-size = Vector3(28.588844, 4.3947754, 24.893677)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_ov85a"]
 size = Vector3(18.428299, 4.880615, 18.261475)
 
@@ -117,8 +114,8 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("4_j3jbl")]
 transform = Transform3D(2.1213202, 0, -2.1213202, 0, 3, 0, 2.1213202, 0, 2.1213202, -7.9227524, 249.56992, 9.300619)
-walk_speed = 5.0
-sprint_speed = 6.0
+walk_speed = 6.0
+sprint_speed = 7.0
 jump_height = 2.0
 
 [node name="StartBlock" type="StaticBody3D" parent="."]
@@ -130,7 +127,7 @@ shape = SubResource("BoxShape3D_vudfa")
 [node name="MazeTarget" type="Node" parent="."]
 
 [node name="Door" parent="MazeTarget" instance=ExtResource("3_ucvxd")]
-transform = Transform3D(0.35355338, 0, -0.35355338, 0, 2, 0, 0.35355338, 0, 0.35355338, 46.206, 33.14114, -46.218)
+transform = Transform3D(0.35355338, 0, -0.35355338, 0, 2, 0, 0.35355338, 0, 0.35355338, 46.206, 31.796803, -46.218)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
@@ -194,14 +191,6 @@ text = "→"
 font = ExtResource("3_2r1ki")
 font_size = 800
 
-[node name="Label3D4" type="Label3D" parent="Floor/CSGBox3D"]
-transform = Transform3D(0.5386826, -0.8425089, -3.6827235e-08, 2.2958108e-15, -4.3711395e-08, 1, -0.8425089, -0.5386826, -2.3546566e-08, 64.55814, 1.6229241, -56.337185)
-modulate = Color(0.056291588, 0.056291603, 0.056291595, 1)
-outline_modulate = Color(0, 0, 0, 0)
-text = "→"
-font = ExtResource("3_2r1ki")
-font_size = 800
-
 [node name="Label3D3" type="Label3D" parent="Floor/CSGBox3D"]
 transform = Transform3D(-0.6666106, 0.7454062, 3.2582744e-08, 2.2958108e-15, -4.3711395e-08, 1, 0.7454062, 0.6666106, 2.9138482e-08, 0.22420788, 1.6229241, 1.0006456)
 modulate = Color(0.056291588, 0.056291603, 0.056291595, 1)
@@ -245,13 +234,6 @@ shape = SubResource("BoxShape3D_2r1ki")
 [node name="Buttons" parent="." instance=ExtResource("10_2r1ki")]
 visible = false
 is_3d_scene = true
-
-[node name="NotificationArea" parent="." instance=ExtResource("14_gstnd")]
-text = "这看起来是一个迷宫......"
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="NotificationArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.06866, 2.859146, -21.757633)
-shape = SubResource("BoxShape3D_gstnd")
 
 [node name="NotificationArea2" parent="." instance=ExtResource("14_gstnd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.454586, 0, -29.613369)
@@ -298,7 +280,6 @@ autostart = true
 [connection signal="end_opening_sig" from="." to="MazeManager" method="_on_maze_load_wall_end_opening_sig"]
 [connection signal="timeout" from="MazeManager/RiseTimer" to="MazeManager" method="_on_rise_timer_timeout"]
 [connection signal="opening_end" from="Opening" to="." method="_on_opening_opening_end"]
-[connection signal="area_text" from="NotificationArea" to="." method="_on_notification_area_area_text"]
 [connection signal="area_text" from="NotificationArea2" to="." method="_on_notification_area_2_area_text"]
 [connection signal="area_text" from="NotificationArea3" to="." method="_on_notification_area_area_text"]
 [connection signal="body_entered" from="OpenGate" to="." method="_on_open_gate_body_entered"]

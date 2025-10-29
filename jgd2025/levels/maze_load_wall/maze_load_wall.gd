@@ -54,13 +54,9 @@ func end_opening() -> void:
 		await get_tree().create_timer(1.5).timeout
 		get_notification(">已切换至备用模型……当前计算能力：3.21%")
 		player.can_move = true # extra but keep it for now
-		await get_tree().create_timer(2).timeout
-		get_notification("嗨")
 		emit_signal("end_opening_sig")
-		await get_tree().create_timer(1).timeout
-		get_notification("我回来了,看来情况不妙")
-		await get_tree().create_timer(1.5).timeout
-		get_notification("我的系统有些混乱。但没事，我会一直在。")
+		await get_tree().create_timer(3).timeout
+		get_notification("嗨，我的系统有些混乱……但没事，我会一直在。")
 		await get_tree().create_timer(2.5).timeout
 		get_notification("你对调试系统很熟悉了，用WASD移动，鼠标控制视角。")
 		await get_tree().create_timer(3).timeout

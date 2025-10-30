@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}",
     "Language": "SFX",
-    "Hash": "{6CB61DDB-6A21-5EA9-C6E6-045C6FB542DC}",
+    "Hash": "{8DA330DE-CDD8-1EF2-FBF4-9D5382D3EE44}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\soundbank",
     "ShortName": "soundbank",
     "Path": "soundbank.bnk",
@@ -48,14 +48,6 @@
       "CachePath": "CC/{CC7AD917-A2EF-BBC3-F0D0-012EC432E367}.wem"
      },
      {
-      "Id": "56285626",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "大门2.wav",
-      "CachePath": "14/{14E7D94D-4752-D4B8-0C26-16710B3FA233}.wem"
-     },
-     {
       "Id": "57419463",
       "Language": "SFX",
       "Streaming": "false",
@@ -88,6 +80,14 @@
       "CachePath": "63/{63CA249C-8D2D-DD7A-8C1B-324047EE3D06}.wem"
      },
      {
+      "Id": "93586496",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "蠕动柱子loop.wav",
+      "CachePath": "C4/{C4C05113-28DF-4F0A-FC98-631CA2C6FEE2}.wem"
+     },
+     {
       "Id": "118968680",
       "Language": "SFX",
       "Streaming": "false",
@@ -118,6 +118,14 @@
       "Location": "Memory",
       "ShortName": "键盘故障1.wav",
       "CachePath": "3D/{3D24D65D-32F7-5763-40ED-468DAF361D83}.wem"
+     },
+     {
+      "Id": "145219244",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Door1.wav",
+      "CachePath": "1E/{1EC9591F-D4A6-F6A9-BB4F-2CA457AD9E99}.wem"
      },
      {
       "Id": "146562162",
@@ -174,14 +182,6 @@
       "Location": "Memory",
       "ShortName": "玩家键盘2.wav",
       "CachePath": "66/{669BC35A-F3C6-408A-C8DB-BDB359E50727}.wem"
-     },
-     {
-      "Id": "244808737",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "大门1.wav",
-      "CachePath": "52/{52BD6F45-3191-DBA0-053B-306D5012A575}.wem"
      },
      {
       "Id": "250617542",
@@ -320,6 +320,14 @@
       "CachePath": "D5/{D50A6163-C0A4-4BB8-DFC6-F477DFFD254D}.wem"
      },
      {
+      "Id": "531575518",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "迷宫墙升起新.wav",
+      "CachePath": "37/{37F7BB6B-F878-D0E6-42AE-BDBB27615C95}.wem"
+     },
+     {
       "Id": "536318512",
       "Language": "SFX",
       "Streaming": "false",
@@ -334,6 +342,14 @@
       "Location": "Memory",
       "ShortName": "键盘故障9.wav",
       "CachePath": "D4/{D40485B9-2936-345E-457B-32450C20C964}.wem"
+     },
+     {
+      "Id": "571346432",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Door2.wav",
+      "CachePath": "BF/{BF4F4910-FB21-CF6B-47EA-442973F986CC}.wem"
      },
      {
       "Id": "577889029",
@@ -1481,13 +1497,13 @@
       "Name": "SFX_door1",
       "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_door1",
       "GUID": "{20906418-7970-46DB-A006-F25F4E2C8A4C}",
-      "MaxAttenuation": "20",
+      "MaxAttenuation": "15",
       "DurationType": "OneShot",
-      "DurationMin": "5.9166665",
-      "DurationMax": "5.9166665",
+      "DurationMin": "4.25",
+      "DurationMax": "4.25",
       "MediaRefs": [
        {
-        "Id": "244808737"
+        "Id": "145219244"
        }
       ]
      },
@@ -1496,13 +1512,13 @@
       "Name": "SFX_door2",
       "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_door2",
       "GUID": "{64F0321C-1399-47E9-86F1-C68D954A8F6A}",
-      "MaxAttenuation": "20",
+      "MaxAttenuation": "15",
       "DurationType": "OneShot",
-      "DurationMin": "4.9375",
-      "DurationMax": "4.9375",
+      "DurationMin": "2.5625",
+      "DurationMax": "2.5625",
       "MediaRefs": [
        {
-        "Id": "56285626"
+        "Id": "571346432"
        }
       ]
      },
@@ -1584,6 +1600,20 @@
       ]
      },
      {
+      "Id": "1867160191",
+      "Name": "SFX_maze_pilarup_first",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_maze_pilarup_first",
+      "GUID": "{61ED58B4-BBF1-44A9-9646-2F2617099247}",
+      "DurationType": "OneShot",
+      "DurationMin": "20.3125",
+      "DurationMax": "20.3125",
+      "MediaRefs": [
+       {
+        "Id": "531575518"
+       }
+      ]
+     },
+     {
       "Id": "2868659721",
       "Name": "SFX_Message_popup",
       "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_Message_popup",
@@ -1651,6 +1681,19 @@
        },
        {
         "Id": "317320664"
+       }
+      ]
+     },
+     {
+      "Id": "11976971",
+      "Name": "SFX_pillar_moving_loop",
+      "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_pillar_moving_loop",
+      "GUID": "{49E74AB4-491A-40F7-A372-7F8C225C77DE}",
+      "MaxAttenuation": "50",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "93586496"
        }
       ]
      },
@@ -2063,6 +2106,6 @@
     ]
    }
   ],
-  "FileHash": "{27B879A7-D300-AA3F-4F4A-ADF727370AFE}"
+  "FileHash": "{4B758725-450D-B2B4-84BA-9099C88D1D20}"
  }
 }

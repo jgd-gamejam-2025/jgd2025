@@ -873,8 +873,9 @@ debug_color = Color(2.0214916e-06, 0.5992533, 0.70622456, 0.41960785)
 [node name="Floor" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.453, -16.823)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31204605, -17.549242, -16.58941)
 mesh = SubResource("BoxMesh_868cf")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.453, -16.823)
@@ -967,6 +968,12 @@ transform = Transform3D(5.4009902e-08, -1.2356024, -1.5158815e-07, -1.0000001, -
 transform = Transform3D(0.9999999, 8.881784e-15, 0, -2.842171e-14, 1.0000007, 0, -3.5527137e-15, 0, 1, -0.5950854, 0.9925971, 2.3625069)
 shape = SubResource("BoxShape3D_vsxmj")
 
+[node name="AkEvent3D" type="AkEvent3D" parent="."]
+event = ExtResource("9_vsxmj")
+trigger_on = 2
+stop_on = 3
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -32.794292, -14.664127, -48.834137)
+
 [node name="wall-1" type="Node3D" parent="."]
 
 [node name="wall-1-left" type="Node3D" parent="wall-1"]
@@ -983,10 +990,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 10, -52)
 use_collision = true
 size = Vector3(40, 50, 40)
 material = SubResource("StandardMaterial3D_4ypbk")
-
-[node name="AkEvent3D" type="AkEvent3D" parent="wall-1/wall-1-left/wall-left"]
-event = ExtResource("9_vsxmj")
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.588585, -22.598837, -16.03759)
 
 [node name="wall-left-light" type="CSGBox3D" parent="wall-1/wall-1-left"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0224, -14.511709, -51.988037)
@@ -1269,15 +1272,23 @@ use_collision = true
 size = Vector3(1.4531593, 2.0972404, 2.9002686)
 material = SubResource("StandardMaterial3D_4ypbk")
 
+[node name="AkEvent3D" type="AkEvent3D" parent="wall-3"]
+event = ExtResource("9_vsxmj")
+trigger_on = 2
+stop_on = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.566721, -12.411158, -58.26392)
+
+[node name="AkEvent3D2" type="AkEvent3D" parent="wall-3"]
+event = ExtResource("9_vsxmj")
+trigger_on = 2
+stop_on = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.003708, -12.13892, -82.02057)
+
 [node name="CSGBox3D35" type="CSGBox3D" parent="wall-3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.097057, -16.277905, -88.41936)
 use_collision = true
 size = Vector3(3.4728966, 4.0328064, 2.9002686)
 material = SubResource("StandardMaterial3D_4ypbk")
-
-[node name="AkEvent3D" type="AkEvent3D" parent="wall-3/CSGBox3D35"]
-event = ExtResource("9_vsxmj")
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.609745, -22.598835, -16.03759)
 
 [node name="CSGBox3D36" type="CSGBox3D" parent="wall-3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.159958, -12.676961, -88.41936)
@@ -1496,6 +1507,7 @@ material = SubResource("StandardMaterial3D_4ypbk")
 [node name="AkEvent3D" type="AkEvent3D" parent="wall-6/CSGBox3D25"]
 event = ExtResource("9_vsxmj")
 trigger_on = 2
+stop_on = 3
 
 [node name="CSGBox3D29" type="CSGBox3D" parent="wall-6"]
 transform = Transform3D(-2.2077966e-08, -0.8630696, 0.50508505, -3.7725965e-08, 0.50508505, 0.8630696, -1, 1.9646135e-15, -4.3711385e-08, 6.2880397, -13.536257, -61.135593)

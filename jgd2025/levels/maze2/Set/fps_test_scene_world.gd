@@ -194,6 +194,7 @@ func _on_player_interact_obj(target: Node) -> void:
 		get_notification("Hardware check: OK")
 		await get_tree().create_timer(0.5).timeout
 		get_notification("Execution thread unstable")
+		await get_tree().create_timer(0.5).timeout
 		get_notification("Link integrity compromised")
 		await get_tree().create_timer(0.5).timeout
 		get_notification("Protocol override requested")
@@ -202,7 +203,7 @@ func _on_player_interact_obj(target: Node) -> void:
 		await get_tree().create_timer(0.5).timeout
 		get_notification("Entity containment failed")
 		await get_tree().create_timer(2).timeout
-		get_notification("-- llama")
+		get_notification("-- qwen")
 		await get_tree().create_timer(2).timeout
 		get_notification("奇怪……这似乎来自其他ai模型")
 			

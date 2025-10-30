@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://ofyuav8psja7"]
+[gd_scene load_steps=44 format=3 uid="uid://ofyuav8psja7"]
 
 [ext_resource type="Script" uid="uid://c8j73486nr6o8" path="res://levels/maze2/Set/fps_test_scene_world.gd" id="1_868cf"]
 [ext_resource type="PackedScene" uid="uid://dxg57iry0rwpn" path="res://levels/maze2/Set/last_bridge.tscn" id="2_15gwa"]
@@ -17,6 +17,7 @@
 [ext_resource type="WwiseEvent" uid="uid://blgphwlv7sjja" path="res://Wwise/resources/Event/{49E74AB4-491A-40F7-A372-7F8C225C77DE}.tres" id="9_vsxmj"]
 [ext_resource type="PackedScene" uid="uid://djs0b34qda0px" path="res://scenes/UI/label_3d_typed/description.tscn" id="12_psi4i"]
 [ext_resource type="PackedScene" uid="uid://cmbss067n8pop" path="res://scenes/UI/label_3d_typed/label_3d.tscn" id="13_0d1uc"]
+[ext_resource type="PackedScene" uid="uid://bqm8vx7f3yw8r" path="res://scenes/maze_scene/decoration/floating_cube.tscn" id="16_8vcj1"]
 [ext_resource type="FontFile" uid="uid://dlefqu74x4m18" path="res://scenes/UI/fonts/sarasa-mono-sc-bold.ttf" id="17_0d1uc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]
@@ -99,6 +100,9 @@ size = Vector3(5.717285, 3.2819214, 2.5343018)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gu5po"]
 size = Vector3(0.9977379, 1.0414162, 0.96352386)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8vcj1"]
+size = Vector3(2.7983236, 3.4040089, 3.5528135)
 
 [sub_resource type="Animation" id="Animation_50rve"]
 length = 0.001
@@ -1702,9 +1706,9 @@ size = Vector3(5.9984436, 3.1896133, 15.163834)
 material = SubResource("StandardMaterial3D_4ypbk")
 
 [node name="CSGBox3D32" type="CSGBox3D" parent="wall-6"]
-transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, -32.561363, -15.414619, -22.171326)
+transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, -32.561363, -15.691085, -22.267044)
 use_collision = true
-size = Vector3(2, 1.8398438, 2)
+size = Vector3(4, 4, 3.533081)
 material = SubResource("StandardMaterial3D_4ypbk")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="wall-6"]
@@ -1789,24 +1793,35 @@ shape = SubResource("BoxShape3D_gu5po")
 transform = Transform3D(-0.5, -4.371139e-08, 0, -1.9106855e-15, 2.1855694e-08, 0.5, -4.371139e-08, 0.5, -2.1855694e-08, 0.52336884, -0.43512726, -0.6573181)
 text = "E> 读取"
 
+[node name="LightBox" type="StaticBody3D" parent="." groups=["Description", "interactable"]]
+transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, -32.517292, -14.363884, -46.28771)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34467316, 0.47857285, 0.04193878)
+shape = SubResource("BoxShape3D_8vcj1")
+
+[node name="Description" parent="LightBox" instance=ExtResource("12_psi4i")]
+
+[node name="Label3D" parent="LightBox/Description" groups=["blow"] instance=ExtResource("13_0d1uc")]
+transform = Transform3D(-0.5, 7.642742e-15, -4.371139e-08, 0, 0.5, 8.742278e-08, 4.371139e-08, 8.742278e-08, -0.5, -0.5251312, 2.2089615, -1.6329803)
+modulate = Color(0.056291588, 0.056291603, 0.056291595, 1)
+text = "E> 读取"
+font_size = 120
+
+[node name="FloatingCube" parent="." instance=ExtResource("16_8vcj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.631294, -14.138747, -46.41489)
+skeleton = NodePath("")
+float_amplitude = 0.1
+cube_size = 0.5
+emission_strength = 1.0
+
 [node name="light box" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.134312)
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="light box"]
-transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, -32.517292, -14.852628, -22.153397)
+transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, -32.517292, -14.93053, -22.153397)
+visible = false
 material = SubResource("StandardMaterial3D_kp8pu")
-
-[node name="LightBox" type="StaticBody3D" parent="light box/CSGBox3D17" groups=["Description", "interactable"]]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="light box/CSGBox3D17/LightBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02996254, -0.028412819, -0.0030975342)
-shape = SubResource("BoxShape3D_gu5po")
-
-[node name="Description" parent="light box/CSGBox3D17/LightBox" instance=ExtResource("12_psi4i")]
-
-[node name="Label3D" parent="light box/CSGBox3D17/LightBox/Description" groups=["blow"] instance=ExtResource("13_0d1uc")]
-transform = Transform3D(-0.5, -4.371139e-08, 0, -1.9106855e-15, 2.1855694e-08, 0.5, -4.371139e-08, 0.5, -2.1855694e-08, 0.52336884, -0.43512726, -0.6573181)
-text = "E> 读取"
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="light box"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.27662, -4.605697, -99.352585)

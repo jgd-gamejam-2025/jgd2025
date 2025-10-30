@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}",
     "Language": "SFX",
-    "Hash": "{8DA330DE-CDD8-1EF2-FBF4-9D5382D3EE44}",
+    "Hash": "{47B84059-FCE3-CC11-324A-65A8C70D1576}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\soundbank",
     "ShortName": "soundbank",
     "Path": "soundbank.bnk",
@@ -78,14 +78,6 @@
       "Location": "Memory",
       "ShortName": "AMB_Room_1.wav",
       "CachePath": "63/{63CA249C-8D2D-DD7A-8C1B-324047EE3D06}.wem"
-     },
-     {
-      "Id": "93586496",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "蠕动柱子loop.wav",
-      "CachePath": "C4/{C4C05113-28DF-4F0A-FC98-631CA2C6FEE2}.wem"
      },
      {
       "Id": "118968680",
@@ -510,6 +502,14 @@
       "Location": "Memory",
       "ShortName": "Eve开头_2.wav",
       "CachePath": "B7/{B7E299D3-98CE-DE93-53EE-90FB6B2686CE}.wem"
+     },
+     {
+      "Id": "821453573",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "柱子蠕动loop2.wav",
+      "CachePath": "40/{40517AFB-02D2-A654-23C4-7B863BF2C1F9}.wem"
      },
      {
       "Id": "842453171",
@@ -1497,7 +1497,7 @@
       "Name": "SFX_door1",
       "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_door1",
       "GUID": "{20906418-7970-46DB-A006-F25F4E2C8A4C}",
-      "MaxAttenuation": "15",
+      "MaxAttenuation": "20",
       "DurationType": "OneShot",
       "DurationMin": "4.25",
       "DurationMax": "4.25",
@@ -1512,7 +1512,7 @@
       "Name": "SFX_door2",
       "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_door2",
       "GUID": "{64F0321C-1399-47E9-86F1-C68D954A8F6A}",
-      "MaxAttenuation": "15",
+      "MaxAttenuation": "20",
       "DurationType": "OneShot",
       "DurationMin": "2.5625",
       "DurationMax": "2.5625",
@@ -1689,11 +1689,11 @@
       "Name": "SFX_pillar_moving_loop",
       "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_pillar_moving_loop",
       "GUID": "{49E74AB4-491A-40F7-A372-7F8C225C77DE}",
-      "MaxAttenuation": "50",
+      "MaxAttenuation": "25",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
-        "Id": "93586496"
+        "Id": "821453573"
        }
       ]
      },
@@ -2106,6 +2106,6 @@
     ]
    }
   ],
-  "FileHash": "{4B758725-450D-B2B4-84BA-9099C88D1D20}"
+  "FileHash": "{0A8BA20D-ECB4-1AAA-A352-7D2B6EC40917}"
  }
 }

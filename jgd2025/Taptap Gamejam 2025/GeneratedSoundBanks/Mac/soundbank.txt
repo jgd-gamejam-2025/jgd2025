@@ -75,7 +75,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	58820668	掏出ipad	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\60\{608C1747-943E-89EE-282A-A22F69032C0A}.wem		\Actor-Mixer Hierarchy\SFX\掏出ipad		216208
 	68659470	玩家键盘5	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\00\{007C776F-3EB6-79FE-A9DE-5F64050626AA}.wem		\Actor-Mixer Hierarchy\SFX\Player_Typing\玩家键盘5		8292
 	73482642	AMB_Room_1	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\63\{63CA249C-8D2D-DD7A-8C1B-324047EE3D06}.wem		\Actor-Mixer Hierarchy\AMB\AMB_Switch\AMB_ROOM\AMB_Room_1		3072160
-	93586496	蠕动柱子loop	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\C4\{C4C05113-28DF-4F0A-FC98-631CA2C6FEE2}.wem		\Actor-Mixer Hierarchy\SFX\蠕动柱子loop		2328160
 	118968680	柱子loop2	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\4F\{4F39243D-9FC4-28F7-8CF9-14E59AA1F229}.wem		\Actor-Mixer Hierarchy\SFX\柱子loop\柱子loop2		3360160
 	121547523	ai键盘2	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\FB\{FB1DB552-8D67-DC25-14C8-6ED2FBCFCF75}.wem		\Actor-Mixer Hierarchy\SFX\Typing_AI\ai键盘2		20160
 	123271742	room footstep2	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\80\{80BC400C-4DD1-666F-B580-F7EDAFEAF868}.wem		\Actor-Mixer Hierarchy\SFX\Room_footsteps\room footstep2		86560
@@ -129,6 +128,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	805998164	EVE标题 Transition	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\76\{7625F7EC-81A6-0F0A-F834-A952E19CBD80}.wem		\Interactive Music Hierarchy\Music\Transition\EVE_Title_Transition\EVE标题 Transition		2688208
 	806688815	ai键盘6	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\AC\{AC68194A-2736-08CC-36B1-EA609A295DC3}.wem		\Actor-Mixer Hierarchy\SFX\Typing_AI\ai键盘6		20860
 	811350998	Eve开头_2	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\B7\{B7E299D3-98CE-DE93-53EE-90FB6B2686CE}.wem		\Interactive Music Hierarchy\Music\Music_Swtich\Music_Begin\Eve开头_2\Eve开头_2		14848160
+	821453573	柱子蠕动loop2	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\40\{40517AFB-02D2-A654-23C4-7B863BF2C1F9}.wem		\Actor-Mixer Hierarchy\SFX\柱子蠕动loop2		6912160
 	842453171	mazeft5	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\82\{8238518B-D1D6-59C0-B45D-046031FF533E}.wem		\Actor-Mixer Hierarchy\SFX\Maze_Footstep\mazeft5		30008
 	846058329	pillar up	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\84\{848634D8-540E-6464-DBA3-FDD850CD7746}.wem		\Actor-Mixer Hierarchy\SFX\pillar up		1464208
 	853826000	AMB_Buzz	Y:\Desktop\GameJam\Taptap Gamejam2025\jgd2025\jgd2025\Taptap Gamejam 2025\.cache\42\{42933771-2D2F-9B93-3E80-AB4C798FD59D}.wem		\Actor-Mixer Hierarchy\AMB\AMB_Switch\AMB_ROOM\AMB_Buzz		17664160

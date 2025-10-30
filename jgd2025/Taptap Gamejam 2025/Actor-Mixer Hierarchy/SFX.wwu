@@ -421,7 +421,7 @@
 						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-5</Value>
+								<Value>-7</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -887,6 +887,13 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="灯泡变暗" ID="{C64C218C-BE8C-4200-BC7B-AAB04F2631E4}" ShortID="643530028">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>3</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
@@ -1334,73 +1341,6 @@
 						<ActiveSource Name="信息弹出" ID="{F6E909BD-C2DA-4E01-A465-FECE49EE0435}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
-				<Sound Name="大门1" ID="{F6478F7E-FB8E-447E-8C3B-F7BB9D717776}" ShortID="461895588">
-					<PropertyList>
-						<Property Name="Volume" Type="Real64">
-							<ValueList>
-								<Value>4</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Attenuation">
-							<ObjectRef Name="Door emitters" ID="{38C7798A-452A-438F-82AA-A6655EBCBBC7}" WorkUnitID="{89883E8C-1DA7-4416-8588-1049CD284C6A}"/>
-						</Reference>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="SFX" ID="{049E2DA9-B8B7-4390-B4B9-B094CEA40551}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="大门1" ID="{1B61CCD6-3C34-49AA-B2CE-DA6023E3D96F}">
-							<Language>SFX</Language>
-							<AudioFile>大门1.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="244808737"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<PositioningInfo>
-						<Position Name="" ID="{EC45FC3C-C5FE-4E4B-94B1-D1352E5D041D}"/>
-					</PositioningInfo>
-					<ActiveSourceList>
-						<ActiveSource Name="大门1" ID="{1B61CCD6-3C34-49AA-B2CE-DA6023E3D96F}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="大门2" ID="{36222D67-CA56-4C5A-B4CE-DF50B59CC930}" ShortID="967022591">
-					<PropertyList>
-						<Property Name="Volume" Type="Real64">
-							<ValueList>
-								<Value>4</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Attenuation">
-							<ObjectRef Name="Door emitters" ID="{38C7798A-452A-438F-82AA-A6655EBCBBC7}" WorkUnitID="{89883E8C-1DA7-4416-8588-1049CD284C6A}"/>
-						</Reference>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="SFX" ID="{049E2DA9-B8B7-4390-B4B9-B094CEA40551}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="大门2" ID="{FAD263C0-4BAA-4A25-BF47-F1945FCF7439}">
-							<Language>SFX</Language>
-							<AudioFile>大门2.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="56285626"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="大门2" ID="{FAD263C0-4BAA-4A25-BF47-F1945FCF7439}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
 				<Sound Name="柱子升起1" ID="{59E80671-50BD-4B26-800D-7D7E767323EF}" ShortID="607377161">
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
@@ -1630,6 +1570,116 @@
 						</Sound>
 					</ChildrenList>
 				</Folder>
+				<Sound Name="Door1" ID="{C2005327-B337-414B-9C7E-1A432FEDB707}" ShortID="749819850">
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Door emitters" ID="{38C7798A-452A-438F-82AA-A6655EBCBBC7}" WorkUnitID="{89883E8C-1DA7-4416-8588-1049CD284C6A}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Door1" ID="{8160156F-E9CD-4E5A-ACA7-44A26B60A6FF}">
+							<Language>SFX</Language>
+							<AudioFile>Door1.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="145219244"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Door1" ID="{8160156F-E9CD-4E5A-ACA7-44A26B60A6FF}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Door2" ID="{8234B44C-3959-470C-99B0-8A17964273F5}" ShortID="520851846">
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Door emitters" ID="{38C7798A-452A-438F-82AA-A6655EBCBBC7}" WorkUnitID="{89883E8C-1DA7-4416-8588-1049CD284C6A}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Door2" ID="{CECB9E7A-E991-423E-A4F9-34840AE40F66}">
+							<Language>SFX</Language>
+							<AudioFile>Door2.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="571346432"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Door2" ID="{CECB9E7A-E991-423E-A4F9-34840AE40F66}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="蠕动柱子loop" ID="{C758DB73-0545-4851-982A-55972237182E}" ShortID="849334821">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>22</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-4</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="柱子蠕动loop" ID="{61B2895F-3D63-4645-B5EE-FA3C0039BE8E}" WorkUnitID="{89883E8C-1DA7-4416-8588-1049CD284C6A}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="蠕动柱子loop" ID="{EE3D10E7-A3B2-4AC0-929A-5370764E18EB}">
+							<Language>SFX</Language>
+							<AudioFile>蠕动柱子loop.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="93586496"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="蠕动柱子loop" ID="{EE3D10E7-A3B2-4AC0-929A-5370764E18EB}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="迷宫墙升起新" ID="{8F0FA95E-318B-4790-A2A0-03E39DD1471C}" ShortID="1054669204">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{957BADB4-EDA3-48FD-88C0-7D8A5B1D3B9F}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="迷宫墙升起新" ID="{27E52B26-14C1-4200-9185-9F330A45C120}">
+							<Language>SFX</Language>
+							<AudioFile>迷宫墙升起新.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="531575518"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="迷宫墙升起新" ID="{27E52B26-14C1-4200-9185-9F330A45C120}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

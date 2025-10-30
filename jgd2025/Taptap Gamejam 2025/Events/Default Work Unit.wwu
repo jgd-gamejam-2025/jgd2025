@@ -280,7 +280,7 @@
 								<Action Name="" ID="{BC1CA964-EC98-4B1B-B819-96CEE40E755C}" ShortID="579017698">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="大门1" ID="{F6478F7E-FB8E-447E-8C3B-F7BB9D717776}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+											<ObjectRef Name="Door1" ID="{C2005327-B337-414B-9C7E-1A432FEDB707}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -291,7 +291,7 @@
 								<Action Name="" ID="{FCC726DB-0D6C-48B8-8D67-38F283480E20}" ShortID="88564422">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="大门2" ID="{36222D67-CA56-4C5A-B4CE-DF50B59CC930}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+											<ObjectRef Name="Door2" ID="{8234B44C-3959-470C-99B0-8A17964273F5}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -347,6 +347,28 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="柱子loop" ID="{14571075-C3B5-4305-AF6F-862E72A276AE}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFX_pillar_moving_loop" ID="{49E74AB4-491A-40F7-A372-7F8C225C77DE}">
+							<ChildrenList>
+								<Action Name="" ID="{EC7FF92B-2C4D-46C4-88A1-D25C75223A89}" ShortID="945393798">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="蠕动柱子loop" ID="{C758DB73-0545-4851-982A-55972237182E}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFX_maze_pilarup_first" ID="{61ED58B4-BBF1-44A9-9646-2F2617099247}">
+							<ChildrenList>
+								<Action Name="" ID="{65DB0D8C-3737-41CD-BE9D-830DF658E065}" ShortID="143739143">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="迷宫墙升起新" ID="{8F0FA95E-318B-4790-A2A0-03E39DD1471C}" WorkUnitID="{B9805F89-AF91-44AC-93AB-62044E939ADE}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

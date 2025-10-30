@@ -74,19 +74,19 @@ func _init_resolution_options() -> void:
 func _load_settings() -> void:
 	"""从配置文件加载所有设置"""
 	# 加载音量设置
-	var master_volume = _get_saved_value("master_volume", 80.0)
+	# var master_volume = _get_saved_value("master_volume", 80.0)
 	var bgm_volume = _get_saved_value("bgm_volume", 70.0)
 	var sfx_volume = _get_saved_value("sfx_volume", 80.0)
 	
-	if master_slider:
-		master_slider.value = master_volume
+	# if master_slider:
+	# 	master_slider.value = master_volume
 	if bgm_slider:
 		bgm_slider.value = bgm_volume
 	if sfx_slider:
 		sfx_slider.value = sfx_volume
 	
 	# 应用音量
-	_apply_master_volume(master_volume)
+	# _apply_master_volume(master_volume)
 	_apply_bgm_volume(bgm_volume)
 	_apply_sfx_volume(sfx_volume)
 	
@@ -239,9 +239,9 @@ func _apply_sfx_volume(value: float) -> void:
 
 func _set_wwise_rtpc(rtpc_name: String, value: float) -> void:
 	"""设置 Wwise RTPC（如果 Wwise 可用）"""
-	# 这里需要根据你的 Wwise 集成实现
-	Wwise.set_rtpc_value(rtpc_name, value, LevelManager)
-	pass
+	# 传入 null 作为游戏对象，表示设置全局 RTPC
+	# 这样会影响所有使用该 RTPC 的对象，无论它们在哪里发声
+	Wwise.set_rtpc_value(rtpc_name, value, null)
 
 
 func linear_to_db(linear: float) -> float:

@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{34811E9A-5629-3F66-EB50-4A844C141DD9}",
+    "Hash": "{449E502D-6E9C-FDB7-0710-80622C01E9EA}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -66,6 +66,12 @@
       "Name": "earthquake",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\earthquake",
       "GUID": "{B244C2B3-1F5C-42A8-AB71-30FF7BBDB802}"
+     },
+     {
+      "Id": "1564184899",
+      "Name": "SFX_volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\SFX_volume",
+      "GUID": "{464ED797-F57F-4B3C-8126-91BCD98FD15A}"
      }
     ],
     "StateGroups": [
@@ -709,6 +715,6 @@
     ]
    }
   ],
-  "FileHash": "{C94857E5-453C-444B-8EBF-167E75642BFE}"
+  "FileHash": "{FF303275-178E-30B0-A678-206FE624FB1D}"
  }
 }

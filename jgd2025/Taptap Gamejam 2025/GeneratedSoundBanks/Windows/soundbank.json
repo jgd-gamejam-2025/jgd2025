@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{D9A0D88D-A349-43CB-B47B-04D939B7BD1C}",
     "Language": "SFX",
-    "Hash": "{FA016DCE-DE0A-39F8-99CD-A22EB3A28264}",
+    "Hash": "{6CB61DDB-6A21-5EA9-C6E6-045C6FB542DC}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\soundbank",
     "ShortName": "soundbank",
     "Path": "soundbank.bnk",
@@ -1481,6 +1481,7 @@
       "Name": "SFX_door1",
       "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_door1",
       "GUID": "{20906418-7970-46DB-A006-F25F4E2C8A4C}",
+      "MaxAttenuation": "20",
       "DurationType": "OneShot",
       "DurationMin": "5.9166665",
       "DurationMax": "5.9166665",
@@ -1495,6 +1496,7 @@
       "Name": "SFX_door2",
       "ObjectPath": "\\Events\\Default Work Unit\\SFX\\SFX_door2",
       "GUID": "{64F0321C-1399-47E9-86F1-C68D954A8F6A}",
+      "MaxAttenuation": "20",
       "DurationType": "OneShot",
       "DurationMin": "4.9375",
       "DurationMax": "4.9375",
@@ -2061,6 +2063,6 @@
     ]
    }
   ],
-  "FileHash": "{6EC98CDC-3648-A2E7-D0C6-88053971D7E4}"
+  "FileHash": "{B6DF5F55-9E19-B50A-B55A-101B6254A53D}"
  }
 }

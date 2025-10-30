@@ -32,6 +32,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	513139656	Mountain			\Factory Acoustic Textures\Textures\Mountain	
 	841620460	Concrete			\Factory Acoustic Textures\Textures\Concrete	
 	1006694123	Music_volume			\Default Work Unit\Music_volume	
+	1564184899	SFX_volume			\Default Work Unit\SFX_volume	
 	1755085759	Wood_Deep			\Factory Acoustic Textures\Textures\Wood_Deep	
 	1873957695	Anechoic			\Factory Acoustic Textures\Textures\Anechoic	
 	1970351858	Fabric			\Factory Acoustic Textures\Textures\Fabric	

@@ -220,7 +220,6 @@ layout_mode = 2
 text = "Send"
 
 [node name="NobodyWhoModel" type="NobodyWhoModel" parent="."]
-use_gpu_if_available = false
 
 [node name="NobodyWhoChat" type="NobodyWhoChat" parent="." node_paths=PackedStringArray("model_node")]
 model_node = NodePath("../NobodyWhoModel")

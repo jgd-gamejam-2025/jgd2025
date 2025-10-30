@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://fn682jbuv6dh"]
+[gd_scene load_steps=13 format=3 uid="uid://fn682jbuv6dh"]
 
 [ext_resource type="Script" uid="uid://b14tcadpproqk" path="res://props.gd" id="1_qfnhk"]
 [ext_resource type="Texture2D" uid="uid://77lb7leqfqtd" path="res://assets/models/room/props/sm_newspaper_0.png" id="2_qp50g"]
 [ext_resource type="FontFile" uid="uid://b2u8q1nfy714o" path="res://scenes/UI/fonts/SourceHanSerifCN-Regular.otf" id="3_qp50g"]
 [ext_resource type="FontFile" uid="uid://qwvdvl2lpmdj" path="res://scenes/UI/fonts/SourceHanSansCN-ExtraLight.otf" id="4_g3s1g"]
+[ext_resource type="Texture2D" uid="uid://d0pefus0aipwu" path="res://assets/models/room/props/sm_contract_0.png" id="4_hpcpu"]
 
 [sub_resource type="Gradient" id="Gradient_tupck"]
 offsets = PackedFloat32Array(0, 0.50318474, 1)
@@ -23,6 +24,14 @@ border_width_bottom = 40
 border_color = Color(0, 0, 0, 0.7764706)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7fgm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3qpn"]
+bg_color = Color(0, 0, 0, 0.9529412)
+border_width_left = 40
+border_width_top = 30
+border_width_right = 40
+border_width_bottom = 40
+border_color = Color(0, 0, 0, 0.9490196)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7fgm"]
 bg_color = Color(0, 0, 0, 0.7764706)
@@ -89,6 +98,50 @@ text = "《河畔日报》 – 2050年6月15日
 据现场报告，事故车辆疑似处于自动驾驶模式，随后突然偏离车道，与迎面驶来的货车相撞。撞击前，车载系统曾短暂出现“连接中断”提示。
 
 目前警方与技术部门正在调查，事故是否与自动驾驶系统的软件异常有关。"
+fit_content = true
+
+[node name="Contract" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -408.0
+offset_right = 600.0
+offset_bottom = 1192.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_hpcpu")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Contract"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 62.0
+offset_top = 47.0
+offset_right = -55.0
+offset_bottom = -145.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_qp50g")
+theme_override_font_sizes/normal_font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_c3qpn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t7fgm")
+text = "《记忆上传同意书》
+
+本合约确认， 申请人家属同意对申请人记忆数字化与意识备份实验。
+在上传过程中，申请人之生理意识、感知、情感、记忆等数据
+将被永久性数字化保存 数字系统之中。
+
+申请人家属确认：
+1. 记忆上传将对大脑造成不可逆转损伤，若上传失败无法逆转；
+2. 对上传后个体的行为及情感演化不负法律责任；
+3. 上传完成即视为放弃对原生肉体之所有权。
+
+签署日期：2050年10月20日  
+"
 fit_content = true
 
 [node name="Label" type="Label" parent="."]

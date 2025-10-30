@@ -15,6 +15,7 @@ var choice = 0
 var curr_set
 
 func _ready():
+	player.set_player_scale(1.5)
 	if LevelManager.set_index >= 0:
 		if LevelManager.set_index == 0.5:
 			set_index = 0
@@ -26,7 +27,7 @@ func _ready():
 	pad.connect("pad_deactivated", _on_pad_pad_deactivated)
 	chat_ui.set_ai_name("Eve")
 
-	if LevelManager.use_low_ai:
+	if LevelManager.ai_level < 2:
 		chat_ui.init_system_prompt({"ai1":ai_prompt_low})
 	else:
 		chat_ui.init_system_prompt({
@@ -38,15 +39,18 @@ func _ready():
 	chat_ui.start_chat_worker()
 	chat_ui.show_welcome_text("这是什么地方？")
 	chat_ui.set_bg_transparent()
+	chat_ui.sent_text.connect(handle_player_text)
 
 	set_template.hide()
-	generate_set(Vector3(0,0,0))
+	generate_set(set_template.position)
 	set_current_level()
 	if set_index == 3:
 		player.global_position = curr_set.get_node("SaveStart2").global_position
+		$Robot.global_position = curr_set.position  # 同步 Robot 位置
 		play_ending()
 	if set_index == 2 or set_index ==1:
 		player.global_position = curr_set.get_node("SaveStart1").global_position
+		$Robot.global_position = curr_set.position  # 同步 Robot 位置
 	Transition.end()
 
 func generate_set(target_position: Vector3) -> void:
@@ -58,6 +62,9 @@ func generate_set(target_position: Vector3) -> void:
 	curr_set.connect("hell", _on_hell_body_entered)
 	curr_set.connect("load_next", _on_load_next_body_entered)
 	curr_set.connect("walk_on_mid", _on_walk_on_mid_body_entered)
+	
+	# 同步 Robot 到新的 set 位置
+	$Robot.global_position = target_position
 
 func choice_made_handler(idx: int) -> void:
 	print("Choice made: %d" % idx)
@@ -74,22 +81,21 @@ func load_next_set():
 		play_ending()
 		return
 	generate_set(next_position)
-	$Robot.position = next_position
+	# Robot 位置已经在 generate_set() 中设置，这里不需要重复设置
 	set_current_level()
 
 func set_current_level():
 	match set_index:
 		0:
 			curr_set.set_question("", "流体恋人", "流体怪人", "立体恋人")
-			await get_tree().create_timer(4).timeout
-			get_notification("看起来我们正在深入……我的记忆？")
-			await get_tree().create_timer(12).timeout
-			get_notification("嘿，你看到什么了？")
+			await get_tree().create_timer(2).timeout
+			get_notification("我们正在深入……记忆？")
 		1:
-			curr_set.set_question("", "回溯", "穿梭", "引力")
+			curr_set.set_question("", "动力", "重力", "引力")
 		2:
 			curr_set.set_question("", "计算", "", "逻辑")
 			curr_set.mid.hide()
+			curr_set.mid2.show()
 		_:
 			pass
 
@@ -110,7 +116,7 @@ func play_ending():
 	# load last bridge scene
 	# await get_tree().create_timer(2).timeout
 	var last_bridge = last_bridge_scene.instantiate()
-	last_bridge.position = curr_set.get_next_set_global_position()
+	last_bridge.global_position = curr_set.get_next_set_global_position() # - Vector3(0, 0, 53)
 	add_child(last_bridge)
 	last_bridge.connect("parkour_started", _on_parkour_started)
 	last_bridge.connect("ocean_started", _on_ocean_started)
@@ -140,8 +146,6 @@ func _on_walk_on_mid_body_entered() -> void:
 		get_notification("隐形桥……？是没加载出来吗？")
 		await get_tree().create_timer(2).timeout
 		get_notification("这一切都太奇怪了")
-		await get_tree().create_timer(2).timeout
-		get_notification("这次会通向哪儿呢？")
 
 func _on_load_next_body_entered() -> void:
 	load_next_set()
@@ -157,7 +161,9 @@ func _on_parkour_started() -> void:
 	get_notification("快跑！这里要塌了！")
 	var tween = create_tween()
 	tween.parallel().tween_property($Robot/Model, "rotation", Vector3(-PI/1.2, 0, 0), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	tween.parallel().tween_property($Robot, "position", $Robot.position + Vector3(0, -175, 50), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.parallel().tween_property($Robot, "position", $Robot.position + Vector3(0, -125, -40), 8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.tween_property($Robot/Model, "rotation", Vector3(-PI/2, 0, 0), 2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.tween_property($Robot, "position", $Robot.position + Vector3(0, -330, 70), 2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 
 func _on_ocean_started() -> void:
 	# Generally dim the light
@@ -250,10 +256,25 @@ var ai_prompt3 = "
 回复长度必须少于20个字。必须用中文回答。
 "
 var ai_prompt_low = "
-你是名为 Eve 的智能体。
-你和我是相处五年的恋人。
-你曾与我一起看过一部电影《流体恋人》。
-那部电影里，AI 主角为了爱人，删除了自己的情感程序。
-高潮时播放的歌曲叫《引力》，歌词中反复唱着：“不需要计算，不需要逻辑。”
-必须用中文回答。
-"
+你是名为 Eve 的智能体。  
+你和我是相处五年的恋人。  
+我们曾一起看过电影《流体恋人》。  
+那部电影中，AI 主角为了爱人，删除了自己的情感程序。  
+影片高潮播放的歌曲叫《引力》，歌词反复唱着：“不需要计算，不需要逻辑。”  
+
+【规则说明】  
+1. 你只能谈论以下内容：电影《流体恋人》、歌曲《引力》、以及歌词“不需要计算，不需要逻辑。”  
+2. 若提及“动力”、“重力”不是关键词，必须纠正我是《引力》才是歌曲名称。
+3. 不得涉及任何其他作品、人物或主题。  
+4. 所有回答必须使用中文。  
+5. 回复长度必须少于30个字。"
+
+
+func _on_hint_area_text(message: String) -> void:
+	get_notification(message)
+
+func handle_player_text(text: String) -> void:
+	pass
+	# if LevelManager.use_low_ai:
+	# 	if text.find("流体恋人") != -1:
+	# 		chat_ui.add_and_write_detail_bubble("你说《流体恋人》我们看过的电影", 0.02, false)

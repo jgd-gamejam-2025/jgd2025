@@ -15,7 +15,9 @@ gguf/
 **在Godot中：** 在下方链接下载一个LLM gguf，在chat_ui.tscn中的NobodyWhoModel中选择下载的gguf。或者在chat_ui.tscn中打开debug mode。
 
 ## LLM gguf download:
-**Default:** [Llama3-8B-Chinese-Chat-GGUF-4bit ](https://huggingface.co/shenzhi-wang/Llama3-8B-Chinese-Chat-GGUF-4bit/tree/main) (~5 GB)
+**Default:**  [Qwen/Qwen3-4B-GGUF]https://huggingface.co/Qwen/Qwen3-4B-GGUF/blob/main/Qwen3-4B-Q4_K_M.gguf
+
+[Llama3-8B-Chinese-Chat-GGUF-4bit ](https://huggingface.co/shenzhi-wang/Llama3-8B-Chinese-Chat-GGUF-4bit/tree/main) (~5 GB)
 
 [Xwen-7B-Chat.i1-Q4_K_M](https://huggingface.co/xwen-team/Xwen-7B-Chat-i1-GGUF/blob/main/Xwen-7B-Chat.i1-Q4_K_M.gguf) (~5 GB)
 

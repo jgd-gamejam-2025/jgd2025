@@ -87,6 +87,3 @@ func _on_chat_ui_received_text(text) -> void:
 	if text_sent_count == 1:
 		print("Adding bow sticker")
 		chat_ui.add_sticker_bubble("bow")
-
-func _on_chat_ui_sent_text() -> void:
-	pass # Replace with function body.

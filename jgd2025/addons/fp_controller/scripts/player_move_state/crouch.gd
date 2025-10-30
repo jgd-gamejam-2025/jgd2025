@@ -12,16 +12,20 @@ func enter(_msg := {}) -> void:
 func handle_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed(player.CROUCH) && player.is_on_floor() && player.allow_crouch:
-		player.toggle_crouch()
-		state_machine.transition_to(state_machine.movement_state[state_machine.IDLE])
+		if !player.crouch_raycast.is_colliding():
+			player.toggle_crouch()
+			state_machine.transition_to(state_machine.movement_state[state_machine.IDLE])
 	
 	if event.is_action_pressed(player.SPRINT) && player.allow_sprint:
-		player.toggle_crouch()
-		state_machine.transition_to(state_machine.movement_state[state_machine.SPRINT])
+		if !player.crouch_raycast.is_colliding():
+			player.toggle_crouch()
+			state_machine.transition_to(state_machine.movement_state[state_machine.SPRINT])
 	
-	if event.is_action_pressed(player.JUMP) && player.allow_jump:
-		player.toggle_crouch()
-		state_machine.transition_to(state_machine.movement_state[state_machine.JUMP])
+	# 禁用在使用 pad 时的跳跃
+	if event.is_action_pressed(player.JUMP) && player.allow_jump && not player.pad.is_playing:
+		if !player.crouch_raycast.is_colliding():
+			player.toggle_crouch()
+			state_machine.transition_to(state_machine.movement_state[state_machine.JUMP])
 
 
 func physics_update(_delta: float) -> void:

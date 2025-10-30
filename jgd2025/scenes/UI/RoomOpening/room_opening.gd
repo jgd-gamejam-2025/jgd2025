@@ -52,25 +52,25 @@ func end():
 
 
 func _on_button_pressed() -> void:
-	Wwise.post_event("UI_Cchoose", self)
+	# Wwise.post_event("UI_Choose", LevelManager)
 	end()
 
 func _on_button_2_pressed() -> void:
-	Wwise.post_event("UI_Cchoose", self)
+	# Wwise.post_event("UI_Choose", LevelManager)
 	end()
 
 func _on_button_3_pressed() -> void:
-	Wwise.post_event("UI_Cchoose", self)
+	# Wwise.post_event("UI_Choose", LevelManager)
 	end()
 
 func _on_button_3_mouse_entered() -> void:
-	Wwise.post_event("UI_Prechoose", self)
+	Wwise.post_event("UI_Prechoose", LevelManager)
 	button3.text = "我不在乎"
 
 func _on_button_2_mouse_entered() -> void:
-	Wwise.post_event("UI_Prechoose", self)
+	Wwise.post_event("UI_Prechoose", LevelManager)
 	button2.text = "我不在乎"
 
 func _on_button_mouse_entered() -> void:
-	Wwise.post_event("UI_Prechoose", self)
+	Wwise.post_event("UI_Prechoose", LevelManager)
 	button.text = "我不在乎"

@@ -6,7 +6,7 @@ extends Control
 var current_aiChat: NobodyWhoChat
 @onready var name_label = $Panel/Name
 @export var debug_mode = false
-@export var qwen = false
+@export var qwen = true
 @export var wwise_type_fault:WwiseEvent
 @export var wwise_type:WwiseEvent
 @export var wwise_player_type:WwiseEvent
@@ -41,13 +41,13 @@ signal command_received(command: String)
 var line_edit_focus_sent = false
 var first_time_sent_text = true
 #--------------
+@export var default_ai_path = "gguf/Qwen3-4B-Q4_K_M.gguf"
 @export var low_ai_path = "gguf/Qwen3-0.6B-Q4_K_S.gguf"
-@export var default_ai_path = "gguf/Llama3-8B-Chinese-Chat-q4_0-v2_1.gguf"
 func _ready() -> void:
-	qwen = qwen or LevelManager.use_low_ai
-	if qwen:
+	#qwen = qwen or LevelManager.ai_level
+	if LevelManager.ai_level == 0:
 		$NobodyWhoModel.model_path = low_ai_path
-	else:
+	elif LevelManager.ai_level == 1:
 		$NobodyWhoModel.model_path = default_ai_path
 	margin_container.hide()
 	detail_bubble.hide()
@@ -159,7 +159,7 @@ func _on_nobody_who_chat_response_updated(new_token: String) -> void:
 		current_detail_bubble.rich_text_label.text += new_token
 	else:
 		chatLog.text += new_token
-	wwise_type.post(self)
+	wwise_type.post(LevelManager)
 		
 func _on_nobody_who_chat_response_finished(response: String) -> void:
 	if block_text_generation:
@@ -309,7 +309,7 @@ func overwrite_current_detail_bubble(text: String, interval: float = 0.05, use_t
 				var char_index = int(current_char)
 				current_detail_bubble.rich_text_label.text = text.substr(0, char_index)
 				if use_type_sound:
-					wwise_type.post(self),
+					wwise_type.post(LevelManager),
 			0.0,  # Start with 0 characters
 			float(char_count),  # End with all characters
 			total_time  # Total animation time
@@ -332,7 +332,7 @@ func add_fault_to_current_detail_bubble(text: String, interval: float = 0.05):
 			func(current_char: float):
 				var char_index = int(current_char)
 				current_detail_bubble.rich_text_label.text = pre_text + text.substr(0, char_index)
-				wwise_type_fault.post(self),
+				wwise_type_fault.post(LevelManager),
 			0.0,  # Start with 0 characters
 			float(char_count),  # End with all characters
 			total_time  # Total animation time
@@ -343,6 +343,13 @@ func add_sticker_bubble(anim_name: String):
 	var new_bubble = image_bubble.duplicate()
 	vbox_container.add_child(new_bubble)
 	new_bubble.set_sticker(anim_name)
+	new_bubble.show()
+	await get_tree().process_frame
+
+func add_maze_image_bubble():
+	var new_bubble = image_bubble.duplicate()
+	vbox_container.add_child(new_bubble)
+	new_bubble.show_maze_texture()
 	new_bubble.show()
 	await get_tree().process_frame
 
@@ -401,9 +408,9 @@ func _on_text_input_text_changed(new_text: String) -> void:
 	# 	wwise_player_type.post(self)
 	# 	await get_tree().create_timer(0.1).timeout
 	# last_text_length = len(new_text)
-	wwise_player_type.post(self)
+	wwise_player_type.post(LevelManager)
 
 
 func _on_text_input_text_submitted(new_text: String) -> void:
 	last_text_length = 0
-	wwise_player_type_return.post(self)
+	wwise_player_type_return.post(LevelManager)

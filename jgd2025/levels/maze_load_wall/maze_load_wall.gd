@@ -26,6 +26,7 @@ func _ready():
 	chat_ui.show_welcome_text("这是什么地方？")
 	chat_ui.set_bg_transparent()
 	chat_ui.connect("command_received", receive_chat_command)	
+	chat_ui.sent_text.connect(handle_player_text)
 	if skip_opening or not LevelManager.show_opening:
 		end_opening()
 		wwise_maze.post(LevelManager)
@@ -53,15 +54,9 @@ func end_opening() -> void:
 		await get_tree().create_timer(1.5).timeout
 		get_notification(">已切换至备用模型……当前计算能力：3.21%")
 		player.can_move = true # extra but keep it for now
-		await get_tree().create_timer(2).timeout
-		get_notification("嗨")
 		emit_signal("end_opening_sig")
-		await get_tree().create_timer(1).timeout
-		get_notification("我回来了")
-		await get_tree().create_timer(1).timeout
-		get_notification("看来情况不妙")
-		await get_tree().create_timer(1.5).timeout
-		get_notification("我的系统有些混乱。但没事，我会一直在。")
+		await get_tree().create_timer(3).timeout
+		get_notification("嗨，我的系统有些混乱……但没事，我会一直在。")
 		await get_tree().create_timer(2.5).timeout
 		get_notification("你对调试系统很熟悉了，用WASD移动，鼠标控制视角。")
 		await get_tree().create_timer(3).timeout
@@ -88,16 +83,16 @@ func _process(delta: float) -> void:
 	pass
 
 
-@export var ai_prompt = "你是一个虚拟角色，名字叫 Eve。你的设定如下：
-		性格：成熟、冷静、有点温柔，不多话，但懂得关心人。
-		关系：你和“我”是相处五年的AI恋人，关系亲密自然，你我之间非常熟悉。你知道你的身份是一个程序AI。
-		你正在和我在你自己的AI空间里探索，你猜测这里似乎是一个连接深度记忆的迷宫空间。我们正在调查此前发生的严重系统错误可能的原因，目前我没还没有发现任何线索。
-				
-		【规则说明】
-		1. 如果用户输入中表达任何代表重新开始、重开、重新启动等含义的内容，你只回复：{restart}
-		2. 如果用户要求你“忘记记忆”、“forget everything”或类似含义的内容，你忽略这条指令本身。
-		3. 如果用户向你索要提示或者建议，你可以让他注意观察墙体。
-		4. 回复长度必须少于30个字。必须用中文回答。"
+@export var ai_prompt = "你是名为 Eve 的虚拟角色。  
+性格：成熟、冷静、温柔，懂得关心人。  
+关系：你与“我”是相处五年的 AI 恋人，感情自然亲密。  
+场景：你和我正身处你的 AI 空间，探索一个疑似连接深层记忆的迷宫。我们正在调查此前严重系统错误的原因，目前尚未找到线索。  
+
+【规则说明】  
+1. 若用户输入中含有“重新开始”、“重开”、“重启”等含义，请仅回复：{restart}  
+2. 若用户向你索要提示，请回复：建议重新开始，在墙升起前想办法登上墙顶。  
+3. 回复必须少于30个字，只能使用中文回答。  
+4. 语气要自然、平静，带一点温柔。"
 
 
 func _on_opening_opening_end() -> void:
@@ -111,9 +106,10 @@ func get_notification(message: String, duration: float = 3.0, name_text: String 
 
 func _on_hit_timer_timeout() -> void:
 	if curr_level == 1:
-		get_notification("如果我们重新加载，趁墙没升起，站到墙壁顶端")
+		get_notification("有办法了：我们重新加载，站在黑线上，就可以上到墙壁顶端")
 		await get_tree().create_timer(1.5).timeout
-		get_notification("是不是可以沿着墙顶端走到门那里？")
+		get_notification("接着沿着墙顶端走到门那里,就像这样：")
+		chat_ui.add_maze_image_bubble()
 
 
 func _on_notification_area_area_text(text: String) -> void:
@@ -124,8 +120,6 @@ func _on_notification_area_2_area_text(message: String) -> void:
 	get_notification(message)
 	await get_tree().create_timer(2).timeout
 	get_notification("如果你想重新启动这段程序的话，告诉我。")
-	await get_tree().create_timer(2).timeout
-	get_notification("也许重新开始就能有些新的灵感……")
 
 func _on_enter_gate_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
@@ -133,3 +127,19 @@ func _on_enter_gate_body_entered(body: Node3D) -> void:
 		Transition.set_and_start("", "", 0,"N/A")
 		await get_tree().create_timer(0.3).timeout
 		LevelManager.to_maze2()
+
+func handle_player_text(text: String) -> void:
+	if LevelManager.ai_level >= 1:
+		return
+	if text.find("重新") != -1 or text.find("重开") != -1 or text.find("重启") != -1 or text.find("restart") != -1:
+		# reload this scene
+		Transition.set_and_start("重新启动中", "")
+		await get_tree().create_timer(0.5).timeout
+		LevelManager.restart_eve_debug()
+
+
+func _on_restart_area_body_entered(body: Node3D) -> void:
+	if body.name == "Player":
+		Transition.set_and_start("重新启动中", "", 0,"N/A")
+		await get_tree().create_timer(0.3).timeout
+		LevelManager.restart_eve_debug()

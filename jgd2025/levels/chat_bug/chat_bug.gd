@@ -46,7 +46,7 @@ var welcome_index = 0
 语气温和口语化，可轻微调侃。  
 现在傍晚六点，我们准备吃晚饭，还没决定去哪。  
 请问我想去哪家店。  
-必须用中文。"
+回复长度最好少于30个字，必须用中文。"
 
 
 # Helper method to create sequential timed events using tweens
@@ -60,7 +60,7 @@ func _ready():
 	welcome_messages_fix.shuffle()
 	chat_ui.set_ai_name("Eve")
 	chat_ui.show_welcome_text("嘿！")
-	if LevelManager.use_low_ai:
+	if LevelManager.ai_level < 2:
 		chat_ui.init_system_prompt({
 			"bug": bug_prompt_low_ai,
 			"dinner": dinner_prompt_low_ai,
@@ -118,7 +118,7 @@ func _on_chat_ui_received_text(received_text: String) -> void:
 	if bug_mode_activated > 0:
 		bug_mode_activated += 1
 	if bug_mode_activated == 3: # 2 steps after bug mode activated
-		chat_ui.add_and_write_detail_bubble("[AI SYSTEM] 无法恢复数据。\n【%s】\n输入该指令尝试使用备份数据调试错误。" % chat_ui.eve_debug_command, 0.05, true)
+		chat_ui.add_and_write_detail_bubble("[AI SYSTEM] 无法恢复数据。\n[u]%s[/u]\n输入该指令尝试使用备份数据调试错误。" % chat_ui.eve_debug_command, 0.05, true)
 		# chat forever if the player wants to
 	
 	

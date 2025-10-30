@@ -22,7 +22,7 @@ var play_recording = true
 const SAVE_FILE_PATH = "user://save_data.cfg"
 var config = ConfigFile.new()
 var curr_scene = null
-var use_low_ai: bool = false
+var ai_level: int = 1 # 0-low, 1-standard, 2-high
 var end_of_game: bool = false
 var in_menu = true
 # === Save/Load Functions ===
@@ -34,7 +34,7 @@ func save_game(scene_name: String, scene_data: Dictionary) -> void:
 	Loading.display()
 	config.set_value("save", "scene_name", scene_name)
 	config.set_value("save", "scene_data", scene_data)
-	config.set_value("save", "use_low_ai", use_low_ai)
+	config.set_value("save", "ai_level", ai_level)
 	var error = config.save(SAVE_FILE_PATH)
 	if error == OK:
 		print("Game saved: ", scene_name, " with data: ", scene_data)
@@ -51,19 +51,19 @@ func load_game() -> Dictionary:
 	
 	var scene_name = config.get_value("save", "scene_name", "")
 	var scene_data = config.get_value("save", "scene_data", {})
-	use_low_ai = config.get_value("save", "use_low_ai", false)
+	ai_level = config.get_value("save", "ai_level", ai_level)
 	
-	print("Game loaded: ", scene_name, " with data: ", scene_data, " use_low_ai: ", use_low_ai)
+	print("Game loaded: ", scene_name, " with data: ", scene_data, " ai_level: ", ai_level)
 	
 	# Call the corresponding scene transition function
 	match scene_name:
 		"chat_1":
 			to_chat_1()
 		"eve_debug":
-			if scene_data.get("show_opening", true):
-				to_eve_debug()
-			else:
-				restart_eve_debug()
+			# if scene_data.get("show_opening", true):
+			# 	to_eve_debug()
+			# else:
+			restart_eve_debug()
 		"maze2":
 			if in_menu:
 				Wwise.post_event("MX_Play_Maze", self)
@@ -86,49 +86,49 @@ func has_save() -> bool:
 	return config.load(SAVE_FILE_PATH) == OK
 
 func load_use_low_ai() -> bool:
-	"""Load only the use_low_ai setting from save file"""
+	"""Load only the ai_level setting from save file"""
 	var error = config.load(SAVE_FILE_PATH)
 	if error != OK:
-		print("No save file found, using default use_low_ai = false")
+		print("No save file found, using default ai_level = %s" % ai_level)
 		return false
 	
-	use_low_ai = config.get_value("save", "use_low_ai", false)
-	print("Loaded use_low_ai: ", use_low_ai)
-	return use_low_ai
+	ai_level = config.get_value("save", "ai_level", ai_level)
+	print("Loaded ai_level: ", ai_level)
+	return ai_level
 
 func save_use_low_ai(value: bool) -> void:
-	"""Save only the use_low_ai setting to save file"""
-	use_low_ai = value
+	"""Save only the ai_level setting to save file"""
+	ai_level = value
 	
 	# Load existing config if it exists to preserve other data
 	config.load(SAVE_FILE_PATH)
 	
-	config.set_value("save", "use_low_ai", use_low_ai)
+	config.set_value("save", "ai_level", ai_level)
 	var error = config.save(SAVE_FILE_PATH)
 	if error == OK:
-		print("use_low_ai saved: ", use_low_ai)
+		print("ai_level saved: ", ai_level)
 	else:
-		push_error("Failed to save use_low_ai. Error code: ", error)
+		push_error("Failed to save ai_level. Error code: ", error)
 
 func get_save_data() -> Dictionary:
-	"""Read curr_scene, use_low_ai and scene_data from save file"""
+	"""Read curr_scene, ai_level and scene_data from save file"""
 	var error = config.load(SAVE_FILE_PATH)
 	if error != OK:
 		print("No save file found, returning empty data")
 		return {
 			"curr_scene": "",
-			"use_low_ai": false,
+			"ai_level": true,
 			"scene_data": {}
 		}
 	
 	var save_data = {
 		"curr_scene": config.get_value("save", "scene_name", ""),
-		"use_low_ai": config.get_value("save", "use_low_ai", false),
+		"ai_level": config.get_value("save", "ai_level", ai_level),
 		"end_of_game": config.get_value("save", "end_of_game", false),
 		"scene_data": config.get_value("save", "scene_data", {})
 	}
 	curr_scene = save_data["curr_scene"]
-	use_low_ai = save_data["use_low_ai"]
+	ai_level = save_data["ai_level"]
 	end_of_game = save_data["end_of_game"]
 	print("Save data retrieved: ", save_data)
 	return save_data["scene_data"]

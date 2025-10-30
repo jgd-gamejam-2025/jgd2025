@@ -84,9 +84,6 @@ points = PackedVector3Array(-50, 0, -50, -50, 0, 50, 50, 0, -50, 50, 0, 50)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2r1ki"]
 size = Vector3(80, 30, 80)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gstnd"]
-size = Vector3(28.588844, 4.3947754, 24.893677)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_ov85a"]
 size = Vector3(18.428299, 4.880615, 18.261475)
 
@@ -98,6 +95,9 @@ size = Vector3(32.69996, 22.714264, 30.567348)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kkmtq"]
 size = Vector3(12.601791, 25.191689, 14.801802)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eyaib"]
+size = Vector3(5000, 147.53503, 5000)
 
 [node name="MazeLoadWall" type="Node3D"]
 script = ExtResource("1_wt3j4")
@@ -115,14 +115,10 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("4_j3jbl")]
-transform = Transform3D(1.0606601, 0, -1.0606601, 0, 1.5, 0, 1.0606601, 0, 1.0606601, -7.9227524, 249.56992, 9.300619)
-<<<<<<< HEAD
-walk_speed = 8.5
-sprint_speed = 11.0
-=======
-walk_speed = 5.0
-sprint_speed = 6.0
->>>>>>> ad3bd728c86fc65a96aa1203b3c335e49f2a804c
+transform = Transform3D(2.1213202, 0, -2.1213202, 0, 3, 0, 2.1213202, 0, 2.1213202, -7.9227524, 249.56992, 9.300619)
+walk_speed = 6.0
+sprint_speed = 7.0
+jump_height = 2.0
 
 [node name="StartBlock" type="StaticBody3D" parent="."]
 transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -7.9227524, 249.12144, 9.300619)
@@ -133,7 +129,7 @@ shape = SubResource("BoxShape3D_vudfa")
 [node name="MazeTarget" type="Node" parent="."]
 
 [node name="Door" parent="MazeTarget" instance=ExtResource("3_ucvxd")]
-transform = Transform3D(0.35355338, 0, -0.35355338, 0, 2, 0, 0.35355338, 0, 0.35355338, 46.206, 33.14114, -46.218)
+transform = Transform3D(0.35355338, 0, -0.35355338, 0, 2, 0, 0.35355338, 0, 0.35355338, 46.206, 31.796803, -46.218)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
@@ -241,13 +237,6 @@ shape = SubResource("BoxShape3D_2r1ki")
 visible = false
 is_3d_scene = true
 
-[node name="NotificationArea" parent="." instance=ExtResource("14_gstnd")]
-text = "这看起来是一个迷宫......"
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="NotificationArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.06866, 2.859146, -21.757633)
-shape = SubResource("BoxShape3D_gstnd")
-
 [node name="NotificationArea2" parent="." instance=ExtResource("14_gstnd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.454586, 0, -29.613369)
 text = "这完全是死路吧！？"
@@ -290,12 +279,18 @@ shape = SubResource("BoxShape3D_kkmtq")
 wait_time = 120.0
 autostart = true
 
+[node name="RestartArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RestartArea"]
+transform = Transform3D(0.7086354, 0, 0.70557475, 0, 1, 0, -0.70557475, 0, 0.7086354, 28.856663, -128.21355, -35.220448)
+shape = SubResource("BoxShape3D_eyaib")
+
 [connection signal="end_opening_sig" from="." to="MazeManager" method="_on_maze_load_wall_end_opening_sig"]
 [connection signal="timeout" from="MazeManager/RiseTimer" to="MazeManager" method="_on_rise_timer_timeout"]
 [connection signal="opening_end" from="Opening" to="." method="_on_opening_opening_end"]
-[connection signal="area_text" from="NotificationArea" to="." method="_on_notification_area_area_text"]
 [connection signal="area_text" from="NotificationArea2" to="." method="_on_notification_area_2_area_text"]
 [connection signal="area_text" from="NotificationArea3" to="." method="_on_notification_area_area_text"]
 [connection signal="body_entered" from="OpenGate" to="." method="_on_open_gate_body_entered"]
 [connection signal="body_entered" from="EnterGate" to="." method="_on_enter_gate_body_entered"]
 [connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
+[connection signal="body_entered" from="RestartArea" to="." method="_on_restart_area_body_entered"]

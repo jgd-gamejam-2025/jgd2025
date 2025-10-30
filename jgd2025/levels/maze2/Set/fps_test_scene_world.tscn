@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://ofyuav8psja7"]
+[gd_scene load_steps=41 format=3 uid="uid://ofyuav8psja7"]
 
 [ext_resource type="Script" uid="uid://c8j73486nr6o8" path="res://levels/maze2/Set/fps_test_scene_world.gd" id="1_868cf"]
 [ext_resource type="PackedScene" uid="uid://dxg57iry0rwpn" path="res://levels/maze2/Set/last_bridge.tscn" id="2_15gwa"]
@@ -7,16 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_nx4w8"]
 [ext_resource type="PackedScene" uid="uid://bysluvlg528e6" path="res://levels/maze2/Set/set2.tscn" id="4_868cf"]
 [ext_resource type="WwiseRTPC" uid="uid://bk3yjupt30fwg" path="res://Wwise/resources/Game Parameter/{B244C2B3-1F5C-42A8-AB71-30FF7BBDB802}.tres" id="4_vsxmj"]
-[ext_resource type="PackedScene" uid="uid://dfepyejg6c541" path="res://scenes/maze_scene/big_door.tscn" id="5_8luys"]
 [ext_resource type="PackedScene" uid="uid://b7h4788xh1nu3" path="res://levels/tps_test_scene/model/line/013.glb" id="5_htxp8"]
 [ext_resource type="PackedScene" uid="uid://clm5h2ceura81" path="res://levels/tps_test_scene/model/line/022.glb" id="6_wtirf"]
 [ext_resource type="PackedScene" uid="uid://b7l5sv4fjhjwm" path="res://scenes/UI/notification/Notification.tscn" id="7_4ypbk"]
 [ext_resource type="PackedScene" uid="uid://gj0eukmhijlk" path="res://scenes/maze_scene/small_door/sliding_door.tscn" id="7_htxp8"]
+[ext_resource type="PackedScene" uid="uid://daff3mjw10ia4" path="res://scenes/maze_scene/small_door/rotating_door.tscn" id="8_0d1uc"]
 [ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="8_psi4i"]
 [ext_resource type="PackedScene" uid="uid://b2m6ywvc2648y" path="res://levels/tps_test_scene/model/机器人.glb" id="9_0d1uc"]
-[ext_resource type="PackedScene" uid="uid://daff3mjw10ia4" path="res://scenes/maze_scene/small_door/rotating_door.tscn" id="9_wtirf"]
 [ext_resource type="PackedScene" uid="uid://djs0b34qda0px" path="res://scenes/UI/label_3d_typed/description.tscn" id="12_psi4i"]
 [ext_resource type="PackedScene" uid="uid://cmbss067n8pop" path="res://scenes/UI/label_3d_typed/label_3d.tscn" id="13_0d1uc"]
+[ext_resource type="FontFile" uid="uid://dlefqu74x4m18" path="res://scenes/UI/fonts/sarasa-mono-sc-bold.ttf" id="17_0d1uc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6mis"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -53,42 +53,34 @@ volumetric_fog_detail_spread = 1.3195077
 volumetric_fog_ambient_inject = 1.52
 volumetric_fog_sky_affect = 0.028
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_mnjer"]
+size = Vector3(10.521657, 1, 13.446838)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_htxp8"]
-size = Vector3(50.96407, 1, 13.446838)
+size = Vector3(60.774097, 1, 13.446838)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0d1uc"]
+size = Vector3(60.123455, 1, 13.446838)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ypbk"]
 size = Vector3(17.614847, 1, 13.446838)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_868cf"]
-albedo_color = Color(0.86647767, 0.87934005, 0.89542544, 1)
-metallic = 0.79
-
 [sub_resource type="BoxMesh" id="BoxMesh_868cf"]
-material = SubResource("StandardMaterial3D_868cf")
-size = Vector3(2000, 3, 288.935)
+size = Vector3(2000, 3, 240)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_e07qk"]
-size = Vector3(2095.9727, 37.569885, 207.43042)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0d1uc"]
+data = PackedVector3Array(-1000, 1.5, 120, 1000, 1.5, 120, -1000, -1.5, 120, 1000, 1.5, 120, 1000, -1.5, 120, -1000, -1.5, 120, 1000, 1.5, -120, -1000, 1.5, -120, 1000, -1.5, -120, -1000, 1.5, -120, -1000, -1.5, -120, 1000, -1.5, -120, 1000, 1.5, 120, 1000, 1.5, -120, 1000, -1.5, 120, 1000, 1.5, -120, 1000, -1.5, -120, 1000, -1.5, 120, -1000, 1.5, -120, -1000, 1.5, 120, -1000, -1.5, -120, -1000, 1.5, 120, -1000, -1.5, 120, -1000, -1.5, -120, 1000, 1.5, 120, -1000, 1.5, 120, 1000, 1.5, -120, -1000, 1.5, 120, -1000, 1.5, -120, 1000, 1.5, -120, -1000, -1.5, 120, 1000, -1.5, 120, -1000, -1.5, -120, 1000, -1.5, 120, 1000, -1.5, -120, -1000, -1.5, -120)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8luys"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nx4w8"]
 size = Vector3(3.2202148, 50, 20.722168)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8vcj1"]
-size = Vector3(6.3253784, 0.4794922, 6.57312)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_psi4i"]
-size = Vector3(5.3410034, 0.4794922, 9.360291)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_wtirf"]
 size = Vector3(1.2813721, 1, 4.4546814)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_0d1uc"]
-size = Vector3(2.1825867, 1, 2.849804)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_vsxmj"]
-size = Vector3(1.9876633, 1, 2.3031235)
+size = Vector3(1.9876633, 2.243164, 2.3031235)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ypbk"]
 metallic = 0.55
@@ -100,6 +92,9 @@ albedo_color = Color(4.3125563, 4.3125563, 4.3125563, 1)
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 2.15
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_psi4i"]
+size = Vector3(5.717285, 3.2819214, 2.5343018)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gu5po"]
 size = Vector3(0.9977379, 1.0414162, 0.96352386)
@@ -458,30 +453,6 @@ tracks/28/keys = {
 [sub_resource type="Animation" id="Animation_a646p"]
 resource_name = "open_gate"
 length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("wall-door/wall-left2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.03333336, 4.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-7.5041847, 8.008998, -35.67488), Vector3(-19.504185, 8.008998, -35.67488)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("wall-door/wall-left3:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 4.866667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(7.5245295, 7.854949, -35.646732), Vector3(19.524529, 7.854949, -35.646732)]
-}
 
 [sub_resource type="Animation" id="Animation_8stf4"]
 resource_name = "循环动画"
@@ -562,298 +533,274 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("wall-door/wall-left2:position")
+tracks/6/path = NodePath("wall-3/CSGBox3D32:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.03333336, 4.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-7.5041847, 8.008998, -35.67488), Vector3(-19.504185, 8.008998, -35.67488)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("wall-door/wall-left3:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 4.866667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(7.5245295, 7.854949, -35.646732), Vector3(19.524529, 7.854949, -35.646732)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("wall-3/CSGBox3D32:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
 "times": PackedFloat32Array(0, 2.2666667, 4.733333, 7.133333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(-29.972227, -14.896083, -53.769257), Vector3(-30.165937, -14.896083, -53.769257), Vector3(-29.702951, -14.896083, -53.769257), Vector3(-30.210367, -14.896083, -53.769257)]
 }
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("wall-3/CSGBox3D31:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("wall-3/CSGBox3D31:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0, 2.5666666, 4.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(-28.525967, -14.312232, -53.769257), Vector3(-28.525967, -14.69147, -53.769257), Vector3(-28.525967, -14.607783, -53.769257)]
 }
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("wall-3/CSGBox3D21:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("wall-3/CSGBox3D21:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "times": PackedFloat32Array(0.8, 4.9666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-28.617676, -16.277905, -50.845547), Vector3(-29.327295, -16.277905, -50.845547)]
 }
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("wall-3/CSGBox3D30:position")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("wall-3/CSGBox3D30:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
 "times": PackedFloat32Array(1.6333333, 4.266667, 6.266667, 7.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(-28.525967, -12.185353, -50.845547), Vector3(-28.525967, -12.84551, -50.845547), Vector3(-28.525967, -12.262482, -50.845547), Vector3(-28.525967, -12.550245, -50.845547)]
 }
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("wall-3/CSGBox3D33:position")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("wall-3/CSGBox3D33:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
 "times": PackedFloat32Array(1.1, 3.6, 5.733333, 7.5666666),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(-35.97438, -16.277905, -47.857708), Vector3(-36.697475, -16.277905, -47.857708), Vector3(-36.072617, -16.277905, -47.857708), Vector3(-36.547295, -16.277905, -47.857708)]
 }
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("wall-3/CSGBox3D34:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("wall-3/CSGBox3D34:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
 "times": PackedFloat32Array(0.6999998, 2.7, 5, 7.866667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(-37.239655, -14.896083, -50.781418), Vector3(-37.383957, -14.936049, -50.726517), Vector3(-37.682884, -14.916142, -50.753864), Vector3(-37.088974, -14.903777, -50.77085)]
 }
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("wall-6/CSGBox3D28:position")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("wall-6/CSGBox3D28:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
 "times": PackedFloat32Array(0, 4.766667, 5.1666665),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(10.69197, -12.4955, -50.693375), Vector3(12.095732, -11.979464, -51.050533), Vector3(12.093768, -11.9801855, -51.050034)]
 }
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("wall-6/CSGBox3D27:position")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("wall-6/CSGBox3D27:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
 "times": PackedFloat32Array(2.4333334, 7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(4.3086, -10.758173, -52.396053), Vector3(5.971348, -11.830015, -52.89084)]
 }
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("wall-6/CSGBox3D25:position")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("wall-6/CSGBox3D25:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
 "times": PackedFloat32Array(1.2766666, 7.233333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(7.1035395, -12.513821, -56.28919), Vector3(14.509, -12.514, -56.289)]
 }
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("wall-6/CSGBox3D29:position")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("wall-6/CSGBox3D29:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
 "times": PackedFloat32Array(3.4, 7.266667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(6.2880397, -13.536257, -61.135593), Vector3(1.108, -13.536, -61.136)]
 }
-tracks/18/type = "value"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath("wall-6/CSGBox3D38:position")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = {
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("wall-6/CSGBox3D38:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
 "times": PackedFloat32Array(3.4333334, 6.866667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(7.206248, -13.233249, -65.74397), Vector3(13.216, -13.233, -65.744)]
 }
-tracks/19/type = "value"
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/path = NodePath("wall-3/CSGBox3D38:position")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/keys = {
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("wall-3/CSGBox3D38:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
 "times": PackedFloat32Array(1.6883924),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-36.517036, -14.896083, -86.26822)]
 }
-tracks/20/type = "value"
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/path = NodePath("wall-6/CSGBox3D44:position")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/keys = {
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("wall-6/CSGBox3D44:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
 "times": PackedFloat32Array(2.8666666, 6.287212),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-28.222061, -17.407404, -58.630177), Vector3(-30.09454, -17.407404, -58.630177)]
 }
-tracks/21/type = "value"
-tracks/21/imported = false
-tracks/21/enabled = true
-tracks/21/path = NodePath("wall-6/CSGBox3D42:position")
-tracks/21/interp = 1
-tracks/21/loop_wrap = true
-tracks/21/keys = {
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("wall-6/CSGBox3D42:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
 "times": PackedFloat32Array(1.8633727, 5.766667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-28.281425, -16.036478, -58.630177), Vector3(-28.281425, -17.361374, -58.630177)]
 }
-tracks/22/type = "value"
-tracks/22/imported = false
-tracks/22/enabled = true
-tracks/22/path = NodePath("wall-6/CSGBox3D43:position")
-tracks/22/interp = 1
-tracks/22/loop_wrap = true
-tracks/22/keys = {
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("wall-6/CSGBox3D43:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
 "times": PackedFloat32Array(2.2333333, 5.476667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-28.281425, -15.924979, -53.97904), Vector3(-28.281425, -15.194109, -53.97904)]
 }
-tracks/23/type = "value"
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/path = NodePath("wall-6/CSGBox3D9:position")
-tracks/23/interp = 1
-tracks/23/loop_wrap = true
-tracks/23/keys = {
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("wall-6/CSGBox3D9:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
 "times": PackedFloat32Array(2, 5.8566666),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-27.215752, -16.036478, -57.926098), Vector3(-27.215752, -16.036478, -57.241535)]
 }
-tracks/24/type = "value"
-tracks/24/imported = false
-tracks/24/enabled = true
-tracks/24/path = NodePath("wall-6/CSGBox3D11:position")
-tracks/24/interp = 1
-tracks/24/loop_wrap = true
-tracks/24/keys = {
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("wall-6/CSGBox3D11:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
 "times": PackedFloat32Array(2.4, 5.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-26.22924, -14.55401, -46.715908), Vector3(-26.22924, -14.55401, -46.608112)]
 }
-tracks/25/type = "value"
-tracks/25/imported = false
-tracks/25/enabled = true
-tracks/25/path = NodePath("wall-6/CSGBox3D21:position")
-tracks/25/interp = 1
-tracks/25/loop_wrap = true
-tracks/25/keys = {
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("wall-6/CSGBox3D21:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
 "times": PackedFloat32Array(2.5039418, 6.5228925),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-23.847723, -21.11876, -57.926098), Vector3(-25.153694, -21.11876, -57.926098)]
 }
-tracks/26/type = "value"
-tracks/26/imported = false
-tracks/26/enabled = true
-tracks/26/path = NodePath("wall-6/CSGBox3D17:position")
-tracks/26/interp = 1
-tracks/26/loop_wrap = true
-tracks/26/keys = {
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("wall-6/CSGBox3D17:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
 "times": PackedFloat32Array(0, 4.6466665),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-14.354609, -17.121439, -47.213398), Vector3(-15.290242, -17.121439, -47.213398)]
 }
-tracks/27/type = "value"
-tracks/27/imported = false
-tracks/27/enabled = true
-tracks/27/path = NodePath("wall-6/CSGBox3D18:position")
-tracks/27/interp = 1
-tracks/27/loop_wrap = true
-tracks/27/keys = {
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("wall-6/CSGBox3D18:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
 "times": PackedFloat32Array(1.8366667, 5.2566667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-11.480673, -14.313822, -53.270824), Vector3(-12.556681, -14.313822, -53.270824)]
 }
-tracks/28/type = "value"
-tracks/28/imported = false
-tracks/28/enabled = true
-tracks/28/path = NodePath("wall-6/CSGBox3D40:position")
-tracks/28/interp = 1
-tracks/28/loop_wrap = true
-tracks/28/keys = {
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("wall-6/CSGBox3D40:position")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
 "times": PackedFloat32Array(1.3466667, 6.0625777),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-11.480673, -17.121511, -53.50088), Vector3(-11.480673, -17.121511, -54.40138)]
 }
-tracks/29/type = "value"
-tracks/29/imported = false
-tracks/29/enabled = true
-tracks/29/path = NodePath("wall-6/CSGBox3D41:position")
-tracks/29/interp = 1
-tracks/29/loop_wrap = true
-tracks/29/keys = {
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("wall-6/CSGBox3D41:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
 "times": PackedFloat32Array(1.3466667, 4.8566666, 7.9666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(-12.998415, -16.034985, -66.30315), Vector3(-12.998415, -16.034985, -65.82677), Vector3(-12.998415, -16.034985, -66.57214)]
 }
-tracks/30/type = "value"
-tracks/30/imported = false
-tracks/30/enabled = true
-tracks/30/path = NodePath("wall-6/CSGBox3D13:position")
-tracks/30/interp = 1
-tracks/30/loop_wrap = true
-tracks/30/keys = {
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("wall-6/CSGBox3D13:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
 "times": PackedFloat32Array(1.7666669, 4.8, 7.4366665),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -889,19 +836,33 @@ directional_shadow_split_2 = 0.428
 directional_shadow_split_3 = 0.797
 directional_shadow_fade_start = 0.331
 
-[node name="BigDoor" parent="." instance=ExtResource("5_8luys")]
-transform = Transform3D(0.49999997, 0, 0, 0, 0.5, 0, 0, 0, 0.49999997, 0, -8.189184, 28.05837)
+[node name="Hint" parent="." instance=ExtResource("3_15gwa")]
+unique_name_in_owner = true
+text = "逻辑..计算..！这是《引力》歌词……那部电影的主题曲"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9845853, -15.327622, -51.711082)
+shape = SubResource("BoxShape3D_mnjer")
+debug_color = Color(2.0214916e-06, 0.5992533, 0.70622456, 0.41960785)
 
 [node name="NotificationArea" parent="." instance=ExtResource("3_15gwa")]
-text = "地上...写了什么？"
+text = "看来我对《流体恋人》印象很深……"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NotificationArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.367552, -15.44394, -149.28282)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.680457, -15.44394, -73.022125)
 shape = SubResource("BoxShape3D_htxp8")
 debug_color = Color(2.0214916e-06, 0.5992533, 0.70622456, 0.41960785)
 
+[node name="NotificationArea3" parent="." instance=ExtResource("3_15gwa")]
+text = "这是在考验我的记忆吗……"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NotificationArea3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.035081, -15.44394, -132.98859)
+shape = SubResource("BoxShape3D_0d1uc")
+debug_color = Color(2.0214916e-06, 0.5992533, 0.70622456, 0.41960785)
+
 [node name="NotificationArea2" parent="." instance=ExtResource("3_15gwa")]
-text = "这地方好熟悉……像是在电影里见过"
+text = "想起来了...《流体恋人》"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NotificationArea2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.832016, -15.443948, -62.62031)
@@ -915,11 +876,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.453, -16.823)
 mesh = SubResource("BoxMesh_868cf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -34.8, -57.537323)
-shape = SubResource("BoxShape3D_e07qk")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.453, -16.823)
+shape = SubResource("ConcavePolygonShape3D_0d1uc")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(-4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0, 1, -34.019257, 0, 0)
+transform = Transform3D(-4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0, 1, -42.195114, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_8luys")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Floor"]
@@ -931,7 +892,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.940948, 0, -35.63503)
 shape = SubResource("BoxShape3D_nx4w8")
 
 [node name="Player" parent="." instance=ExtResource("3_nx4w8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -15, -21.72932)
 floor_snap_length = 0.35
 walk_speed = 5.0
 sprint_speed = 6.0
@@ -961,27 +922,9 @@ light_volumetric_fog_energy = 3.39
 omni_range = 16.51
 omni_attenuation = 1.496
 
-[node name="RotatingDoor" parent="." instance=ExtResource("9_wtirf")]
-transform = Transform3D(-3.285, 0, -5.8284377e-07, 0, 11.015, 0, 4.9602124e-07, 0, -3.86, -32.80419, -14.736906, -94.32945)
-
-[node name="Area3D" type="Area3D" parent="RotatingDoor"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RotatingDoor/Area3D"]
-transform = Transform3D(0.9999999, 0, -1.8474111e-13, 0, 1, 0, 9.947598e-14, 0, 1.000001, -1.0177927, -0.26025403, -0.64629555)
-shape = SubResource("BoxShape3D_8vcj1")
-
-[node name="RotatingDoor2" parent="." instance=ExtResource("9_wtirf")]
-transform = Transform3D(3.2652788, 0, 0.095948875, 0, 11.015, 0, -0.09645521, 0, 3.2481382, -26.32145, -15.516183, -108.620415)
-delay_per_row = 0.2
-
-[node name="Area3D" type="Area3D" parent="RotatingDoor2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RotatingDoor2/Area3D"]
-transform = Transform3D(0.9999998, 0, 0, 0, 0.999975, 0, -8.549541e-07, 0, 1.000001, 0.51080894, -0.26025403, -0.74150467)
-shape = SubResource("BoxShape3D_psi4i")
-
 [node name="SlidingDoor" parent="." instance=ExtResource("7_htxp8")]
 transform = Transform3D(-1.9495282e-07, 0, -4.4600005, 0, 15.21969, 0, 4.4600005, 0, -1.9495282e-07, 21.93361, -15.659921, -32.32081)
+close_duration = 1.2
 
 [node name="Area3D" type="Area3D" parent="SlidingDoor"]
 
@@ -989,25 +932,38 @@ transform = Transform3D(-1.9495282e-07, 0, -4.4600005, 0, 15.21969, 0, 4.4600005
 transform = Transform3D(1, 0, 3.5527137e-15, 0, 1.0000005, 0, -3.5527137e-15, 0, 1, 0.1406846, 0, 1.7273395)
 shape = SubResource("BoxShape3D_wtirf")
 
-[node name="SlidingDoor2" parent="." instance=ExtResource("7_htxp8")]
-transform = Transform3D(-1.1670941e-07, 0, -4.46, 0, 15.22, 0, 2.67, 0, -1.9495279e-07, -10.928722, -15.659921, -68.89224)
-random_speed_max = 0.75
-
-[node name="Area3D" type="Area3D" parent="SlidingDoor2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SlidingDoor2/Area3D"]
-transform = Transform3D(0.9999999, 0, 0, 0, 1.0000005, 0, -3.5527137e-15, 0, 1, 0.16254807, 0, 0.92490077)
-shape = SubResource("BoxShape3D_0d1uc")
-
-[node name="SlidingDoor3" parent="." instance=ExtResource("7_htxp8")]
-transform = Transform3D(-4.1510594e-07, -7.6033764, 0, 9.496516, -3.3235415e-07, 0, 0, 0, 4.6032734, -16.156195, -6.00998, -80.1193)
-random_speed_max = 1.8
+[node name="SlidingDoor4" parent="." instance=ExtResource("7_htxp8")]
+transform = Transform3D(5.7, 0, 0, 0, 17.25, 0, 0, 0, 5.03, 0.30340838, -15.659921, -26.960901)
 will_open = true
 
-[node name="Area3D" type="Area3D" parent="SlidingDoor3"]
+[node name="Area3D" type="Area3D" parent="SlidingDoor4"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SlidingDoor3/Area3D"]
-transform = Transform3D(0.9999999, 1.0658141e-14, 0, 0, 1.0000007, 0, -3.5527137e-15, 0, 1, -0.5950854, 0.71964765, 1.646905)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SlidingDoor4/Area3D"]
+transform = Transform3D(1, 0, 3.5527137e-15, 0, 1.0000005, 0, -3.5527137e-15, 0, 1, 0.1406846, 0, 1.7273395)
+shape = SubResource("BoxShape3D_wtirf")
+
+[node name="RotatingDoor" parent="." instance=ExtResource("8_0d1uc")]
+transform = Transform3D(2.6547654, 6.696926e-07, -2.4884008e-07, 2.3208696e-07, -7.660391, 0, -2.3208696e-07, -5.854639e-14, -2.8463988, -19.470655, -6.86928, -77.37778)
+close_duration = 0.2
+delay_per_row = 0.05
+
+[node name="Area3D" type="Area3D" parent="RotatingDoor"]
+transform = Transform3D(5.4009902e-08, -1.2356024, -1.5158815e-07, -1.0000001, -4.3711392e-08, -4.5926677e-15, 1.6164778e-14, 1.00747386e-07, -1.6172272, 0.8959379, 1.111767, 3.1034832)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RotatingDoor/Area3D"]
+transform = Transform3D(0.9999999, 8.881784e-15, 0, -2.842171e-14, 1.0000007, 0, -3.5527137e-15, 0, 1, -0.5950854, 0.9925971, 2.3625069)
+shape = SubResource("BoxShape3D_vsxmj")
+
+[node name="RotatingDoor2" parent="." instance=ExtResource("8_0d1uc")]
+transform = Transform3D(2.6547654, 6.696926e-07, -2.4884008e-07, 2.3208696e-07, -7.660391, 0, -2.3208696e-07, -5.854639e-14, -2.8463988, -6.641448, -6.86928, -77.755295)
+close_duration = 0.2
+delay_per_row = 0.05
+
+[node name="Area3D" type="Area3D" parent="RotatingDoor2"]
+transform = Transform3D(5.4009902e-08, -1.2356024, -1.5158815e-07, -1.0000001, -4.3711392e-08, -4.5926677e-15, 1.6164778e-14, 1.00747386e-07, -1.6172272, 0.8959379, 1.111767, 3.1034832)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RotatingDoor2/Area3D"]
+transform = Transform3D(0.9999999, 8.881784e-15, 0, -2.842171e-14, 1.0000007, 0, -3.5527137e-15, 0, 1, -0.5950854, 0.9925971, 2.3625069)
 shape = SubResource("BoxShape3D_vsxmj")
 
 [node name="wall-1" type="Node3D" parent="."]
@@ -1174,6 +1130,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -9.1637, 0)
 size = Vector3(13.200195, 8, 70)
 material = SubResource("StandardMaterial3D_4ypbk")
 
+[node name="compute3" type="Label3D" parent="wall-2/wall-left/CSGBox3D"]
+transform = Transform3D(-4.307355e-08, 7.440093e-09, -1, 0.1702095, 0.9854079, 0, 0.9854079, -0.1702095, -4.371139e-08, -6.623993, 0, -22.789688)
+modulate = Color(0.8175213, 0.8175213, 0.81752115, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "还记得吗？《流体恋人》"
+font = ExtResource("17_0d1uc")
+font_size = 385
+outline_size = 127
+
 [node name="wall-left3" type="CSGBox3D" parent="wall-2/wall-left"]
 transform = Transform3D(-9.106539e-08, 0, -1.25, 0, 1.25, 0, 1.6666666, 0, -3.6426158e-08, 3.436493, 5.686741, -37.626495)
 size = Vector3(2.0175781, 29.614746, 2.6948242)
@@ -1204,6 +1169,15 @@ material = SubResource("StandardMaterial3D_4ypbk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, -5.684342e-14, 0, 1, -0.5, -9.633, -15)
 size = Vector3(13.200195, 8, 110)
 material = SubResource("StandardMaterial3D_4ypbk")
+
+[node name="wall-right" type="Label3D" parent="wall-2/wall-right/CSGBox3D"]
+transform = Transform3D(-1.08643206e-07, 1.1765975e-08, -2.5, 0.26917416, 2.485467, 0, 3.3139558, -0.35889888, -1.4570479e-07, -6.6535187, -0.42971802, -20.182009)
+modulate = Color(0.8175213, 0.8175213, 0.81752115, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "还记得吗？《流体恋人》"
+font = ExtResource("17_0d1uc")
+font_size = 180
+outline_size = 127
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="wall-2/wall-right"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, -1.4210855e-12, 0, 1, -0.074157715, -11.347294, -72.07877)
@@ -1350,19 +1324,19 @@ material = SubResource("StandardMaterial3D_4ypbk")
 [node name="wall-4" type="Node3D" parent="."]
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="wall-4"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 29.52835, -9.553703, -123.178894)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 25.945955, -9.553703, -119.20638)
 use_collision = true
-size = Vector3(19.20995, 23.863892, 2.9002686)
+size = Vector3(10.784662, 23.863892, 2.9002686)
 material = SubResource("StandardMaterial3D_4ypbk")
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="wall-4"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 29.970161, -17.796043, -123.786316)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 26.387766, -17.796043, -120.04269)
 use_collision = true
-size = Vector3(22.140131, 7.3792114, 2.9002686)
+size = Vector3(13.257077, 7.3792114, 2.9002686)
 material = SubResource("StandardMaterial3D_4ypbk")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="wall-4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.893822, -9.553703, -133.42795)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.311426, -9.553703, -125.24279)
 use_collision = true
 size = Vector3(6.2607117, 23.863892, 2.9002686)
 material = SubResource("StandardMaterial3D_4ypbk")
@@ -1380,15 +1354,15 @@ size = Vector3(32.594696, 9.922668, 2.9002686)
 material = SubResource("StandardMaterial3D_4ypbk")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="wall-4"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 42.944023, -12.838297, -123.33347)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 46.591064, -11.560383, -104.639305)
 use_collision = true
-size = Vector3(48.54528, 23.863892, 2.9002686)
+size = Vector3(11.121498, 21.30806, 2.9002686)
 material = SubResource("StandardMaterial3D_4ypbk")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="wall-4"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 42.577293, -18.97346, -123.33347)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 42.577293, -17.86947, -123.33347)
 use_collision = true
-size = Vector3(48.54528, 11.593567, 2.9002686)
+size = Vector3(48.54528, 13.801544, 2.9002686)
 material = SubResource("StandardMaterial3D_4ypbk")
 
 [node name="Set" parent="." instance=ExtResource("4_868cf")]
@@ -1406,12 +1380,6 @@ material = SubResource("StandardMaterial3D_4ypbk")
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.3, 28.571524, 0.72831726, -94.0694)
 use_collision = true
 size = Vector3(72.69733, 8.758422, 110.1936)
-material = SubResource("StandardMaterial3D_4ypbk")
-
-[node name="wall-top3" type="CSGBox3D" parent="wall-6"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.3, -9.382989, 0.72831726, -96.870026)
-use_collision = true
-size = Vector3(117.16115, 8.758422, 44.309174)
 material = SubResource("StandardMaterial3D_4ypbk")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="wall-6"]
@@ -1463,9 +1431,9 @@ size = Vector3(14.114447, 2.7624054, 2.9002686)
 material = SubResource("StandardMaterial3D_4ypbk")
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="wall-6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.062609, -9.499704, -52.304882)
+transform = Transform3D(0.41389585, 0, 0, 0, 1, 0, 0, 0, 1, -8.842318, -9.508707, -52.14549)
 use_collision = true
-size = Vector3(7.8433685, 23.863892, 2.9002686)
+size = Vector3(7.8433685, 23.845886, 2.581482)
 material = SubResource("StandardMaterial3D_4ypbk")
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="wall-6"]
@@ -1564,46 +1532,82 @@ use_collision = true
 size = Vector3(41.09984, 8.682434, 2.9002686)
 material = SubResource("StandardMaterial3D_4ypbk")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="wall-6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.154276, -9.086133, -88.258896)
+[node name="CSGBox3D35" type="CSGBox3D" parent="wall-6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.065775, -14.753538, -87.05696)
 use_collision = true
-size = Vector3(48.30005, 23.863892, 2.9002686)
+size = Vector3(35.87433, 4.811783, 2.9002686)
 material = SubResource("StandardMaterial3D_4ypbk")
 
-[node name="CSGBox3D15" type="CSGBox3D" parent="wall-6/CSGBox3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.5723104, 0.89268494)
-size = Vector3(48.30005, 8.719269, 2.9002686)
+[node name="CSGBox3D52" type="CSGBox3D" parent="wall-6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2042065, -15.724571, -85.45561)
+use_collision = true
+size = Vector3(4.4728165, 3.219059, 2.9002686)
 material = SubResource("StandardMaterial3D_4ypbk")
 
-[node name="CSGBox3D16" type="CSGBox3D" parent="wall-6/CSGBox3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8174276, 1.8200684)
-size = Vector3(48.30005, 10.531403, 2.9002686)
+[node name="Area3D" type="Area3D" parent="wall-6/CSGBox3D52" groups=["Description", "interactable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall-6/CSGBox3D52/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17407227, 1.1409607, 0.7671509)
+shape = SubResource("BoxShape3D_psi4i")
+
+[node name="Description" parent="wall-6/CSGBox3D52/Area3D" instance=ExtResource("12_psi4i")]
+transform = Transform3D(-1, 1.3200468e-14, 8.742276e-08, 0, -0.9999999, 1.5099576e-07, 8.742278e-08, 1.5099576e-07, 0.9999999, 0.815969, 4.482252, 3.2626495)
+
+[node name="Label3D" parent="wall-6/CSGBox3D52/Area3D/Description" groups=["blow"] instance=ExtResource("13_0d1uc")]
+transform = Transform3D(-0.49999976, -4.371139e-08, 2.4868996e-14, 4.3711367e-08, -0.5, 4.973799e-14, 2.4868996e-14, 4.973799e-14, 0.49999976, 2.9424994, 2.652975, -3.2173538)
+text = "按住空格> 攀爬"
+
+[node name="CSGBox3D45" type="CSGBox3D" parent="wall-6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.302446, -6.317543, -85.55679)
+use_collision = true
+size = Vector3(15.171875, 10.531, 2.1438477)
 material = SubResource("StandardMaterial3D_4ypbk")
 
-[node name="CSGBox3D17" type="CSGBox3D" parent="wall-6/CSGBox3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.026054, 2.2475872, 2.4690018)
+[node name="CSGBox3D46" type="CSGBox3D" parent="wall-6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.014258, -6.8873835, -85.48064)
+use_collision = true
+size = Vector3(15.725128, 7.513336, 2.9002686)
+material = SubResource("StandardMaterial3D_4ypbk")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="wall-6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.406809, -5.316703, -87.949646)
+use_collision = true
+size = Vector3(15.192261, 16.227356, 2.9002686)
+material = SubResource("StandardMaterial3D_4ypbk")
+
+[node name="CSGBox3D51" type="CSGBox3D" parent="wall-6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.275669, -6.041312, -87.949646)
+use_collision = true
+size = Vector3(14.279724, 17.676575, 2.9002686)
+material = SubResource("StandardMaterial3D_4ypbk")
+
+[node name="CSGBox3D47" type="CSGBox3D" parent="wall-6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.611837, -3.8832364, -91.04605)
+use_collision = true
+size = Vector3(17.302612, 9.790421, 2.9002686)
+material = SubResource("StandardMaterial3D_4ypbk")
+
+[node name="CSGBox3D50" type="CSGBox3D" parent="wall-6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.409484, -3.792233, -89.8053)
+use_collision = true
+size = Vector3(13.595062, 9.972427, 5.381775)
+material = SubResource("StandardMaterial3D_4ypbk")
+
+[node name="CSGBox3D48" type="CSGBox3D" parent="wall-6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1549587, -14.892755, -90.11867)
+use_collision = true
+size = Vector3(38.21637, 7.5629044, 2.9002686)
+material = SubResource("StandardMaterial3D_4ypbk")
+
+[node name="CSGBox3D49" type="CSGBox3D" parent="wall-6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1391735, -13.978346, -89.46973)
 size = Vector3(12.07605, 7.513336, 2.9002686)
 material = SubResource("StandardMaterial3D_4ypbk")
 
 [node name="CSGBox3D39" type="CSGBox3D" parent="wall-6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.154276, -16.225933, -91.938736)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8868809, -16.225933, -91.938736)
 use_collision = true
-size = Vector3(48.30005, 9.58429, 2.9002686)
-material = SubResource("StandardMaterial3D_4ypbk")
-
-[node name="CSGBox3D15" type="CSGBox3D" parent="wall-6/CSGBox3D39"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.894043, 0.89268494)
-size = Vector3(48.30005, 8.719269, 2.9002686)
-material = SubResource("StandardMaterial3D_4ypbk")
-
-[node name="CSGBox3D16" type="CSGBox3D" parent="wall-6/CSGBox3D39"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8174276, 1.8200684)
-size = Vector3(48.30005, 10.531403, 2.9002686)
-material = SubResource("StandardMaterial3D_4ypbk")
-
-[node name="CSGBox3D17" type="CSGBox3D" parent="wall-6/CSGBox3D39"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.026054, 2.2475872, 2.4690018)
-size = Vector3(12.07605, 7.513336, 2.9002686)
+size = Vector3(7.675659, 9.58429, 2.9002686)
 material = SubResource("StandardMaterial3D_4ypbk")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="wall-6"]
@@ -1625,9 +1629,15 @@ size = Vector3(0.5, 0.5, 30.826141)
 material = SubResource("StandardMaterial3D_50rve")
 
 [node name="wall-left-light3" type="CSGBox3D" parent="wall-6"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.2223454, -11.88538, -86.554794)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12.363699, -11.88538, -86.554794)
 use_collision = true
-size = Vector3(0.5, 0.5, 48.725464)
+size = Vector3(0.5, 0.5, 15.553375)
+material = SubResource("StandardMaterial3D_50rve")
+
+[node name="wall-left-light4" type="CSGBox3D" parent="wall-6"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.9017124, -11.88538, -86.554794)
+use_collision = true
+size = Vector3(0.5, 0.5, 15.553375)
 material = SubResource("StandardMaterial3D_50rve")
 
 [node name="CSGBox3D30" type="CSGBox3D" parent="wall-6"]
@@ -1667,7 +1677,7 @@ size = Vector3(5.9984436, 3.1896133, 15.163834)
 material = SubResource("StandardMaterial3D_4ypbk")
 
 [node name="CSGBox3D32" type="CSGBox3D" parent="wall-6"]
-transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, -27.168179, -15.414619, -94.23549)
+transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, -32.561363, -15.414619, -22.171326)
 use_collision = true
 size = Vector3(2, 1.8398438, 2)
 material = SubResource("StandardMaterial3D_4ypbk")
@@ -1710,11 +1720,55 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4938126, -32.143425, -92.16275)
 visible = false
 
+[node name="CSGBox3D32" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.24591, -15.777147, -86.104706)
+use_collision = true
+size = Vector3(2, 1.8398438, 2)
+material = SubResource("StandardMaterial3D_4ypbk")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.22784, -14.486881, -86.09734)
+material = SubResource("StandardMaterial3D_kp8pu")
+
+[node name="LightBox" type="StaticBody3D" parent="CSGBox3D17" groups=["Description", "interactable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D17/LightBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02996254, -0.028412819, -0.0030975342)
+shape = SubResource("BoxShape3D_gu5po")
+
+[node name="Description" parent="CSGBox3D17/LightBox" instance=ExtResource("12_psi4i")]
+
+[node name="Label3D" parent="CSGBox3D17/LightBox/Description" groups=["blow"] instance=ExtResource("13_0d1uc")]
+transform = Transform3D(-0.5, -4.371139e-08, 0, -1.9106855e-15, 2.1855694e-08, 0.5, -4.371139e-08, 0.5, -2.1855694e-08, 0.52336884, -0.43512726, -0.6573181)
+text = "E> 读取"
+
+[node name="CSGBox3D33" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0966167, -15.777147, -86.17119)
+use_collision = true
+size = Vector3(2, 1.8398438, 2)
+material = SubResource("StandardMaterial3D_4ypbk")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0785465, -14.486881, -86.163826)
+material = SubResource("StandardMaterial3D_kp8pu")
+
+[node name="LightBox" type="StaticBody3D" parent="CSGBox3D18" groups=["Description", "interactable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D18/LightBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02996254, -0.028412819, -0.0030975342)
+shape = SubResource("BoxShape3D_gu5po")
+
+[node name="Description" parent="CSGBox3D18/LightBox" instance=ExtResource("12_psi4i")]
+
+[node name="Label3D" parent="CSGBox3D18/LightBox/Description" groups=["blow"] instance=ExtResource("13_0d1uc")]
+transform = Transform3D(-0.5, -4.371139e-08, 0, -1.9106855e-15, 2.1855694e-08, 0.5, -4.371139e-08, 0.5, -2.1855694e-08, 0.52336884, -0.43512726, -0.6573181)
+text = "E> 读取"
+
 [node name="light box" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.134312)
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="light box"]
-transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, -27.124107, -14.852628, -94.21756)
+transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, -32.517292, -14.852628, -22.153397)
 material = SubResource("StandardMaterial3D_kp8pu")
 
 [node name="LightBox" type="StaticBody3D" parent="light box/CSGBox3D17" groups=["Description", "interactable"]]
@@ -1755,15 +1809,9 @@ size = Vector3(30, 50, 40)
 material = SubResource("StandardMaterial3D_4ypbk")
 
 [node name="wall-left2" type="CSGBox3D" parent="wall-door"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.957322, 8.008998, -35.67488)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1940651, 8.009, -28.203964)
 use_collision = true
-size = Vector3(15, 50, 1.161)
-material = SubResource("StandardMaterial3D_4ypbk")
-
-[node name="wall-left3" type="CSGBox3D" parent="wall-door"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.059857, 7.854949, -35.646732)
-use_collision = true
-size = Vector3(15, 50, 1.161)
+size = Vector3(31.073242, 50, 40)
 material = SubResource("StandardMaterial3D_4ypbk")
 
 [node name="wall-right" type="CSGBox3D" parent="wall-door"]
@@ -1781,7 +1829,7 @@ is_3d_scene = true
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Model" parent="Robot" instance=ExtResource("9_0d1uc")]
-transform = Transform3D(0.90535396, 0, -0.42465767, -0.116338894, 0.96174127, -0.24803008, 0.40841085, 0.27395922, 0.87071633, 0.39586258, -100.536316, -415.0822)
+transform = Transform3D(0.90535396, 0, -0.42465767, -0.116338894, 0.96174127, -0.24803008, 0.40841085, 0.27395922, 0.87071633, 0.396, -99.4345, -314.56076)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1800,7 +1848,266 @@ debug_color = Color(0.51369834, 0.43691674, 0.96116513, 0.41960785)
 [node name="Marker3D" type="Marker3D" parent="SaveArea1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.358858, 0)
 
+[node name="logic" type="Label3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, -0.008517101, 0.99996376, -3.7229464e-10, -0.99996376, -0.008517101, -4.3709804e-08, -4.9206815, -10.309683, -41.052242)
+modulate = Color(0.8175213, 0.8175213, 0.81752115, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "不需要逻辑:不需要逻辑:不需要逻辑:不需要逻辑
+  不需要逻辑  不需要逻辑  不需要逻辑  不需要逻辑  
+不需要逻辑:不需要逻辑:不需要逻辑:不需要逻辑  
+  不需要逻辑  不需要逻辑  不需要逻辑  不需要逻辑  
+
+"
+font = ExtResource("17_0d1uc")
+font_size = 170
+outline_size = 127
+
+[node name="Hint2" type="Label3D" parent="."]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.0000002, 0, 0, 0, 1, -35.09678, -9.121061, -106.70802)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "还记得吗？"
+font = ExtResource("17_0d1uc")
+font_size = 170
+outline_size = 127
+
+[node name="Hint3" type="Label3D" parent="."]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.0000002, 0, 0, 0, 1, -8.232424, -9.121061, -108.54328)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "还记得吗？"
+font = ExtResource("17_0d1uc")
+font_size = 170
+outline_size = 127
+
+[node name="Hint4" type="Label3D" parent="."]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.0000002, 0, 0, 0, 1, 13.280799, -9.121061, -108.090164)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "还记得吗？"
+font = ExtResource("17_0d1uc")
+font_size = 170
+outline_size = 127
+
+[node name="arrow1" type="Label3D" parent="."]
+transform = Transform3D(0.8715392, 0.49032584, 2.1432824e-08, 0, -4.371139e-08, 1, 0.49032584, -0.8715392, -3.8096186e-08, -29.637936, -15.865341, -63.10088)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "← ↘  ↙
+↗↓→  ↙
+↓↑←↙↑
+"
+font = ExtResource("17_0d1uc")
+font_size = 280
+outline_size = 127
+
+[node name="arrow2" type="Label3D" parent="arrow1"]
+transform = Transform3D(0.44533855, 0.89536226, 3.913752e-08, -0.89536226, 0.44533855, -2.4245029e-08, -3.913752e-08, -2.4245022e-08, 1, 1.2833595, 0.035907745, -9.536743e-07)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "← ↘  ↙
+   ↙
+↓↑←↙↑
+"
+font = ExtResource("17_0d1uc")
+font_size = 280
+outline_size = 127
+
+[node name="arrow3" type="Label3D" parent="arrow1"]
+transform = Transform3D(0.99117863, 0.1325332, 5.7932112e-09, -0.1325332, 0.99117863, -3.8561154e-10, -5.793199e-09, -3.8560088e-10, 1, -1.9933624, -3.050415, -1.9073486e-06)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "← 
+↗↓→
+↓↑↑
+"
+font = ExtResource("17_0d1uc")
+font_size = 280
+outline_size = 127
+
+[node name="arrow4" type="Label3D" parent="arrow1"]
+transform = Transform3D(-0.682662, 0.7307345, 3.1941408e-08, -0.7307345, -0.682662, -7.3551476e-08, -3.194141e-08, -7.3551504e-08, 1, -4.9225235, 1.6410866, -1.9073486e-06)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "← ↘  ↙
+↗↓→  ↙
+↓↑←↙↑
+"
+font = ExtResource("17_0d1uc")
+font_size = 280
+outline_size = 127
+
+[node name="arrow5" type="Label3D" parent="arrow1"]
+transform = Transform3D(0.4134383, -0.9105323, -3.9800604e-08, 0.9105323, 0.4134383, -2.5639437e-08, 3.980064e-08, -2.563944e-08, 1, 2.7379684, -2.2931862, -2.861023e-06)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "     ↙
+   →  ↙
+↓↑←↙↑
+"
+font = ExtResource("17_0d1uc")
+font_size = 280
+outline_size = 127
+
+[node name="arrow2" type="Label3D" parent="."]
+transform = Transform3D(0.8715392, 0.49032584, 2.1432824e-08, 0, -4.371139e-08, 1, 0.49032584, -0.8715392, -3.8096186e-08, -22.289207, -15.865341, -62.48171)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "← ↘  ↙
+↗↓→  ↙
+↓↑←↙↑
+"
+font = ExtResource("17_0d1uc")
+font_size = 280
+outline_size = 127
+
+[node name="arrow2" type="Label3D" parent="arrow2"]
+transform = Transform3D(0.44533855, 0.89536226, 3.913752e-08, -0.89536226, 0.44533855, -2.4245029e-08, -3.913752e-08, -2.4245022e-08, 1, 1.2833595, 0.035907745, -9.536743e-07)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "← ↘  ↙
+   ↙
+↓↑←↙↑
+"
+font = ExtResource("17_0d1uc")
+font_size = 280
+outline_size = 127
+
+[node name="arrow3" type="Label3D" parent="arrow2"]
+transform = Transform3D(0.99117863, 0.1325332, 5.7932112e-09, -0.1325332, 0.99117863, -3.8561154e-10, -5.793199e-09, -3.8560088e-10, 1, -1.9933624, -3.050415, -1.9073486e-06)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "← 
+↗↓→
+↓↑↑
+"
+font = ExtResource("17_0d1uc")
+font_size = 280
+outline_size = 127
+
+[node name="arrow4" type="Label3D" parent="arrow2"]
+transform = Transform3D(-0.9991142, 0.042084843, 1.8395898e-09, -0.042084843, -0.9991142, -8.738404e-08, -1.8395863e-09, -8.7384066e-08, 1, -7.10664, 1.6977081, 9.536743e-07)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "← ↘  ↙
+↗↓→  ↙
+↓↑←↙↑
+"
+font = ExtResource("17_0d1uc")
+font_size = 280
+outline_size = 127
+
+[node name="arrow5" type="Label3D" parent="arrow2"]
+transform = Transform3D(0.4134383, -0.9105323, -3.9800604e-08, 0.9105323, 0.4134383, -2.5639437e-08, 3.980064e-08, -2.563944e-08, 1, 2.7379684, -2.2931862, -2.861023e-06)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "     ↙
+   →  ↙
+↓↑←↙↑
+"
+font = ExtResource("17_0d1uc")
+font_size = 280
+outline_size = 127
+
+[node name="arrow3" type="Label3D" parent="."]
+transform = Transform3D(0.8715392, 0.49032584, 2.1432824e-08, 0, -4.371139e-08, 1, 0.49032584, -0.8715392, -3.8096186e-08, -30.41574, -15.865341, -54.768112)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "← ↘  ↙
+↗↓→  ↙
+↓↑←↙↑
+"
+font = ExtResource("17_0d1uc")
+font_size = 280
+outline_size = 127
+
+[node name="arrow2" type="Label3D" parent="arrow3"]
+transform = Transform3D(0.44533855, 0.89536226, 3.913752e-08, -0.89536226, 0.44533855, -2.4245029e-08, -3.913752e-08, -2.4245022e-08, 1, 1.2833595, 0.035907745, -9.536743e-07)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "← ↘  ↙
+   ↙
+↓↑←↙↑
+"
+font = ExtResource("17_0d1uc")
+font_size = 280
+outline_size = 127
+
+[node name="arrow3" type="Label3D" parent="arrow3"]
+transform = Transform3D(0.99117863, 0.1325332, 5.7932112e-09, -0.1325332, 0.99117863, -3.8561154e-10, -5.793199e-09, -3.8560088e-10, 1, -1.9933624, -3.050415, -1.9073486e-06)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "← 
+↗↓→
+↓↑↑
+"
+font = ExtResource("17_0d1uc")
+font_size = 280
+outline_size = 127
+
+[node name="arrow4" type="Label3D" parent="arrow3"]
+transform = Transform3D(0.4134383, -0.9105323, -3.9800604e-08, 0.9105323, 0.4134383, -2.5639437e-08, 3.980064e-08, -2.563944e-08, 1, -4.9225273, 1.6410866, -1.9073486e-06)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "← ↘  ↙
+↗↓→  ↙
+↓↑←↙↑
+"
+font = ExtResource("17_0d1uc")
+font_size = 280
+outline_size = 127
+
+[node name="arrow5" type="Label3D" parent="arrow3"]
+transform = Transform3D(0.4134383, -0.9105323, -3.9800604e-08, 0.9105323, 0.4134383, -2.5639437e-08, 3.980064e-08, -2.563944e-08, 1, 2.7379684, -2.2931862, -2.861023e-06)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "     ↙
+   →  ↙
+↓↑←↙↑
+"
+font = ExtResource("17_0d1uc")
+font_size = 280
+outline_size = 127
+
+[node name="arrow4" type="Label3D" parent="."]
+transform = Transform3D(0.6278544, -0.77833074, -3.4021916e-08, 0, -4.371139e-08, 1, -0.77833074, -0.6278544, -2.744439e-08, -24.410349, -15.865341, -57.53945)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "← ↘  ↙
+↗↓→  ↙
+↓↑←↙↑
+"
+font = ExtResource("17_0d1uc")
+font_size = 280
+outline_size = 127
+
+[node name="arrow2" type="Label3D" parent="arrow4"]
+transform = Transform3D(0.44533855, 0.89536226, 3.913752e-08, -0.89536226, 0.44533855, -2.4245029e-08, -3.913752e-08, -2.4245022e-08, 1, 1.2833595, 0.035907745, -9.536743e-07)
+modulate = Color(0.101240985, 0.101241, 0.101240896, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "← ↘  ↙
+   ↙
+↓↑←↙↑
+"
+font = ExtResource("17_0d1uc")
+font_size = 280
+outline_size = 127
+
+[node name="compute" type="Label3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.701983, -9.811349, -47.575417)
+modulate = Color(0.8175213, 0.8175213, 0.81752115, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "不需要计算?不需要计算?不需要计算?不需要计算?
+不需要计算?不需要计算?不需要计算?不需要计算?
+不需要计算?不需要计算?不需要计算?不需要计算?
+不需要计算?不需要计算?不需要计算?不需要计算?"
+font = ExtResource("17_0d1uc")
+font_size = 180
+outline_size = 127
+
+[connection signal="area_text" from="Hint" to="." method="_on_hint_area_text"]
 [connection signal="area_text" from="NotificationArea" to="." method="_on_notification_area_area_text"]
+[connection signal="area_text" from="NotificationArea3" to="." method="_on_notification_area_area_text"]
 [connection signal="area_text" from="NotificationArea2" to="." method="_on_notification_area_area_text"]
 [connection signal="interact_obj" from="Player" to="." method="_on_player_interact_obj"]
 [connection signal="body_entered" from="SaveArea1" to="." method="_on_save_area_1_body_entered"]

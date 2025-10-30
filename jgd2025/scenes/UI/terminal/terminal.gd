@@ -89,7 +89,8 @@ func expand_ascii_art(ascii_text: String, scale: int = 2) -> String:
 	return result_text
 
 func update_prompt() -> void:
-	prompt_label.text = "%s@%s>" % [get_system_user_name(), host_name]
+	user_name = get_system_user_name()
+	prompt_label.text = "%s@%s>" % [user_name, host_name]
 	# prompt_label.text = "%s@%s>" % [user_name, host_name]
 	
 

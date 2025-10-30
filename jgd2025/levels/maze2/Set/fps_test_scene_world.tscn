@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://ofyuav8psja7"]
+[gd_scene load_steps=42 format=3 uid="uid://ofyuav8psja7"]
 
 [ext_resource type="Script" uid="uid://c8j73486nr6o8" path="res://levels/maze2/Set/fps_test_scene_world.gd" id="1_868cf"]
 [ext_resource type="PackedScene" uid="uid://dxg57iry0rwpn" path="res://levels/maze2/Set/last_bridge.tscn" id="2_15gwa"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://daff3mjw10ia4" path="res://scenes/maze_scene/small_door/rotating_door.tscn" id="8_0d1uc"]
 [ext_resource type="PackedScene" uid="uid://btf2mmkgrs3xc" path="res://scenes/UI/chat_buttons/chat_buttons.tscn" id="8_psi4i"]
 [ext_resource type="PackedScene" uid="uid://b2m6ywvc2648y" path="res://levels/tps_test_scene/model/机器人.glb" id="9_0d1uc"]
+[ext_resource type="WwiseEvent" uid="uid://blgphwlv7sjja" path="res://Wwise/resources/Event/{49E74AB4-491A-40F7-A372-7F8C225C77DE}.tres" id="9_vsxmj"]
 [ext_resource type="PackedScene" uid="uid://djs0b34qda0px" path="res://scenes/UI/label_3d_typed/description.tscn" id="12_psi4i"]
 [ext_resource type="PackedScene" uid="uid://cmbss067n8pop" path="res://scenes/UI/label_3d_typed/label_3d.tscn" id="13_0d1uc"]
 [ext_resource type="FontFile" uid="uid://dlefqu74x4m18" path="res://scenes/UI/fonts/sarasa-mono-sc-bold.ttf" id="17_0d1uc"]
@@ -983,6 +984,10 @@ use_collision = true
 size = Vector3(40, 50, 40)
 material = SubResource("StandardMaterial3D_4ypbk")
 
+[node name="AkEvent3D" type="AkEvent3D" parent="wall-1/wall-1-left/wall-left"]
+event = ExtResource("9_vsxmj")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.588585, -22.598837, -16.03759)
+
 [node name="wall-left-light" type="CSGBox3D" parent="wall-1/wall-1-left"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0224, -14.511709, -51.988037)
 use_collision = true
@@ -1270,6 +1275,10 @@ use_collision = true
 size = Vector3(3.4728966, 4.0328064, 2.9002686)
 material = SubResource("StandardMaterial3D_4ypbk")
 
+[node name="AkEvent3D" type="AkEvent3D" parent="wall-3/CSGBox3D35"]
+event = ExtResource("9_vsxmj")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.609745, -22.598835, -16.03759)
+
 [node name="CSGBox3D36" type="CSGBox3D" parent="wall-3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.159958, -12.676961, -88.41936)
 use_collision = true
@@ -1483,6 +1492,10 @@ transform = Transform3D(4.055119e-09, -0.99568754, -0.09277031, -0.27964473, -0.
 use_collision = true
 size = Vector3(1, 10.477051, 1)
 material = SubResource("StandardMaterial3D_4ypbk")
+
+[node name="AkEvent3D" type="AkEvent3D" parent="wall-6/CSGBox3D25"]
+event = ExtResource("9_vsxmj")
+trigger_on = 2
 
 [node name="CSGBox3D29" type="CSGBox3D" parent="wall-6"]
 transform = Transform3D(-2.2077966e-08, -0.8630696, 0.50508505, -3.7725965e-08, 0.50508505, 0.8630696, -1, 1.9646135e-15, -4.3711385e-08, 6.2880397, -13.536257, -61.135593)

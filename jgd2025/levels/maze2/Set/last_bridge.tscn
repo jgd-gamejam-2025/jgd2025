@@ -10,8 +10,8 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_606x2"]
 size = Vector3(5.5740967, 1, 6.115967)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xj7tt"]
-size = Vector3(2215.192, 19.3208, 458.61304)
+[sub_resource type="BoxShape3D" id="BoxShape3D_gldua"]
+size = Vector3(524.525, 19.3208, 729.7382)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3kjwc"]
 height = 7.1191406
@@ -44,8 +44,8 @@ shape = SubResource("BoxShape3D_606x2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32.42151)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ParkourHell"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 892.26483, -77.10601, -340.44952)
-shape = SubResource("BoxShape3D_xj7tt")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.243286, -89.54669, -343.85086)
+shape = SubResource("BoxShape3D_gldua")
 
 [node name="OceanStart" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32.42151)

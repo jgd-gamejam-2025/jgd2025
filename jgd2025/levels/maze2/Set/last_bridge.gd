@@ -50,5 +50,7 @@ func _on_parkour_hell_body_entered(body: Node3D) -> void:
 	if not ocean_ended and not parkour_ended and body.name == "Player":
 		parkour_ended = true
 		Transition.set_and_start("", "", 0, "N/A")	
+		Wwise.stop_all()
 		await get_tree().create_timer(0.2).timeout
+		Wwise.post_event("MX_Play_Maze", LevelManager)
 		LevelManager.load_game()

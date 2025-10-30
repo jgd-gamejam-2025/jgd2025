@@ -168,10 +168,12 @@ func _on_parkour_started() -> void:
 func _on_ocean_started() -> void:
 	# Generally dim the light
 	var tween = create_tween()
-	var env := get_viewport().get_world_3d().environment
+	# 复制一份新的环境资源，避免修改共享的环境
+	var env = get_viewport().get_world_3d().environment.duplicate()
+	get_viewport().get_world_3d().environment = env
+	tween.parallel().tween_property(env, "fog_density", 0.0, 5)
 	tween.parallel().tween_property($DirectionalLight3D, "light_energy", 0.075, 5)
 	# tween.parallel().tween_property($DirectionalLight3D, "shadow_opacity", 0.3, 5)
-	tween.parallel().tween_property(env, "fog_density", 0.0, 5)
 	await get_tree().create_timer(2).timeout
 	get_notification("我ē̴̤͝l̵͎̈́̐p̸̹̎ ̴͚̅m̷̬̓ë̶̦́̎也…… ̴͚̅m̷̬̓")
 	for i in range(25):

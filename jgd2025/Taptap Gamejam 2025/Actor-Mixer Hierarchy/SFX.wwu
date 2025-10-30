@@ -1314,9 +1314,14 @@
 				</Sound>
 				<Sound Name="信息弹出" ID="{357647A4-EC64-422B-A2A1-F1835CEA44F1}" ShortID="424746635">
 					<PropertyList>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>5</Value>
+							</ValueList>
+						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-3</Value>
+								<Value>-5</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -1645,6 +1650,11 @@
 				<Sound Name="柱子蠕动loop2" ID="{C7AE563C-366A-4757-A347-BBCE6FE122EF}" ShortID="8284382">
 					<PropertyList>
 						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-19</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Attenuation">

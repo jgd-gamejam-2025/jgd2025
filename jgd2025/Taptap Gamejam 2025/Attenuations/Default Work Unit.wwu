@@ -5,7 +5,7 @@
 			<ChildrenList>
 				<Attenuation Name="Door emitters" ID="{38C7798A-452A-438F-82AA-A6655EBCBBC7}" ShortID="814324191">
 					<PropertyList>
-						<Property Name="RadiusMax" Type="Real64" Value="15"/>
+						<Property Name="RadiusMax" Type="Real64" Value="20"/>
 					</PropertyList>
 					<CurveUsageInfoList>
 						<VolumeDryUsage>
@@ -21,13 +21,13 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>5.99139</XPos>
+											<XPos>7.98852</XPos>
 											<YPos>0</YPos>
 											<Flags>0</Flags>
 											<SegmentShape>InvertedSCurve</SegmentShape>
 										</Point>
 										<Point>
-											<XPos>15</XPos>
+											<XPos>20</XPos>
 											<YPos>-200</YPos>
 											<Flags>37</Flags>
 										</Point>
@@ -93,7 +93,7 @@
 				</Attenuation>
 				<Attenuation Name="柱子蠕动loop" ID="{61B2895F-3D63-4645-B5EE-FA3C0039BE8E}" ShortID="193539134">
 					<PropertyList>
-						<Property Name="RadiusMax" Type="Real64" Value="15"/>
+						<Property Name="RadiusMax" Type="Real64" Value="25"/>
 					</PropertyList>
 					<CurveUsageInfoList>
 						<VolumeDryUsage>
@@ -105,17 +105,23 @@
 									<PointList>
 										<Point>
 											<XPos>0</XPos>
-											<YPos>0</YPos>
+											<YPos>-1.2</YPos>
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>4.03394</XPos>
-											<YPos>-0.04786</YPos>
+											<XPos>6.95169</XPos>
+											<YPos>-1.2</YPos>
 											<Flags>0</Flags>
 											<SegmentShape>Log1</SegmentShape>
 										</Point>
 										<Point>
-											<XPos>15</XPos>
+											<XPos>15.04569</XPos>
+											<YPos>-13.26465</YPos>
+											<Flags>0</Flags>
+											<SegmentShape>Exp1</SegmentShape>
+										</Point>
+										<Point>
+											<XPos>25</XPos>
 											<YPos>-200</YPos>
 											<Flags>37</Flags>
 										</Point>

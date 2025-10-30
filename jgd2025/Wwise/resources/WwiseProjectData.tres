@@ -135,11 +135,8 @@ guid = "{049E2DA9-B8B7-4390-B4B9-B094CEA40551}"
 id = 393239870
 
 [sub_resource type="WwiseTreeObject" id="WwiseTreeObject_5n8hf"]
-path = "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus"
 children = [SubResource("WwiseTreeObject_yyrou"), SubResource("WwiseTreeObject_geu6g")]
-type = 2
 name = "Master Audio Bus"
-guid = "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
 id = 3803692087
 
 [sub_resource type="WwiseTreeObject" id="WwiseTreeObject_tnib1"]
@@ -365,7 +362,7 @@ guid = "{B5532132-C5E1-4214-A11E-046B66ADC583}"
 id = 1110709145
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_ujawv"]
-max_attenuation = 15.0
+max_attenuation = 20.0
 max_duration = 4.25
 min_duration = 4.25
 path = "\\Events\\Default Work Unit\\SFX\\SFX_door1"
@@ -375,7 +372,7 @@ guid = "{20906418-7970-46DB-A006-F25F4E2C8A4C}"
 id = 2148082694
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_8ttr2"]
-max_attenuation = 15.0
+max_attenuation = 20.0
 max_duration = 2.5625
 min_duration = 2.5625
 path = "\\Events\\Default Work Unit\\SFX\\SFX_door2"
@@ -439,7 +436,7 @@ guid = "{15EFC514-CF5C-4885-BD46-56A17202E686}"
 id = 2215682802
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_31b5r"]
-max_attenuation = 50.0
+max_attenuation = 25.0
 max_duration = 0.0
 min_duration = 0.0
 path = "\\Events\\Default Work Unit\\SFX\\SFX_pillar_moving_loop"

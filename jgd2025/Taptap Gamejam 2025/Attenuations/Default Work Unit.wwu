@@ -93,7 +93,7 @@
 				</Attenuation>
 				<Attenuation Name="柱子蠕动loop" ID="{61B2895F-3D63-4645-B5EE-FA3C0039BE8E}" ShortID="193539134">
 					<PropertyList>
-						<Property Name="RadiusMax" Type="Real64" Value="50"/>
+						<Property Name="RadiusMax" Type="Real64" Value="15"/>
 					</PropertyList>
 					<CurveUsageInfoList>
 						<VolumeDryUsage>
@@ -109,13 +109,13 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>7.50653</XPos>
-											<YPos>-0</YPos>
+											<XPos>4.03394</XPos>
+											<YPos>-0.04786</YPos>
 											<Flags>0</Flags>
 											<SegmentShape>Log1</SegmentShape>
 										</Point>
 										<Point>
-											<XPos>50</XPos>
+											<XPos>15</XPos>
 											<YPos>-200</YPos>
 											<Flags>37</Flags>
 										</Point>

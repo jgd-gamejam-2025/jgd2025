@@ -1343,6 +1343,9 @@
 						</Property>
 					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Door emitters" ID="{38C7798A-452A-438F-82AA-A6655EBCBBC7}" WorkUnitID="{89883E8C-1DA7-4416-8588-1049CD284C6A}"/>
+						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
 						</Reference>
@@ -1359,6 +1362,9 @@
 							</MediaIDList>
 						</AudioFileSource>
 					</ChildrenList>
+					<PositioningInfo>
+						<Position Name="" ID="{EC45FC3C-C5FE-4E4B-94B1-D1352E5D041D}"/>
+					</PositioningInfo>
 					<ActiveSourceList>
 						<ActiveSource Name="大门1" ID="{1B61CCD6-3C34-49AA-B2CE-DA6023E3D96F}" Platform="Linked"/>
 					</ActiveSourceList>
@@ -1372,6 +1378,9 @@
 						</Property>
 					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Door emitters" ID="{38C7798A-452A-438F-82AA-A6655EBCBBC7}" WorkUnitID="{89883E8C-1DA7-4416-8588-1049CD284C6A}"/>
+						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A3BEEE85-449B-46D0-BF44-D049C95AF67B}"/>
 						</Reference>

@@ -3,7 +3,10 @@
 	<Attenuations>
 		<WorkUnit Name="Default Work Unit" ID="{89883E8C-1DA7-4416-8588-1049CD284C6A}" PersistMode="Standalone">
 			<ChildrenList>
-				<Attenuation Name="New Attenuation" ID="{38C7798A-452A-438F-82AA-A6655EBCBBC7}" ShortID="814324191">
+				<Attenuation Name="Door emitters" ID="{38C7798A-452A-438F-82AA-A6655EBCBBC7}" ShortID="814324191">
+					<PropertyList>
+						<Property Name="RadiusMax" Type="Real64" Value="20"/>
+					</PropertyList>
 					<CurveUsageInfoList>
 						<VolumeDryUsage>
 							<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
@@ -18,7 +21,13 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>100</XPos>
+											<XPos>7.04857</XPos>
+											<YPos>-0</YPos>
+											<Flags>0</Flags>
+											<SegmentShape>InvertedSCurve</SegmentShape>
+										</Point>
+										<Point>
+											<XPos>20</XPos>
 											<YPos>-200</YPos>
 											<Flags>37</Flags>
 										</Point>

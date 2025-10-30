@@ -159,7 +159,7 @@ func _on_nobody_who_chat_response_updated(new_token: String) -> void:
 		current_detail_bubble.rich_text_label.text += new_token
 	else:
 		chatLog.text += new_token
-	wwise_type.post(self)
+	wwise_type.post(LevelManager)
 		
 func _on_nobody_who_chat_response_finished(response: String) -> void:
 	if block_text_generation:
@@ -309,7 +309,7 @@ func overwrite_current_detail_bubble(text: String, interval: float = 0.05, use_t
 				var char_index = int(current_char)
 				current_detail_bubble.rich_text_label.text = text.substr(0, char_index)
 				if use_type_sound:
-					wwise_type.post(self),
+					wwise_type.post(LevelManager),
 			0.0,  # Start with 0 characters
 			float(char_count),  # End with all characters
 			total_time  # Total animation time
@@ -332,7 +332,7 @@ func add_fault_to_current_detail_bubble(text: String, interval: float = 0.05):
 			func(current_char: float):
 				var char_index = int(current_char)
 				current_detail_bubble.rich_text_label.text = pre_text + text.substr(0, char_index)
-				wwise_type_fault.post(self),
+				wwise_type_fault.post(LevelManager),
 			0.0,  # Start with 0 characters
 			float(char_count),  # End with all characters
 			total_time  # Total animation time
@@ -408,9 +408,9 @@ func _on_text_input_text_changed(new_text: String) -> void:
 	# 	wwise_player_type.post(self)
 	# 	await get_tree().create_timer(0.1).timeout
 	# last_text_length = len(new_text)
-	wwise_player_type.post(self)
+	wwise_player_type.post(LevelManager)
 
 
 func _on_text_input_text_submitted(new_text: String) -> void:
 	last_text_length = 0
-	wwise_player_type_return.post(self)
+	wwise_player_type_return.post(LevelManager)

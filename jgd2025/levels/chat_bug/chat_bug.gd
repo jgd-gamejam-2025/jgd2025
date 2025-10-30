@@ -118,7 +118,7 @@ func _on_chat_ui_received_text(received_text: String) -> void:
 	if bug_mode_activated > 0:
 		bug_mode_activated += 1
 	if bug_mode_activated == 3: # 2 steps after bug mode activated
-		chat_ui.add_and_write_detail_bubble("[AI SYSTEM] 无法恢复数据。\n【%s】\n输入该指令尝试使用备份数据调试错误。" % chat_ui.eve_debug_command, 0.05, true)
+		chat_ui.add_and_write_detail_bubble("[AI SYSTEM] 无法恢复数据。\n[u]%s[/u]\n输入该指令尝试使用备份数据调试错误。" % chat_ui.eve_debug_command, 0.05, true)
 		# chat forever if the player wants to
 	
 	

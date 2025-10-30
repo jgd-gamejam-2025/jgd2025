@@ -68,8 +68,8 @@ size = Vector3(17.614847, 1, 13.446838)
 [sub_resource type="BoxMesh" id="BoxMesh_868cf"]
 size = Vector3(2000, 3, 240)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_e07qk"]
-size = Vector3(2095.9727, 37.569885, 207.43042)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0d1uc"]
+data = PackedVector3Array(-1000, 1.5, 120, 1000, 1.5, 120, -1000, -1.5, 120, 1000, 1.5, 120, 1000, -1.5, 120, -1000, -1.5, 120, 1000, 1.5, -120, -1000, 1.5, -120, 1000, -1.5, -120, -1000, 1.5, -120, -1000, -1.5, -120, 1000, -1.5, -120, 1000, 1.5, 120, 1000, 1.5, -120, 1000, -1.5, 120, 1000, 1.5, -120, 1000, -1.5, -120, 1000, -1.5, 120, -1000, 1.5, -120, -1000, 1.5, 120, -1000, -1.5, -120, -1000, 1.5, 120, -1000, -1.5, 120, -1000, -1.5, -120, 1000, 1.5, 120, -1000, 1.5, 120, 1000, 1.5, -120, -1000, 1.5, 120, -1000, 1.5, -120, 1000, 1.5, -120, -1000, -1.5, 120, 1000, -1.5, 120, -1000, -1.5, -120, 1000, -1.5, 120, 1000, -1.5, -120, -1000, -1.5, -120)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8luys"]
 
@@ -876,8 +876,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.453, -16.823)
 mesh = SubResource("BoxMesh_868cf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -34.8, -57.537323)
-shape = SubResource("BoxShape3D_e07qk")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.453, -16.823)
+shape = SubResource("ConcavePolygonShape3D_0d1uc")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Floor"]
 transform = Transform3D(-4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0, 1, -42.195114, 0, 0)

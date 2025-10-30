@@ -292,7 +292,6 @@ shadow_mesh = SubResource("ArrayMesh_nvgqs")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08674395, 2.1731567, 0.92836)
 shape = SubResource("BoxShape3D_tgbu7")
-disabled = true
 
 [node name="door6" type="Node3D" parent="."]
 transform = Transform3D(-1, -8.742278e-08, 8.742278e-08, -8.742278e-08, 1, 0, 8.742278e-08, 7.642742e-15, 1, 4.5153403, 2.3841858e-07, 6.2124486)

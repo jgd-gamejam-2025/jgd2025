@@ -15,7 +15,7 @@ extends CanvasLayer
 
 # Wwise RTPC 名称（如果使用 Wwise）
 @export var wwise_bgm_rtpc: String = "Music_volume"
-@export var wwise_sfx_rtpc: String = "SFX"
+@export var wwise_sfx_rtpc: String = "SFX_volume"
 # @export var wwise_master_rtpc: String = "Master_Volume"
 
 # 音频总线名称（如果使用 Godot 原生音频）

@@ -112,7 +112,7 @@ func _on_player_interact_obj(target: Node) -> void:
 		newspaper_on = not newspaper_on
 		return
 
-	if target.name == "Monitor" and terminal.visible == false:
+	if target.name == "Monitor" and terminal.visible == false and not used_terminal:
 		pad.can_activate = false
 		terminal.output_area.text = ""
 		terminal.show()

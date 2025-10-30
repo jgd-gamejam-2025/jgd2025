@@ -72,6 +72,11 @@ func _on_rise_timer_timeout():
 	raise_maze()
 
 
+func _exit_tree():
+	# 场景退出时停止墙体升起的音效
+	wwise_wall_rise.stop(self)
+
+
 # --- 这是被重写的 raise_maze 函数 ---
 func raise_maze():
 	if not main_maze_area_collider: return # 安全检查

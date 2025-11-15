@@ -6,7 +6,7 @@ This is the repo for JGD game jam 2025.
 Taptap Gamejam版本包含下面两个Default的gguf。如果不下载gguf，在chat_ui.tscn里勾选debug mode也可以运行。
 
 ## LLM gguf download:
-**Default:**  [Qwen/Qwen3-4B-GGUF]https://huggingface.co/Qwen/Qwen3-4B-GGUF/blob/main/Qwen3-4B-Q4_K_M.gguf
+**Default:**  [Qwen/Qwen3-4B-GGUF](https://huggingface.co/Qwen/Qwen3-4B-GGUF/blob/main/Qwen3-4B-Q4_K_M.gguf)
 
 **Default:** [Qwen3-0.6B-Q4_K_S-GGUF](https://huggingface.co/AnHoang200901/Qwen3-0.6B-Q4_K_S-GGUF/blob/main/qwen3-0.6b-q4_k_s.gguf) (471MB, 这个笨得没法用，但是体积小，可以用来测试游戏流程。)
 

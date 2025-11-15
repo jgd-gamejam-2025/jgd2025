@@ -24,7 +24,8 @@ gguf/
 [Qwen3-0.6B-Q4_K_S-GGUF](https://huggingface.co/AnHoang200901/Qwen3-0.6B-Q4_K_S-GGUF/blob/main/qwen3-0.6b-q4_k_s.gguf) (471MB, 这个笨得没法用，但是体积小，可以用来测试游戏流程。)
 
 ## Wwise Soundbank:
-用这个下载 git lfs：git lfs install
+下载 [git lfs](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)
+
 之后就可以正常使用，否则你只会下载一个指针，可能会崩溃。
 
 由于Wwise soundbank超过100MB了（从某个版本后），所以Soundbank要手动下载之后放到\jgd2025\jgd2025\Taptap Gamejam 2025\GeneratedSoundBanks\Mac或者Windows目录下：
